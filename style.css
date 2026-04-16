@@ -549,6 +549,52 @@ section { padding: 100px 0; }
 .process-step h3 { margin-bottom: 8px; }
 .process-step p { color: var(--muted2); font-size: 15px; line-height: 1.75; }
 
+/* ── What to Expect Timeline ────────────────────────────────── */
+.expect-timeline { padding: 8px 0; }
+.expect-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 28px;
+  margin-bottom: 0;
+}
+.expect-marker {
+  display: flex; flex-direction: column; align-items: center; padding-top: 4px;
+}
+.expect-dot {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(232,97,26,0.15);
+}
+.expect-line {
+  width: 2px; flex: 1; background: rgba(232,97,26,0.2);
+  min-height: 60px; margin-top: 8px;
+}
+.expect-content {
+  padding-bottom: 52px;
+}
+.expect-step:last-child .expect-content { padding-bottom: 0; }
+.expect-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid rgba(232,97,26,0.3);
+  padding: 4px 12px; border-radius: 50px; margin-bottom: 14px;
+}
+.expect-content h3 { font-size: clamp(18px, 2vw, 22px); margin-bottom: 12px; }
+.expect-content p { color: var(--muted2); font-size: 15px; line-height: 1.8; margin-bottom: 20px; }
+.expect-proof {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.expect-proof span {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  background: rgba(232,97,26,0.08); border: 1px solid rgba(232,97,26,0.2);
+  color: var(--accent); padding: 5px 14px; border-radius: 50px;
+}
+@media (max-width: 640px) {
+  .expect-step { grid-template-columns: 32px 1fr; gap: 0 16px; }
+  .expect-dot { width: 12px; height: 12px; }
+  .expect-proof span { font-size: 11px; }
+}
+
 /* ── Projects Page ──────────────────────────────────────────── */
 .filter-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
 .filter-btn {
