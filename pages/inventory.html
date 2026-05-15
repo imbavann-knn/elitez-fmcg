@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Elitez FMCG Activation Equipment Rental — Rent claw machines, spin wheels, plinko boards, gachapon machines, cash blow booths and more for brand activations, roadshows and events in Singapore.">
+<meta name="keywords" content="activation equipment rental Singapore, claw machine rental Singapore, spin wheel rental Singapore, roadshow equipment Singapore, brand activation props rental">
+<title>Inventory & Rental | Elitez FMCG — Activation Equipment Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #FF5500; --orange-hover: #E84A00; --orange-pale: #FFF3EE;
+    --black: #111; --white: #fff; --gray: #F4F4F2;
+    --mid-gray: #888; --border: #E8E8E5; --text-muted: #777; --nav-h: 72px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; transition: box-shadow 0.3s; }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 36px; width: auto; }
+  .nav-logo-text { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 3px; color: var(--black); }
+  .nav-logo-text span { color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+  .nav-links a { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--black); }
+  .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 3px; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
+
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* HERO */
+  .page-hero { padding-top: var(--nav-h); background: var(--black); position: relative; overflow: hidden; }
+  .page-hero::before { content: 'RENTAL'; position: absolute; top: 0; right: -20px; font-family: 'Bebas Neue', cursive; font-size: 220px; letter-spacing: 8px; color: rgba(255,255,255,0.02); pointer-events: none; line-height: 1; }
+  .hero-inner { padding: 72px 48px 56px; }
+  .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+  .breadcrumb a { color: var(--orange); text-decoration: none; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,85,0,0.15); border: 1px solid rgba(255,85,0,0.25); padding: 7px 14px; margin-bottom: 24px; }
+  .hero-tag span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); }
+  h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(52px, 7vw, 84px); letter-spacing: 2px; color: var(--white); line-height: 0.92; margin-bottom: 20px; }
+  h1 .accent { color: var(--orange); }
+  .hero-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .hero-desc { font-size: 16px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 480px; margin-bottom: 32px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-orange { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: #fff; font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 26px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-orange:hover { background: var(--orange-hover); transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.18); font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 13px 26px; text-decoration: none; transition: all 0.2s; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
+
+  /* HERO STATS */
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .hero-stat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 24px 20px; }
+  .hero-stat-num { font-family: 'Bebas Neue', cursive; font-size: 36px; letter-spacing: 2px; color: var(--orange); line-height: 1; margin-bottom: 4px; }
+  .hero-stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+  /* RENTAL INTRO */
+  .intro-band { background: var(--orange); padding: 40px 48px; display: flex; align-items: center; gap: 64px; }
+  .intro-band-text { font-size: 17px; font-weight: 300; line-height: 1.65; color: rgba(255,255,255,0.85); max-width: 680px; }
+  .intro-band-text strong { color: var(--white); font-weight: 700; }
+  .intro-band-cta { flex-shrink: 0; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--orange); font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 26px; text-decoration: none; white-space: nowrap; transition: transform 0.15s; }
+  .btn-white:hover { transform: translateY(-2px); }
+
+  /* CATALOGUE SECTION */
+  .catalogue-section { padding: 80px 48px; background: var(--white); }
+  .catalogue-header { margin-bottom: 48px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+  .section-title { font-family: 'Bebas Neue', cursive; font-size: clamp(36px, 4.5vw, 56px); letter-spacing: 2px; color: var(--black); line-height: 1; margin-bottom: 20px; }
+  .section-title .accent { color: var(--orange); }
+  .catalogue-controls { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 28px; padding-bottom: 28px; border-bottom: 2px solid var(--black); }
+  .filter-tabs { display: flex; gap: 0; }
+  .filter-tab { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 10px 18px; border: 1px solid var(--border); border-right: none; background: var(--white); color: var(--mid-gray); cursor: pointer; transition: all 0.2s; }
+  .filter-tab:first-child { border-radius: 3px 0 0 3px; }
+  .filter-tab:last-child { border-right: 1px solid var(--border); border-radius: 0 3px 3px 0; }
+  .filter-tab.active, .filter-tab:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+  .item-count { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--text-muted); }
+  .item-count span { color: var(--orange); font-weight: 600; }
+
+  /* INVENTORY GRID */
+  .inventory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+
+  .inv-card { border: 1px solid var(--border); background: var(--white); overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column; }
+  .inv-card:hover { box-shadow: 0 12px 48px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
+  .inv-img { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--gray); }
+  .inv-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .inv-placeholder-icon { font-size: 52px; opacity: 0.4; }
+  .inv-placeholder-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); text-align: center; }
+  .inv-cat-badge { position: absolute; top: 12px; left: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
+  .badge-games { background: rgba(255,85,0,0.12); color: var(--orange); border: 1px solid rgba(255,85,0,0.2); }
+  .badge-av { background: rgba(17,17,17,0.08); color: var(--black); border: 1px solid rgba(17,17,17,0.15); }
+  .badge-display { background: rgba(0,150,100,0.1); color: #008060; border: 1px solid rgba(0,150,100,0.2); }
+  .inv-qty-badge { position: absolute; top: 12px; right: 12px; background: var(--black); color: var(--white); font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 1px; padding: 4px 10px; }
+
+  .inv-body { padding: 20px 20px 0; flex: 1; }
+  .inv-name { font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 1.5px; color: var(--black); line-height: 1.1; margin-bottom: 8px; }
+  .inv-desc { font-size: 13px; line-height: 1.6; color: var(--text-muted); margin-bottom: 14px; }
+  .inv-specs { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+  .inv-spec { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+  .inv-spec-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); min-width: 80px; }
+  .inv-spec-val { color: var(--black); font-weight: 500; }
+
+  .inv-footer { padding: 16px 20px 20px; border-top: 1px solid var(--border); margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .inv-price { }
+  .inv-price-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); }
+  .inv-price-val { font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 1px; color: var(--orange); }
+  .btn-enquire { display: inline-flex; align-items: center; gap: 6px; background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 18px; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
+  .btn-enquire:hover { background: var(--orange); }
+
+  /* LOGISTICS NOTE */
+  .logistics-note { background: var(--gray); border-left: 3px solid var(--orange); padding: 20px 24px; margin-top: 40px; display: flex; align-items: flex-start; gap: 16px; }
+  .logistics-note-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .logistics-note p { font-size: 14px; line-height: 1.65; color: var(--text-muted); }
+  .logistics-note p strong { color: var(--black); }
+
+  /* RENTAL FORM */
+  .form-section { background: var(--black); padding: 80px 48px; }
+  .form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .form-info .section-title { color: var(--white); }
+  .form-info p { font-size: 15px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+  .form-checklist { display: flex; flex-direction: column; gap: 12px; }
+  .form-check-item { display: flex; align-items: flex-start; gap: 12px; }
+  .form-check-icon { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,85,0,0.15); border: 1px solid rgba(255,85,0,0.25); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+  .form-check-text { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+  .form-check-text strong { color: rgba(255,255,255,0.85); }
+
+  /* FORM */
+  .rental-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 36px 32px; }
+  .form-title { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 2px; color: var(--white); margin-bottom: 6px; }
+  .form-subtitle { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 7px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 14px; padding: 11px 14px; outline: none; transition: border-color 0.2s; border-radius: 2px;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-group select { cursor: pointer; }
+  .form-group select option { background: #222; color: var(--white); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  /* Enquiry type radios */
+  .enquiry-types { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+  .enquiry-type { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  .enquiry-type input[type="radio"] { accent-color: var(--orange); width: 15px; height: 15px; flex-shrink: 0; }
+  .enquiry-type-label { font-size: 13px; color: rgba(255,255,255,0.7); padding: 8px 14px; border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; transition: all 0.2s; cursor: pointer; }
+  .enquiry-type input[type="radio"]:checked + .enquiry-type-label { background: rgba(255,85,0,0.15); border-color: var(--orange); color: var(--orange); }
+
+  /* Item checkboxes */
+  .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; max-height: 200px; overflow-y: auto; padding-right: 4px; }
+  .items-grid::-webkit-scrollbar { width: 4px; }
+  .items-grid::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+  .items-grid::-webkit-scrollbar-thumb { background: rgba(255,85,0,0.4); border-radius: 2px; }
+  .item-check { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 7px 10px; border: 1px solid rgba(255,255,255,0.06); border-radius: 2px; transition: all 0.2s; }
+  .item-check:hover { border-color: rgba(255,85,0,0.2); background: rgba(255,85,0,0.05); }
+  .item-check input[type="checkbox"] { accent-color: var(--orange); width: 14px; height: 14px; flex-shrink: 0; }
+  .item-check-label { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.3; }
+
+  .btn-submit { width: 100%; background: var(--orange); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 15px; border: none; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
+  .btn-submit:hover { background: var(--orange-hover); }
+
+  .form-success { display: none; text-align: center; padding: 48px 24px; }
+  .form-success .success-icon { font-size: 48px; margin-bottom: 16px; }
+  .form-success h3 { font-family: 'Bebas Neue', cursive; font-size: 28px; letter-spacing: 2px; color: var(--white); margin-bottom: 8px; }
+  .form-success p { font-size: 14px; color: rgba(255,255,255,0.5); }
+
+  /* FOOTER */
+  footer { background: #0A0A0A; padding: 32px 48px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo-text { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 3px; color: var(--white); }
+  .footer-logo-text span { color: var(--orange); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.2); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } .nav-links { display: none; }
+    .hero-inner { padding: 48px 24px 40px; }
+    .hero-layout { grid-template-columns: 1fr; gap: 32px; }
+    .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
+    .intro-band { padding: 36px 24px; flex-direction: column; gap: 24px; }
+    .catalogue-section, .form-section { padding: 64px 24px; }
+    .inventory-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-layout { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { padding: 32px 24px; }
+    .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+  @media (max-width: 600px) {
+    .inventory-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo">
+    <img src="../logos/elitez fmcg logo (1).png" alt="Elitez FMCG" onerror="this.style.display='none'">
+    <div class="nav-logo-text">ELITEZ <span>FMCG</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="beauty.html">Beauty</a></li>
+    <li><a href="blink.html">BLINK</a></li>
+    <li><a href="inventory.html" class="active">Rental</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / Inventory & Rental</div>
+    <div class="hero-layout">
+      <div class="fade-up">
+        <div class="hero-tag"><span>Equipment Hire Singapore</span></div>
+        <h1>ACTIVATION<br><span class="accent">INVENTORY</span><br>& RENTAL</h1>
+        <p class="hero-desc">From claw machines to cash blow booths — rent our activation equipment for roadshows, brand activations or events. Available to brands, agencies and event companies across Singapore.</p>
+        <div class="hero-actions">
+          <a href="#catalogue" class="btn-orange">Browse Catalogue ↓</a>
+          <a href="#rental-form" class="btn-ghost">Enquire to Rent</a>
+        </div>
+      </div>
+      <div class="hero-stats fade-up">
+        <div class="hero-stat">
+          <div class="hero-stat-num">11</div>
+          <div class="hero-stat-label">Equipment Types</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">50+</div>
+          <div class="hero-stat-label">Units Available</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">SG</div>
+          <div class="hero-stat-label">Island-Wide Delivery</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <p class="intro-band-text">We don't just run activations — we own the equipment. <strong>Rent direct from the operator</strong> and skip the middleman. All items are activation-tested, regularly maintained and available with or without our on-ground crew.</p>
+  <a href="#rental-form" class="btn-white intro-band-cta">Get Rental Rates →</a>
+</div>
+
+<!-- CATALOGUE -->
+<section class="catalogue-section" id="catalogue">
+  <div class="catalogue-header fade-up">
+    <p class="section-label">Equipment Catalogue</p>
+    <h2 class="section-title">BROWSE OUR<br><span class="accent">INVENTORY</span></h2>
+    <div class="catalogue-controls">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Items</button>
+        <button class="filter-tab" data-filter="games">Interactive Games</button>
+        <button class="filter-tab" data-filter="av">Audio & Visual</button>
+        <button class="filter-tab" data-filter="display">Display</button>
+      </div>
+      <div class="item-count">Showing <span id="itemCount">11</span> items</div>
+    </div>
+  </div>
+
+  <div class="inventory-grid" id="inventoryGrid">
+
+    <!-- 1. JBL Partybox -->
+    <div class="inv-card fade-up" data-category="av">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #2d2d44);">
+          <span class="inv-placeholder-icon">🔊</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-av">Audio & Visual</span>
+        <span class="inv-qty-badge">3 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">JBL Partybox Roadshow Speaker</div>
+        <p class="inv-desc">Professional-grade portable speaker with powerful output, built-in lights and wireless connectivity. Perfect for roadshows, outdoor activations and in-store events.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">~H 80cm × W 40cm × D 40cm</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">3 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Power</span><span class="inv-spec-val">Standard 3-pin plug (SG)</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="JBL Partybox Roadshow Speaker">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 2. Life Size Plinko -->
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #2a1a1a, #3d2525);">
+          <span class="inv-placeholder-icon">🎯</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">1 Unit</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Life Size Plinko Board</div>
+        <p class="inv-desc">Full-height standing plinko board — a crowd favourite for lucky draws, consumer engagement and prize redemption mechanics. Branding panel customisable.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">~H 200cm × W 90cm</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">1 unit</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Setup</span><span class="inv-spec-val">Freestanding</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Life Size Plinko Board">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 3. Claw Machine -->
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a2a1a, #253d25);">
+          <span class="inv-placeholder-icon">🦾</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">3 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Claw Machine</div>
+        <p class="inv-desc">Classic arcade claw machine — highly effective for consumer engagement, product gifting mechanics and driving dwell time at activations and roadshows.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">~H 170cm × W 70cm × D 70cm</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">3 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Power</span><span class="inv-spec-val">Standard 3-pin plug (SG)</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Claw Machine">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 4. Big Spin & Win -->
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #2a2010, #3d3018);">
+          <span class="inv-placeholder-icon">🎡</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">5 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Big Spin & Win Wheel</div>
+        <p class="inv-desc">Large-format branded spin wheel on a standing frame — iconic for lucky draws, prize mechanics and high-energy consumer activations at malls and roadshows.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">Ø ~120cm, H ~190cm with stand</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">5 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Branding</span><span class="inv-spec-val">Custom panel available</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Big Spin & Win Wheel">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 5. Tabletop Spin & Win -->
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #201a2a, #30253d);">
+          <span class="inv-placeholder-icon">🎰</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">10 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Table Top Spin & Win Wheel</div>
+        <p class="inv-desc">Compact tabletop spin wheel — ideal for counter activations, sampling tables and booths where space is limited but engagement is still the priority.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">Ø ~50cm (tabletop)</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">10 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Setup</span><span class="inv-spec-val">Tabletop, no power needed</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Table Top Spin & Win Wheel">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 6. Tabletop Plinko -->
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a2020, #25302e);">
+          <span class="inv-placeholder-icon">🎳</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">3 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Table Top Plinko Board</div>
+        <p class="inv-desc">Compact version of the life-size plinko. Great for tabletop consumer activations, tasting stations and product trial mechanics without requiring floor space.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">~H 80cm × W 40cm</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">3 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Setup</span><span class="inv-spec-val">Tabletop, no power needed</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Table Top Plinko Board">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 7. Gachapon Machine -->
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #2a1a28, #3d2538);">
+          <span class="inv-placeholder-icon">🫧</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">2 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Gachapon Machine (Floor Standing)</div>
+        <p class="inv-desc">Full-size capsule toy machine — a highly Instagrammable engagement mechanic perfect for product sampling, limited-edition gift redemptions and brand gamification.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">~H 150cm × W 60cm × D 50cm</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">2 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Power</span><span class="inv-spec-val">Standard 3-pin plug (SG)</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Gachapon Machine (Floor Standing)">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 8. Tabletop Gachapon -->
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1e2a1a, #2c3d25);">
+          <span class="inv-placeholder-icon">🎲</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">5 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Table Top Gachapon Machine</div>
+        <p class="inv-desc">Compact capsule dispenser for tabletop use. Ideal for tasting stations, product gifting and space-constrained activations where the gachapon mechanic adds novelty.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">~H 40cm × W 30cm × D 30cm</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">5 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Setup</span><span class="inv-spec-val">Tabletop, manual operation</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Table Top Gachapon Machine">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 9. 42" TV -->
+    <div class="inv-card fade-up" data-category="av">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #111830, #1a2244);">
+          <span class="inv-placeholder-icon">📺</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-av">Audio & Visual</span>
+        <span class="inv-qty-badge">2 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">42" TV with Mobile Stand</div>
+        <p class="inv-desc">Full HD 42" display on height-adjustable mobile stand. For product showcase reels, brand content loops and digital activation experiences on the go.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Screen Size</span><span class="inv-spec-val">42 inches, Full HD</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Stand Height</span><span class="inv-spec-val">Adjustable ~130–175cm</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">2 units</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="42-inch TV with Mobile Stand">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 10. A0 Poster Stands -->
+    <div class="inv-card fade-up" data-category="display">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a1a10, #2e2e18);">
+          <span class="inv-placeholder-icon">🪧</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-display">Display</span>
+        <span class="inv-qty-badge">20 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">A0 Poster Stands</div>
+        <p class="inv-desc">Professional aluminium poster stands for brand messaging, directional signage, campaign visuals and product communication at any activation or event venue.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Poster Size</span><span class="inv-spec-val">A0 (841 × 1189mm)</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Stand Height</span><span class="inv-spec-val">~H 170cm adjustable</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">20 units</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="A0 Poster Stands">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- 11. Cash Blow Machine -->
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #2a2210, #3d3318);">
+          <span class="inv-placeholder-icon">💨</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">2 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Cash Blow Machine</div>
+        <p class="inv-desc">Money blower booth — the ultimate crowd-puller for live lucky draws, on-ground promotions and high-energy engagement. Guaranteed to stop traffic and create buzz.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">~H 200cm × W 80cm × D 80cm</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">2 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Power</span><span class="inv-spec-val">Standard 3-pin plug (SG)</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Cash Blow Machine">Enquire →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="logistics-note fade-up">
+    <span class="logistics-note-icon">🚚</span>
+    <p><strong>Logistics & Transport:</strong> Delivery, setup and collection available island-wide. Transport rates depend on item size, quantity and venue location. Enquire below for a full quote including logistics. Self-collection from our warehouse is also available.</p>
+  </div>
+</section>
+
+<!-- RENTAL FORM -->
+<section class="form-section" id="rental-form">
+  <div class="form-layout">
+    <div class="form-info fade-up">
+      <p class="section-label" style="color: var(--orange);">Get A Rental Quote</p>
+      <h2 class="section-title" style="color: var(--white);">TELL US<br>WHAT YOU<br><span class="accent">NEED</span></h2>
+      <p>We'll get back to you within 1 business day with availability, rates and logistics options.</p>
+      <div class="form-checklist">
+        <div class="form-check-item">
+          <div class="form-check-icon">✓</div>
+          <div class="form-check-text"><strong>Response within 1 business day</strong></div>
+        </div>
+        <div class="form-check-item">
+          <div class="form-check-icon">✓</div>
+          <div class="form-check-text">Equipment rental rates + logistics transport rates quoted together</div>
+        </div>
+        <div class="form-check-item">
+          <div class="form-check-icon">✓</div>
+          <div class="form-check-text">Rent equipment only, or add Elitez crew for full activation management</div>
+        </div>
+        <div class="form-check-item">
+          <div class="form-check-icon">✓</div>
+          <div class="form-check-text">Multi-item discounts available for larger orders</div>
+        </div>
+        <div class="form-check-item">
+          <div class="form-check-icon">✓</div>
+          <div class="form-check-text">Flexible rental periods — daily, weekly or campaign duration</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rental-form fade-up">
+      <div id="formContent">
+        <div class="form-title">Rental Enquiry</div>
+        <div class="form-subtitle">Fill in the details below and we'll get back to you shortly</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" placeholder="First and last name" required>
+          </div>
+          <div class="form-group">
+            <label for="company">Company / Brand *</label>
+            <input type="text" id="company" placeholder="Company name" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+65 9XXX XXXX">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Enquiry Type *</label>
+          <div class="enquiry-types">
+            <label class="enquiry-type">
+              <input type="radio" name="enquiryType" value="equipment-rental" checked>
+              <span class="enquiry-type-label">Equipment Rental Only</span>
+            </label>
+            <label class="enquiry-type">
+              <input type="radio" name="enquiryType" value="full-activation">
+              <span class="enquiry-type-label">Rental + Activation Crew</span>
+            </label>
+            <label class="enquiry-type">
+              <input type="radio" name="enquiryType" value="general">
+              <span class="enquiry-type-label">General Campaign Enquiry</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Items of Interest (select all that apply)</label>
+          <div class="items-grid">
+            <label class="item-check" id="check-jbl">
+              <input type="checkbox" value="JBL Partybox Roadshow Speaker">
+              <span class="item-check-label">JBL Partybox Speaker (×3)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="Life Size Plinko Board">
+              <span class="item-check-label">Life Size Plinko (×1)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="Claw Machine">
+              <span class="item-check-label">Claw Machine (×3)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="Big Spin & Win Wheel">
+              <span class="item-check-label">Big Spin & Win Wheel (×5)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="Table Top Spin & Win Wheel">
+              <span class="item-check-label">Tabletop Spin & Win (×10)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="Table Top Plinko Board">
+              <span class="item-check-label">Tabletop Plinko (×3)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="Gachapon Machine (Floor Standing)">
+              <span class="item-check-label">Gachapon Machine (×2)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="Table Top Gachapon Machine">
+              <span class="item-check-label">Tabletop Gachapon (×5)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="42-inch TV with Mobile Stand">
+              <span class="item-check-label">42" TV + Stand (×2)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="A0 Poster Stands">
+              <span class="item-check-label">A0 Poster Stands (×20)</span>
+            </label>
+            <label class="item-check">
+              <input type="checkbox" value="Cash Blow Machine">
+              <span class="item-check-label">Cash Blow Machine (×2)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="eventDate">Event / Activation Date</label>
+            <input type="date" id="eventDate">
+          </div>
+          <div class="form-group">
+            <label for="venue">Venue / Location</label>
+            <input type="text" id="venue" placeholder="e.g. Jurong Point, Mall Atrium">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Additional Details</label>
+          <textarea id="message" placeholder="Tell us more — event type, duration, quantities needed, any other requirements..."></textarea>
+        </div>
+
+        <button class="btn-submit" onclick="submitForm()">Send Rental Enquiry →</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <h3>Enquiry Received!</h3>
+        <p>We'll get back to you within 1 business day with availability and rental rates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bar">
+    <div class="footer-logo-text">ELITEZ <span>FMCG</span></div>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="blink.html">BLINK</a>
+      <a href="inventory.html">Rental</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 Elitez FMCG</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 60); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Filter catalogue
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const cards = document.querySelectorAll('.inv-card');
+  const countEl = document.getElementById('itemCount');
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      let visible = 0;
+      cards.forEach(card => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+      countEl.textContent = visible;
+    });
+  });
+
+  // Pre-select item if clicking Enquire on a card
+  document.querySelectorAll('.btn-enquire').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const itemName = btn.dataset.item;
+      document.querySelectorAll('.items-grid input[type="checkbox"]').forEach(cb => {
+        if (cb.value === itemName) cb.checked = true;
+      });
+    });
+  });
+
+  function submitForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const company = document.getElementById('company').value.trim();
+    if (!name || !email || !company) { alert('Please fill in your name, company and email.'); return; }
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>
