@@ -1,367 +1,1064 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elitez FMCG — Brand Activation & Promoter Deployment Singapore</title>
-  <meta name="description" content="Singapore's leading brand activation and BTL marketing agency. 800+ promoters, 15+ years experience. We deploy, activate, and amplify your brand across Singapore's retail landscape." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Elitez FMCG — Singapore's leading brand activation, FMCG promoter deployment and supermarket merchandising agency. 300+ promoters deployed weekly, trusted by P&G, Reckitt, Carlsberg and more.">
+<meta name="keywords" content="brand activation agency Singapore, FMCG promoter agency Singapore, supermarket merchandising Singapore, field marketing Singapore, promoter deployment Singapore">
+<title>Elitez FMCG | Brand Activation & Field Marketing Agency Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Elitez FMCG — Brand Activation Singapore" />
-  <meta property="og:description" content="Singapore's leading BTL activation agency. 800+ promoters, 15+ years, island-wide deployment." />
-  <meta property="og:image" content="https://imbavann-knn.github.io/elitez-fmcg/og-image.jpg" />
-  <meta property="og:url" content="https://imbavann-knn.github.io/elitez-fmcg/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
+  :root {
+    --orange: #FF5500;
+    --orange-hover: #E84A00;
+    --orange-pale: #FFF3EE;
+    --black: #111111;
+    --white: #FFFFFF;
+    --off-white: #FAFAF8;
+    --gray: #F4F4F2;
+    --mid-gray: #888;
+    --border: #E8E8E5;
+    --text-muted: #777;
+    --nav-h: 72px;
+  }
 
-  <link rel="canonical" href="https://imbavann-knn.github.io/elitez-fmcg/" />
-  <link rel="stylesheet" href="style.css" />
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo img { height: 36px; width: auto; }
+  .nav-logo-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--black);
+    line-height: 1;
+  }
+  .nav-logo-text span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--black); }
+  .nav-cta {
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 3px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
+
+  /* HERO */
+  #hero {
+    padding-top: var(--nav-h);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    overflow: hidden;
+  }
+  .hero-main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: calc(100vh - var(--nav-h) - 96px);
+  }
+  .hero-left {
+    padding: 80px 48px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 24px;
+    border: 1px solid rgba(255,85,0,0.25);
+    padding: 6px 14px;
+    border-radius: 2px;
+    width: fit-content;
+    background: var(--orange-pale);
+  }
+  .hero-kicker::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+  .hero-h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(72px, 7vw, 108px);
+    line-height: 0.88;
+    letter-spacing: 3px;
+    color: var(--black);
+    margin-bottom: 28px;
+  }
+  .hero-h1 .accent { color: var(--orange); }
+  .hero-h1 .outline {
+    -webkit-text-stroke: 2.5px var(--black);
+    color: transparent;
+  }
+  .hero-desc {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 400px;
+    margin-bottom: 36px;
+  }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--black);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--orange); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    display: block;
+  }
+  .hero-right-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,85,0,0.3) 0%, rgba(17,17,17,0.35) 100%);
+  }
+  .hero-right-badge {
+    position: absolute;
+    bottom: 32px; left: 32px;
+    background: var(--orange);
+    padding: 16px 20px;
+    border-radius: 4px;
+  }
+  .badge-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 42px;
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--white);
+  }
+  .badge-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-top: 2px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--black);
+  }
+  .hero-stat-item {
+    padding: 24px 32px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .hero-stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 44px;
+    letter-spacing: 2px;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+  }
+
+  /* CLIENT LOGOS */
+  #clients {
+    background: var(--off-white);
+    padding: 40px 48px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .clients-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #bbb;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .clients-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .client-logo-item {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #bbb;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .client-logo-item:hover { color: var(--orange); }
+
+  /* SERVICES */
+  #services { padding: 96px 48px; background: var(--white); }
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+  }
+  .section-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .section-h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(40px, 4vw, 60px);
+    letter-spacing: 3px;
+    color: var(--black);
+    line-height: 1;
+  }
+  .section-h2 span { color: var(--orange); }
+  .section-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--mid-gray);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    padding-bottom: 4px;
+  }
+  .section-link:hover { color: var(--orange); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--border);
+  }
+  .service-card {
+    background: var(--white);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s;
+    text-decoration: none;
+    display: block;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--orange);
+    transition: width 0.35s ease;
+  }
+  .service-card:hover { background: var(--orange-pale); }
+  .service-card:hover::after { width: 100%; }
+
+  .service-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 80px;
+    color: var(--border);
+    line-height: 1;
+    position: absolute;
+    top: 24px; right: 32px;
+    letter-spacing: 2px;
+    transition: color 0.25s;
+  }
+  .service-card:hover .service-num { color: rgba(255,85,0,0.08); }
+  .service-icon { font-size: 28px; margin-bottom: 16px; }
+  .service-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--black);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+  .service-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .service-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 380px;
+    margin-bottom: 20px;
+  }
+  .service-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .service-bullets li {
+    font-size: 13px;
+    color: #555;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .service-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* BLINK STRIP */
+  #blink {
+    background: var(--black);
+    padding: 96px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  #blink::before {
+    content: 'BLINK';
+    position: absolute;
+    top: -20px; right: -20px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 260px;
+    letter-spacing: 10px;
+    color: rgba(255,255,255,0.02);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .blink-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .blink-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .blink-kicker::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 8px var(--orange);
+  }
+  .blink-h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(48px, 5vw, 72px);
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 0.9;
+    margin-bottom: 20px;
+  }
+  .blink-h2 .acc { color: var(--orange); }
+  .blink-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .blink-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .blink-feature { display: flex; align-items: flex-start; gap: 14px; }
+  .blink-feature-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,85,0,0.15);
+    border: 1px solid rgba(255,85,0,0.3);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .blink-feature-text h4 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+  .blink-feature-text p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+  .blink-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .blink-card-header {
+    background: var(--orange);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .blink-dots { display: flex; gap: 5px; }
+  .blink-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4); }
+  .blink-card-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+  .blink-card-body { padding: 24px; }
+  .blink-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .blink-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .blink-row:first-child { padding-top: 0; }
+  .blink-row-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  .blink-row-val { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); }
+  .blink-row-val.green { color: #4ADE80; }
+  .blink-row-val.orange { color: var(--orange); }
+  .live-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: #4ADE80;
+    letter-spacing: 1px;
+  }
+  .live-dot::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4ADE80;
+    animation: blink-pulse 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes blink-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  /* GALLERY */
+  #activations { padding: 96px 48px; background: var(--gray); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    aspect-ratio: 4/3;
+  }
+  .gallery-item.tall { grid-row: span 2; aspect-ratio: auto; }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* WHY */
+  #why { padding: 96px 48px; background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 56px;
+  }
+  .why-points { display: flex; flex-direction: column; }
+  .why-point {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .why-point:last-child { border-bottom: none; }
+  .why-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: var(--border);
+    flex-shrink: 0;
+    line-height: 1;
+    width: 48px;
+    transition: color 0.25s;
+  }
+  .why-point:hover .why-num { color: var(--orange); }
+  .why-point-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .why-point-body p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .why-right { position: relative; }
+  .why-img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/5;
+  }
+  .why-card {
+    position: absolute;
+    bottom: -24px; left: -24px;
+    background: var(--orange);
+    padding: 24px 28px;
+    border-radius: 6px;
+    box-shadow: 0 12px 40px rgba(255,85,0,0.35);
+  }
+  .why-card-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 52px;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .why-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* CTA */
+  #cta {
+    background: var(--orange);
+    padding: 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  #cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border: 80px solid rgba(255,255,255,0.07);
+    border-radius: 50%;
+  }
+  #cta::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 200px;
+    width: 260px; height: 260px;
+    border: 50px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    gap: 40px;
+  }
+  .cta-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 12px;
+  }
+  .cta-h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(44px, 5vw, 68px);
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 0.9;
+    margin-bottom: 16px;
+  }
+  .cta-sub {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    max-width: 460px;
+    line-height: 1.6;
+  }
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--orange);
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .cta-contact {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.5px;
+    text-align: right;
+    line-height: 1.7;
+  }
+  .cta-contact a { color: var(--white); text-decoration: none; }
+  .cta-contact a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 60px 48px 32px; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-logo-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .footer-logo-text span { color: var(--orange); }
+  .footer-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 20px;
+  }
+  .footer-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-col h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--white); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+  }
+  .footer-copy, .footer-group {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 1px;
+  }
+  .footer-group a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-group a:hover { color: var(--orange); }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero-main { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 48px 24px 40px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    #clients, #services, #blink, #activations, #why, #cta { padding-left: 24px; padding-right: 24px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .blink-grid { grid-template-columns: 1fr; gap: 40px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .why-right { display: none; }
+    .cta-inner { flex-direction: column; align-items: flex-start; }
+    .cta-actions { align-items: flex-start; }
+    footer { padding: 48px 24px 24px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- ── Navigation ──────────────────────────────────────────── -->
-<nav class="nav">
-  <div class="container">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/logo.png" alt="Elitez FMCG" class="nav-logo-img" />
-    </a>
-    <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="pages/about.html">About</a>
-      <a href="pages/services.html">Services</a>
-      <a href="pages/projects.html">Projects</a>
-      <a href="pages/contact.html">Contact</a>
-      <a href="pages/contact.html" class="nav-cta nav-cta-desktop">Get a Quote</a>
-    </div>
-    <button class="nav-hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="logos/elitez fmcg logo (1).png" alt="Elitez FMCG" onerror="this.style.display='none'">
+    <div class="nav-logo-text">ELITEZ <span>FMCG</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="pages/services.html">Services</a></li>
+    <li><a href="pages/blink.html">BLINK</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="pages/about.html">About</a></li>
+    <li><a href="pages/contact.html" class="nav-cta">Get a Quote</a></li>
+  </ul>
 </nav>
 
-<!-- Mobile Menu -->
-<div class="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="pages/about.html">About</a>
-  <a href="pages/services.html">Services</a>
-  <a href="pages/projects.html">Projects</a>
-  <a href="pages/contact.html">Contact</a>
-  <a href="pages/contact.html" class="nav-cta">Get a Quote</a>
-</div>
-
-<!-- ── Hero ────────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="container">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span class="label">Singapore's Leading BTL Agency</span>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-main">
+    <div class="hero-left">
+      <div class="hero-kicker">Brand Activation Agency · Singapore</div>
+      <h1 class="hero-h1">
+        WE PUT<br>
+        <span class="accent">BRANDS</span><br>
+        <span class="outline">IN FRONT</span><br>
+        OF BUYERS.
+      </h1>
+      <p class="hero-desc">Full-service field marketing — brand activations, promoter deployment and supermarket merchandising — powered by our proprietary BLINK platform.</p>
+      <div class="hero-cta-row">
+        <a href="pages/contact.html" class="btn-primary">Get a Quote →</a>
+        <a href="pages/services.html" class="btn-secondary">See Our Services →</a>
+      </div>
     </div>
-    <h1 class="hero-title reveal">
-      We Deploy.<br>
-      We Activate.<br>
-      <span class="line-accent">We Amplify.</span>
-    </h1>
-    <p class="hero-subtitle reveal reveal-delay-1">
-      Brand activations, promoter deployment, and field marketing that puts your FMCG brand where it matters — on the shelf, in the aisle, and in the hands of consumers.
-    </p>
-    <div class="hero-actions reveal reveal-delay-2">
-      <a href="pages/contact.html" class="btn-primary">Get a Quote →</a>
-      <a href="pages/projects.html" class="btn-secondary">View Our Work</a>
+    <div class="hero-right">
+      <img src="assets/nescafe-1.jpg" alt="Brand activation in Singapore supermarket">
+      <div class="hero-right-overlay"></div>
+      <div class="hero-right-badge">
+        <div class="badge-num">15+</div>
+        <div class="badge-label">Years in Market</div>
+      </div>
     </div>
-    <div class="hero-stats reveal reveal-delay-3">
-      <div>
-        <span class="hero-stat-num" data-target="800" data-suffix="+">0+</span>
-        <span class="hero-stat-label">Promoter Database</span>
-      </div>
-      <div>
-        <span class="hero-stat-num" data-target="15" data-suffix="+">0+</span>
-        <span class="hero-stat-label">Years in Operation</span>
-      </div>
-      <div>
-        <span class="hero-stat-num" data-target="300" data-suffix="">0</span>
-        <span class="hero-stat-label">Pax Per Weekend</span>
-      </div>
-      <div>
-        <span class="hero-stat-num" data-target="4000" data-suffix="sqft">0sqft</span>
-        <span class="hero-stat-label">Warehouse &amp; Equipment</span>
-      </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat-item">
+      <div class="stat-num">300+</div>
+      <div class="stat-label">Promoters Weekly</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="stat-num">1,000+</div>
+      <div class="stat-label">WSQ-Trained Roster</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="stat-num">5,000</div>
+      <div class="stat-label">Sqft Warehouse</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">MNC Clients</div>
     </div>
   </div>
 </section>
 
-<!-- ── Stats Bar ────────────────────────────────────────────── -->
-<div class="stats-bar">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item reveal">
-        <span class="stat-num" data-target="800" data-suffix="+">800+</span>
-        <span class="stat-label">WSQ-Certified Promoters</span>
-      </div>
-      <div class="stat-item reveal reveal-delay-1">
-        <span class="stat-num" data-target="15" data-suffix="+">15+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-      <div class="stat-item reveal reveal-delay-2">
-        <span class="stat-num" data-target="30" data-suffix="">30</span>
-        <span class="stat-label">Years Combined Ops Experience</span>
-      </div>
-      <div class="stat-item reveal reveal-delay-3">
-        <span class="stat-num" data-target="300" data-suffix="">300</span>
-        <span class="stat-label">Pax Deployed Per Weekend</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── Marquee ──────────────────────────────────────────────── -->
-<div class="marquee-track">
-  <div class="marquee-inner">
-    <span class="marquee-item">Promoter Deployment <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Brand Activations <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Roadshow Planning <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Field Merchandising <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Digital Campaigns <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Sampling Activations <span class="marquee-dot"></span></span>
-    <span class="marquee-item">In-Store Execution <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Island-Wide Deployment <span class="marquee-dot"></span></span>
-    <!-- duplicate for seamless loop -->
-    <span class="marquee-item">Promoter Deployment <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Brand Activations <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Roadshow Planning <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Field Merchandising <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Digital Campaigns <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Sampling Activations <span class="marquee-dot"></span></span>
-    <span class="marquee-item">In-Store Execution <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Island-Wide Deployment <span class="marquee-dot"></span></span>
-  </div>
-</div>
-
-<!-- ── About Intro ───────────────────────────────────────────── -->
-<section class="about-intro">
-  <div class="container">
-    <div class="about-intro-grid">
-      <div class="about-intro-text reveal">
-        <span class="label">About Elitez FMCG</span>
-        <h2>Singapore's Most Experienced Brand Activation Team</h2>
-        <p>For over 15 years, Elitez FMCG has been the deployment backbone for Singapore's biggest consumer brands. From Nestlé roadshows in Tampines to Carlsberg CNY activations across Cold Storage, our team knows how to move product and move people.</p>
-        <p>We're not just a staffing agency — we're your brand's operational partner, from strategy through execution.</p>
-        <a href="pages/about.html" class="about-intro-cta">Learn Our Story →</a>
-      </div>
-      <div class="about-intro-image reveal reveal-delay-1">
-        <div class="about-intro-image-wrap">
-          <img src="assets/carlsberg-1.png" alt="Elitez FMCG brand activation in action" loading="lazy" />
-        </div>
-        <div class="about-badge">
-          <div class="num">15+</div>
-          <div class="txt">Years in SG</div>
-        </div>
-      </div>
-    </div>
+<!-- CLIENT LOGOS -->
+<section id="clients">
+  <div class="clients-label">Trusted by Singapore's biggest consumer brands</div>
+  <div class="clients-logos">
+    <div class="client-logo-item">P&amp;G</div>
+    <div class="client-logo-item">Reckitt</div>
+    <div class="client-logo-item">Carlsberg</div>
+    <div class="client-logo-item">Unilever</div>
+    <div class="client-logo-item">Energizer</div>
+    <div class="client-logo-item">Nestlé</div>
+    <div class="client-logo-item">Yeo's</div>
+    <div class="client-logo-item">Mars</div>
+    <div class="client-logo-item">DBS PayLah</div>
+    <div class="client-logo-item">Meiji</div>
   </div>
 </section>
 
-<!-- ── Services ─────────────────────────────────────────────── -->
-<section style="background: var(--bg);">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="label">What We Do</span>
-      <h2>End-to-End Brand Activation</h2>
-      <p>From briefing to breakdown, we run the full operation so your marketing team can focus on strategy.</p>
-      <div class="section-divider"></div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-kicker">What We Do</div>
+      <h2 class="section-h2">OUR <span>SERVICES</span></h2>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Promoter Deployment</h3>
-        <p>800+ WSQ-certified promoters on call. We match the right person to the right brand and can mobilise 300 pax in a single weekend across Singapore.</p>
-        <a href="pages/services.html#promoters" class="service-card-link">Learn More →</a>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
-        <h3>Roadshow Planning & Execution</h3>
-        <p>Island-wide roadshow management from concept to teardown. We handle venue booking, logistics, staffing, and equipment from our 4,000sqft warehouse.</p>
-        <a href="pages/services.html#roadshow" class="service-card-link">Learn More →</a>
-      </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <h3>Outdoor Brand Activations</h3>
-        <p>High-impact BTL activations in malls, MRT hubs, and outdoor spaces. Sampling, demos, and experiential campaigns that create lasting brand impressions.</p>
-        <a href="pages/services.html#activation" class="service-card-link">Learn More →</a>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3>Digital Marketing Campaigns</h3>
-        <p>Integrated ATL/BTL campaigns that amplify on-ground activations. Social content, influencer tie-ups, and paid digital to extend your campaign reach.</p>
-        <a href="pages/services.html#digital" class="service-card-link">Learn More →</a>
-      </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        </div>
-        <h3>Field Merchandising</h3>
-        <p>Shelf management, POS installation, and retail audits across FairPrice, Cold Storage, Giant, and independent retailers. Your product, placed perfectly.</p>
-        <a href="pages/services.html#merchandising" class="service-card-link">Learn More →</a>
-      </div>
-      <div class="service-card reveal reveal-delay-2" style="background: rgba(232,97,26,0.06); border-color: rgba(232,97,26,0.2);">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <h3>Ready to Brief Us?</h3>
-        <p>Tell us your brand, your goal, and your timeline. We'll come back with a proposal within 48 hours.</p>
-        <a href="pages/contact.html" class="service-card-link" style="color: var(--accent);">Get a Quote →</a>
-      </div>
-    </div>
+    <a href="pages/services.html" class="section-link">Full Services →</a>
+  </div>
+  <div class="services-grid">
+    <a href="pages/services.html#activations" class="service-card fade-up">
+      <div class="service-num">01</div>
+      <div class="service-icon">🎯</div>
+      <div class="service-title">BRAND ACTIVATIONS</div>
+      <div class="service-sub">In-store · Outdoor · Roadshow</div>
+      <p class="service-desc">Tactical and experiential activations that drive trial, conversion and brand recall at the point of purchase.</p>
+      <ul class="service-bullets">
+        <li>In-store product sampling &amp; demonstrations</li>
+        <li>Outdoor and mall roadshows</li>
+        <li>Festive and seasonal activations</li>
+        <li>Premium redemption campaigns</li>
+      </ul>
+    </a>
+    <a href="pages/services.html#promoters" class="service-card fade-up delay-1">
+      <div class="service-num">02</div>
+      <div class="service-icon">👥</div>
+      <div class="service-title">PROMOTER DEPLOYMENT</div>
+      <div class="service-sub">Managed · WSQ-Trained · Scalable</div>
+      <p class="service-desc">Large-scale, reliable promoter deployment across Singapore's retail channels — managed end-to-end through BLINK.</p>
+      <ul class="service-bullets">
+        <li>1,000+ WSQ-trained promoters on roster</li>
+        <li>300+ deployed every week</li>
+        <li>Real-time attendance and performance tracking</li>
+        <li>Compliant payroll and HR management</li>
+      </ul>
+    </a>
+    <a href="pages/services.html#merchandising" class="service-card fade-up delay-2">
+      <div class="service-num">03</div>
+      <div class="service-icon">🛒</div>
+      <div class="service-title">SUPERMARKET MERCHANDISING</div>
+      <div class="service-sub">Shelf Execution · Display · Replenishment</div>
+      <p class="service-desc">Consistent, compliant in-store execution across major supermarket chains — so your products look great on shelf, every time.</p>
+      <ul class="service-bullets">
+        <li>Planogram compliance and shelf resets</li>
+        <li>POS material setup and management</li>
+        <li>Stock replenishment and rotation</li>
+        <li>Competitor shelf monitoring</li>
+      </ul>
+    </a>
+    <a href="pages/services.html#digital" class="service-card fade-up delay-3">
+      <div class="service-num">04</div>
+      <div class="service-icon">📱</div>
+      <div class="service-title">DIGITAL CAMPAIGNS</div>
+      <div class="service-sub">Integrated · Data-Driven</div>
+      <p class="service-desc">Digital components that amplify your in-store activation and capture measurable consumer engagement online.</p>
+      <ul class="service-bullets">
+        <li>Microsite and contest mechanics</li>
+        <li>QR-linked promotional journeys</li>
+        <li>Social media capture on ground</li>
+        <li>KOL and event integrations</li>
+      </ul>
+    </a>
   </div>
 </section>
 
-<!-- ── Why Us ─────────────────────────────────────────────────── -->
-<section class="why-us">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="label">Why Elitez FMCG</span>
-      <h2>Not Just Promises — Documented Guarantees</h2>
-      <p>Any agency can say they're reliable. We can show you the SOP behind every claim.</p>
-      <div class="section-divider"></div>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar reveal">
-        <div class="pillar-num">01</div>
-        <h3>Attendance Confirmed in 30 Minutes</h3>
-        <p>Every promoter checks in via BLINK — our proprietary geolocation-verified app. You receive an attendance report within 30 minutes of deployment time. Not end of day. Not when you chase us. Thirty minutes.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-1">
-        <div class="pillar-num">02</div>
-        <h3>5% Standby, Every Single Weekend</h3>
-        <p>A trained, briefed standby roster is confirmed every Wednesday before your weekend activation. If a promoter calls in sick on Saturday morning, a replacement is on-site within 2 hours. Your campaign never goes dark.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-2">
-        <div class="pillar-num">03</div>
-        <h3>60% Campaign Veterans, Minimum</h3>
-        <p>At least 60% of every deployment comes from our regular roster — promoters with 3+ months of Elitez history. We assign first to brand veterans, then by product category experience. You get proven performers, not new faces.</p>
-      </div>
-      <div class="pillar reveal">
-        <div class="pillar-num">04</div>
-        <h3>Nobody Deploys Without Passing the Quiz</h3>
-        <p>Training covers product knowledge, selling lines, objection handling, and BLINK setup. Every promoter must pass a product assessment before they're cleared for activation. 100% pass rate required — no exceptions, no shortcuts.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-1">
-        <div class="pillar-num">05</div>
-        <h3>Sales Report in Your Inbox in 48 Hours</h3>
-        <p>Promoters log sales into BLINK within 1 hour of shift end. You receive a full sales report — data, photos, and on-ground feedback — within 2 days of every activation weekend. No waiting until the next billing cycle.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-2">
-        <div class="pillar-num">06</div>
-        <h3>Competitor Intel, Same Day, Included</h3>
-        <p>Our ops team and promoters walk the home bays. Competitor promotions, new SKUs, and shelf changes are photographed and reported to you the same day. You know what's happening beside your product before your competitors know you know.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Client Logos ──────────────────────────────────────────── -->
-<div class="clients">
-  <div class="container">
-    <div class="clients-label">
-      <span class="label label-muted">Brands We've Activated</span>
-    </div>
-    <div class="logos-row">
-      <div class="client-logo-pill">Nestlé</div>
-      <div class="client-logo-pill">Cadbury</div>
-      <div class="client-logo-pill">Carlsberg</div>
-      <div class="client-logo-pill">NTUC FairPrice</div>
-      <div class="client-logo-pill">Ribena</div>
-      <div class="client-logo-pill">Yakult</div>
-      <div class="client-logo-pill">Nescafé</div>
-      <div class="client-logo-pill">Lipton</div>
-      <div class="client-logo-pill">Indomie</div>
-      <div class="client-logo-pill">Meiji</div>
-      <div class="client-logo-pill">Maison Perrier</div>
-    </div>
-  </div>
-</div>
-
-<!-- ── Testimonials ──────────────────────────────────────────── -->
-<section class="testimonials">
-  <div class="container">
-    <div class="section-header center reveal">
-      <span class="label">Client Feedback</span>
-      <h2>What Brand Managers Say</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-body">"Elitez consistently delivers impressive operational support for product sampling campaigns. Their team is reliable, well-organised, and quick to respond to on-ground needs. From manpower coordination to event execution, everything ran smoothly and professionally. It's clear they know what they're doing — a great partner for any brand activation."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background: var(--accent);">JC</div>
-          <div>
-            <div class="testimonial-name">Joey Chan</div>
-            <div class="testimonial-role">Marketing Manager, EB Food Marketing Pte Ltd</div>
+<!-- BLINK -->
+<section id="blink">
+  <div class="blink-grid">
+    <div class="fade-up">
+      <div class="blink-kicker">Proprietary Technology</div>
+      <h2 class="blink-h2">MEET<br><span class="acc">BLINK.</span></h2>
+      <p class="blink-desc">Our in-house operations platform replaces spreadsheets and WhatsApp group chats — giving you a live window into every activation we run on your behalf.</p>
+      <div class="blink-features">
+        <div class="blink-feature">
+          <div class="blink-feature-icon">👤</div>
+          <div class="blink-feature-text">
+            <h4>Promoter Experience Check</h4>
+            <p>See who's on the ground — training status, past brands, performance history.</p>
+          </div>
+        </div>
+        <div class="blink-feature">
+          <div class="blink-feature-icon">📊</div>
+          <div class="blink-feature-text">
+            <h4>Live Sales Updates</h4>
+            <p>Real-time mid-day data — SKUs sold, samples given, conversion rates.</p>
+          </div>
+        </div>
+        <div class="blink-feature">
+          <div class="blink-feature-icon">📋</div>
+          <div class="blink-feature-text">
+            <h4>Auto Sales Reports</h4>
+            <p>Weekly reports compiled automatically, reviewed, and delivered to your inbox.</p>
           </div>
         </div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-body">"All in all, it was a good partnership and I appreciate the ideas as well. The team ensured our requests were met as best as possible."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background: #2d7a4a;">JS</div>
-          <div>
-            <div class="testimonial-name">Joycelyn Sim</div>
-            <div class="testimonial-role">Brand Manager, Reckitt — Strepsils World Voice Day</div>
+      <a href="pages/blink.html" class="btn-primary">Explore BLINK →</a>
+    </div>
+    <div class="fade-up delay-1">
+      <div class="blink-card">
+        <div class="blink-card-header">
+          <div class="blink-dots">
+            <div class="blink-dot"></div><div class="blink-dot"></div><div class="blink-dot"></div>
           </div>
+          <div class="blink-card-title">Live Dashboard — Today</div>
         </div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="testimonial-stars">★★★★☆</div>
-        <p class="testimonial-body">"Appreciate the effort from the Elitez team in making the event a success across all roadshow locations. The final report and photos we received earned positive feedback from both internal stakeholders and attendees. Thank you so much!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background: #5b3fa0;">CL</div>
-          <div>
-            <div class="testimonial-name">Claire Soh</div>
-            <div class="testimonial-role">Marketing Manager, UICCP — Indomie Roadshow</div>
+        <div class="blink-card-body">
+          <div class="blink-row">
+            <span class="blink-row-label">Status</span>
+            <span class="live-dot">LIVE</span>
           </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★☆</div>
-        <p class="testimonial-body">"It has been a pleasure working with you. Your support, responsiveness, and collaboration have made the process smooth and efficient. I truly appreciate your professionalism and dedication. Looking forward to more successful partnerships ahead!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background: #c47a1b;">JK</div>
-          <div>
-            <div class="testimonial-name">Joei Khek</div>
-            <div class="testimonial-role">Brand Manager, Champ Fungi Pte Ltd — Wet Sampling</div>
+          <div class="blink-row">
+            <span class="blink-row-label">Outlets Deployed</span>
+            <span class="blink-row-val">12 / 12</span>
           </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-body">"Previous activations were very successful with Elitez. When concerns were raised, the team responded quickly via WhatsApp and pivoted fast. Overall, we would absolutely want to continue working with Elitez."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background: #1a6b8a;">BC</div>
-          <div>
-            <div class="testimonial-name">Benedicto Cortes IV</div>
-            <div class="testimonial-role">Brand Manager, Ferrero — Kinder Milkcredible Sampling</div>
+          <div class="blink-row">
+            <span class="blink-row-label">Promoters Checked In</span>
+            <span class="blink-row-val green">14 ✓</span>
           </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="testimonial-stars">★★★★☆</div>
-        <p class="testimonial-body">"We receive comprehensive, full-service support and consistently rely on their expertise for our activations."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background: #6b3a2a;">JN</div>
-          <div>
-            <div class="testimonial-name">Jessie Ng</div>
-            <div class="testimonial-role">Trade Marketing Manager, Gardenia Foods (S) Pte Ltd</div>
+          <div class="blink-row">
+            <span class="blink-row-label">Mid-Day Sales</span>
+            <span class="blink-row-val orange">$4,280</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Samples Given</span>
+            <span class="blink-row-val">386</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Conversion Rate</span>
+            <span class="blink-row-val green">34.2%</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Premium Redeemed</span>
+            <span class="blink-row-val">142</span>
           </div>
         </div>
       </div>
@@ -369,109 +1066,164 @@
   </div>
 </section>
 
-<!-- ── Projects Preview ──────────────────────────────────────── -->
-<section style="background: var(--surface); padding: 80px 0;">
-  <div class="container">
-    <div class="section-header reveal" style="margin-bottom: 40px;">
-      <span class="label">Recent Work</span>
-      <h2>From the Field</h2>
-      <p>Real activations. Real brands. Real results.</p>
+<!-- GALLERY -->
+<section id="activations">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-kicker">Our Work</div>
+      <h2 class="section-h2">ACTIVATIONS ON <span>THE GROUND</span></h2>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 32px;">
-      <div style="overflow: hidden; aspect-ratio: 1; border-radius: 4px;" class="reveal">
-        <img src="assets/indomie-1.jpg" alt="Indomie in-store activation" style="width:100%; height:100%; object-fit:cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-      </div>
-      <div style="overflow: hidden; aspect-ratio: 1; border-radius: 4px;" class="reveal reveal-delay-1">
-        <img src="assets/nescafe-1.jpg" alt="Nescafe promotion" style="width:100%; height:100%; object-fit:cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-      </div>
-      <div style="overflow: hidden; aspect-ratio: 1; border-radius: 4px;" class="reveal reveal-delay-2">
-        <img src="assets/perrier-1.jpg" alt="Maison Perrier outdoor activation" style="width:100%; height:100%; object-fit:cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-      </div>
-      <div style="overflow: hidden; aspect-ratio: 1; border-radius: 4px;" class="reveal reveal-delay-3">
-        <img src="assets/dester-1.jpg" alt="Outdoor brand activation" style="width:100%; height:100%; object-fit:cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" />
-      </div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall fade-up">
+      <img src="assets/perrier-1.jpg" alt="Maison Perrier brand activation">
+      <div class="gallery-overlay"><span class="gallery-label">Maison Perrier</span></div>
     </div>
-    <div class="reveal" style="text-align: center;">
-      <a href="pages/projects.html" class="btn-secondary">See All Projects</a>
+    <div class="gallery-item fade-up delay-1">
+      <img src="assets/nescafe-conc-1.jpg" alt="Nescafé in-store activation">
+      <div class="gallery-overlay"><span class="gallery-label">Nescafé Concentrate</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-2">
+      <img src="assets/indomie-1.jpg" alt="Indomie in-store activation">
+      <div class="gallery-overlay"><span class="gallery-label">Indomie In-Store</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-1">
+      <img src="assets/meiji-1.jpg" alt="Meiji roadshow">
+      <div class="gallery-overlay"><span class="gallery-label">Meiji Roadshow</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-2">
+      <img src="assets/dester-1.jpg" alt="Dester outdoor activation">
+      <div class="gallery-overlay"><span class="gallery-label">Dester Outdoor</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-3">
+      <img src="assets/carlsberg-1.png" alt="Carlsberg brand activation">
+      <div class="gallery-overlay"><span class="gallery-label">Carlsberg CNY</span></div>
     </div>
   </div>
 </section>
 
-<!-- ── CTA Band ──────────────────────────────────────────────── -->
-<section class="cta-band">
-  <div class="container">
-    <h2 class="reveal">Ready to Brief Us?</h2>
-    <p class="reveal">Tell us your brand, your objective, and your budget. We'll come back with a proposal within 48 hours.</p>
-    <div class="cta-band-actions reveal">
+<!-- WHY -->
+<section id="why">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-kicker">Why Elitez FMCG</div>
+      <h2 class="section-h2">MORE THAN A <span>PROMOTER AGENCY</span></h2>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div class="why-points">
+      <div class="why-point fade-up">
+        <div class="why-num">01</div>
+        <div class="why-point-body">
+          <h3>Scale when you need it</h3>
+          <p>With 1,000+ trained promoters on roster and 300+ deployed every week, we staff your biggest campaigns without the scramble.</p>
+        </div>
+      </div>
+      <div class="why-point fade-up delay-1">
+        <div class="why-num">02</div>
+        <div class="why-point-body">
+          <h3>Real visibility through BLINK</h3>
+          <p>Our proprietary platform gives you live sales data, check-in photos and automated weekly reports — no more waiting for results.</p>
+        </div>
+      </div>
+      <div class="why-point fade-up delay-2">
+        <div class="why-num">03</div>
+        <div class="why-point-body">
+          <h3>Warehouse and logistics included</h3>
+          <p>5,000 sqft of in-house warehousing for POS materials, premiums and equipment — packed and delivered to every outlet.</p>
+        </div>
+      </div>
+      <div class="why-point fade-up delay-3">
+        <div class="why-num">04</div>
+        <div class="why-point-body">
+          <h3>15+ years running Singapore retail</h3>
+          <p>In market since 2010. We know the supermarkets, the retailers, and what actually drives sales at shelf level.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-right fade-up">
+      <img class="why-img" src="assets/outdoor-1.jpg" alt="Elitez FMCG promoters in action">
+      <div class="why-card">
+        <div class="why-card-num">1,000+</div>
+        <div class="why-card-label">WSQ-Trained<br>Promoters on Roster</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-kicker">Ready to activate?</div>
+      <h2 class="cta-h2">LET'S BUILD YOUR<br>NEXT CAMPAIGN.</h2>
+      <p class="cta-sub">Tell us your brand, your target channel and your timeline — we'll put together a proposal within 48 hours.</p>
+    </div>
+    <div class="cta-actions">
       <a href="pages/contact.html" class="btn-white">Get a Quote →</a>
-      <a href="tel:+6566028282" class="btn-white-outline">Call Us: +65 6602 8282</a>
+      <div class="cta-contact">
+        Or reach us directly:<br>
+        <a href="mailto:eevann.seah@elitez.asia">eevann.seah@elitez.asia</a><br>
+        <a href="tel:+6581800994">+65 8180 0994</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── Footer ────────────────────────────────────────────────── -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo">
-          <img src="assets/logo.png" alt="Elitez FMCG" class="nav-logo-img" />
-        </a>
-        <p>Singapore's leading brand activation and promoter deployment agency. Serving FMCG brands across Singapore and Southeast Asia since 2009.</p>
-        <div class="footer-social">
-          <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="pages/services.html#promoters">Promoter Deployment</a></li>
-          <li><a href="pages/services.html#roadshow">Roadshow Planning</a></li>
-          <li><a href="pages/services.html#activation">Brand Activations</a></li>
-          <li><a href="pages/services.html#digital">Digital Campaigns</a></li>
-          <li><a href="pages/services.html#merchandising">Field Merchandising</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="pages/about.html">About Us</a></li>
-          <li><a href="pages/projects.html">Our Projects</a></li>
-          <li><a href="pages/contact.html">Contact</a></li>
-          <li><a href="pages/admin.html">Market Intel</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.35 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.17-.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span><a href="tel:+6566028282">+65 6602 8282</a></span>
-        </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span><a href="mailto:fmcg@elitez.asia">fmcg@elitez.asia</a></span>
-        </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>2 Kallang Ave CT Hub #03-08<br>Singapore 339407</span>
-        </div>
-      </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo-text">ELITEZ <span>FMCG</span></div>
+      <div class="footer-tagline">Field Marketing · Singapore</div>
+      <p class="footer-desc">Singapore's leading brand activation and field marketing agency. Trusted by P&amp;G, Reckitt, Carlsberg and more since 2010.</p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Elitez FMCG Pte Ltd. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
-      </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="pages/services.html#activations">Brand Activations</a></li>
+        <li><a href="pages/services.html#promoters">Promoter Deployment</a></li>
+        <li><a href="pages/services.html#merchandising">Supermarket Merchandising</a></li>
+        <li><a href="pages/services.html#digital">Digital Campaigns</a></li>
+      </ul>
     </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="pages/about.html">About Us</a></li>
+        <li><a href="pages/blink.html">BLINK Platform</a></li>
+        <li><a href="#clients">Our Clients</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:eevann.seah@elitez.asia">eevann.seah@elitez.asia</a></li>
+        <li><a href="tel:+6581800994">+65 8180 0994</a></li>
+        <li><a href="https://www.elitez.asia" target="_blank">elitez.asia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Elitez FMCG. All rights reserved.</div>
+    <div class="footer-group">Part of <a href="https://www.elitez.asia" target="_blank">Elitez Group of Companies</a></div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
