@@ -267,9 +267,10 @@
   /* CLIENT LOGOS */
   #clients {
     background: var(--off-white);
-    padding: 40px 48px;
+    padding: 40px 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    overflow: hidden;
   }
   .clients-label {
     font-family: 'IBM Plex Mono', monospace;
@@ -279,23 +280,59 @@
     color: #bbb;
     text-align: center;
     margin-bottom: 28px;
+    padding: 0 48px;
+  }
+  .clients-marquee-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  .clients-marquee-wrap::before,
+  .clients-marquee-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .clients-marquee-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, var(--off-white), transparent);
+  }
+  .clients-marquee-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, var(--off-white), transparent);
   }
   .clients-logos {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    gap: 0;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
+  }
+  .clients-logos:hover { animation-play-state: paused; }
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
   .client-logo-item {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 18px;
-    letter-spacing: 3px;
-    color: #bbb;
-    transition: color 0.2s;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    height: 60px;
+    flex-shrink: 0;
   }
-  .client-logo-item:hover { color: var(--orange); }
+  .client-logo-item img {
+    height: 40px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.55);
+    transition: filter 0.3s;
+  }
+  .clients-logos:hover .client-logo-item img { filter: grayscale(100%) opacity(0.75); }
+  .client-logo-item img:hover { filter: grayscale(0%) opacity(1) !important; }
 
   /* SERVICES */
   #services { padding: 96px 48px; background: var(--white); }
@@ -912,17 +949,43 @@
 <!-- CLIENT LOGOS -->
 <section id="clients">
   <div class="clients-label">Trusted by Singapore's biggest consumer brands</div>
-  <div class="clients-logos">
-    <div class="client-logo-item">P&amp;G</div>
-    <div class="client-logo-item">Reckitt</div>
-    <div class="client-logo-item">Carlsberg</div>
-    <div class="client-logo-item">Unilever</div>
-    <div class="client-logo-item">Energizer</div>
-    <div class="client-logo-item">Nestlé</div>
-    <div class="client-logo-item">Yeo's</div>
-    <div class="client-logo-item">Mars</div>
-    <div class="client-logo-item">DBS PayLah</div>
-    <div class="client-logo-item">Meiji</div>
+  <div class="clients-marquee-wrap">
+    <div class="clients-logos">
+      <!-- Set 1 -->
+      <div class="client-logo-item"><img src="assets/client-logos/PG Logoseq.png" alt="P&G"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/RB Logoseq.png" alt="Reckitt"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Tiger Logoseq.png" alt="Tiger Beer"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Unilever Logoseq.png" alt="Unilever"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Nestle Logoseq.png" alt="Nestlé"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Nescafe Logoseq.png" alt="Nescafé"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Milo Logoseq.png" alt="Milo"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Enfa Logoseq.png" alt="Enfagrow"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/MARS Logoseq.png" alt="Mars"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/M&Ms Logoseq.png" alt="M&Ms"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Loreal Logoseq.png" alt="L'Oréal"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Pierre Logoseq.png" alt="Pierre Fabre"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/BM Logoseq.png" alt="Brand's"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/FU Logoseq.png" alt="Friesland Campina"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Wilmar Logoseq.png" alt="Wilmar"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Yeos Logoseq.png" alt="Yeo's"></div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="client-logo-item"><img src="assets/client-logos/PG Logoseq.png" alt="P&G"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/RB Logoseq.png" alt="Reckitt"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Tiger Logoseq.png" alt="Tiger Beer"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Unilever Logoseq.png" alt="Unilever"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Nestle Logoseq.png" alt="Nestlé"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Nescafe Logoseq.png" alt="Nescafé"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Milo Logoseq.png" alt="Milo"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Enfa Logoseq.png" alt="Enfagrow"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/MARS Logoseq.png" alt="Mars"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/M&Ms Logoseq.png" alt="M&Ms"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Loreal Logoseq.png" alt="L'Oréal"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Pierre Logoseq.png" alt="Pierre Fabre"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/BM Logoseq.png" alt="Brand's"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/FU Logoseq.png" alt="Friesland Campina"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Wilmar Logoseq.png" alt="Wilmar"></div>
+      <div class="client-logo-item"><img src="assets/client-logos/Yeos Logoseq.png" alt="Yeo's"></div>
+    </div>
   </div>
 </section>
 
