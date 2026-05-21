@@ -91,6 +91,9 @@
   .inv-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
   .inv-placeholder-icon { font-size: 52px; opacity: 0.4; }
   .inv-placeholder-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); text-align: center; }
+  .inv-illo { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .warehouse-band { overflow: hidden; height: 220px; border-bottom: 1px solid var(--border); }
+  .warehouse-band img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
   .inv-cat-badge { position: absolute; top: 12px; left: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
   .badge-games { background: rgba(255,85,0,0.12); color: var(--orange); border: 1px solid rgba(255,85,0,0.2); }
   .badge-av { background: rgba(17,17,17,0.08); color: var(--black); border: 1px solid rgba(17,17,17,0.15); }
@@ -255,6 +258,11 @@
   <a href="#rental-form" class="btn-white intro-band-cta">Get Rental Rates →</a>
 </div>
 
+<!-- WAREHOUSE BAND -->
+<div class="warehouse-band">
+  <img src="../assets/img/scene-warehouse.png" alt="Elitez FMCG activation equipment warehouse">
+</div>
+
 <!-- CATALOGUE -->
 <section class="catalogue-section" id="catalogue">
   <div class="catalogue-header fade-up">
@@ -276,10 +284,7 @@
     <!-- 1. JBL Partybox -->
     <div class="inv-card fade-up" data-category="av">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #2d2d44);">
-          <span class="inv-placeholder-icon">🔊</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-jbl-speaker.png" alt="JBL Partybox Roadshow Speaker">
         <span class="inv-cat-badge badge-av">Audio & Visual</span>
         <span class="inv-qty-badge">3 Units</span>
       </div>
@@ -304,10 +309,7 @@
     <!-- 2. Life Size Plinko -->
     <div class="inv-card fade-up" data-category="games">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #2a1a1a, #3d2525);">
-          <span class="inv-placeholder-icon">🎯</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-plinko.png" alt="Life Size Plinko Board">
         <span class="inv-cat-badge badge-games">Interactive Games</span>
         <span class="inv-qty-badge">1 Unit</span>
       </div>
@@ -332,10 +334,7 @@
     <!-- 3. Claw Machine -->
     <div class="inv-card fade-up" data-category="games">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a2a1a, #253d25);">
-          <span class="inv-placeholder-icon">🦾</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-claw-machine.png" alt="Claw Machine">
         <span class="inv-cat-badge badge-games">Interactive Games</span>
         <span class="inv-qty-badge">3 Units</span>
       </div>
@@ -360,10 +359,7 @@
     <!-- 4. Big Spin & Win -->
     <div class="inv-card fade-up" data-category="games">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #2a2010, #3d3018);">
-          <span class="inv-placeholder-icon">🎡</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-spin-wheel-floor.png" alt="Big Spin & Win Wheel">
         <span class="inv-cat-badge badge-games">Interactive Games</span>
         <span class="inv-qty-badge">5 Units</span>
       </div>
@@ -388,10 +384,7 @@
     <!-- 5. Tabletop Spin & Win -->
     <div class="inv-card fade-up" data-category="games">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #201a2a, #30253d);">
-          <span class="inv-placeholder-icon">🎰</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-spin-wheel-table.png" alt="Table Top Spin & Win Wheel">
         <span class="inv-cat-badge badge-games">Interactive Games</span>
         <span class="inv-qty-badge">10 Units</span>
       </div>
@@ -416,10 +409,7 @@
     <!-- 6. Tabletop Plinko -->
     <div class="inv-card fade-up" data-category="games">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a2020, #25302e);">
-          <span class="inv-placeholder-icon">🎳</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-plinko-table.png" alt="Table Top Plinko Board">
         <span class="inv-cat-badge badge-games">Interactive Games</span>
         <span class="inv-qty-badge">3 Units</span>
       </div>
@@ -444,10 +434,7 @@
     <!-- 7. Gachapon Machine -->
     <div class="inv-card fade-up" data-category="games">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #2a1a28, #3d2538);">
-          <span class="inv-placeholder-icon">🫧</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-gachapon-floor.png" alt="Gachapon Machine Floor Standing">
         <span class="inv-cat-badge badge-games">Interactive Games</span>
         <span class="inv-qty-badge">2 Units</span>
       </div>
@@ -472,10 +459,7 @@
     <!-- 8. Tabletop Gachapon -->
     <div class="inv-card fade-up" data-category="games">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1e2a1a, #2c3d25);">
-          <span class="inv-placeholder-icon">🎲</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-gachapon-table.png" alt="Table Top Gachapon Machine">
         <span class="inv-cat-badge badge-games">Interactive Games</span>
         <span class="inv-qty-badge">5 Units</span>
       </div>
@@ -500,10 +484,7 @@
     <!-- 9. 42" TV -->
     <div class="inv-card fade-up" data-category="av">
       <div class="inv-img">
-        <div class="inv-placeholder" style="background: linear-gradient(135deg, #111830, #1a2244);">
-          <span class="inv-placeholder-icon">📺</span>
-          <span class="inv-placeholder-label">Photo Coming Soon</span>
-        </div>
+        <img class="inv-illo" src="../assets/img/inv-tv-stand.png" alt="42 inch TV with Mobile Stand">
         <span class="inv-cat-badge badge-av">Audio & Visual</span>
         <span class="inv-qty-badge">2 Units</span>
       </div>

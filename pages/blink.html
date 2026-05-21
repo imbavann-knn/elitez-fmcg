@@ -450,14 +450,9 @@
     align-items: flex-start;
   }
   .what-icon {
-    width: 40px; height: 40px;
-    background: var(--orange-pale);
-    border: 1px solid rgba(255,85,0,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 48px; height: 48px;
     flex-shrink: 0;
-    font-size: 18px;
+    object-fit: contain;
   }
   .what-point-body {}
   .what-point-title {
@@ -645,13 +640,8 @@
     margin-bottom: 24px;
   }
   .feature-icon-wrap {
-    width: 52px; height: 52px;
-    background: rgba(255,85,0,0.12);
-    border: 1px solid rgba(255,85,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+    width: 64px; height: 64px;
+    object-fit: contain;
     margin-bottom: 20px;
   }
   .feature-title {
@@ -725,17 +715,11 @@
     background: var(--orange);
   }
   .portal-icon {
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
+    width: 64px; height: 64px;
+    object-fit: contain;
     margin-bottom: 20px;
   }
-  .portal-icon.admin { background: rgba(17,17,17,0.08); }
-  .portal-icon.client { background: rgba(255,85,0,0.1); }
-  .portal-icon.promoter { background: rgba(0,200,83,0.1); }
+  .portal-icon.admin, .portal-icon.client, .portal-icon.promoter { background: none; }
   .portal-title {
     font-family: 'Bebas Neue', cursive;
     font-size: 22px;
@@ -1232,21 +1216,21 @@
       <p class="section-lead">BLINK is Elitez FMCG's proprietary operations platform — built to give brand managers complete visibility and control over every activation, promoter, and sales data point in real time.</p>
       <div class="what-points">
         <div class="what-point">
-          <div class="what-icon">🎯</div>
+          <img class="what-icon" src="../assets/img/icon-brand-activation.png" alt="">
           <div class="what-point-body">
             <div class="what-point-title">Purpose-built for FMCG campaigns</div>
             <div class="what-point-text">Designed specifically for brand activation, promoter deployment, and retail merchandising — not a generic HR tool adapted for field work.</div>
           </div>
         </div>
         <div class="what-point">
-          <div class="what-icon">🔗</div>
+          <img class="what-icon" src="../assets/img/icon-blink-phone.png" alt="">
           <div class="what-point-body">
             <div class="what-point-title">Three portals, one ecosystem</div>
             <div class="what-point-text">Admin, Client, and Promoter portals share a single data layer — so what your promoter records in-store appears instantly on your dashboard.</div>
           </div>
         </div>
         <div class="what-point">
-          <div class="what-icon">📊</div>
+          <img class="what-icon" src="../assets/img/icon-live-sales.png" alt="">
           <div class="what-point-body">
             <div class="what-point-title">Zero report chasing</div>
             <div class="what-point-text">Sales summaries, attendance records, and campaign wrap-ups are auto-generated — no more chasing supervisors for Excel files.</div>
@@ -1309,7 +1293,7 @@
 
     <div class="feature-card fade-up">
       <div class="feature-num">01</div>
-      <div class="feature-icon-wrap">🔍</div>
+      <img class="feature-icon-wrap" src="../assets/img/icon-checkin.png" alt="">
       <h3 class="feature-title">Promoter Experience Check</h3>
       <p class="feature-desc">Know the quality of your brand representatives before they even speak to a single shopper. BLINK's pre-shift evaluation ensures every promoter is campaign-ready.</p>
       <div class="feature-points">
@@ -1323,7 +1307,7 @@
 
     <div class="feature-card fade-up">
       <div class="feature-num">02</div>
-      <div class="feature-icon-wrap">📈</div>
+      <img class="feature-icon-wrap" src="../assets/img/icon-live-sales.png" alt="">
       <h3 class="feature-title">Live Sales Updates</h3>
       <p class="feature-desc">Watch your numbers move in real time. Promoters log sales as they happen — you see aggregate and outlet-level data updated live on your dashboard.</p>
       <div class="feature-points">
@@ -1337,7 +1321,7 @@
 
     <div class="feature-card fade-up">
       <div class="feature-num">03</div>
-      <div class="feature-icon-wrap">📋</div>
+      <img class="feature-icon-wrap" src="../assets/img/icon-reports.png" alt="">
       <h3 class="feature-title">Auto Sales Reports</h3>
       <p class="feature-desc">Campaign reporting, done. BLINK compiles daily, weekly, and end-of-campaign summaries automatically — formatted, complete, and ready to share with stakeholders.</p>
       <div class="feature-points">
@@ -1367,7 +1351,7 @@
 
     <div class="portal-card fade-up">
       <div class="portal-accent"></div>
-      <div class="portal-icon admin">⚙️</div>
+      <img class="portal-icon admin" src="../assets/img/icon-admin.png" alt="">
       <div class="portal-title">Admin Portal</div>
       <div class="portal-tag">Elitez Operations Team</div>
       <p class="portal-desc">The engine room. Elitez's internal team manages campaign setup, promoter allocation, outlet scheduling, and system oversight from here.</p>
@@ -1382,7 +1366,7 @@
 
     <div class="portal-card fade-up">
       <div class="portal-accent"></div>
-      <div class="portal-icon client">👔</div>
+      <img class="portal-icon client" src="../assets/img/icon-client-portal.png" alt="">
       <div class="portal-title">Client Portal</div>
       <div class="portal-tag">Brand Managers & Procurement</div>
       <p class="portal-desc">Your window into the campaign. Real-time visibility, quality checks, live sales data, and automated reporting — without needing to call or email anyone.</p>
@@ -1397,7 +1381,7 @@
 
     <div class="portal-card fade-up">
       <div class="portal-accent"></div>
-      <div class="portal-icon promoter">📱</div>
+      <img class="portal-icon promoter" src="../assets/img/icon-promoter-app.png" alt="">
       <div class="portal-title">Promoter Portal</div>
       <div class="portal-tag">On-Ground Promoters</div>
       <p class="portal-desc">A simple, mobile-first app for promoters on the ground. Check in, log sales, complete tasks, and stay connected to the campaign — from any smartphone.</p>

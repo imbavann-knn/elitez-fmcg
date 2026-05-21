@@ -264,6 +264,21 @@
     margin-top: 4px;
   }
 
+  /* SCENE BAND */
+  .scene-band {
+    overflow: hidden;
+    height: 220px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .scene-band img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+  }
+
   /* CLIENT LOGOS */
   #clients {
     background: var(--off-white);
@@ -409,7 +424,7 @@
     transition: color 0.25s;
   }
   .service-card:hover .service-num { color: rgba(255,85,0,0.08); }
-  .service-icon { font-size: 28px; margin-bottom: 16px; }
+  .service-icon { width: 64px; height: 64px; margin-bottom: 16px; object-fit: contain; }
   .service-title {
     font-family: 'Bebas Neue', cursive;
     font-size: 32px;
@@ -510,14 +525,10 @@
   .blink-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
   .blink-feature { display: flex; align-items: flex-start; gap: 14px; }
   .blink-feature-icon {
-    width: 36px; height: 36px;
-    background: rgba(255,85,0,0.15);
-    border: 1px solid rgba(255,85,0,0.3);
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
+    width: 40px; height: 40px;
     flex-shrink: 0;
     margin-top: 2px;
+    object-fit: contain;
   }
   .blink-feature-text h4 {
     font-family: 'Barlow', sans-serif;
@@ -707,29 +718,19 @@
     position: relative;
     overflow: hidden;
   }
-  #cta::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 400px; height: 400px;
-    border: 80px solid rgba(255,255,255,0.07);
-    border-radius: 50%;
-  }
-  #cta::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: 200px;
-    width: 260px; height: 260px;
-    border: 50px solid rgba(255,255,255,0.05);
-    border-radius: 50%;
-  }
   .cta-inner {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     position: relative;
     z-index: 1;
     gap: 40px;
+  }
+  .cta-illo {
+    width: 260px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.15));
   }
   .cta-kicker {
     font-family: 'IBM Plex Mono', monospace;
@@ -874,7 +875,8 @@
     .gallery-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
     .why-grid { grid-template-columns: 1fr; gap: 40px; }
     .why-right { display: none; }
-    .cta-inner { flex-direction: column; align-items: flex-start; }
+    .cta-inner { grid-template-columns: 1fr; }
+    .cta-illo { display: none; }
     .cta-actions { align-items: flex-start; }
     footer { padding: 48px 24px 24px; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -1001,7 +1003,7 @@
   <div class="services-grid">
     <a href="pages/services.html#activations" class="service-card fade-up">
       <div class="service-num">01</div>
-      <div class="service-icon">🎯</div>
+      <img class="service-icon" src="assets/img/icon-brand-activation.png" alt="">
       <div class="service-title">BRAND ACTIVATIONS</div>
       <div class="service-sub">In-store · Outdoor · Roadshow</div>
       <p class="service-desc">Tactical and experiential activations that drive trial, conversion and brand recall at the point of purchase.</p>
@@ -1014,7 +1016,7 @@
     </a>
     <a href="pages/services.html#promoters" class="service-card fade-up delay-1">
       <div class="service-num">02</div>
-      <div class="service-icon">👥</div>
+      <img class="service-icon" src="assets/img/icon-promoters.png" alt="">
       <div class="service-title">PROMOTER DEPLOYMENT</div>
       <div class="service-sub">Managed · WSQ-Trained · Scalable</div>
       <p class="service-desc">Large-scale, reliable promoter deployment across Singapore's retail channels — managed end-to-end through BLINK.</p>
@@ -1027,7 +1029,7 @@
     </a>
     <a href="pages/services.html#merchandising" class="service-card fade-up delay-2">
       <div class="service-num">03</div>
-      <div class="service-icon">🛒</div>
+      <img class="service-icon" src="assets/img/icon-merchandising.png" alt="">
       <div class="service-title">SUPERMARKET MERCHANDISING</div>
       <div class="service-sub">Shelf Execution · Display · Replenishment</div>
       <p class="service-desc">Consistent, compliant in-store execution across major supermarket chains — so your products look great on shelf, every time.</p>
@@ -1040,7 +1042,7 @@
     </a>
     <a href="pages/services.html#digital" class="service-card fade-up delay-3">
       <div class="service-num">04</div>
-      <div class="service-icon">📱</div>
+      <img class="service-icon" src="assets/img/icon-blink-phone.png" alt="">
       <div class="service-title">DIGITAL CAMPAIGNS</div>
       <div class="service-sub">Integrated · Data-Driven</div>
       <p class="service-desc">Digital components that amplify your in-store activation and capture measurable consumer engagement online.</p>
@@ -1063,21 +1065,21 @@
       <p class="blink-desc">Our in-house operations platform replaces spreadsheets and WhatsApp group chats — giving you a live window into every activation we run on your behalf.</p>
       <div class="blink-features">
         <div class="blink-feature">
-          <div class="blink-feature-icon">👤</div>
+          <img class="blink-feature-icon" src="assets/img/icon-checkin.png" alt="">
           <div class="blink-feature-text">
             <h4>Promoter Experience Check</h4>
             <p>See who's on the ground — training status, past brands, performance history.</p>
           </div>
         </div>
         <div class="blink-feature">
-          <div class="blink-feature-icon">📊</div>
+          <img class="blink-feature-icon" src="assets/img/icon-live-sales.png" alt="">
           <div class="blink-feature-text">
             <h4>Live Sales Updates</h4>
             <p>Real-time mid-day data — SKUs sold, samples given, conversion rates.</p>
           </div>
         </div>
         <div class="blink-feature">
-          <div class="blink-feature-icon">📋</div>
+          <img class="blink-feature-icon" src="assets/img/icon-reports.png" alt="">
           <div class="blink-feature-text">
             <h4>Auto Sales Reports</h4>
             <p>Weekly reports compiled automatically, reviewed, and delivered to your inbox.</p>
@@ -1178,6 +1180,11 @@
   </div>
 </section>
 
+<!-- SCENE BAND -->
+<div class="scene-band">
+  <img src="assets/img/scene-supermarket.png" alt="Elitez FMCG promoters in action at supermarket">
+</div>
+
 <!-- WHY -->
 <section id="why">
   <div class="section-header fade-up">
@@ -1235,6 +1242,7 @@
       <h2 class="cta-h2">LET'S BUILD YOUR<br>NEXT CAMPAIGN.</h2>
       <p class="cta-sub">Tell us your brand, your target channel and your timeline — we'll put together a proposal within 48 hours.</p>
     </div>
+    <img class="cta-illo" src="assets/img/character-team.png" alt="Elitez FMCG promoter team">
     <div class="cta-actions">
       <a href="pages/contact.html" class="btn-white">Get a Quote →</a>
       <div class="cta-contact">
