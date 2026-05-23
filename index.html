@@ -267,14 +267,13 @@
   /* SCENE BAND */
   .scene-band {
     overflow: hidden;
-    height: 220px;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
   .scene-band img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
     object-position: center 40%;
     display: block;
   }
@@ -402,6 +401,19 @@
     text-decoration: none;
     display: block;
   }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--card-bg, none);
+    background-size: 100px auto;
+    background-repeat: repeat;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.25s;
+  }
+  .service-card:hover::before { opacity: 0.1; }
   .service-card::after {
     content: '';
     position: absolute;
@@ -409,9 +421,11 @@
     width: 0; height: 3px;
     background: var(--orange);
     transition: width 0.35s ease;
+    z-index: 2;
   }
   .service-card:hover { background: var(--orange-pale); }
   .service-card:hover::after { width: 100%; }
+  .svc-content { position: relative; z-index: 1; }
 
   .service-num {
     font-family: 'Bebas Neue', cursive;
@@ -424,7 +438,6 @@
     transition: color 0.25s;
   }
   .service-card:hover .service-num { color: rgba(255,85,0,0.08); }
-  .service-icon { width: 64px; height: 64px; margin-bottom: 16px; object-fit: contain; }
   .service-title {
     font-family: 'Bebas Neue', cursive;
     font-size: 32px;
@@ -525,9 +538,9 @@
   .blink-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
   .blink-feature { display: flex; align-items: flex-start; gap: 14px; }
   .blink-feature-icon {
-    width: 40px; height: 40px;
+    width: 112px; height: 112px;
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 0;
     object-fit: contain;
   }
   .blink-feature-text h4 {
@@ -800,14 +813,7 @@
     padding-bottom: 48px;
     border-bottom: 1px solid rgba(255,255,255,0.07);
   }
-  .footer-logo-text {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 28px;
-    letter-spacing: 4px;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-  .footer-logo-text span { color: var(--orange); }
+  .footer-logo-img { height: 40px; width: auto; margin-bottom: 4px; display: block; }
   .footer-tagline {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
@@ -1001,57 +1007,61 @@
     <a href="pages/services.html" class="section-link">Full Services →</a>
   </div>
   <div class="services-grid">
-    <a href="pages/services.html#activations" class="service-card fade-up">
+    <a href="pages/services.html#activations" class="service-card fade-up" style="--card-bg: url('assets/img/icon-brand-activation.png')">
       <div class="service-num">01</div>
-      <img class="service-icon" src="assets/img/icon-brand-activation.png" alt="">
-      <div class="service-title">BRAND ACTIVATIONS</div>
-      <div class="service-sub">In-store · Outdoor · Roadshow</div>
-      <p class="service-desc">Tactical and experiential activations that drive trial, conversion and brand recall at the point of purchase.</p>
-      <ul class="service-bullets">
-        <li>In-store product sampling &amp; demonstrations</li>
-        <li>Outdoor and mall roadshows</li>
-        <li>Festive and seasonal activations</li>
-        <li>Premium redemption campaigns</li>
-      </ul>
+      <div class="svc-content">
+        <div class="service-title">BRAND ACTIVATIONS</div>
+        <div class="service-sub">In-store · Outdoor · Roadshow</div>
+        <p class="service-desc">Tactical and experiential activations that drive trial, conversion and brand recall at the point of purchase.</p>
+        <ul class="service-bullets">
+          <li>In-store product sampling &amp; demonstrations</li>
+          <li>Outdoor and mall roadshows</li>
+          <li>Festive and seasonal activations</li>
+          <li>Premium redemption campaigns</li>
+        </ul>
+      </div>
     </a>
-    <a href="pages/services.html#promoters" class="service-card fade-up delay-1">
+    <a href="pages/services.html#promoters" class="service-card fade-up delay-1" style="--card-bg: url('assets/img/icon-promoters.png')">
       <div class="service-num">02</div>
-      <img class="service-icon" src="assets/img/icon-promoters.png" alt="">
-      <div class="service-title">PROMOTER DEPLOYMENT</div>
-      <div class="service-sub">Managed · WSQ-Trained · Scalable</div>
-      <p class="service-desc">Large-scale, reliable promoter deployment across Singapore's retail channels — managed end-to-end through BLINK.</p>
-      <ul class="service-bullets">
-        <li>1,000+ WSQ-trained promoters on roster</li>
-        <li>300+ deployed every week</li>
-        <li>Real-time attendance and performance tracking</li>
-        <li>Compliant payroll and HR management</li>
-      </ul>
+      <div class="svc-content">
+        <div class="service-title">PROMOTER DEPLOYMENT</div>
+        <div class="service-sub">Managed · WSQ-Trained · Scalable</div>
+        <p class="service-desc">Large-scale, reliable promoter deployment across Singapore's retail channels — managed end-to-end through BLINK.</p>
+        <ul class="service-bullets">
+          <li>1,000+ WSQ-trained promoters on roster</li>
+          <li>300+ deployed every week</li>
+          <li>Real-time attendance and performance tracking</li>
+          <li>Compliant payroll and HR management</li>
+        </ul>
+      </div>
     </a>
-    <a href="pages/services.html#merchandising" class="service-card fade-up delay-2">
+    <a href="pages/services.html#merchandising" class="service-card fade-up delay-2" style="--card-bg: url('assets/img/icon-merchandising.png')">
       <div class="service-num">03</div>
-      <img class="service-icon" src="assets/img/icon-merchandising.png" alt="">
-      <div class="service-title">SUPERMARKET MERCHANDISING</div>
-      <div class="service-sub">Shelf Execution · Display · Replenishment</div>
-      <p class="service-desc">Consistent, compliant in-store execution across major supermarket chains — so your products look great on shelf, every time.</p>
-      <ul class="service-bullets">
-        <li>Planogram compliance and shelf resets</li>
-        <li>POS material setup and management</li>
-        <li>Stock replenishment and rotation</li>
-        <li>Competitor shelf monitoring</li>
-      </ul>
+      <div class="svc-content">
+        <div class="service-title">SUPERMARKET MERCHANDISING</div>
+        <div class="service-sub">Shelf Execution · Display · Replenishment</div>
+        <p class="service-desc">Consistent, compliant in-store execution across major supermarket chains — so your products look great on shelf, every time.</p>
+        <ul class="service-bullets">
+          <li>Planogram compliance and shelf resets</li>
+          <li>POS material setup and management</li>
+          <li>Stock replenishment and rotation</li>
+          <li>Competitor shelf monitoring</li>
+        </ul>
+      </div>
     </a>
-    <a href="pages/services.html#digital" class="service-card fade-up delay-3">
+    <a href="pages/services.html#digital" class="service-card fade-up delay-3" style="--card-bg: url('assets/img/icon-blink-phone.png')">
       <div class="service-num">04</div>
-      <img class="service-icon" src="assets/img/icon-blink-phone.png" alt="">
-      <div class="service-title">DIGITAL CAMPAIGNS</div>
-      <div class="service-sub">Integrated · Data-Driven</div>
-      <p class="service-desc">Digital components that amplify your in-store activation and capture measurable consumer engagement online.</p>
-      <ul class="service-bullets">
-        <li>Microsite and contest mechanics</li>
-        <li>QR-linked promotional journeys</li>
-        <li>Social media capture on ground</li>
-        <li>KOL and event integrations</li>
-      </ul>
+      <div class="svc-content">
+        <div class="service-title">DIGITAL CAMPAIGNS</div>
+        <div class="service-sub">Integrated · Data-Driven</div>
+        <p class="service-desc">Digital components that amplify your in-store activation and capture measurable consumer engagement online.</p>
+        <ul class="service-bullets">
+          <li>Microsite and contest mechanics</li>
+          <li>QR-linked promotional journeys</li>
+          <li>Social media capture on ground</li>
+          <li>KOL and event integrations</li>
+        </ul>
+      </div>
     </a>
   </div>
 </section>
@@ -1258,7 +1268,7 @@
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-logo-text">ELITEZ <span>FMCG</span></div>
+      <img class="footer-logo-img" src="assets/logo-nav.png" alt="Elitez FMCG">
       <div class="footer-tagline">Field Marketing · Singapore</div>
       <p class="footer-desc">Singapore's leading brand activation and field marketing agency. Trusted by P&amp;G, Reckitt, Carlsberg and more since 2010.</p>
     </div>
@@ -1275,7 +1285,9 @@
       <h4>Company</h4>
       <ul>
         <li><a href="pages/about.html">About Us</a></li>
+        <li><a href="pages/beauty.html">Beauty Promoters</a></li>
         <li><a href="pages/blink.html">BLINK Platform</a></li>
+        <li><a href="pages/inventory.html">Rental Inventory</a></li>
         <li><a href="#clients">Our Clients</a></li>
         <li><a href="pages/contact.html">Contact</a></li>
       </ul>

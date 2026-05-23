@@ -450,7 +450,7 @@
     align-items: flex-start;
   }
   .what-icon {
-    width: 48px; height: 48px;
+    width: 128px; height: 128px;
     flex-shrink: 0;
     object-fit: contain;
   }
@@ -640,7 +640,7 @@
     margin-bottom: 24px;
   }
   .feature-icon-wrap {
-    width: 64px; height: 64px;
+    width: 160px; height: 160px;
     object-fit: contain;
     margin-bottom: 20px;
   }
@@ -715,7 +715,7 @@
     background: var(--orange);
   }
   .portal-icon {
-    width: 64px; height: 64px;
+    width: 160px; height: 160px;
     object-fit: contain;
     margin-bottom: 20px;
   }
@@ -961,12 +961,12 @@
     padding: 64px 48px 32px;
     border-top: 1px solid rgba(255,255,255,0.06);
   }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 48px;
-    margin-bottom: 48px;
-  }
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo-img { height: 36px; width: auto; }
+  .footer-links-bar { display: flex; gap: 24px; }
+  .footer-links-bar a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links-bar a:hover { color: var(--white); }
+  .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.2); }
   .footer-brand .logo-text {
     font-family: 'Bebas Neue', cursive;
     font-size: 26px;
@@ -1080,9 +1080,9 @@
     .cta-inner { grid-template-columns: 1fr; padding: 48px 32px; }
     .cta-inner::before { display: none; }
 
-    footer { padding: 48px 24px 24px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    footer { padding: 32px 24px; }
+    .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links-bar { flex-wrap: wrap; justify-content: center; }
   }
 </style>
 </head>
@@ -1351,7 +1351,7 @@
 
     <div class="portal-card fade-up">
       <div class="portal-accent"></div>
-      <img class="portal-icon admin" src="../assets/img/icon-admin.png" alt="">
+      <img class="portal-icon admin" src="../assets/img/icon-admin-portal.png" alt="">
       <div class="portal-title">Admin Portal</div>
       <div class="portal-tag">Elitez Operations Team</div>
       <p class="portal-desc">The engine room. Elitez's internal team manages campaign setup, promoter allocation, outlet scheduling, and system oversight from here.</p>
@@ -1474,40 +1474,17 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="logo-text">ELITEZ <span>FMCG</span></div>
-      <div class="logo-sub">Field Marketing Specialists</div>
-      <p>Singapore's leading field marketing agency. 300+ promoters. 10+ MNC clients. Powered by BLINK technology.</p>
+  <div class="footer-bar">
+    <img class="footer-logo-img" src="../assets/logo-nav.png" alt="Elitez FMCG">
+    <div class="footer-links-bar">
+      <a href="services.html">Services</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="blink.html">BLINK</a>
+      <a href="inventory.html">Rental</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <div>
-      <p class="footer-col-title">Services</p>
-      <ul class="footer-links">
-        <li><a href="services.html">Brand Activations</a></li>
-        <li><a href="services.html">Promoter Deployment</a></li>
-        <li><a href="services.html">Merchandising</a></li>
-        <li><a href="services.html">Digital OOH</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-col-title">Company</p>
-      <ul class="footer-links">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="blink.html">BLINK Platform</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="../index.html">Home</a></li>
-      </ul>
-    </div>
-    <div class="footer-contact">
-      <p class="footer-col-title">Contact</p>
-      <p>📧 <a href="mailto:eevann.seah@elitez.asia">eevann.seah@elitez.asia</a></p>
-      <p>🌐 <a href="https://elitez.asia" target="_blank">elitez.asia</a></p>
-      <p style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.25);">Part of Elitez Group<br>Reg. in Singapore</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 Elitez FMCG Pte Ltd. All rights reserved.</p>
-    <p><a href="contact.html">Privacy Policy</a> · <a href="contact.html">Terms</a></p>
+    <div class="footer-copy">© 2025 Elitez FMCG</div>
   </div>
 </footer>
 

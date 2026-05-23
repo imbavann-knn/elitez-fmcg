@@ -92,8 +92,8 @@
   .inv-placeholder-icon { font-size: 52px; opacity: 0.4; }
   .inv-placeholder-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); text-align: center; }
   .inv-illo { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .warehouse-band { overflow: hidden; height: 220px; border-bottom: 1px solid var(--border); }
-  .warehouse-band img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+  .warehouse-band { overflow: hidden; border-bottom: 1px solid var(--border); }
+  .warehouse-band img { width: 100%; height: auto; display: block; }
   .inv-cat-badge { position: absolute; top: 12px; left: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
   .badge-games { background: rgba(255,85,0,0.12); color: var(--orange); border: 1px solid rgba(255,85,0,0.2); }
   .badge-av { background: rgba(17,17,17,0.08); color: var(--black); border: 1px solid rgba(17,17,17,0.15); }
@@ -165,8 +165,10 @@
   .item-check input[type="checkbox"] { accent-color: var(--orange); width: 14px; height: 14px; flex-shrink: 0; }
   .item-check-label { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.3; }
 
+  .form-dates-note { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; color: rgba(255,255,255,0.35); margin: -8px 0 16px; }
   .btn-submit { width: 100%; background: var(--orange); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 15px; border: none; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
   .btn-submit:hover { background: var(--orange-hover); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
   .form-success { display: none; text-align: center; padding: 48px 24px; }
   .form-success .success-icon { font-size: 48px; margin-bottom: 16px; }
@@ -176,8 +178,7 @@
   /* FOOTER */
   footer { background: #0A0A0A; padding: 32px 48px; border-top: 1px solid rgba(255,255,255,0.06); }
   .footer-bar { display: flex; justify-content: space-between; align-items: center; }
-  .footer-logo-text { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 3px; color: var(--white); }
-  .footer-logo-text span { color: var(--orange); }
+  .footer-logo-img { height: 36px; width: auto; }
   .footer-links { display: flex; gap: 24px; }
   .footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--white); }
@@ -562,6 +563,111 @@
       </div>
     </div>
 
+    <div class="inv-card fade-up" data-category="games">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1f1a2a, #2e1f3d);">
+          <span class="inv-placeholder-icon">⚡</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-games">Interactive Games</span>
+        <span class="inv-qty-badge">1 Unit</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Fast Hands Machine</div>
+        <p class="inv-desc">Reflex-testing carnival game where players catch randomly dropping sticks before they hit the ground. A guaranteed crowd-puller for roadshows, brand activations and consumer engagement zones.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Dimensions</span><span class="inv-spec-val">1.5m diameter × H 2.3m</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">1 unit</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Power</span><span class="inv-spec-val">1 × 13amp connection</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Fast Hands Machine">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="inv-card fade-up" data-category="display">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a2a2a, #2a3d3d);">
+          <span class="inv-placeholder-icon">🧊</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-display">Display</span>
+        <span class="inv-qty-badge">2 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Cooler Bin on Wheels</div>
+        <p class="inv-desc">Large branded cooler bin mounted on wheels — ideal for chilled sampling activations, beverage promotions and in-store display. Easily branded and repositioned.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">2 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Mobility</span><span class="inv-spec-val">Wheeled, freestanding</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Cooler Bin on Wheels">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="inv-card fade-up" data-category="display">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a1a2a, #2a2a3d);">
+          <span class="inv-placeholder-icon">🚧</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-display">Display</span>
+        <span class="inv-qty-badge">80 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Queue Poles</div>
+        <p class="inv-desc">Retractable belt queue barriers — essential for managing crowd flow at roadshows, redemption counters and event queues. Available in black/silver body with red straps.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">80 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Specs</span><span class="inv-spec-val">Black/silver body, red straps</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Queue Poles">Enquire →</a>
+      </div>
+    </div>
+
+    <div class="inv-card fade-up" data-category="display">
+      <div class="inv-img">
+        <div class="inv-placeholder" style="background: linear-gradient(135deg, #1a1a28, #28283d);">
+          <span class="inv-placeholder-icon">🎒</span>
+          <span class="inv-placeholder-label">Photo Coming Soon</span>
+        </div>
+        <span class="inv-cat-badge badge-display">Display</span>
+        <span class="inv-qty-badge">22 Units</span>
+      </div>
+      <div class="inv-body">
+        <div class="inv-name">Backpack Advertisement Walker</div>
+        <p class="inv-desc">Wearable advertisement board worn by promoters — turns foot traffic into brand impressions. Ideal for mall activations, outdoor roadshows and high-density event zones.</p>
+        <div class="inv-specs">
+          <div class="inv-spec"><span class="inv-spec-label">Qty Available</span><span class="inv-spec-val">22 units</span></div>
+          <div class="inv-spec"><span class="inv-spec-label">Setup</span><span class="inv-spec-val">Wearable backpack frame</span></div>
+        </div>
+      </div>
+      <div class="inv-footer">
+        <div class="inv-price">
+          <div class="inv-price-label">Rental Rate</div>
+          <div class="inv-price-val">Enquire</div>
+        </div>
+        <a href="#rental-form" class="btn-enquire" data-item="Backpack Advertisement Walker">Enquire →</a>
+      </div>
+    </div>
+
   </div>
 
   <div class="logistics-note fade-up">
@@ -602,29 +708,33 @@
     </div>
 
     <div class="rental-form fade-up">
-      <div id="formContent">
+      <form id="rentalForm">
+        <input type="hidden" name="_subject" value="New Rental Enquiry — Elitez FMCG">
+        <input type="hidden" name="_autoresponse" value="Hi, thanks for reaching out to Elitez FMCG! We've received your rental enquiry and will get back to you within 1 business day with availability and pricing. If you have urgent needs, feel free to call us at +65 8180 0994. — The Elitez FMCG Team">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <div class="form-title">Rental Enquiry</div>
         <div class="form-subtitle">Fill in the details below and we'll get back to you shortly</div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="name">Your Name *</label>
-            <input type="text" id="name" placeholder="First and last name" required>
+            <input type="text" id="name" name="name" placeholder="First and last name" required>
           </div>
           <div class="form-group">
             <label for="company">Company / Brand *</label>
-            <input type="text" id="company" placeholder="Company name" required>
+            <input type="text" id="company" name="company" placeholder="Company name" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="email">Email Address *</label>
-            <input type="email" id="email" placeholder="you@company.com" required>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required>
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+65 9XXX XXXX">
+            <input type="tel" id="phone" name="phone" placeholder="+65 9XXX XXXX">
           </div>
         </div>
 
@@ -650,15 +760,15 @@
           <label>Items of Interest (select all that apply)</label>
           <div class="items-grid">
             <label class="item-check" id="check-jbl">
-              <input type="checkbox" value="JBL Partybox Roadshow Speaker">
+              <input type="checkbox" name="items" value="JBL Partybox Roadshow Speaker">
               <span class="item-check-label">JBL Partybox Speaker (×3)</span>
             </label>
             <label class="item-check">
-              <input type="checkbox" value="Life Size Plinko Board">
+              <input type="checkbox" name="items" value="Life Size Plinko Board">
               <span class="item-check-label">Life Size Plinko (×1)</span>
             </label>
             <label class="item-check">
-              <input type="checkbox" value="Claw Machine">
+              <input type="checkbox" name="items" value="Claw Machine">
               <span class="item-check-label">Claw Machine (×3)</span>
             </label>
             <label class="item-check">
@@ -670,27 +780,27 @@
               <span class="item-check-label">Tabletop Spin & Win (×10)</span>
             </label>
             <label class="item-check">
-              <input type="checkbox" value="Table Top Plinko Board">
+              <input type="checkbox" name="items" value="Table Top Plinko Board">
               <span class="item-check-label">Tabletop Plinko (×3)</span>
             </label>
             <label class="item-check">
-              <input type="checkbox" value="Gachapon Machine (Floor Standing)">
+              <input type="checkbox" name="items" value="Gachapon Machine (Floor Standing)">
               <span class="item-check-label">Gachapon Machine (×2)</span>
             </label>
             <label class="item-check">
-              <input type="checkbox" value="Table Top Gachapon Machine">
+              <input type="checkbox" name="items" value="Table Top Gachapon Machine">
               <span class="item-check-label">Tabletop Gachapon (×5)</span>
             </label>
             <label class="item-check">
-              <input type="checkbox" value="42-inch TV with Mobile Stand">
+              <input type="checkbox" name="items" value="42-inch TV with Mobile Stand">
               <span class="item-check-label">42" TV + Stand (×2)</span>
             </label>
             <label class="item-check">
-              <input type="checkbox" value="A0 Poster Stands">
+              <input type="checkbox" name="items" value="A0 Poster Stands">
               <span class="item-check-label">A0 Poster Stands (×20)</span>
             </label>
             <label class="item-check">
-              <input type="checkbox" value="Cash Blow Machine">
+              <input type="checkbox" name="items" value="Cash Blow Machine">
               <span class="item-check-label">Cash Blow Machine (×2)</span>
             </label>
           </div>
@@ -698,22 +808,29 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="eventDate">Event / Activation Date</label>
-            <input type="date" id="eventDate">
+            <label for="startDate">Start Date *</label>
+            <input type="date" id="startDate" name="start_date" required>
           </div>
           <div class="form-group">
+            <label for="endDate">End Date *</label>
+            <input type="date" id="endDate" name="end_date" required>
+          </div>
+        </div>
+        <p class="form-dates-note">For multiple separate rental periods, please specify in Additional Details below.</p>
+        <div class="form-row">
+          <div class="form-group" style="grid-column: 1/-1;">
             <label for="venue">Venue / Location</label>
-            <input type="text" id="venue" placeholder="e.g. Jurong Point, Mall Atrium">
+            <input type="text" id="venue" name="venue" placeholder="e.g. Jurong Point, Mall Atrium">
           </div>
         </div>
 
         <div class="form-group">
           <label for="message">Additional Details</label>
-          <textarea id="message" placeholder="Tell us more — event type, duration, quantities needed, any other requirements..."></textarea>
+          <textarea id="message" name="message" placeholder="Tell us more — event type, duration, quantities needed, any other requirements..."></textarea>
         </div>
 
-        <button class="btn-submit" onclick="submitForm()">Send Rental Enquiry →</button>
-      </div>
+        <button type="submit" class="btn-submit">Send Rental Enquiry →</button>
+      </form>
       <div class="form-success" id="formSuccess">
         <div class="success-icon">✅</div>
         <h3>Enquiry Received!</h3>
@@ -725,7 +842,7 @@
 
 <footer>
   <div class="footer-bar">
-    <div class="footer-logo-text">ELITEZ <span>FMCG</span></div>
+    <img class="footer-logo-img" src="../assets/logo-nav.png" alt="Elitez FMCG">
     <div class="footer-links">
       <a href="services.html">Services</a>
       <a href="beauty.html">Beauty</a>
@@ -776,14 +893,27 @@
     });
   });
 
-  function submitForm() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const company = document.getElementById('company').value.trim();
-    if (!name || !email || !company) { alert('Please fill in your name, company and email.'); return; }
-    document.getElementById('formContent').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }
+  document.getElementById('rentalForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/fmcg@elitez.asia', {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('rentalForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else { throw new Error(); }
+    } catch {
+      btn.textContent = 'Send Rental Enquiry →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us at fmcg@elitez.asia or call +65 8180 0994.');
+    }
+  });
 </script>
 </body>
 </html>

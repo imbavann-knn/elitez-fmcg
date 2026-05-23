@@ -118,8 +118,7 @@
 
   footer { background: var(--black); padding: 32px 48px; }
   .footer-bar { display: flex; justify-content: space-between; align-items: center; }
-  .footer-logo-text { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 3px; color: var(--white); }
-  .footer-logo-text span { color: var(--orange); }
+  .footer-logo-img { height: 36px; width: auto; }
   .footer-links { display: flex; gap: 24px; }
   .footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--white); }
@@ -172,7 +171,11 @@
       <h2 class="form-heading">GET A <span>QUOTE</span></h2>
       <p class="form-sub">Fill in the form and we'll get back to you within 48 hours with a tailored proposal.</p>
 
-      <form id="contactForm" onsubmit="handleSubmit(event)">
+      <form id="contactForm">
+        <input type="hidden" name="_subject" value="New Campaign Enquiry — Elitez FMCG">
+        <input type="hidden" name="_autoresponse" value="Hi, thanks for reaching out to Elitez FMCG! We've received your brief and will respond within 48 hours with a tailored proposal. If you have urgent needs, feel free to call us at +65 8180 0994. — The Elitez FMCG Team">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <div class="form-row">
           <div class="form-group">
             <label>First Name *</label>
@@ -283,22 +286,42 @@
 
 <footer>
   <div class="footer-bar">
-    <div class="footer-logo-text">ELITEZ <span>FMCG</span></div>
+    <img class="footer-logo-img" src="../assets/logo-nav.png" alt="Elitez FMCG">
     <div class="footer-links">
-      <a href="services.html">Services</a><a href="blink.html">BLINK</a>
-      <a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="services.html">Services</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="blink.html">BLINK</a>
+      <a href="inventory.html">Rental</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="footer-copy">© 2025 Elitez FMCG</div>
   </div>
 </footer>
 
 <script>
-  function handleSubmit(e) {
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
-    window.scrollTo({ top: document.querySelector('.contact-form-side').offsetTop - 100, behavior: 'smooth' });
-  }
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/fmcg@elitez.asia', {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+        window.scrollTo({ top: document.querySelector('.contact-form-side').offsetTop - 100, behavior: 'smooth' });
+      } else { throw new Error(); }
+    } catch {
+      btn.textContent = 'Send Brief →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us at fmcg@elitez.asia or call +65 8180 0994.');
+    }
+  });
   const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }), {threshold:0.1});
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
