@@ -283,8 +283,8 @@
 <div class="toast" id="toast"></div>
 
 <script>
-const SUPABASE_URL = 'https://aoghrngpkpxfbifkqgze.supabase.co';
-const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZ2hybmdwa3B4ZmJpZmtxZ3plIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNzE4NjQsImV4cCI6MjA5NTY0Nzg2NH0.wigKKQI-lDHbdyFKJcXahFZA2HB_b3ZIOTOQ0wqdyQ0';
+const SUPABASE_URL = 'https://rqqgrnttbelsxpmfikaa.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxcWdybnR0YmVsc3hwbWZpa2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3ODYzNzIsImV4cCI6MjA5NjM2MjM3Mn0.cfSwq0ie2fsiwOgYYGgpS5WTj_eCZkYXJFntDNgbn94';
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
 let selectedFile = null, allItems = [];
@@ -368,14 +368,14 @@ document.getElementById('add-btn').addEventListener('click', async () => {
   const ext = selectedFile.name.split('.').pop().toLowerCase();
   const filename = `${Date.now()}-${brand.toLowerCase().replace(/\s+/g,'-')}.${ext}`;
   const path = `uploads/${filename}`;
-  const { error: upErr } = await sb.storage.from('portfolio').upload(path, selectedFile, { contentType: selectedFile.type });
+  const { error: upErr } = await sb.storage.from('fmcg-portfolio').upload(path, selectedFile, { contentType: selectedFile.type });
   if (upErr) {
     toast(`Upload failed: ${upErr.message}`, 'error');
     btn.disabled = false; btn.textContent = 'Add to Portfolio'; progressBar.style.display = 'none'; return;
   }
   progressFill.style.width = '70%'; status.textContent = 'Saving…';
-  const { data: urlData } = sb.storage.from('portfolio').getPublicUrl(path);
-  const { error: dbErr } = await sb.from('portfolio_items').insert({ title, brand, category, description: desc, image_url: urlData.publicUrl, image_path: path, sort_order: order, is_visible: true, is_featured: false });
+  const { data: urlData } = sb.storage.from('fmcg-portfolio').getPublicUrl(path);
+  const { error: dbErr } = await sb.from('fmcg_portfolio').insert({ title, brand, category, description: desc, image_url: urlData.publicUrl, image_path: path, sort_order: order, is_visible: true, is_featured: false });
   progressFill.style.width = '100%';
   if (dbErr) { toast(`Error: ${dbErr.message}`, 'error'); } else { toast('Portfolio item added! ✓'); clearForm(); loadPortfolio(); }
   btn.disabled = false; btn.textContent = 'Add to Portfolio'; status.textContent = '';
@@ -395,7 +395,7 @@ async function loadPortfolio(catFilter='') {
   document.getElementById('table-loading').style.display = 'block';
   document.getElementById('portfolio-table').style.display = 'none';
   document.getElementById('empty-state').style.display = 'none';
-  let q = sb.from('portfolio_items').select('*').order('sort_order').order('created_at');
+  let q = sb.from('fmcg_portfolio').select('*').order('sort_order').order('created_at');
   if (catFilter) q = q.eq('category', catFilter);
   const { data, error } = await q;
   document.getElementById('table-loading').style.display = 'none';
@@ -432,7 +432,7 @@ function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').re
 document.getElementById('filter-cat').addEventListener('change', e => loadPortfolio(e.target.value));
 
 async function toggleVisible(id, current) {
-  const { error } = await sb.from('portfolio_items').update({ is_visible: !current }).eq('id', id);
+  const { error } = await sb.from('fmcg_portfolio').update({ is_visible: !current }).eq('id', id);
   if (error) { toast('Update failed','error'); return; }
   toast(current ? 'Item hidden' : 'Item now visible');
   loadPortfolio(document.getElementById('filter-cat').value);
@@ -441,8 +441,8 @@ async function toggleVisible(id, current) {
 async function deleteItem(id, title, imagePath) {
   if (!confirm(`Delete "${title}"?\nThis cannot be undone.`)) return;
   if (imagePath && !imagePath.startsWith('legacy/'))
-    await sb.storage.from('portfolio').remove([imagePath]);
-  const { error } = await sb.from('portfolio_items').delete().eq('id', id);
+    await sb.storage.from('fmcg-portfolio').remove([imagePath]);
+  const { error } = await sb.from('fmcg_portfolio').delete().eq('id', id);
   if (error) { toast('Delete failed','error'); return; }
   toast('Item deleted');
   loadPortfolio(document.getElementById('filter-cat').value);
@@ -477,17 +477,17 @@ document.getElementById('edit-save').addEventListener('click', async () => {
     const ext = newFile.name.split('.').pop().toLowerCase();
     const fn  = `${Date.now()}-${brand.toLowerCase().replace(/\s+/g,'-')}.${ext}`;
     const pth = `uploads/${fn}`;
-    const { error: upErr } = await sb.storage.from('portfolio').upload(pth, newFile, { contentType: newFile.type });
+    const { error: upErr } = await sb.storage.from('fmcg-portfolio').upload(pth, newFile, { contentType: newFile.type });
     if (upErr) { toast('Upload failed','error'); btn.disabled=false; btn.textContent='Save Changes'; return; }
-    const { data: urlData } = sb.storage.from('portfolio').getPublicUrl(pth);
+    const { data: urlData } = sb.storage.from('fmcg-portfolio').getPublicUrl(pth);
     imageUrl = urlData.publicUrl; imagePath = pth;
     const old = allItems.find(i=>i.id===id);
     if (old?.image_path && !old.image_path.startsWith('legacy/'))
-      await sb.storage.from('portfolio').remove([old.image_path]);
+      await sb.storage.from('fmcg-portfolio').remove([old.image_path]);
   }
   const updates = { title, brand, category, description: desc, sort_order: order };
   if (imageUrl) { updates.image_url = imageUrl; updates.image_path = imagePath; }
-  const { error } = await sb.from('portfolio_items').update(updates).eq('id', id);
+  const { error } = await sb.from('fmcg_portfolio').update(updates).eq('id', id);
   btn.disabled = false; btn.textContent = 'Save Changes';
   if (error) { toast('Save failed','error'); return; }
   toast('Changes saved ✓');

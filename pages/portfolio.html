@@ -293,8 +293,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  const SUPABASE_URL  = 'https://aoghrngpkpxfbifkqgze.supabase.co';
-  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZ2hybmdwa3B4ZmJpZmtxZ3plIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNzE4NjQsImV4cCI6MjA5NTY0Nzg2NH0.wigKKQI-lDHbdyFKJcXahFZA2HB_b3ZIOTOQ0wqdyQ0';
+  const SUPABASE_URL  = 'https://rqqgrnttbelsxpmfikaa.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxcWdybnR0YmVsc3hwbWZpa2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3ODYzNzIsImV4cCI6MjA5NjM2MjM3Mn0.cfSwq0ie2fsiwOgYYGgpS5WTj_eCZkYXJFntDNgbn94';
   const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
   const CAT_LABELS = { 'brand-activation':'Brand Activation','promoter':'Promoter Deployment','roadshow':'Roadshow','kol':'KOL & Events' };
@@ -311,7 +311,7 @@
   }, { threshold: 0.08 });
 
   async function loadPortfolio() {
-    const { data, error } = await sb.from('portfolio_items')
+    const { data, error } = await sb.from('fmcg_portfolio')
       .select('*').eq('is_visible', true).order('sort_order').order('created_at');
     if (error) { console.error(error); return; }
     allItems = data || [];
