@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Admin | Elitez FMCG</title>
+<title>Admin | Elitez FMCG</title>
 <meta name="robots" content="noindex, nofollow">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
@@ -118,6 +118,48 @@
   .empty-state { text-align: center; padding: 48px; color: var(--muted); }
   .empty-icon { font-size: 40px; margin-bottom: 12px; }
   .loading-state { text-align: center; padding: 40px; color: var(--muted); font-size: 13px; }
+
+  /* TABS */
+  .tab-bar { display: flex; gap: 0; margin-bottom: 28px; border-bottom: 2px solid var(--border); }
+  .tab-btn { background: none; border: none; padding: 10px 22px; font-size: 13px; font-weight: 700; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; display: flex; align-items: center; gap: 8px; letter-spacing: 0.5px; }
+  .tab-btn:hover { color: var(--black); }
+  .tab-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
+  .tab-badge { background: var(--orange); color: var(--white); border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; min-width: 18px; text-align: center; }
+
+  /* ENQUIRIES TABLE */
+  .enquiry-table { width: 100%; border-collapse: collapse; }
+  .enquiry-table th { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  .enquiry-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; font-size: 13px; }
+  .enquiry-table tr:last-child td { border-bottom: none; }
+  .enquiry-table tr:hover td { background: #fafaf8; cursor: pointer; }
+  .eq-new td:first-child { border-left: 3px solid var(--orange); }
+
+  /* STATUS BADGES */
+  .status-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; }
+  .status-new       { background: #fff3e8; color: #c05621; }
+  .status-read      { background: #e8f0fe; color: #1565c0; }
+  .status-contacted { background: #e8f5e9; color: #2e7d32; }
+  .status-closed    { background: #f5f5f5; color: #757575; }
+
+  /* FILTER PILLS */
+  .filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filter-pill { background: var(--gray); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; color: var(--muted); }
+  .filter-pill:hover { background: var(--border); color: var(--black); }
+  .filter-pill.active { background: var(--black); border-color: var(--black); color: var(--white); }
+
+  /* ENQUIRY DETAIL MODAL */
+  .eq-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .eq-field { display: flex; flex-direction: column; gap: 4px; }
+  .eq-field-full { grid-column: 1 / -1; }
+  .eq-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .eq-value { font-size: 14px; color: var(--black); }
+  .eq-value a { color: var(--orange); text-decoration: none; }
+  .eq-value a:hover { text-decoration: underline; }
+  .eq-message { background: var(--gray); border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.7; color: var(--black); white-space: pre-wrap; min-height: 60px; }
+  .eq-status-select { background: var(--gray); border: 1px solid var(--border); border-radius: 6px; padding: 9px 12px; font-size: 13px; font-family: inherit; outline: none; cursor: pointer; transition: border-color 0.2s; }
+  .eq-status-select:focus { border-color: var(--orange); }
+  .eq-notes { width: 100%; background: var(--gray); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-size: 13px; font-family: inherit; resize: vertical; min-height: 80px; outline: none; transition: border-color 0.2s; }
+  .eq-notes:focus { border-color: var(--orange); background: var(--white); }
 </style>
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -132,8 +174,8 @@
 <div id="login-screen">
   <div class="login-box">
     <div class="login-logo">Elitez FMCG</div>
-    <h1 class="login-title">Portfolio Admin</h1>
-    <p class="login-sub">Sign in to manage portfolio items</p>
+    <h1 class="login-title">Admin Dashboard</h1>
+    <p class="login-sub">Sign in to manage portfolio & enquiries</p>
     <div class="login-field">
       <label>Email</label>
       <input type="email" id="login-email" value="eevann.seah@elitez.asia" autocomplete="email">
@@ -150,7 +192,7 @@
 <!-- ADMIN -->
 <div id="admin-screen">
   <div class="admin-topbar">
-    <div class="admin-brand">Elitez <span>FMCG</span> · Portfolio Admin</div>
+    <div class="admin-brand">Elitez <span>FMCG</span> · Admin</div>
     <div class="topbar-right">
       <a class="back-btn" href="../index.html">← Back to site</a>
       <span class="topbar-user" id="topbar-email"></span>
@@ -159,6 +201,15 @@
   </div>
 
   <div class="admin-body">
+
+    <!-- TAB BAR -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="portfolio">Portfolio</button>
+      <button class="tab-btn" data-tab="enquiries">Enquiries <span class="tab-badge" id="enquiry-badge" style="display:none">0</span></button>
+    </div>
+
+    <!-- PORTFOLIO TAB -->
+    <div id="tab-portfolio">
 
     <div class="stats-row">
       <div class="stat-card"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Total Items</div></div>
@@ -252,8 +303,55 @@
       </div>
     </div>
 
-  </div>
-</div>
+    </div><!-- /tab-portfolio -->
+
+    <!-- ENQUIRIES TAB -->
+    <div id="tab-enquiries" style="display:none">
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num" id="eq-stat-total">—</div><div class="stat-label">Total Enquiries</div></div>
+        <div class="stat-card"><div class="stat-num" id="eq-stat-new" style="color:#c05621">—</div><div class="stat-label">New / Unread</div></div>
+        <div class="stat-card"><div class="stat-num" id="eq-stat-contacted" style="color:#2e7d32">—</div><div class="stat-label">Contacted</div></div>
+        <div class="stat-card"><div class="stat-num" id="eq-stat-month">—</div><div class="stat-label">This Month</div></div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-head">
+          <h2>All Enquiries</h2>
+          <div class="filter-pills">
+            <button class="filter-pill active" data-status="">All</button>
+            <button class="filter-pill" data-status="new">New</button>
+            <button class="filter-pill" data-status="read">Read</button>
+            <button class="filter-pill" data-status="contacted">Contacted</button>
+            <button class="filter-pill" data-status="closed">Closed</button>
+          </div>
+        </div>
+        <div style="padding:0">
+          <div id="eq-loading" class="loading-state">Loading…</div>
+          <div id="eq-empty" class="empty-state" style="display:none">
+            <div class="empty-icon">📬</div>
+            <div>No enquiries yet — they'll appear here once someone fills in the contact form.</div>
+          </div>
+          <table class="enquiry-table" id="enquiry-table" style="display:none">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Service Interest</th>
+                <th>Status</th>
+                <th style="width:70px">Action</th>
+              </tr>
+            </thead>
+            <tbody id="enquiry-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /tab-enquiries -->
+
+  </div><!-- /admin-body -->
+</div><!-- /admin-screen -->
 
 <!-- EDIT MODAL -->
 <div class="modal-backdrop" id="edit-modal">
@@ -282,6 +380,67 @@
     <div class="modal-actions">
       <button class="btn-secondary" id="edit-cancel">Cancel</button>
       <button class="btn-primary" id="edit-save">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ENQUIRY DETAIL MODAL -->
+<div class="modal-backdrop" id="enquiry-modal">
+  <div class="modal" style="width:620px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">
+      <h3 style="margin:0">Enquiry Details</h3>
+      <span id="eq-modal-badge" class="status-badge"></span>
+    </div>
+    <div class="eq-detail-grid">
+      <div class="eq-field">
+        <span class="eq-label">Name</span>
+        <span class="eq-value" id="eq-d-name"></span>
+      </div>
+      <div class="eq-field">
+        <span class="eq-label">Company</span>
+        <span class="eq-value" id="eq-d-company"></span>
+      </div>
+      <div class="eq-field">
+        <span class="eq-label">Email</span>
+        <span class="eq-value" id="eq-d-email"></span>
+      </div>
+      <div class="eq-field">
+        <span class="eq-label">Phone</span>
+        <span class="eq-value" id="eq-d-phone"></span>
+      </div>
+      <div class="eq-field">
+        <span class="eq-label">Primary Service</span>
+        <span class="eq-value" id="eq-d-service"></span>
+      </div>
+      <div class="eq-field">
+        <span class="eq-label">Also Interested In</span>
+        <span class="eq-value" id="eq-d-services"></span>
+      </div>
+      <div class="eq-field eq-field-full">
+        <span class="eq-label">Message</span>
+        <div class="eq-message" id="eq-d-message"></div>
+      </div>
+      <div class="eq-field">
+        <span class="eq-label">Submitted</span>
+        <span class="eq-value" id="eq-d-date"></span>
+      </div>
+      <div class="eq-field">
+        <span class="eq-label">Update Status</span>
+        <select class="eq-status-select" id="eq-d-status">
+          <option value="new">New</option>
+          <option value="read">Read</option>
+          <option value="contacted">Contacted</option>
+          <option value="closed">Closed</option>
+        </select>
+      </div>
+      <div class="eq-field eq-field-full">
+        <span class="eq-label">Internal Notes</span>
+        <textarea class="eq-notes" id="eq-d-notes" placeholder="Add follow-up notes, call logs, outcome…"></textarea>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="eq-modal-close">Close</button>
+      <button class="btn-primary" id="eq-modal-save">Save Changes</button>
     </div>
   </div>
 </div>
@@ -333,7 +492,151 @@ function showAdmin(user) {
   document.getElementById('admin-screen').style.display = 'block';
   document.getElementById('topbar-email').textContent = user.email;
   loadPortfolio();
+  loadEnquiryBadge();
 }
+
+// ── TABS ──────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.getElementById('tab-portfolio').style.display = tab === 'portfolio' ? 'block' : 'none';
+    document.getElementById('tab-enquiries').style.display  = tab === 'enquiries'  ? 'block' : 'none';
+    if (tab === 'enquiries') loadEnquiries();
+  });
+});
+
+// ── ENQUIRY BADGE (on login) ──────────────────────────────────────────
+async function loadEnquiryBadge() {
+  const { data } = await sb.from('fmcg_enquiries').select('id').eq('status', 'new');
+  const n = (data || []).length;
+  const badge = document.getElementById('enquiry-badge');
+  badge.textContent = n;
+  badge.style.display = n > 0 ? 'inline' : 'none';
+}
+
+// ── ENQUIRIES DATA ────────────────────────────────────────────────────
+let allEnquiries = [], eqFilter = '', currentEqId = null;
+
+async function loadEnquiries() {
+  document.getElementById('eq-loading').style.display = 'block';
+  document.getElementById('enquiry-table').style.display = 'none';
+  document.getElementById('eq-empty').style.display = 'none';
+  const { data, error } = await sb.from('fmcg_enquiries').select('*').order('created_at', { ascending: false });
+  document.getElementById('eq-loading').style.display = 'none';
+  if (error) { toast('Load error: ' + error.message, 'error'); return; }
+  allEnquiries = data || [];
+  renderEnquiries();
+  updateEqStats();
+}
+
+function updateEqStats() {
+  const now = new Date();
+  document.getElementById('eq-stat-total').textContent     = allEnquiries.length;
+  document.getElementById('eq-stat-new').textContent       = allEnquiries.filter(i => i.status === 'new').length;
+  document.getElementById('eq-stat-contacted').textContent = allEnquiries.filter(i => i.status === 'contacted').length;
+  document.getElementById('eq-stat-month').textContent     = allEnquiries.filter(i => {
+    const d = new Date(i.created_at);
+    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+  }).length;
+}
+
+function renderEnquiries() {
+  const list = eqFilter ? allEnquiries.filter(i => i.status === eqFilter) : allEnquiries;
+  if (!list.length) {
+    document.getElementById('eq-empty').style.display = 'block';
+    document.getElementById('enquiry-table').style.display = 'none';
+    return;
+  }
+  document.getElementById('eq-empty').style.display = 'none';
+  document.getElementById('enquiry-table').style.display = 'table';
+  document.getElementById('enquiry-tbody').innerHTML = list.map(item => `
+    <tr class="${item.status === 'new' ? 'eq-new' : ''}" onclick="openEnquiry('${item.id}')" style="cursor:pointer">
+      <td style="color:var(--muted);white-space:nowrap;font-size:12px">${fmtDate(item.created_at)}</td>
+      <td style="font-weight:${item.status === 'new' ? '700' : '400'}">${esc(item.first_name)} ${esc(item.last_name)}</td>
+      <td style="color:var(--muted)">${esc(item.company || '—')}</td>
+      <td style="color:var(--muted);font-size:12px">${esc(item.service || '—')}</td>
+      <td><span class="status-badge status-${item.status}">${item.status}</span></td>
+      <td><button class="btn-edit" onclick="event.stopPropagation();openEnquiry('${item.id}')">View</button></td>
+    </tr>`).join('');
+}
+
+function fmtDate(iso) {
+  return new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// ── FILTER PILLS ──────────────────────────────────────────────────────
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    eqFilter = btn.dataset.status;
+    renderEnquiries();
+  });
+});
+
+// ── ENQUIRY MODAL ─────────────────────────────────────────────────────
+function openEnquiry(id) {
+  const item = allEnquiries.find(i => i.id === id);
+  if (!item) return;
+  currentEqId = id;
+
+  // Auto-mark new → read
+  if (item.status === 'new') {
+    sb.from('fmcg_enquiries').update({ status: 'read' }).eq('id', id).then(() => {
+      item.status = 'read';
+      renderEnquiries();
+      updateEqStats();
+      loadEnquiryBadge();
+    });
+  }
+
+  document.getElementById('eq-d-name').textContent    = `${item.first_name} ${item.last_name}`;
+  document.getElementById('eq-d-company').textContent = item.company || '—';
+  document.getElementById('eq-d-email').innerHTML     = item.email ? `<a href="mailto:${esc(item.email)}">${esc(item.email)}</a>` : '—';
+  document.getElementById('eq-d-phone').innerHTML     = item.phone ? `<a href="tel:${esc(item.phone)}">${esc(item.phone)}</a>` : '—';
+  document.getElementById('eq-d-service').textContent  = item.service || '—';
+  document.getElementById('eq-d-services').textContent = item.services_checklist || '—';
+  document.getElementById('eq-d-message').textContent  = item.message || '(no message)';
+  document.getElementById('eq-d-date').textContent     = fmtDate(item.created_at);
+  document.getElementById('eq-d-status').value         = item.status;
+  document.getElementById('eq-d-notes').value          = item.admin_notes || '';
+
+  const badge = document.getElementById('eq-modal-badge');
+  badge.textContent  = item.status;
+  badge.className    = `status-badge status-${item.status}`;
+
+  document.getElementById('enquiry-modal').classList.add('show');
+}
+
+document.getElementById('eq-modal-close').addEventListener('click', () =>
+  document.getElementById('enquiry-modal').classList.remove('show'));
+document.getElementById('enquiry-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('enquiry-modal'))
+    document.getElementById('enquiry-modal').classList.remove('show');
+});
+
+document.getElementById('eq-modal-save').addEventListener('click', async () => {
+  if (!currentEqId) return;
+  const status = document.getElementById('eq-d-status').value;
+  const notes  = document.getElementById('eq-d-notes').value.trim();
+  const btn = document.getElementById('eq-modal-save');
+  btn.disabled = true; btn.textContent = 'Saving…';
+
+  const { error } = await sb.from('fmcg_enquiries').update({ status, admin_notes: notes }).eq('id', currentEqId);
+  btn.disabled = false; btn.textContent = 'Save Changes';
+  if (error) { toast('Save failed', 'error'); return; }
+
+  const item = allEnquiries.find(i => i.id === currentEqId);
+  if (item) { item.status = status; item.admin_notes = notes; }
+
+  toast('Saved ✓');
+  document.getElementById('enquiry-modal').classList.remove('show');
+  renderEnquiries();
+  updateEqStats();
+  loadEnquiryBadge();
+});
 
 // FILE DROP
 const dropZone = document.getElementById('drop-zone');

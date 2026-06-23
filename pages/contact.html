@@ -144,6 +144,7 @@
     .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
   }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -314,15 +315,38 @@
 </footer>
 
 <script>
+  const _sb = supabase.createClient(
+    'https://rqqgrnttbelsxpmfikaa.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxcWdybnR0YmVsc3hwbWZpa2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3ODYzNzIsImV4cCI6MjA5NjM2MjM3Mn0.cfSwq0ie2fsiwOgYYGgpS5WTj_eCZkYXJFntDNgbn94'
+  );
+
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = this.querySelector('button[type="submit"]');
     btn.textContent = 'Sending…';
     btn.disabled = true;
+    const fd = new FormData(this);
+    const services = [...this.querySelectorAll('input[name="services"]:checked')].map(cb => cb.value).join(', ');
+
+    // Save to Supabase (non-blocking — email still goes out even if this fails)
+    try {
+      await _sb.from('fmcg_enquiries').insert({
+        first_name: fd.get('firstName') || '',
+        last_name:  fd.get('lastName')  || '',
+        company:    fd.get('company')   || '',
+        email:      fd.get('email')     || '',
+        phone:      fd.get('phone')     || '',
+        service:    fd.get('service')   || '',
+        services_checklist: services,
+        message:    fd.get('message')   || '',
+        status:     'new'
+      });
+    } catch(err) { console.warn('Enquiry save error:', err); }
+
     try {
       const res = await fetch('https://formsubmit.co/ajax/fmcg@elitez.asia', {
         method: 'POST',
-        body: new FormData(this),
+        body: fd,
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
