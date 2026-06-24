@@ -90,6 +90,9 @@
   .service-img:hover img { transform: scale(1.04); }
   .service-img-single { border-radius: 8px; overflow: hidden; }
   .service-img-single img { width: 100%; display: block; object-fit: cover; max-height: 420px; }
+  .service-img-phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: end; }
+  .service-img-phone { border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+  .service-img-phone img { width: 100%; display: block; object-fit: cover; }
 
   .page-cta { background: var(--orange); padding: 80px 48px; position: relative; overflow: hidden; }
   .page-cta::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border: 80px solid rgba(255,255,255,0.07); border-radius: 50%; }
@@ -139,7 +142,7 @@
         <a href="services.html#activations">Brand Activations</a>
         <a href="services.html#promoters">Promoter Deployment</a>
         <a href="services.html#merchandising">Supermarket Merchandising</a>
-        <a href="services.html#digital">Digital Campaigns</a>
+        <a href="services.html#digital">Online Contest Management</a>
       </div>
     </li>
     <li><a href="beauty.html">Beauty</a></li>
@@ -235,9 +238,9 @@
 <section class="service-section" id="digital">
   <div class="service-layout reverse fade-up">
     <div class="service-content">
-      <div class="service-badge">04 — Digital Integration</div>
-      <h2 class="service-h2">DIGITAL<br><span>CAMPAIGNS</span></h2>
-      <p class="service-lead">Extend your in-store activation online — digital mechanics that amplify physical presence, capture consumer data and drive measurable engagement.</p>
+      <div class="service-badge">04 — Digital Services</div>
+      <h2 class="service-h2">ONLINE CONTEST<br><span>MANAGEMENT</span></h2>
+      <p class="service-lead">From microsite build to prize fulfilment — we run end-to-end online contest mechanics that connect your physical activation to a branded digital experience consumers can engage with on their phones.</p>
       <div class="service-points">
         <div class="service-point"><img class="service-point-icon" src="../assets/img/icon-blink-phone.png" alt="" loading="lazy"><div class="service-point-text"><h4>Microsite & Contest Mechanics</h4><p>Custom landing pages with purchase validation, entry mechanics and prize fulfilment for FMCG promotions.</p></div></div>
         <div class="service-point"><img class="service-point-icon" src="../assets/img/icon-promoter-app.png" alt="" loading="lazy"><div class="service-point-text"><h4>QR-Linked Promotional Journeys</h4><p>QR codes at POS that connect physical shelf activity to digital campaigns, receipts and loyalty programmes.</p></div></div>
@@ -247,7 +250,11 @@
       <a href="contact.html" class="btn-orange">Get a Proposal →</a>
     </div>
     <div class="service-visual">
-      <div class="service-img-single"><img src="../assets/outdoor-2.jpg" alt="Digital and outdoor activation" loading="lazy"></div>
+      <div class="service-img-phones">
+        <div class="service-img-phone"><img src="../assets/digital-1.jpg" alt="M&M's online contest — home screen" loading="lazy"></div>
+        <div class="service-img-phone"><img src="../assets/digital-2.jpg" alt="M&M's online contest — entry form" loading="lazy"></div>
+        <div class="service-img-phone"><img src="../assets/digital-3.jpg" alt="M&M's online contest — how to join" loading="lazy"></div>
+      </div>
     </div>
   </div>
 </section>
