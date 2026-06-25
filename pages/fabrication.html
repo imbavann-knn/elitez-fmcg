@@ -169,19 +169,9 @@
   .fab-workshop-footer { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 16px 24px; border-radius: 0 0 6px 6px; }
   .fab-workshop-footer p { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.2); }
 
-  /* ── LIGHTBOX SECTION ────────────────────────────────────────── */
-  .fab-lightbox { background: var(--white); padding: 96px 48px; }
-  .fab-lightbox-intro { max-width: 640px; margin-bottom: 56px; }
-  .fab-lightbox-intro p { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
-  .fab-lightbox-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
-  .fab-lb-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
-  .fab-lb-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
-  .fab-lb-card-visual { height: 160px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  /* Lightbox glow effects via CSS */
-  .lb-fab-lightbox { background: radial-gradient(ellipse at center, rgba(255,200,80,0.3) 0%, rgba(255,120,0,0.15) 40%, #1a1a1a 100%); }
-  .lb-led-panel { background: radial-gradient(ellipse at center, rgba(120,200,255,0.3) 0%, rgba(60,120,220,0.1) 40%, #0d1a2e 100%); }
-  .lb-3d-lettering { background: linear-gradient(135deg, #1a1a1a 0%, #2a2010 50%, #1a1a1a 100%); }
-  .lb-backlit { background: radial-gradient(ellipse at center, rgba(255,140,40,0.4) 0%, rgba(200,80,0,0.2) 40%, #111 100%); }
+  /* ── PHOTO STRIP ─────────────────────────────────────────────── */
+  .fab-photo-strip { display: flex; gap: 8px; margin-top: 32px; border-radius: 6px; overflow: hidden; }
+  .fab-photo-strip img { flex: 1; height: 200px; object-fit: cover; min-width: 0; display: block; }
   .fab-lb-card-visual svg { position: relative; z-index: 1; }
   .fab-lb-card-body { padding: 18px; }
   .fab-lb-card-body h4 { font-family: 'Bebas Neue', cursive; font-size: 18px; letter-spacing: 2px; color: var(--black); margin-bottom: 4px; }
@@ -326,7 +316,7 @@
 <div class="fab-hero">
   <div class="fab-hero-inner">
     <div class="fade-up">
-      <div class="fab-hero-eyebrow">Print · POSM · Fabrication · Lightbox</div>
+      <div class="fab-hero-eyebrow">Print · POSM · Fabrication · Installation</div>
       <h1>FROM BRIEF<br>TO <span>INSTALLED</span></h1>
       <p class="fab-hero-lead">Print. Build. Install. We manage the full fabrication chain for your brand activation — from artwork to on-site installation — through our trusted partner network and our own in-house workshop.</p>
       <div class="fab-hero-actions">
@@ -353,8 +343,8 @@
         </div>
         <div class="fab-hero-tile">
           <div class="fab-hero-tile-num">04</div>
-          <h3>Lightbox & Signage</h3>
-          <p>SEG fabric lightboxes, LED panels, 3D lettering</p>
+          <h3>Deliver & Install</h3>
+          <p>Island-wide delivery, installation & teardown</p>
         </div>
       </div>
     </div>
@@ -447,13 +437,13 @@
           <div class="fab-spec-card-value">PANTONE</div>
           <div class="fab-spec-card-sub">Brand-accurate colour matching</div>
         </div>
-        <div class="fab-spec-card" style="grid-column: span 2; background: var(--orange-pale);">
-          <div class="fab-spec-card-label">Print Partner</div>
-          <div class="fab-spec-card-value" style="font-size:20px; color: var(--orange);">YouPrintIt.com.sg</div>
-          <div class="fab-spec-card-sub">Singapore-based print specialist, ISO-standard production</div>
-        </div>
       </div>
     </div>
+  </div>
+  <div class="fab-photo-strip">
+    <img src="../assets/outdoor-1.jpg" alt="Large format print installation">
+    <img src="../assets/outdoor-2.jpg" alt="Brand activation print">
+    <img src="../assets/outdoor-3.jpg" alt="Outdoor print work">
   </div>
 </section>
 
@@ -515,12 +505,12 @@
           <h4>Dump Bins</h4>
         </div>
       </div>
-      <div style="margin-top:12px; background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--orange); padding: 16px 20px; border-radius: 0 4px 4px 0;">
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--mid-gray); margin-bottom:4px;">POSM Partner</div>
-        <div style="font-family:'Bebas Neue',cursive; font-size:18px; letter-spacing:1px; color:var(--orange);">3Degrees.com.my</div>
-        <div style="font-size:11px; color:var(--text-muted);">Regional POSM specialist — Malaysia & Singapore market coverage</div>
-      </div>
     </div>
+  </div>
+  <div class="fab-photo-strip">
+    <img src="../assets/carlsberg-1.jpg" alt="POSM brand activation">
+    <img src="../assets/nescafe-1.jpg" alt="In-store POSM display">
+    <img src="../assets/perrier-1.jpg" alt="Retail POSM fabrication">
   </div>
 </section>
 
@@ -600,14 +590,8 @@
   </div>
 </section>
 
-<!-- ── LIGHTBOX & SIGNAGE ─────────────────────────────────────── -->
-<section class="fab-lightbox fade-up" id="lightbox">
-  <div class="fab-lightbox-intro">
-    <div class="kicker">04 — Lightbox & Signage</div>
-    <h2 class="h2-dark">LIGHT IT UP.<br><span>STAND OUT.</span></h2>
-    <p>Illuminated displays that command attention at eye level and above — from fabric SEG lightboxes at mall atriums to LED edge-lit panels at retail counters and 3D box-up lettering on branded booths.</p>
-  </div>
-  <div class="fab-lightbox-grid">
+<!-- lightbox section removed -->
+<div style="display:none" id="lightbox"><div class="fab-lightbox-grid">
     <div class="fab-lb-card">
       <div class="fab-lb-card-visual lb-fab-lightbox">
         <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
@@ -681,7 +665,7 @@
       <div class="fab-lb-spec-value">Under 1 HR</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ── INSTALLATION & LOGISTICS ──────────────────────────────── -->
 <section class="fab-install fade-up">
