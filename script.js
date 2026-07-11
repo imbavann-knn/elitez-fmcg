@@ -166,3 +166,46 @@ function showToast(message, icon = '✓') {
     }
   }, { passive: true });
 })();
+
+/* ── PostHog — Nav CTA tracking ─────────────────────────────── */
+(function () {
+  document.querySelectorAll('.nav-cta').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (typeof posthog !== 'undefined') {
+        posthog.capture('nav_quote_cta_clicked', {
+          page: window.location.pathname
+        });
+      }
+    });
+  });
+})();
+
+/* ── PostHog — Portfolio tracking ──────────────────────────── */
+(function () {
+  const lightbox = document.querySelector('.lightbox');
+  if (!lightbox) return;
+
+  document.querySelectorAll('.project-tile').forEach(function(tile) {
+    tile.addEventListener('click', function() {
+      if (typeof posthog !== 'undefined') {
+        const label = tile.querySelector('.gallery-label, .project-label, img');
+        posthog.capture('portfolio_project_opened', {
+          project: label ? (label.textContent || label.alt || '').trim() : 'unknown'
+        });
+      }
+    });
+  });
+})();
+
+/* ── PostHog — Portfolio filter tracking ───────────────────── */
+(function () {
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof posthog !== 'undefined') {
+        posthog.capture('portfolio_filter_applied', {
+          filter: btn.dataset.filter || btn.textContent.trim()
+        });
+      }
+    });
+  });
+})();

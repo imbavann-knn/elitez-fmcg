@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <meta name="keywords" content="brand activation quote Singapore, FMCG activation agency contact, field marketing Singapore enquiry">
 <link rel="canonical" href="https://fmcg.elitez.ai/pages/contact">
+<script src="../posthog.js"></script>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root { --orange: #FF5500; --orange-hover: #E84A00; --orange-pale: #FFF3EE; --black: #111; --white: #fff; --gray: #F4F4F2; --mid-gray: #888; --border: #E8E8E5; --text-muted: #777; --nav-h: 72px; }
@@ -366,6 +367,7 @@
       <a href="inventory">Rental</a>
       <a href="about">About</a>
       <a href="contact">Contact</a>
+      <a href="https://events.elitez.ai" target="_blank">Elitez Events ↗</a>
     </div>
     <div class="footer-copy">© 2025 Elitez FMCG</div>
   </div>
@@ -410,6 +412,13 @@
         document.getElementById('contactForm').style.display = 'none';
         document.getElementById('formSuccess').classList.add('show');
         window.scrollTo({ top: document.querySelector('.contact-form-side').offsetTop - 100, behavior: 'smooth' });
+        if (typeof posthog !== 'undefined') {
+          posthog.capture('quote_form_submitted', {
+            company: fd.get('company') || '',
+            services_selected: services,
+            has_phone: !!(fd.get('phone') || '').trim()
+          });
+        }
       } else { throw new Error(); }
     } catch {
       btn.textContent = 'Send Brief →';
@@ -419,6 +428,30 @@
   });
   const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }), {threshold:0.1});
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // PostHog — contact page events
+  if (typeof posthog !== 'undefined') {
+    posthog.capture('contact_page_viewed');
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        posthog.capture('phone_number_clicked', { number: link.getAttribute('href') });
+      });
+    });
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        posthog.capture('email_link_clicked');
+      });
+    });
+
+    var linkedInLink = document.querySelector('a[href*="linkedin.com"]');
+    if (linkedInLink) {
+      linkedInLink.addEventListener('click', function() {
+        posthog.capture('linkedin_clicked');
+      });
+    }
+  }
 </script>
 </body>
 </html>

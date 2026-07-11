@@ -15,6 +15,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="canonical" href="https://fmcg.elitez.ai/">
+<meta name="google-site-verification" content="HT-yX6Z6H1M4-M52oV3d-eFzNHMmurC6wWvSxYd0x9M" />
+<script src="/posthog.js"></script>
 
 <!-- Open Graph / Social sharing -->
 <meta property="og:type" content="website">
@@ -1375,6 +1377,7 @@
         <li><a href="mailto:eevann.seah@elitez.asia">eevann.seah@elitez.asia</a></li>
         <li><a href="tel:+6581800994">+65 8180 0994</a></li>
         <li><a href="https://www.elitez.asia" target="_blank">elitez.asia ↗</a></li>
+        <li><a href="https://events.elitez.ai" target="_blank">events.elitez.ai ↗</a></li>
       </ul>
     </div>
   </div>
@@ -1397,6 +1400,32 @@
     });
   }, { threshold: 0.1 });
   fadeEls.forEach(el => obs.observe(el));
+
+  // PostHog — homepage event tracking
+  document.querySelectorAll('.service-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var title = card.querySelector('.service-title');
+      posthog.capture('service_card_clicked', {
+        service: title ? title.textContent.trim() : 'unknown',
+        href: card.getAttribute('href') || ''
+      });
+    });
+  });
+
+  document.querySelectorAll('.btn-primary[href="pages/contact"], .btn-white[href="pages/contact"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      posthog.capture('quote_cta_clicked', {
+        location: btn.closest('#hero') ? 'hero' : 'cta_section'
+      });
+    });
+  });
+
+  var blinkBtn = document.querySelector('#blink .btn-primary[href="pages/blink"]');
+  if (blinkBtn) {
+    blinkBtn.addEventListener('click', function() {
+      posthog.capture('blink_cta_clicked', { location: 'homepage' });
+    });
+  }
 </script>
 </body>
 </html>
