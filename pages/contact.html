@@ -292,8 +292,8 @@
           <label>Tell Us About Your Campaign</label>
           <textarea name="message" placeholder="Brief us — channels, timeline, number of outlets, campaign objectives, budget range (optional)..."></textarea>
         </div>
-        <button type="submit" class="submit-btn">Send Brief →</button>
-        <p class="form-note">We'll respond within 48 hours · No commitment required</p>
+        <button type="submit" class="submit-btn">Get a Proposal in 48hrs →</button>
+        <p class="form-note">No commitment required · We'll clarify scope before sending costs</p>
       </form>
 
       <div class="form-success" id="formSuccess">
@@ -354,6 +354,57 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding: 80px 48px; background: var(--gray);">
+  <div style="max-width: 760px; margin: 0 auto;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px;">Common Questions</div>
+    <h2 style="font-family: 'Bebas Neue', cursive; font-size: clamp(36px,4vw,52px); letter-spacing: 3px; color: var(--black); line-height: 1; margin-bottom: 48px;">BEFORE YOU <span style="color: var(--orange);">HIT SEND</span></h2>
+    <div style="display: flex; flex-direction: column; gap: 0;">
+
+      <details style="border-top: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          Is there a minimum headcount or campaign size?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">No minimum. We deploy from a single outlet to 100+ locations simultaneously. Whether you need one promoter for a weekend sampling or a 300-strong team for a national launch, the process is the same.</p>
+      </details>
+
+      <details style="border-top: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          How fast can you deploy from brief to first shift?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">Typically 5–7 business days for new campaigns, 2–3 days for repeat clients already set up on BLINK. Rush deployments can be arranged — just flag your timeline in the brief and we'll confirm feasibility in the first call.</p>
+      </details>
+
+      <details style="border-top: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          What's included in the price — any hidden fees?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">Proposals are all-in: promoter fees, ops management, BLINK platform access, training coordination, and reporting. The only variable is logistics (warehousing, delivery, POSM fabrication) which is quoted separately when applicable. No surprises at invoice.</p>
+      </details>
+
+      <details style="border-top: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          What happens if a promoter doesn't show up on the day?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">BLINK tracks attendance in real time — our ops team is alerted the moment a check-in is missed. Same-day replacements from our 1,000+ roster are part of our standard deployment commitment. You won't be left with an empty booth.</p>
+      </details>
+
+      <details style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          Do you only operate in Singapore?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">Our promoter roster and retail coverage is Singapore-based — NTUC, Cold Storage, Giant, Sheng Siong and major malls island-wide. For Malaysia and regional markets, reach out and we'll discuss options through our Elitez Group partners.</p>
+      </details>
+
+    </div>
   </div>
 </section>
 
@@ -421,7 +472,7 @@
         }
       } else { throw new Error(); }
     } catch {
-      btn.textContent = 'Send Brief →';
+      btn.textContent = 'Get a Proposal in 48hrs →';
       btn.disabled = false;
       alert('Something went wrong. Please email us at fmcg@elitez.asia or call +65 8180 0994.');
     }
