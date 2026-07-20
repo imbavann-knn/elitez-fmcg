@@ -477,7 +477,7 @@
       alert('Something went wrong. Please email us at fmcg@elitez.asia or call +65 8180 0994.');
     }
   });
-  if(typeof gsap==='undefined'){const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));}
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
   // PostHog — contact page events
   if (typeof posthog !== 'undefined') {
@@ -504,9 +504,5 @@
   }
 </script>
 <!-- Lenis smooth scroll + GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
-<script defer>window.addEventListener("load",function(){if(typeof gsap==="undefined"||typeof Lenis==="undefined")return;var s=document.createElement("script");s.src="../assets/js/animations.js";document.body.appendChild(s);});</script>
 </body>
 </html>
