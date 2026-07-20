@@ -1,0 +1,444 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Contact Elitez FMCG | Get a Quote"
+  description="Get in touch with Elitez FMCG for brand activations, promoter deployment and field marketing services in Singapore."
+  canonical="https://fmcg.elitez.ai/pages/contact"
+  keywords="contact Elitez FMCG, brand activation quote Singapore, promoter agency contact"
+>
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Elitez FMCG",
+  "url": "https://fmcg.elitez.ai/",
+  "logo": "https://fmcg.elitez.ai/assets/logo-nav.png",
+  "telephone": "+65 8180 0994",
+  "email": "fmcg@elitez.asia",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Kallang Ave, CT Hub #03-08",
+    "addressLocality": "Singapore",
+    "postalCode": "339407",
+    "addressCountry": "SG"
+  },
+  "areaServed": "SG",
+  "priceRange": "$$",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+65 8180 0994",
+    "email": "fmcg@elitez.asia",
+    "contactType": "sales",
+    "areaServed": "SG",
+    "availableLanguage": [
+      "en"
+    ]
+  }
+}
+</script>
+</Fragment>
+<style is:global>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --orange: #FF5500; --orange-hover: #E84A00; --orange-pale: #FFF3EE; --black: #111; --white: #fff; --gray: #F4F4F2; --mid-gray: #888; --border: #E8E8E5; --text-muted: #777; --nav-h: 72px; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-logo-text { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 3px; color: var(--black); }
+  .nav-logo-text span { color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--black); }
+  .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 3px; }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
+  /* SERVICES DROPDOWN */
+  .has-dropdown { position: relative; align-self: stretch; display: flex; align-items: center; }
+  .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .has-dropdown > a::after { content: '▾'; font-size: 11px; opacity: 0.5; transition: opacity 0.2s; }
+  .has-dropdown:hover > a::after { opacity: 1; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--orange); border-radius: 0 0 4px 4px; padding: 4px 0; min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+  .nav-dropdown::before { display: none; }
+  .has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: block !important; padding: 9px 18px; font-family: 'Barlow', sans-serif !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; color: #888 !important; background: none !important; transition: color 0.15s, background 0.15s !important; white-space: nowrap; border-radius: 0 !important; }
+  .nav-dropdown a:hover { color: var(--orange) !important; background: var(--orange-pale) !important; }
+
+  /* HERO */
+  .contact-hero { padding-top: var(--nav-h); background: var(--black); }
+  .contact-hero-inner { padding: 72px 48px 60px; position: relative; overflow: hidden; }
+  .contact-hero-inner::before { content: 'CONTACT'; position: absolute; top: 0; right: -10px; font-family: 'Bebas Neue', cursive; font-size: 180px; letter-spacing: 6px; color: rgba(255,255,255,0.02); pointer-events: none; line-height: 1; }
+  .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+  .breadcrumb a { color: var(--orange); text-decoration: none; }
+  .contact-hero-inner h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(56px, 7vw, 96px); letter-spacing: 3px; color: var(--white); line-height: 0.9; margin-bottom: 20px; }
+  .contact-hero-inner h1 span { color: var(--orange); }
+  .contact-hero-inner > p { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5); max-width: 480px; line-height: 1.65; }
+
+  /* MAIN CONTACT SECTION */
+  .contact-main { padding: 96px 48px; background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+  /* FORM */
+  .contact-form-side {}
+  .form-heading { font-family: 'Bebas Neue', cursive; font-size: 36px; letter-spacing: 3px; color: var(--black); margin-bottom: 8px; }
+  .form-heading span { color: var(--orange); }
+  .form-sub { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 32px; }
+
+  form { display: flex; flex-direction: column; gap: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); }
+  .form-group input:not([type="checkbox"]),
+  .form-group select,
+  .form-group textarea {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    background: var(--gray);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--orange); background: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-group select { cursor: pointer; }
+
+  .checkboxes { display: flex; flex-direction: column; gap: 10px; }
+  .checkbox-item { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .checkbox-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--orange); cursor: pointer; flex-shrink: 0; }
+  .checkbox-item span { font-size: 13px; color: #555; }
+
+  .submit-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--orange); color: var(--white);
+    font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 16px 32px; border-radius: 3px; border: none;
+    cursor: pointer; transition: background 0.2s, transform 0.15s;
+    width: 100%;
+  }
+  .submit-btn:hover { background: var(--orange-hover); transform: translateY(-1px); }
+
+  .form-note { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--mid-gray); text-align: center; margin-top: -8px; }
+
+  /* CONTACT INFO SIDE */
+  .contact-info-side {}
+  .info-heading { font-family: 'Bebas Neue', cursive; font-size: 36px; letter-spacing: 3px; color: var(--black); margin-bottom: 8px; }
+  .info-heading span { color: var(--orange); }
+  .info-sub { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 36px; }
+
+  .contact-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+  .contact-card { background: var(--gray); border-radius: 8px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; border-left: 4px solid var(--orange); }
+  .contact-card-icon { font-size: 22px; flex-shrink: 0; }
+  .contact-card-text h4 { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+  .contact-card-text a, .contact-card-text p { font-size: 14px; color: var(--text-muted); text-decoration: none; line-height: 1.6; display: block; transition: color 0.2s; }
+  .contact-card-text a:hover { color: var(--orange); }
+
+  .response-promise { background: var(--black); border-radius: 8px; padding: 28px; }
+  .response-promise h4 { font-family: 'Bebas Neue', cursive; font-size: 24px; letter-spacing: 2px; color: var(--white); margin-bottom: 12px; }
+  .response-promise h4 span { color: var(--orange); }
+  .response-promise p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .promise-list { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .promise-list li { font-size: 13px; color: rgba(255,255,255,0.6); padding-left: 16px; position: relative; line-height: 1.4; }
+  .promise-list li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 700; font-size: 12px; }
+
+  /* SUCCESS STATE */
+  .form-success { display: none; text-align: center; padding: 60px 32px; background: var(--gray); border-radius: 8px; }
+  .form-success.show { display: block; }
+  .form-success-icon { font-size: 48px; margin-bottom: 16px; }
+  .form-success h3 { font-family: 'Bebas Neue', cursive; font-size: 36px; letter-spacing: 3px; color: var(--black); margin-bottom: 8px; }
+  .form-success p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+  footer { background: var(--black); padding: 32px 48px; }
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo-img { height: 36px; width: auto; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.2); }
+
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } .nav-links { display: none; }
+    .contact-hero-inner { padding: 48px 24px 40px; }
+    .contact-main { padding: 64px 24px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { padding: 32px 24px; }
+    .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+
+<div class="contact-hero">
+  <div class="contact-hero-inner">
+    <div class="breadcrumb"><a href="../">Home</a> / Contact</div>
+    <h1><span>LET'S</span> BUILD YOUR <span>NEXT<br>CAMPAIGN.</span></h1>
+    <p>Send us your brief and we'll respond with a tailored proposal within 48 hours.</p>
+  </div>
+</div>
+
+<section class="contact-main">
+  <div class="contact-grid">
+
+    <!-- FORM -->
+    <div class="contact-form-side fade-up">
+      <h2 class="form-heading">GET A <span>QUOTE</span></h2>
+      <p class="form-sub">Fill in the form and we'll get back to you within 48 hours with a tailored proposal.</p>
+
+      <form id="contactForm">
+        <input type="hidden" name="_subject" value="New Campaign Enquiry — Elitez FMCG">
+        <input type="hidden" name="_autoresponse" value="Hi, thanks for reaching out to Elitez FMCG! We've received your brief and will respond within 48 hours with a tailored proposal. If you have urgent needs, feel free to call us at +65 8180 0994. — The Elitez FMCG Team">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" name="firstName" placeholder="Jane" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" name="lastName" placeholder="Tan" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Company / Brand *</label>
+          <input type="text" name="company" placeholder="Your company or brand name" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" name="email" placeholder="jane@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="+65 9000 0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Services Needed (select all that apply)</label>
+          <div class="checkboxes" style="display:grid; grid-template-columns:1fr 1fr; gap:10px 24px;">
+            <label class="checkbox-item"><input type="checkbox" name="services" value="activations"><span>Brand Activations</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="promoters"><span>Promoter Deployment</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="merchandising"><span>Supermarket Merchandising</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="contest"><span>Online Contest Management</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="beauty"><span>Beauty & Cosmetics</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="digital-marketing"><span>Digital Marketing</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="print"><span>Print & Large Format</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="posm"><span>POSM Fabrication</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="carpentry"><span>Carpentry & Booth Builds</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="rental"><span>Equipment Rental</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="blink"><span>BLINK Platform Access</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tell Us About Your Campaign</label>
+          <textarea name="message" placeholder="Brief us — channels, timeline, number of outlets, campaign objectives, budget range (optional)..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Get a Proposal in 48hrs →</button>
+        <p class="form-note">No commitment required · We'll clarify scope before sending costs</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✅</div>
+        <h3>BRIEF RECEIVED!</h3>
+        <p>Thanks for reaching out. Eevann or a member of the Elitez FMCG team will get back to you within 48 hours with a tailored proposal.</p>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="contact-info-side fade-up">
+      <h2 class="info-heading">REACH US <span>DIRECTLY</span></h2>
+      <p class="info-sub">Prefer to talk first? Reach out directly — we're happy to jump on a call to understand your needs before we put a proposal together.</p>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-card-icon">👤</div>
+          <div class="contact-card-text">
+            <h4>Eevann Seah — BU Lead</h4>
+            <a href="mailto:eevann.seah@elitez.asia">eevann.seah@elitez.asia</a>
+            <a href="tel:+6581800994">+65 8180 0994</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">👤</div>
+          <div class="contact-card-text">
+            <h4>Jorena Tan — Assistant Manager</h4>
+            <a href="mailto:jorena.tan@elitez.asia">jorena.tan@elitez.asia</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">🌐</div>
+          <div class="contact-card-text">
+            <h4>Group Website</h4>
+            <a href="https://www.elitez.asia" target="_blank">www.elitez.asia ↗</a>
+            <p>Part of Elitez Group of Companies</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">💼</div>
+          <div class="contact-card-text">
+            <h4>LinkedIn</h4>
+            <a href="https://www.linkedin.com/in/eevann-seah-a68a63148/" target="_blank">Connect with Eevann on LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="response-promise">
+        <h4>WHAT HAPPENS <span>NEXT</span></h4>
+        <p>Once we receive your brief, here's what to expect:</p>
+        <ul class="promise-list">
+          <li>We'll review your brief within the same business day</li>
+          <li>Our team will reach out to clarify scope and objectives if needed</li>
+          <li>A tailored proposal lands in your inbox within 48 hours</li>
+          <li>Proposal includes team structure, activation plan and indicative costs</li>
+          <li>No commitment required — the first conversation is always free</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding: 80px 48px; background: var(--gray);">
+  <div style="max-width: 760px; margin: 0 auto;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px;">Common Questions</div>
+    <h2 style="font-family: 'Bebas Neue', cursive; font-size: clamp(36px,4vw,52px); letter-spacing: 3px; color: var(--black); line-height: 1; margin-bottom: 48px;">BEFORE YOU <span style="color: var(--orange);">HIT SEND</span></h2>
+    <div style="display: flex; flex-direction: column; gap: 0;">
+
+      <details style="border-top: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          Is there a minimum headcount or campaign size?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">No minimum. We deploy from a single outlet to 100+ locations simultaneously. Whether you need one promoter for a weekend sampling or a 300-strong team for a national launch, the process is the same.</p>
+      </details>
+
+      <details style="border-top: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          How fast can you deploy from brief to first shift?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">Typically 5–7 business days for new campaigns, 2–3 days for repeat clients already set up on BLINK. Rush deployments can be arranged — just flag your timeline in the brief and we'll confirm feasibility in the first call.</p>
+      </details>
+
+      <details style="border-top: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          What's included in the price — any hidden fees?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">Proposals are all-in: promoter fees, ops management, BLINK platform access, training coordination, and reporting. The only variable is logistics (warehousing, delivery, POSM fabrication) which is quoted separately when applicable. No surprises at invoice.</p>
+      </details>
+
+      <details style="border-top: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          What happens if a promoter doesn't show up on the day?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">BLINK tracks attendance in real time — our ops team is alerted the moment a check-in is missed. Same-day replacements from our 1,000+ roster are part of our standard deployment commitment. You won't be left with an empty booth.</p>
+      </details>
+
+      <details style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; cursor: pointer;">
+        <summary style="font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+          Do you only operate in Singapore?
+          <span style="font-size: 20px; color: var(--orange); flex-shrink: 0; font-weight: 300;">+</span>
+        </summary>
+        <p style="font-size: 14px; color: #666; line-height: 1.7; margin-top: 12px;">Our promoter roster and retail coverage is Singapore-based — NTUC, Cold Storage, Giant, Sheng Siong and major malls island-wide. For Malaysia and regional markets, reach out and we'll discuss options through our Elitez Group partners.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const _sb = supabase.createClient(
+    'https://rqqgrnttbelsxpmfikaa.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxcWdybnR0YmVsc3hwbWZpa2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3ODYzNzIsImV4cCI6MjA5NjM2MjM3Mn0.cfSwq0ie2fsiwOgYYGgpS5WTj_eCZkYXJFntDNgbn94'
+  );
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    const fd = new FormData(this);
+    const services = [...this.querySelectorAll('input[name="services"]:checked')].map(cb => cb.value).join(', ');
+
+    // Save to Supabase (non-blocking — email still goes out even if this fails)
+    try {
+      await _sb.from('fmcg_enquiries').insert({
+        first_name: fd.get('firstName') || '',
+        last_name:  fd.get('lastName')  || '',
+        company:    fd.get('company')   || '',
+        email:      fd.get('email')     || '',
+        phone:      fd.get('phone')     || '',
+        service:    fd.get('service')   || '',
+        services_checklist: services,
+        message:    fd.get('message')   || '',
+        status:     'new'
+      });
+    } catch(err) { console.warn('Enquiry save error:', err); }
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/fmcg@elitez.asia', {
+        method: 'POST',
+        body: fd,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+        window.scrollTo({ top: document.querySelector('.contact-form-side').offsetTop - 100, behavior: 'smooth' });
+        if (typeof posthog !== 'undefined') {
+          posthog.capture('quote_form_submitted', {
+            company: fd.get('company') || '',
+            services_selected: services,
+            has_phone: !!(fd.get('phone') || '').trim()
+          });
+        }
+      } else { throw new Error(); }
+    } catch {
+      btn.textContent = 'Get a Proposal in 48hrs →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us at fmcg@elitez.asia or call +65 8180 0994.');
+    }
+  });
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+  // PostHog — contact page events
+  if (typeof posthog !== 'undefined') {
+    posthog.capture('contact_page_viewed');
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        posthog.capture('phone_number_clicked', { number: link.getAttribute('href') });
+      });
+    });
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        posthog.capture('email_link_clicked');
+      });
+    });
+
+    var linkedInLink = document.querySelector('a[href*="linkedin.com"]');
+    if (linkedInLink) {
+      linkedInLink.addEventListener('click', function() {
+        posthog.capture('linkedin_clicked');
+      });
+    }
+  }
+</script>
+<!-- Lenis smooth scroll + GSAP -->
+</BaseLayout>

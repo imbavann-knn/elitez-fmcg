@@ -2,9 +2,14 @@
   "name": "elitez-fmcg",
   "version": "1.0.0",
   "private": true,
-  "description": "Elitez FMCG marketing site — Railway-hosted",
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "start": "node server.js"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
   },
   "engines": {
     "node": ">=18"

@@ -1,0 +1,693 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Print & Fabrication | Elitez FMCG Singapore"
+  description="End-to-end print and fabrication for FMCG brand activations — POS materials, standees, banners, displays and delivery to outlets across Singapore."
+  canonical="https://fmcg.elitez.ai/pages/fabrication"
+  keywords="print fabrication Singapore, POS materials Singapore, FMCG display fabrication, brand activation materials"
+>
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Elitez FMCG",
+  "url": "https://fmcg.elitez.ai/",
+  "logo": "https://fmcg.elitez.ai/assets/logo-nav.png",
+  "telephone": "+65 8180 0994",
+  "email": "fmcg@elitez.asia",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Kallang Ave, CT Hub #03-08",
+    "addressLocality": "Singapore",
+    "postalCode": "339407",
+    "addressCountry": "SG"
+  },
+  "areaServed": "SG",
+  "priceRange": "$$"
+}
+</script>
+</Fragment>
+<style is:global>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #FF5500; --orange-hover: #E84A00; --orange-pale: #FFF3EE;
+    --black: #111; --white: #fff; --gray: #F4F4F2; --off-white: #FAFAF8;
+    --mid-gray: #888; --border: #E8E8E5; --text-muted: #777; --nav-h: 72px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--black); }
+  .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 3px; }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
+  .has-dropdown { position: relative; align-self: stretch; display: flex; align-items: center; }
+  .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .has-dropdown > a::after { content: '▾'; font-size: 11px; opacity: 0.5; transition: opacity 0.2s; }
+  .has-dropdown:hover > a::after { opacity: 1; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--orange); border-radius: 0 0 4px 4px; padding: 4px 0; min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+  .nav-dropdown::before { display: none; }
+  .has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: block !important; padding: 9px 18px; font-family: 'Barlow', sans-serif !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; color: #888 !important; background: none !important; transition: color 0.15s, background 0.15s !important; white-space: nowrap; border-radius: 0 !important; }
+  .nav-dropdown a:hover { color: var(--orange) !important; background: var(--orange-pale) !important; }
+
+  /* SHARED */
+  .kicker { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+  .kicker-light { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+  .h2-dark { font-family: 'Bebas Neue', cursive; font-size: clamp(40px, 4vw, 60px); letter-spacing: 3px; color: var(--black); line-height: 1; margin-bottom: 20px; }
+  .h2-dark span { color: var(--orange); }
+  .h2-light { font-family: 'Bebas Neue', cursive; font-size: clamp(40px, 4vw, 60px); letter-spacing: 3px; color: var(--white); line-height: 1; margin-bottom: 20px; }
+  .h2-light span { color: var(--orange); }
+  .btn-orange { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-orange:hover { background: var(--orange-hover); transform: translateY(-1px); }
+  .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.75); font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+  .btn-outline-white:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--orange); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; transition: transform 0.15s; flex-shrink: 0; }
+  .btn-white:hover { transform: translateY(-2px); }
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── HERO ─────────────────────────────────────────────────────── */
+  .fab-hero { padding-top: var(--nav-h); background: var(--black); position: relative; overflow: hidden; }
+  .fab-hero::before { content: 'FABRICATE'; position: absolute; right: -20px; top: 50%; transform: translateY(-60%); font-family: 'Bebas Neue', cursive; font-size: 220px; letter-spacing: 6px; color: rgba(255,255,255,0.02); pointer-events: none; white-space: nowrap; line-height: 1; }
+  .fab-hero-inner { padding: 80px 48px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; }
+  .fab-hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+  .fab-hero h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(60px, 8vw, 96px); letter-spacing: 2px; color: var(--white); line-height: 0.92; margin-bottom: 28px; }
+  .fab-hero h1 span { color: var(--orange); }
+  .fab-hero-lead { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.5); line-height: 1.75; max-width: 460px; margin-bottom: 36px; }
+  .fab-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .fab-hero-visual { position: relative; align-self: end; }
+
+  /* Hero visual — grid of service category labels */
+  .fab-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .fab-hero-tile { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 28px 24px; position: relative; overflow: hidden; }
+  .fab-hero-tile::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--orange); opacity: 0; transition: opacity 0.3s; }
+  .fab-hero-tile:hover::before { opacity: 1; }
+  .fab-hero-tile-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.2); margin-bottom: 8px; }
+  .fab-hero-tile h3 { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 2px; color: var(--white); margin-bottom: 4px; }
+  .fab-hero-tile p { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.5; }
+
+  /* Hero strip */
+  .fab-hero-strip { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .fab-hero-strip-item { padding: 20px 48px; border-right: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 10px; }
+  .fab-hero-strip-item:last-child { border-right: none; }
+  .fab-hero-strip-item .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+  .fab-hero-strip-item span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+  /* ── ONE-STOP PROPOSITION ────────────────────────────────────── */
+  .fab-prop { background: var(--gray); padding: 80px 48px; }
+  .fab-prop-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+  .fab-prop-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+  .fab-prop-text p strong { color: var(--black); }
+  .fab-prop-flow { display: flex; flex-direction: column; gap: 2px; }
+  .fab-prop-step { background: var(--white); padding: 20px 24px; display: flex; align-items: center; gap: 16px; border-left: 3px solid transparent; transition: border-color 0.2s; }
+  .fab-prop-step:hover { border-left-color: var(--orange); }
+  .fab-prop-step-num { font-family: 'Bebas Neue', cursive; font-size: 32px; color: var(--orange); opacity: 0.3; flex-shrink: 0; width: 32px; line-height: 1; }
+  .fab-prop-step-text h4 { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 2px; }
+  .fab-prop-step-text p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .fab-prop-arrow { text-align: center; padding: 4px; font-size: 16px; color: var(--orange); opacity: 0.4; }
+
+  /* ── PRINT & LARGE FORMAT ─────────────────────────────────────── */
+  .fab-section { padding: 96px 48px; }
+  .fab-section.dark { background: var(--black); }
+  .fab-section.light { background: var(--white); }
+  .fab-section.gray { background: var(--gray); }
+  .fab-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .fab-split.reverse .fab-content { order: 2; }
+  .fab-split.reverse .fab-visual { order: 1; }
+  .fab-badge { display: inline-flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; border: 1px solid rgba(255,85,0,0.25); padding: 5px 12px; border-radius: 2px; background: var(--orange-pale); }
+  .fab-badge-dark { display: inline-flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; border: 1px solid rgba(255,85,0,0.3); padding: 5px 12px; border-radius: 2px; background: rgba(255,85,0,0.08); }
+  .fab-lead { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 28px; max-width: 480px; }
+  .fab-lead-light { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 28px; max-width: 480px; }
+  .fab-items { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 32px; }
+  .fab-item { background: var(--gray); border-radius: 4px; padding: 12px 14px; font-size: 13px; color: var(--black); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .fab-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+  .fab-item-dark { background: rgba(255,255,255,0.05); border-radius: 4px; padding: 12px 14px; font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .fab-item-dark::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+
+  /* Print visual — spec grid */
+  .fab-spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
+  .fab-spec-card { background: var(--white); padding: 24px; }
+  .fab-spec-card-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 6px; }
+  .fab-spec-card-value { font-family: 'Bebas Neue', cursive; font-size: 28px; letter-spacing: 1px; color: var(--black); line-height: 1; margin-bottom: 4px; }
+  .fab-spec-card-sub { font-size: 11px; color: var(--text-muted); }
+
+  /* POSM visual — product type tiles */
+  .fab-posm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .fab-posm-tile { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px 16px; text-align: center; transition: border-color 0.2s, transform 0.2s; }
+  .fab-posm-tile:hover { border-color: var(--orange); transform: translateY(-3px); }
+  .fab-posm-tile-icon { width: 40px; height: 40px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; }
+  .fab-posm-tile h4 { font-size: 12px; font-weight: 700; color: var(--black); letter-spacing: 0.3px; }
+
+  /* ── CARPENTRY (SPOTLIGHT) ───────────────────────────────────── */
+  .fab-carpentry { background: var(--black); padding: 96px 48px; position: relative; overflow: hidden; }
+  .fab-carpentry::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--orange), #ff8c00, var(--orange)); background-size: 200%; animation: shimmer 3s linear infinite; }
+  @keyframes shimmer { 0% { background-position: 0% } 100% { background-position: 200% } }
+  .fab-carpentry-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .fab-carpentry-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,85,0,0.12); border: 1px solid rgba(255,85,0,0.3); padding: 6px 14px; border-radius: 2px; margin-bottom: 20px; }
+  .fab-carpentry-tag span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); }
+  .fab-carpentry-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(1.4); } }
+  .fab-carpentry h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(44px, 5vw, 72px); letter-spacing: 3px; color: var(--white); line-height: 0.92; margin-bottom: 24px; }
+  .fab-carpentry h2 span { color: var(--orange); }
+  .fab-carpentry-lead { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 32px; max-width: 480px; }
+  .fab-carpentry-points { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .fab-carpentry-point { display: flex; gap: 14px; }
+  .fab-carpentry-point-icon { width: 36px; height: 36px; flex-shrink: 0; background: rgba(255,85,0,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+  .fab-carpentry-point-icon svg { width: 18px; height: 18px; }
+  .fab-carpentry-point h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+  .fab-carpentry-point p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+  /* Workshop visual */
+  .fab-workshop { display: flex; flex-direction: column; gap: 2px; }
+  .fab-workshop-header { background: rgba(255,85,0,0.1); border: 1px solid rgba(255,85,0,0.2); padding: 20px 24px; border-radius: 6px 6px 0 0; }
+  .fab-workshop-header h4 { font-family: 'Bebas Neue', cursive; font-size: 18px; letter-spacing: 2px; color: var(--orange); margin-bottom: 4px; }
+  .fab-workshop-header p { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .fab-workshop-items { display: flex; flex-direction: column; gap: 2px; }
+  .fab-workshop-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 16px 24px; display: flex; align-items: center; gap: 16px; transition: background 0.2s; }
+  .fab-workshop-item:hover { background: rgba(255,255,255,0.06); }
+  .fab-workshop-item-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,85,0,0.4); flex-shrink: 0; }
+  .fab-workshop-item h5 { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+  .fab-workshop-item p { font-size: 11px; color: rgba(255,255,255,0.3); }
+  .fab-workshop-footer { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 16px 24px; border-radius: 0 0 6px 6px; }
+  .fab-workshop-footer p { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+
+  /* ── PHOTO STRIP ─────────────────────────────────────────────── */
+  .fab-photo-strip { display: flex; gap: 8px; margin-top: 32px; border-radius: 6px; overflow: hidden; }
+  .fab-photo-strip img { flex: 1; height: 200px; object-fit: cover; min-width: 0; display: block; }
+  .fab-lb-card-visual svg { position: relative; z-index: 1; }
+  .fab-lb-card-body { padding: 18px; }
+  .fab-lb-card-body h4 { font-family: 'Bebas Neue', cursive; font-size: 18px; letter-spacing: 2px; color: var(--black); margin-bottom: 4px; }
+  .fab-lb-card-body p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* Lightbox specs strip */
+  .fab-lb-specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--black); border-radius: 8px; overflow: hidden; }
+  .fab-lb-spec { padding: 24px; border-right: 1px solid rgba(255,255,255,0.07); }
+  .fab-lb-spec:last-child { border-right: none; }
+  .fab-lb-spec-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
+  .fab-lb-spec-value { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 1px; color: var(--orange); }
+
+  /* ── INSTALLATION & LOGISTICS ──────────────────────────────── */
+  .fab-install { background: var(--gray); padding: 80px 48px; }
+  .fab-install-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); margin-top: 48px; }
+  .fab-install-card { background: var(--white); padding: 36px 32px; }
+  .fab-install-card-icon { width: 48px; height: 48px; background: var(--orange-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .fab-install-card-icon svg { width: 24px; height: 24px; }
+  .fab-install-card h3 { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 2px; color: var(--black); margin-bottom: 8px; }
+  .fab-install-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+  /* ── PARTNERS ────────────────────────────────────────────────── */
+  .fab-partners { background: var(--black); padding: 80px 48px; }
+  .fab-partners-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center; }
+  .fab-partners-text h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(36px, 3.5vw, 52px); letter-spacing: 3px; color: var(--white); line-height: 1; margin-bottom: 16px; }
+  .fab-partners-text h2 span { color: var(--orange); }
+  .fab-partners-text p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.75; }
+  .fab-partner-cards { display: flex; flex-direction: column; gap: 2px; }
+  .fab-partner-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-left: 3px solid rgba(255,85,0,0.4); padding: 28px 28px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; text-decoration: none; transition: background 0.2s, border-left-color 0.2s; }
+  .fab-partner-card:hover { background: rgba(255,85,0,0.05); border-left-color: var(--orange); }
+  .fab-partner-card-logo { width: 64px; height: 64px; background: rgba(255,255,255,0.06); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
+  .fab-partner-card-logo img { width: 52px; height: 52px; object-fit: contain; }
+  .fab-partner-card-info h4 { font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; color: var(--white); margin-bottom: 4px; }
+  .fab-partner-card-info .partner-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; display: block; }
+  .fab-partner-card-info p { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.55; }
+  .fab-partner-card-arrow { font-size: 12px; color: rgba(255,85,0,0.4); margin-left: 4px; transition: color 0.2s; }
+  .fab-partner-card:hover .fab-partner-card-arrow { color: var(--orange); }
+
+  /* ── CTA ─────────────────────────────────────────────────────── */
+  .page-cta { background: var(--orange); padding: 80px 48px; position: relative; overflow: hidden; }
+  .page-cta::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border: 80px solid rgba(255,255,255,0.07); border-radius: 50%; }
+  .page-cta-inner { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; gap: 40px; }
+  .page-cta h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(44px, 5vw, 68px); letter-spacing: 3px; color: var(--white); line-height: 0.9; margin-bottom: 12px; }
+  .page-cta p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 440px; line-height: 1.6; }
+
+  /* ── FOOTER ──────────────────────────────────────────────────── */
+  footer { background: var(--black); padding: 32px 48px; }
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo-img { height: 36px; width: auto; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.2); }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } .nav-links { display: none; }
+    .fab-hero-inner { grid-template-columns: 1fr; padding: 48px 24px 0; gap: 36px; }
+    .fab-hero-strip { grid-template-columns: 1fr 1fr; }
+    .fab-hero-strip-item { padding: 14px 24px; }
+    .fab-prop, .fab-section, .fab-carpentry, .fab-lightbox, .fab-install, .fab-partners, .page-cta { padding-left: 24px; padding-right: 24px; }
+    .fab-prop-inner, .fab-split, .fab-split.reverse, .fab-carpentry-inner, .fab-partners-inner { grid-template-columns: 1fr; gap: 36px; }
+    .fab-split.reverse .fab-content, .fab-split.reverse .fab-visual { order: unset; }
+    .fab-lightbox-grid { grid-template-columns: 1fr 1fr; }
+    .fab-lb-specs { grid-template-columns: 1fr 1fr; }
+    .fab-install-grid { grid-template-columns: 1fr; }
+    .fab-posm-grid { grid-template-columns: 1fr 1fr; }
+    .page-cta-inner { flex-direction: column; align-items: flex-start; }
+    footer { padding: 32px 24px; }
+    .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<div class="fab-hero">
+  <div class="fab-hero-inner">
+    <div class="fade-up">
+      <div class="fab-hero-eyebrow">Print · POSM · Fabrication · Installation</div>
+      <h1>FROM BRIEF<br>TO <span>INSTALLED</span></h1>
+      <p class="fab-hero-lead">Print. Build. Install. We manage the full fabrication chain for your brand activation — from artwork to on-site installation — through our trusted partner network and our own in-house workshop.</p>
+      <div class="fab-hero-actions">
+        <a href="contact" class="btn-orange">Get a Quote →</a>
+        <a href="#print" class="btn-outline-white">See Services ↓</a>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="fab-hero-grid">
+        <div class="fab-hero-tile">
+          <div class="fab-hero-tile-num">01</div>
+          <h3>Large Format Print</h3>
+          <p>Backdrops, banners, vinyl, roll-ups, fabric displays</p>
+        </div>
+        <div class="fab-hero-tile">
+          <div class="fab-hero-tile-num">02</div>
+          <h3>POSM Fabrication</h3>
+          <p>Standees, gondola displays, wobblers, dump bins</p>
+        </div>
+        <div class="fab-hero-tile">
+          <div class="fab-hero-tile-num">03</div>
+          <h3>In-House Carpentry</h3>
+          <p>Custom counters, kiosks, booths, sampling stations</p>
+        </div>
+        <div class="fab-hero-tile">
+          <div class="fab-hero-tile-num">04</div>
+          <h3>Deliver & Install</h3>
+          <p>Island-wide delivery, installation & teardown</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fab-hero-strip">
+    <div class="fab-hero-strip-item"><div class="dot"></div><span>One brief, one team</span></div>
+    <div class="fab-hero-strip-item"><div class="dot"></div><span>In-house workshop</span></div>
+    <div class="fab-hero-strip-item"><div class="dot"></div><span>Island-wide installation</span></div>
+    <div class="fab-hero-strip-item"><div class="dot"></div><span>Retail-compliant builds</span></div>
+  </div>
+</div>
+
+<!-- ── WHY ONE PARTNER ──────────────────────────────────────── -->
+<section class="fab-prop fade-up">
+  <div class="fab-prop-inner">
+    <div class="fab-prop-text">
+      <div class="kicker">Our Approach</div>
+      <h2 class="h2-dark">THE PROBLEM WITH <span>MANAGING THREE VENDORS</span></h2>
+      <p>Most brands manage their print supplier, their fabricator, and their installation team separately. Three briefs. Three timelines. Three people to chase when the gondola display doesn't match the artwork.</p>
+      <p>We solve that. <strong>One brief to Elitez covers the entire chain</strong> — print, build, deliver, install, photograph, and report. Your campaign gets executed the way you imagined it, not the way three vendors interpreted it.</p>
+      <a href="contact" class="btn-orange" style="margin-top:8px">Get a Fabrication Quote →</a>
+    </div>
+    <div class="fab-prop-flow">
+      <div class="fab-prop-step">
+        <div class="fab-prop-step-num">01</div>
+        <div class="fab-prop-step-text"><h4>Brief Received</h4><p>Campaign mechanics, outlet list, brand guidelines, timeline</p></div>
+      </div>
+      <div class="fab-prop-arrow">↓</div>
+      <div class="fab-prop-step">
+        <div class="fab-prop-step-num">02</div>
+        <div class="fab-prop-step-text"><h4>Design & Artwork</h4><p>Print-ready files prepared and approved against brand standards</p></div>
+      </div>
+      <div class="fab-prop-arrow">↓</div>
+      <div class="fab-prop-step">
+        <div class="fab-prop-step-num">03</div>
+        <div class="fab-prop-step-text"><h4>Print & Build</h4><p>Large format printing + structural fabrication run in parallel</p></div>
+      </div>
+      <div class="fab-prop-arrow">↓</div>
+      <div class="fab-prop-step">
+        <div class="fab-prop-step-num">04</div>
+        <div class="fab-prop-step-text"><h4>Warehouse & QC</h4><p>All materials consolidated at our 5,000 sqft warehouse</p></div>
+      </div>
+      <div class="fab-prop-arrow">↓</div>
+      <div class="fab-prop-step">
+        <div class="fab-prop-step-num">05</div>
+        <div class="fab-prop-step-text"><h4>Deliver & Install</h4><p>Island-wide deployment with photo documentation per outlet</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRINT & LARGE FORMAT ──────────────────────────────────── -->
+<section class="fab-section light fade-up" id="print">
+  <div class="fab-split">
+    <div class="fab-content">
+      <div class="fab-badge">01 — Print</div>
+      <h2 class="h2-dark">LARGE FORMAT<br><span>PRINT</span></h2>
+      <p class="fab-lead">From campaign backdrops to shelf talkers — high-resolution, colour-consistent print production for every touchpoint of your brand activation, delivered to spec and on time.</p>
+      <div class="fab-items">
+        <div class="fab-item">Vinyl banners & backdrops</div>
+        <div class="fab-item">Fabric tension displays</div>
+        <div class="fab-item">Roll-up & pull-up banners</div>
+        <div class="fab-item">Foamboard & corflute</div>
+        <div class="fab-item">Window & floor graphics</div>
+        <div class="fab-item">Wall murals</div>
+        <div class="fab-item">Mesh & outdoor banners</div>
+        <div class="fab-item">Acrylic prints & panels</div>
+      </div>
+      <a href="contact" class="btn-orange">Get a Print Quote →</a>
+    </div>
+    <div class="fab-visual">
+      <div class="fab-spec-grid">
+        <div class="fab-spec-card">
+          <div class="fab-spec-card-label">Max Print Width</div>
+          <div class="fab-spec-card-value">5M</div>
+          <div class="fab-spec-card-sub">Large format roll printing</div>
+        </div>
+        <div class="fab-spec-card">
+          <div class="fab-spec-card-label">Resolution</div>
+          <div class="fab-spec-card-value">1440 DPI</div>
+          <div class="fab-spec-card-sub">UV, eco-solvent & latex</div>
+        </div>
+        <div class="fab-spec-card">
+          <div class="fab-spec-card-label">Turnaround</div>
+          <div class="fab-spec-card-value">3–5 DAYS</div>
+          <div class="fab-spec-card-sub">Express available</div>
+        </div>
+        <div class="fab-spec-card">
+          <div class="fab-spec-card-label">Colour Match</div>
+          <div class="fab-spec-card-value">PANTONE</div>
+          <div class="fab-spec-card-sub">Brand-accurate colour matching</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fab-photo-strip">
+    <img src="/assets/outdoor-1.jpg" alt="Large format print installation">
+    <img src="/assets/outdoor-2.jpg" alt="Brand activation print">
+    <img src="/assets/outdoor-3.jpg" alt="Outdoor print work">
+  </div>
+</section>
+
+<!-- ── POSM FABRICATION ───────────────────────────────────────── -->
+<section class="fab-section gray fade-up" id="posm">
+  <div class="fab-split reverse">
+    <div class="fab-content">
+      <div class="fab-badge">02 — POSM</div>
+      <h2 class="h2-dark">POSM<br><span>FABRICATION</span></h2>
+      <p class="fab-lead">Point-of-sale materials that stop the shopper in their tracks. Structural POSM built to retail specifications — the right dimensions, the right substrate, the right weight limits for supermarket and mall environments.</p>
+      <div class="fab-items">
+        <div class="fab-item">Freestanding standees</div>
+        <div class="fab-item">Gondola-end displays</div>
+        <div class="fab-item">Pallet wraps & island displays</div>
+        <div class="fab-item">Counter-top display units</div>
+        <div class="fab-item">Dump bins & stacking units</div>
+        <div class="fab-item">Shelf talkers & wobblers</div>
+        <div class="fab-item">Header cards & dangling mobiles</div>
+        <div class="fab-item">Corrugated floor displays</div>
+      </div>
+      <a href="contact" class="btn-orange">Get a POSM Quote →</a>
+    </div>
+    <div class="fab-visual">
+      <div class="fab-posm-grid">
+        <div class="fab-posm-tile">
+          <div class="fab-posm-tile-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40"><rect x="10" y="4" width="20" height="32" rx="2" stroke="#FF5500" stroke-width="1.5"/><line x1="10" y1="14" x2="30" y2="14" stroke="#FF5500" stroke-width="1"/><line x1="10" y1="22" x2="30" y2="22" stroke="#FF5500" stroke-width="1"/></svg>
+          </div>
+          <h4>Standees</h4>
+        </div>
+        <div class="fab-posm-tile">
+          <div class="fab-posm-tile-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40"><rect x="4" y="10" width="32" height="22" rx="2" stroke="#FF5500" stroke-width="1.5"/><line x1="4" y1="18" x2="36" y2="18" stroke="#FF5500" stroke-width="1"/><rect x="10" y="10" width="8" height="8" fill="rgba(255,85,0,0.15)"/></svg>
+          </div>
+          <h4>Gondola Ends</h4>
+        </div>
+        <div class="fab-posm-tile">
+          <div class="fab-posm-tile-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40"><rect x="8" y="14" width="24" height="18" rx="2" stroke="#FF5500" stroke-width="1.5"/><line x1="8" y1="20" x2="32" y2="20" stroke="#FF5500" stroke-width="1"/><line x1="8" y1="26" x2="32" y2="26" stroke="#FF5500" stroke-width="1"/><rect x="12" y="8" width="16" height="6" rx="1" stroke="#FF5500" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Counter Units</h4>
+        </div>
+        <div class="fab-posm-tile">
+          <div class="fab-posm-tile-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40"><path d="M8 32H32V20L20 12L8 20V32Z" stroke="#FF5500" stroke-width="1.5" stroke-linejoin="round"/><rect x="14" y="22" width="12" height="10" rx="1" stroke="#FF5500" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Island Displays</h4>
+        </div>
+        <div class="fab-posm-tile">
+          <div class="fab-posm-tile-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40"><rect x="8" y="12" width="24" height="20" rx="2" stroke="#FF5500" stroke-width="1.5"/><line x1="8" y1="20" x2="32" y2="20" stroke="#FF5500" stroke-width="1"/><line x1="20" y1="4" x2="20" y2="12" stroke="#FF5500" stroke-width="1.5" stroke-dasharray="2 2"/></svg>
+          </div>
+          <h4>Hanging Mobiles</h4>
+        </div>
+        <div class="fab-posm-tile">
+          <div class="fab-posm-tile-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="40" height="40"><rect x="6" y="16" width="28" height="16" rx="2" stroke="#FF5500" stroke-width="1.5"/><path d="M6 24L34 24" stroke="#FF5500" stroke-width="1"/><path d="M14 10L12 16M20 8L20 16M26 10L28 16" stroke="#FF5500" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Dump Bins</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fab-photo-strip">
+    <img src="/assets/carlsberg-1.jpg" alt="POSM brand activation">
+    <img src="/assets/nescafe-1.jpg" alt="In-store POSM display">
+    <img src="/assets/perrier-1.jpg" alt="Retail POSM fabrication">
+  </div>
+</section>
+
+<!-- ── IN-HOUSE CARPENTRY SPOTLIGHT ──────────────────────────── -->
+<section class="fab-carpentry fade-up" id="carpentry">
+  <div class="fab-carpentry-inner">
+    <div>
+      <div class="fab-carpentry-tag"><span>In-House · Beside Our Warehouse</span></div>
+      <h2>THE <span>WORKSHOP</span><br>IS OURS</h2>
+      <p class="fab-carpentry-lead">We don't outsource your build. Our in-house carpentry workshop sits right beside our 5,000 sqft warehouse — which means your booth and your materials leave the same door at the same time, built to the same spec.</p>
+      <div class="fab-carpentry-points">
+        <div class="fab-carpentry-point">
+          <div class="fab-carpentry-point-icon">
+            <svg viewBox="0 0 18 18" fill="none"><path d="M3 15L15 3M9 3H15V9" stroke="#FF5500" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Print and Build Run in Parallel</h4>
+            <p>Because fabrication is in-house, we start the build the moment artwork is approved — not after print delivers. Shorter lead times, no sequential waiting.</p>
+          </div>
+        </div>
+        <div class="fab-carpentry-point">
+          <div class="fab-carpentry-point-icon">
+            <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#FF5500" stroke-width="1.4"/><path d="M6 9L8.5 11.5L13 6.5" stroke="#FF5500" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Retail-Compliant Builds Every Time</h4>
+            <p>We know NTUC FairPrice's gondola dimensions, Cold Storage's weight limits, and major mall atrium specs. Our builds comply before they arrive on site.</p>
+          </div>
+        </div>
+        <div class="fab-carpentry-point">
+          <div class="fab-carpentry-point-icon">
+            <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#FF5500" stroke-width="1.4"/><line x1="6" y1="9" x2="12" y2="9" stroke="#FF5500" stroke-width="1.4" stroke-linecap="round"/><line x1="9" y1="6" x2="9" y2="12" stroke="#FF5500" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h4>Reusable Structure, Replaceable Graphics</h4>
+            <p>Builds designed for repeat use — the same counter or kiosk frame refreshed with new print wraps campaign after campaign. Lower cost per activation.</p>
+          </div>
+        </div>
+      </div>
+      <a href="contact" class="btn-orange">Enquire About Carpentry →</a>
+    </div>
+    <div class="fab-workshop">
+      <div class="fab-workshop-header">
+        <h4>What We Build In-House</h4>
+        <p>All fabricated at our workshop, adjacent to our 5,000 sqft warehouse</p>
+      </div>
+      <div class="fab-workshop-items">
+        <div class="fab-workshop-item">
+          <div class="fab-workshop-item-dot"></div>
+          <div><h5>Branded Kiosks & Counters</h5><p>Sampling stations, cashier counters, product demo units</p></div>
+        </div>
+        <div class="fab-workshop-item">
+          <div class="fab-workshop-item-dot"></div>
+          <div><h5>Feature Walls & Backdrops</h5><p>Branded step-and-repeat, photo walls, activation setups</p></div>
+        </div>
+        <div class="fab-workshop-item">
+          <div class="fab-workshop-item-dot"></div>
+          <div><h5>Exhibition & Roadshow Booths</h5><p>Modular and bespoke booth builds for malls and events</p></div>
+        </div>
+        <div class="fab-workshop-item">
+          <div class="fab-workshop-item-dot"></div>
+          <div><h5>Platform Stages & Podiums</h5><p>Branded staging for product launches and roadshows</p></div>
+        </div>
+        <div class="fab-workshop-item">
+          <div class="fab-workshop-item-dot"></div>
+          <div><h5>Retail Fixtures & Props</h5><p>Custom shelving, product display props, interactive installations</p></div>
+        </div>
+        <div class="fab-workshop-item">
+          <div class="fab-workshop-item-dot"></div>
+          <div><h5>Storage & Carry Cases</h5><p>Branded transport crates and cases for reusable assets</p></div>
+        </div>
+      </div>
+      <div class="fab-workshop-footer">
+        <p>Workshop located beside 5,000 sqft warehouse · 2 Kallang Ave CT Hub #03-08</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- lightbox section removed -->
+<div style="display:none" id="lightbox"><div class="fab-lightbox-grid">
+    <div class="fab-lb-card">
+      <div class="fab-lb-card-visual lb-fab-lightbox">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <rect x="8" y="12" width="44" height="32" rx="2" stroke="rgba(255,200,80,0.7)" stroke-width="1.5"/>
+          <rect x="14" y="18" width="32" height="20" rx="1" fill="rgba(255,200,80,0.1)" stroke="rgba(255,200,80,0.3)" stroke-width="1"/>
+          <line x1="8" y1="44" x2="52" y2="44" stroke="rgba(255,200,80,0.4)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="fab-lb-card-body">
+        <h4>SEG Fabric Lightboxes</h4>
+        <p>Silicone edge graphic frames with backlit fabric — vivid, even illumination with easy graphic swap-outs.</p>
+      </div>
+    </div>
+    <div class="fab-lb-card">
+      <div class="fab-lb-card-visual lb-led-panel">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <rect x="10" y="14" width="40" height="28" rx="3" stroke="rgba(120,200,255,0.7)" stroke-width="1.5"/>
+          <circle cx="30" cy="28" r="8" stroke="rgba(120,200,255,0.5)" stroke-width="1" fill="rgba(120,200,255,0.08)"/>
+          <circle cx="30" cy="28" r="4" fill="rgba(120,200,255,0.3)"/>
+          <line x1="10" y1="42" x2="50" y2="42" stroke="rgba(120,200,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="fab-lb-card-body">
+        <h4>LED Edge-Lit Panels</h4>
+        <p>Slim acrylic panels with LED edge lighting — ideal for counter displays, directional signage and wayfinding.</p>
+      </div>
+    </div>
+    <div class="fab-lb-card">
+      <div class="fab-lb-card-visual lb-3d-lettering">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <text x="9" y="36" font-family="sans-serif" font-weight="900" font-size="20" fill="rgba(255,85,0,0.7)" letter-spacing="2">3D</text>
+          <rect x="8" y="38" width="44" height="4" rx="2" fill="rgba(255,85,0,0.2)"/>
+          <line x1="12" y1="42" x2="12" y2="46" stroke="rgba(255,85,0,0.3)" stroke-width="2"/>
+          <line x1="20" y1="42" x2="20" y2="46" stroke="rgba(255,85,0,0.3)" stroke-width="2"/>
+          <line x1="30" y1="42" x2="30" y2="46" stroke="rgba(255,85,0,0.3)" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="fab-lb-card-body">
+        <h4>3D Box-Up Lettering</h4>
+        <p>Dimensional acrylic and aluminium lettering — face-lit or halo-lit options for branded booths and fascias.</p>
+      </div>
+    </div>
+    <div class="fab-lb-card">
+      <div class="fab-lb-card-visual lb-backlit">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+          <rect x="8" y="10" width="44" height="36" rx="2" stroke="rgba(255,140,40,0.6)" stroke-width="1.5" fill="rgba(255,140,40,0.05)"/>
+          <path d="M20 28 L30 18 L40 28 L35 28 L35 38 L25 38 L25 28 Z" stroke="rgba(255,140,40,0.6)" stroke-width="1.3" fill="rgba(255,140,40,0.1)" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="fab-lb-card-body">
+        <h4>Backlit Hoardings & Signage</h4>
+        <p>Outdoor and indoor backlit aluminium composite hoardings for retail fascias, mall directories and roadshows.</p>
+      </div>
+    </div>
+  </div>
+  <div class="fab-lb-specs">
+    <div class="fab-lb-spec">
+      <div class="fab-lb-spec-label">Standard Sizes</div>
+      <div class="fab-lb-spec-value">A0 → 4m+</div>
+    </div>
+    <div class="fab-lb-spec">
+      <div class="fab-lb-spec-label">Fabric Resolution</div>
+      <div class="fab-lb-spec-value">720–1440 DPI</div>
+    </div>
+    <div class="fab-lb-spec">
+      <div class="fab-lb-spec-label">LED Lifespan</div>
+      <div class="fab-lb-spec-value">50,000 HRS</div>
+    </div>
+    <div class="fab-lb-spec">
+      <div class="fab-lb-spec-label">Graphic Swap</div>
+      <div class="fab-lb-spec-value">Under 1 HR</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── INSTALLATION & LOGISTICS ──────────────────────────────── -->
+<section class="fab-install fade-up">
+  <div class="kicker">End-to-End</div>
+  <h2 class="h2-dark">DELIVERY, INSTALL<br><span>& TEARDOWN</span></h2>
+  <div class="fab-install-grid">
+    <div class="fab-install-card">
+      <div class="fab-install-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><rect x="1" y="8" width="15" height="12" rx="1" stroke="#FF5500" stroke-width="1.5"/><path d="M16 12H19L22 16V20H16V12Z" stroke="#FF5500" stroke-width="1.5" stroke-linejoin="round"/><circle cx="6" cy="20" r="2" stroke="#FF5500" stroke-width="1.5"/><circle cx="19" cy="20" r="2" stroke="#FF5500" stroke-width="1.5"/></svg>
+      </div>
+      <h3>Island-Wide Delivery</h3>
+      <p>Coordinated delivery to multiple outlet locations across Singapore — timed to your campaign setup windows with real-time tracking updates to your campaign manager.</p>
+    </div>
+    <div class="fab-install-card">
+      <div class="fab-install-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M14 2H6C5.5 2 5 2.4 5 3V21C5 21.6 5.5 22 6 22H18C18.5 22 19 21.6 19 21V7L14 2Z" stroke="#FF5500" stroke-width="1.5" stroke-linejoin="round"/><polyline points="14 2 14 8 19 8" stroke="#FF5500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="9" y1="13" x2="15" y2="13" stroke="#FF5500" stroke-width="1.3"/><line x1="9" y1="17" x2="13" y2="17" stroke="#FF5500" stroke-width="1.3"/></svg>
+      </div>
+      <h3>Professional Installation</h3>
+      <p>Trained installation crews who know supermarket protocols, mall operating hours, and safety requirements. Every installation is documented with timestamped photos per outlet.</p>
+    </div>
+    <div class="fab-install-card">
+      <div class="fab-install-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><polyline points="1 4 1 10 7 10" stroke="#FF5500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 15C4.5 17.8 7.1 20 10.3 20C14.6 20 18 16.6 18 12.3C18 8 14.6 4.6 10.3 4.6C7.4 4.6 4.9 6.2 3.5 8.6L1 10" stroke="#FF5500" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Teardown & Storage</h3>
+      <p>Dismantling handled at campaign end. Reusable assets returned and catalogued in our warehouse — ready for the next activation without re-fabrication costs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ───────────────────────────────────────────────── -->
+<section class="fab-partners fade-up">
+  <div class="fab-partners-inner">
+    <div class="fab-partners-text">
+      <div class="kicker-light">Our Partners</div>
+      <h2>SPECIALIST <span>PARTNERS</span> WE TRUST</h2>
+      <p>We've built relationships with Singapore's and Malaysia's most capable print and POSM production houses. They know our standards, our timelines, and the expectations of the brands we serve.</p>
+    </div>
+    <div class="fab-partner-cards">
+      <a href="https://youprintit.com.sg/" target="_blank" rel="noopener" class="fab-partner-card">
+        <div class="fab-partner-card-logo">
+          <svg viewBox="0 0 52 52" fill="none" width="52" height="52"><rect width="52" height="52" rx="6" fill="rgba(255,85,0,0.12)"/><text x="8" y="34" font-family="'Bebas Neue',sans-serif" font-size="20" fill="#FF5500">YPI</text></svg>
+        </div>
+        <div class="fab-partner-card-info">
+          <span class="partner-tag">Print Partner · Singapore</span>
+          <h4>YouPrintIt.com.sg <span class="fab-partner-card-arrow">↗</span></h4>
+          <p>Large format, digital, UV and offset printing. Banners, backdrops, vinyl, fabric displays and more. Singapore-based production with express options.</p>
+        </div>
+      </a>
+      <a href="https://www.3degrees.com.my/" target="_blank" rel="noopener" class="fab-partner-card">
+        <div class="fab-partner-card-logo">
+          <svg viewBox="0 0 52 52" fill="none" width="52" height="52"><rect width="52" height="52" rx="6" fill="rgba(255,85,0,0.12)"/><text x="10" y="34" font-family="'Bebas Neue',sans-serif" font-size="20" fill="#FF5500">3D°</text></svg>
+        </div>
+        <div class="fab-partner-card-info">
+          <span class="partner-tag">POSM Partner · Malaysia & Singapore</span>
+          <h4>3Degrees.com.my <span class="fab-partner-card-arrow">↗</span></h4>
+          <p>Structural POSM, retail display fabrication, gondola-end units and bespoke brand activation materials. Regional coverage across Malaysia and Singapore.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────────── -->
+<div class="page-cta">
+  <div class="page-cta-inner">
+    <div>
+      <h2>ONE BRIEF.<br>WE HANDLE<br>THE REST.</h2>
+      <p>Tell us your campaign, your outlet list, and your timeline. We'll give you a print-to-install quote within 48 hours.</p>
+    </div>
+    <a href="contact" class="btn-white">Get a Fabrication Quote →</a>
+  </div>
+</div>
+
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  }), { threshold: 0.07 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+<!-- Lenis smooth scroll + GSAP -->
+</BaseLayout>

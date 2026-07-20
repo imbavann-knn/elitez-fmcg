@@ -1,0 +1,1330 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Elitez FMCG | Brand Activation & Field Marketing Agency Singapore"
+  description="Singapore's most deployed FMCG field team. 300+ trained promoters, brand activations, supermarket merchandising and live sales tracking via BLINK."
+  canonical="https://fmcg.elitez.ai/"
+  keywords="brand activation agency Singapore, FMCG promoter agency Singapore, supermarket merchandising Singapore, field marketing Singapore, promoter deployment Singapore"
+>
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Elitez FMCG",
+  "description": "Singapore's leading field marketing agency — brand activations, promoter deployment, supermarket merchandising and digital campaigns.",
+  "url": "https://fmcg.elitez.ai",
+  "logo": "https://fmcg.elitez.ai/assets/logo-nav.png",
+  "image": "https://fmcg.elitez.ai/og-image.jpg",
+  "telephone": "+65 8180 0994",
+  "email": "fmcg@elitez.asia",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "SG",
+    "addressLocality": "Singapore"
+  },
+  "areaServed": "Singapore",
+  "serviceType": ["Brand Activation", "Promoter Deployment", "Supermarket Merchandising", "Field Marketing", "Digital Campaigns"]
+}
+</script>
+</Fragment>
+<style is:global>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #FF5500;
+    --orange-hover: #E84A00;
+    --orange-pale: #FFF3EE;
+    --black: #111111;
+    --white: #FFFFFF;
+    --off-white: #FAFAF8;
+    --gray: #F4F4F2;
+    --mid-gray: #888;
+    --border: #E8E8E5;
+    --text-muted: #777;
+    --nav-h: 72px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-logo-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--black);
+    line-height: 1;
+  }
+  .nav-logo-text span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--black); }
+  .nav-cta {
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 3px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
+  /* SERVICES DROPDOWN */
+  .has-dropdown { position: relative; align-self: stretch; display: flex; align-items: center; }
+  .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .has-dropdown > a::after { content: '▾'; font-size: 11px; opacity: 0.5; transition: opacity 0.2s; }
+  .has-dropdown:hover > a::after { opacity: 1; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--orange); border-radius: 0 0 4px 4px; padding: 4px 0; min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+  .nav-dropdown::before { display: none; }
+  .has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: block !important; padding: 9px 18px; font-family: 'Barlow', sans-serif !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; color: #888 !important; background: none !important; transition: color 0.15s, background 0.15s !important; white-space: nowrap; border-radius: 0 !important; }
+  .nav-dropdown a:hover { color: var(--orange) !important; background: var(--orange-pale) !important; }
+
+  /* HERO */
+  #hero {
+    padding-top: var(--nav-h);
+    background: var(--white);
+    overflow: hidden;
+  }
+  .hero-main {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    min-height: calc(100vh - var(--nav-h));
+    align-items: stretch;
+  }
+  .hero-left {
+    padding: 72px 60px 72px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  /* Orange left-edge accent bar */
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 4px; height: 180px;
+    background: var(--orange);
+    border-radius: 0 2px 2px 0;
+  }
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,85,0,0.25);
+    padding: 6px 14px;
+    border-radius: 2px;
+    width: fit-content;
+    background: var(--orange-pale);
+  }
+  .hero-kicker::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+  .hero-h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(80px, 8vw, 118px);
+    line-height: 0.88;
+    letter-spacing: 3px;
+    color: var(--black);
+    margin-bottom: 28px;
+  }
+  .hero-h1 .accent { color: var(--orange); }
+  .hero-h1 .outline {
+    -webkit-text-stroke: 2.5px var(--black);
+    color: transparent;
+  }
+  .hero-desc {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 420px;
+    margin-bottom: 36px;
+  }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--black);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--orange); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+  .hero-right img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    display: block;
+  }
+  .hero-right-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,85,0,0.3) 0%, rgba(17,17,17,0.35) 100%);
+  }
+  .hero-right-badge {
+    position: absolute;
+    bottom: 32px; left: 32px;
+    background: var(--orange);
+    padding: 16px 20px;
+    border-radius: 4px;
+  }
+  .badge-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 42px;
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--white);
+  }
+  .badge-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-top: 2px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--black);
+  }
+  .hero-stat-item {
+    padding: 24px 32px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .hero-stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 44px;
+    letter-spacing: 2px;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+  }
+
+  /* SCENE BAND */
+  .scene-band {
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .scene-band img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-position: center 40%;
+    display: block;
+  }
+
+  /* CLIENT LOGOS */
+  #clients {
+    background: var(--off-white);
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .clients-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #bbb;
+    text-align: center;
+    margin-bottom: 28px;
+    padding: 0 48px;
+  }
+  .clients-marquee-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  .clients-marquee-wrap::before,
+  .clients-marquee-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .clients-marquee-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, var(--off-white), transparent);
+  }
+  .clients-marquee-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, var(--off-white), transparent);
+  }
+  .clients-logos {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
+  }
+  .clients-logos:hover { animation-play-state: paused; }
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .client-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+  .client-logo-item img {
+    height: 40px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.55);
+    transition: filter 0.3s;
+  }
+  .clients-logos:hover .client-logo-item img { filter: grayscale(100%) opacity(0.75); }
+  .client-logo-item img:hover { filter: grayscale(0%) opacity(1) !important; }
+
+  /* SERVICES */
+  #services { padding: 96px 48px; background: var(--white); }
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+  }
+  .section-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .section-h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(40px, 4vw, 60px);
+    letter-spacing: 3px;
+    color: var(--black);
+    line-height: 1;
+  }
+  .section-h2 span { color: var(--orange); }
+  .section-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--mid-gray);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    padding-bottom: 4px;
+  }
+  .section-link:hover { color: var(--orange); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--border);
+  }
+  .service-card {
+    background: var(--white);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s;
+    text-decoration: none;
+    display: block;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--card-bg, none);
+    background-size: 100px auto;
+    background-repeat: repeat;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.25s;
+  }
+  .service-card:hover::before { opacity: 0.1; }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--orange);
+    transition: width 0.35s ease;
+    z-index: 2;
+  }
+  .service-card:hover { background: var(--orange-pale); }
+  .service-card:hover::after { width: 100%; }
+  .svc-content { position: relative; z-index: 1; }
+
+  .service-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 80px;
+    color: var(--border);
+    line-height: 1;
+    position: absolute;
+    top: 24px; right: 32px;
+    letter-spacing: 2px;
+    transition: color 0.25s;
+  }
+  .service-card:hover .service-num { color: rgba(255,85,0,0.08); }
+  .service-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--black);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+  .service-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .service-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 380px;
+    margin-bottom: 20px;
+  }
+  .service-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .service-bullets li {
+    font-size: 13px;
+    color: #555;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .service-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* BLINK STRIP */
+  #blink {
+    background: var(--black);
+    padding: 96px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #blink::before {
+    content: 'BLINK';
+    position: absolute;
+    top: -20px; right: -20px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 260px;
+    letter-spacing: 10px;
+    color: rgba(255,255,255,0.02);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .blink-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .blink-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .blink-kicker::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 8px var(--orange);
+  }
+  .blink-h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(48px, 5vw, 72px);
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 0.9;
+    margin-bottom: 20px;
+  }
+  .blink-h2 .acc { color: var(--orange); }
+  .blink-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .blink-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .blink-feature { display: flex; align-items: flex-start; gap: 14px; }
+  .blink-feature-icon {
+    width: 112px; height: 112px;
+    flex-shrink: 0;
+    margin-top: 0;
+    object-fit: contain;
+  }
+  .blink-feature-text h4 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+  .blink-feature-text p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+  .blink-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .blink-card-header {
+    background: var(--orange);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .blink-dots { display: flex; gap: 5px; }
+  .blink-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4); }
+  .blink-card-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+  .blink-card-body { padding: 24px; }
+  .blink-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .blink-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .blink-row:first-child { padding-top: 0; }
+  .blink-row-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  .blink-row-val { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); }
+  .blink-row-val.green { color: #4ADE80; }
+  .blink-row-val.orange { color: var(--orange); }
+  .live-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: #4ADE80;
+    letter-spacing: 1px;
+  }
+  .live-dot::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4ADE80;
+    animation: blink-pulse 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes blink-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  /* GALLERY */
+  #activations { padding: 96px 48px; background: var(--gray); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    aspect-ratio: 4/3;
+  }
+  .gallery-item.tall { grid-row: span 2; aspect-ratio: auto; }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* WHY */
+  #why { padding: 96px 48px; background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 56px;
+  }
+  .why-points { display: flex; flex-direction: column; }
+  .why-point {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .why-point:last-child { border-bottom: none; }
+  .why-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: var(--border);
+    flex-shrink: 0;
+    line-height: 1;
+    width: 48px;
+    transition: color 0.25s;
+  }
+  .why-point:hover .why-num { color: var(--orange); }
+  .why-point-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .why-point-body p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .why-right { position: relative; }
+  .why-img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/5;
+  }
+  .why-card {
+    position: absolute;
+    bottom: -24px; left: -24px;
+    background: var(--orange);
+    padding: 24px 28px;
+    border-radius: 6px;
+    box-shadow: 0 12px 40px rgba(255,85,0,0.35);
+  }
+  .why-card-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 52px;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .why-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* CTA */
+  #cta {
+    background: var(--orange);
+    padding: 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    gap: 40px;
+  }
+  .cta-illo {
+    width: 260px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.15));
+  }
+  .cta-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 12px;
+  }
+  .cta-h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(44px, 5vw, 68px);
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 0.9;
+    margin-bottom: 16px;
+  }
+  .cta-sub {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    max-width: 460px;
+    line-height: 1.6;
+  }
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--orange);
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .cta-contact {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.5px;
+    text-align: right;
+    line-height: 1.7;
+  }
+  .cta-contact a { color: var(--white); text-decoration: none; }
+  .cta-contact a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 60px 48px 32px; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-logo-img { height: 40px; width: auto; margin-bottom: 4px; display: block; }
+  .footer-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 20px;
+  }
+  .footer-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 280px; }
+  .footer-col h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--white); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+  }
+  .footer-copy, .footer-group {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 1px;
+  }
+  .footer-group a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-group a:hover { color: var(--orange); }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero-main { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 48px 24px 40px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    #clients, #services, #blink, #activations, #why, #cta { padding-left: 24px; padding-right: 24px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .blink-grid { grid-template-columns: 1fr; gap: 40px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .why-right { display: none; }
+    .cta-inner { grid-template-columns: 1fr; }
+    .cta-illo { display: none; }
+    .cta-actions { align-items: flex-start; }
+    footer { padding: 48px 24px 24px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+  }
+</style>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-main">
+    <div class="hero-left">
+      <div class="hero-kicker">Brand Activation Agency · Singapore</div>
+      <h1 class="hero-h1">
+        WE PUT<br>
+        <span class="accent">BRANDS</span><br>
+        <span class="outline">IN FRONT</span><br>
+        OF <span class="accent">BUYERS.</span>
+      </h1>
+      <p class="hero-desc">Singapore's most deployed FMCG field team. 300+ trained promoters across NTUC, Cold Storage, Giant and Sheng Siong — with live sales tracking and zero logistics headache.</p>
+      <div class="hero-cta-row">
+        <a href="pages/contact" class="btn-primary">Get a Proposal in 48hrs →</a>
+        <a href="pages/services" class="btn-secondary">See Our Services →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="/assets/nescafe-1.jpg" alt="Brand activation in Singapore supermarket" loading="eager" fetchpriority="high">
+      <div class="hero-right-overlay"></div>
+      <div class="hero-right-badge">
+        <div class="badge-num">15+</div>
+        <div class="badge-label">Years in Market</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat-item">
+      <div class="stat-num">300+</div>
+      <div class="stat-label">Promoters Weekly</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="stat-num">1,000+</div>
+      <div class="stat-label">WSQ-Trained Roster</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="stat-num">5,000</div>
+      <div class="stat-label">Sqft Warehouse</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="stat-num">100+</div>
+      <div class="stat-label">Retail Outlets Weekly</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section id="clients">
+  <div class="clients-label">Trusted by Singapore's biggest consumer brands</div>
+  <div class="clients-marquee-wrap">
+    <div class="clients-logos">
+      <!-- Set 1 -->
+      <div class="client-logo-item"><img src="/assets/client-logos/PG Logoseq.png" alt="P&G" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/RB Logoseq.png" alt="Reckitt" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Tiger Logoseq.png" alt="Tiger Beer" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Unilever Logoseq.png" alt="Unilever" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Nestle Logoseq.png" alt="Nestlé" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Nescafe Logoseq.png" alt="Nescafé" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Milo Logoseq.png" alt="Milo" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Enfa Logoseq.png" alt="Enfagrow" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/MARS Logoseq.png" alt="Mars" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/M&Ms Logoseq.png" alt="M&Ms" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Loreal Logoseq.png" alt="L'Oréal" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Pierre Logoseq.png" alt="Pierre Fabre" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/BM Logoseq.png" alt="Brand's" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/FU Logoseq.png" alt="Friesland Campina" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Wilmar Logoseq.png" alt="Wilmar" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Yeos Logoseq.png" alt="Yeo's" loading="lazy"></div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="client-logo-item"><img src="/assets/client-logos/PG Logoseq.png" alt="P&G" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/RB Logoseq.png" alt="Reckitt" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Tiger Logoseq.png" alt="Tiger Beer" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Unilever Logoseq.png" alt="Unilever" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Nestle Logoseq.png" alt="Nestlé" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Nescafe Logoseq.png" alt="Nescafé" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Milo Logoseq.png" alt="Milo" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Enfa Logoseq.png" alt="Enfagrow" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/MARS Logoseq.png" alt="Mars" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/M&Ms Logoseq.png" alt="M&Ms" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Loreal Logoseq.png" alt="L'Oréal" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Pierre Logoseq.png" alt="Pierre Fabre" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/BM Logoseq.png" alt="Brand's" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/FU Logoseq.png" alt="Friesland Campina" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Wilmar Logoseq.png" alt="Wilmar" loading="lazy"></div>
+      <div class="client-logo-item"><img src="/assets/client-logos/Yeos Logoseq.png" alt="Yeo's" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-kicker">What We Do</div>
+      <h2 class="section-h2">OUR <span>SERVICES</span></h2>
+    </div>
+    <a href="pages/services" class="section-link">Full Services →</a>
+  </div>
+  <div class="services-grid">
+    <a href="pages/services#activations" class="service-card fade-up" style="--card-bg: url('assets/img/icon-brand-activation.png')">
+      <div class="service-num">01</div>
+      <div class="svc-content">
+        <div class="service-title">BRAND ACTIVATIONS</div>
+        <div class="service-sub">In-store · Outdoor · Roadshow</div>
+        <p class="service-desc">Tactical and experiential activations that drive trial, conversion and brand recall at the point of purchase.</p>
+        <ul class="service-bullets">
+          <li>In-store product sampling &amp; demonstrations</li>
+          <li>Outdoor and mall roadshows</li>
+          <li>Festive and seasonal activations</li>
+          <li>Premium redemption campaigns</li>
+        </ul>
+      </div>
+    </a>
+    <a href="pages/services#promoters" class="service-card fade-up delay-1" style="--card-bg: url('assets/img/icon-promoters.png')">
+      <div class="service-num">02</div>
+      <div class="svc-content">
+        <div class="service-title">PROMOTER DEPLOYMENT</div>
+        <div class="service-sub">Managed · WSQ-Trained · Scalable</div>
+        <p class="service-desc">Large-scale, reliable promoter deployment across Singapore's retail channels — managed end-to-end through BLINK.</p>
+        <ul class="service-bullets">
+          <li>1,000+ WSQ-trained promoters on roster</li>
+          <li>300+ deployed every week</li>
+          <li>Real-time attendance and performance tracking</li>
+          <li>Compliant payroll and HR management</li>
+        </ul>
+      </div>
+    </a>
+    <a href="pages/services#merchandising" class="service-card fade-up delay-2" style="--card-bg: url('assets/img/icon-merchandising.png')">
+      <div class="service-num">03</div>
+      <div class="svc-content">
+        <div class="service-title">SUPERMARKET MERCHANDISING</div>
+        <div class="service-sub">Shelf Execution · Display · Replenishment</div>
+        <p class="service-desc">Consistent, compliant in-store execution across major supermarket chains — so your products look great on shelf, every time.</p>
+        <ul class="service-bullets">
+          <li>Planogram compliance and shelf resets</li>
+          <li>POS material setup and management</li>
+          <li>Stock replenishment and rotation</li>
+          <li>Competitor shelf monitoring</li>
+        </ul>
+      </div>
+    </a>
+    <a href="pages/services#digital" class="service-card fade-up delay-3" style="--card-bg: url('assets/img/icon-blink-phone.png')">
+      <div class="service-num">04</div>
+      <div class="svc-content">
+        <div class="service-title">DIGITAL CAMPAIGNS</div>
+        <div class="service-sub">Integrated · Data-Driven</div>
+        <p class="service-desc">Digital components that amplify your in-store activation and capture measurable consumer engagement online.</p>
+        <ul class="service-bullets">
+          <li>Microsite and contest mechanics</li>
+          <li>QR-linked promotional journeys</li>
+          <li>Social media capture on ground</li>
+          <li>KOL and event integrations</li>
+        </ul>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- BLINK -->
+<section id="blink">
+  <div class="blink-grid">
+    <div class="fade-up">
+      <div class="blink-kicker">Proprietary Technology</div>
+      <h2 class="blink-h2">MEET<br><span class="acc">BLINK.</span></h2>
+      <p class="blink-desc">Our in-house operations platform replaces spreadsheets and WhatsApp group chats — giving you a live window into every activation we run on your behalf.</p>
+      <div class="blink-features">
+        <div class="blink-feature">
+          <img class="blink-feature-icon" src="/assets/img/icon-checkin.png" alt="" loading="lazy">
+          <div class="blink-feature-text">
+            <h4>Promoter Experience Check</h4>
+            <p>See who's on the ground — training status, past brands, performance history.</p>
+          </div>
+        </div>
+        <div class="blink-feature">
+          <img class="blink-feature-icon" src="/assets/img/icon-live-sales.png" alt="" loading="lazy">
+          <div class="blink-feature-text">
+            <h4>Live Sales Updates</h4>
+            <p>Real-time mid-day data — SKUs sold, samples given, conversion rates.</p>
+          </div>
+        </div>
+        <div class="blink-feature">
+          <img class="blink-feature-icon" src="/assets/img/icon-reports.png" alt="" loading="lazy">
+          <div class="blink-feature-text">
+            <h4>Auto Sales Reports</h4>
+            <p>Weekly reports compiled automatically, reviewed, and delivered to your inbox.</p>
+          </div>
+        </div>
+      </div>
+      <a href="pages/blink" class="btn-primary">Explore BLINK →</a>
+    </div>
+    <div class="fade-up delay-1">
+      <div class="blink-card">
+        <div class="blink-card-header">
+          <div class="blink-dots">
+            <div class="blink-dot"></div><div class="blink-dot"></div><div class="blink-dot"></div>
+          </div>
+          <div class="blink-card-title">Live Dashboard — Today</div>
+        </div>
+        <div class="blink-card-body">
+          <div class="blink-row">
+            <span class="blink-row-label">Status</span>
+            <span class="live-dot">LIVE</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Outlets Deployed</span>
+            <span class="blink-row-val">12 / 12</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Promoters Checked In</span>
+            <span class="blink-row-val green">14 ✓</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Mid-Day Sales</span>
+            <span class="blink-row-val orange">$4,280</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Samples Given</span>
+            <span class="blink-row-val">386</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Conversion Rate</span>
+            <span class="blink-row-val green">34.2%</span>
+          </div>
+          <div class="blink-row">
+            <span class="blink-row-label">Premium Redeemed</span>
+            <span class="blink-row-val">142</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="activations">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-kicker">Our Work</div>
+      <h2 class="section-h2">ACTIVATIONS ON <span>THE GROUND</span></h2>
+    </div>
+    <a href="pages/portfolio" class="section-link">View all projects →</a>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall fade-up">
+      <img src="/assets/portfolio/maison-perrier.jpg" alt="Maison Perrier brand activation" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">Maison Perrier</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-1">
+      <img src="/assets/portfolio/indomie.jpg" alt="Indomie in-store activation" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">Indomie In-Store</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-2">
+      <img src="/assets/portfolio/pg-beauty.jpg" alt="P&G Beauty activation" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">P&G SG Beauty</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-1">
+      <img src="/assets/portfolio/knights-craft.jpg" alt="Knights Craft at FINE Asia 2025" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">Knights Craft @ FINE Asia</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-2">
+      <img src="/assets/portfolio/lkk-abalone.jpg" alt="LKK CNY Abalone campaign" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">LKK CNY Abalone</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-3">
+      <img src="/assets/portfolio/carlsberg.jpg" alt="Carlsberg CNY activation" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">Carlsberg CNY</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-1">
+      <img src="/assets/portfolio/shopee-kol.jpg" alt="Shopee KOL Event 2025" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">Shopee KOL Event</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-2">
+      <img src="/assets/portfolio/pg-rnd.jpg" alt="P&G R&D Family Day 2026" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">P&G R&D Family Day</span></div>
+    </div>
+    <div class="gallery-item fade-up delay-3">
+      <img src="/assets/portfolio/meiji.jpg" alt="Meiji roadshow" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-label">Meiji Roadshow</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE BAND -->
+<div class="scene-band">
+  <img src="/assets/img/scene-supermarket.png" alt="Elitez FMCG promoters in action at supermarket" loading="lazy">
+</div>
+
+<!-- WHY -->
+<section id="why">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-kicker">Why Elitez FMCG</div>
+      <h2 class="section-h2">MORE THAN A <span>PROMOTER AGENCY</span></h2>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div class="why-points">
+      <div class="why-point fade-up">
+        <div class="why-num">01</div>
+        <div class="why-point-body">
+          <h3>The right people, right skills, right job</h3>
+          <p>Tactical deployment is our core. Whether it's a beauty activation or an FMCG roadshow, we match trained, category-experienced staff to your brief — not just whoever's available.</p>
+        </div>
+      </div>
+      <div class="why-point fade-up delay-1">
+        <div class="why-num">02</div>
+        <div class="why-point-body">
+          <h3>Full campaign visibility — launching H2 2026</h3>
+          <p>BLINK, our proprietary ops platform, is rolling out H2 2026. Outlet-level sales data, promoter check-in verification and auto-generated reports — replacing WhatsApp updates and manual Excel.</p>
+        </div>
+      </div>
+      <div class="why-point fade-up delay-2">
+        <div class="why-num">03</div>
+        <div class="why-point-body">
+          <h3>One vendor, zero coordination headache</h3>
+          <p>POS materials warehoused, packed and delivered to every outlet — all through us. One brief, one invoice, no chasing three separate suppliers.</p>
+        </div>
+      </div>
+      <div class="why-point fade-up delay-3">
+        <div class="why-num">04</div>
+        <div class="why-point-body">
+          <h3>We know your retailers personally</h3>
+          <p>In market since 2010. Our team knows the store managers, the planogram rules and the activation windows at NTUC, Cold Storage, Giant and Sheng Siong — not just the theory.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-right fade-up">
+      <img class="why-img" src="/assets/outdoor-1.jpg" alt="Elitez FMCG promoters in action" loading="lazy">
+      <div class="why-card">
+        <div class="why-card-num">1,000+</div>
+        <div class="why-card-label">WSQ-Trained<br>Promoters on Roster</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-kicker">Ready to activate?</div>
+      <h2 class="cta-h2">LET'S BUILD YOUR<br>NEXT CAMPAIGN.</h2>
+      <p class="cta-sub">Tell us your brand, your target channel and your timeline — we'll put together a proposal within 48 hours.</p>
+    </div>
+    <img class="cta-illo" src="/assets/img/character-team.png" alt="Elitez FMCG promoter team" loading="lazy">
+    <div class="cta-actions">
+      <a href="pages/contact" class="btn-white">Get a Quote →</a>
+      <div class="cta-contact">
+        Or reach us directly:<br>
+        <a href="mailto:eevann.seah@elitez.asia">eevann.seah@elitez.asia</a><br>
+        <a href="tel:+6581800994">+65 8180 0994</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // PostHog — homepage event tracking
+  document.querySelectorAll('.service-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var title = card.querySelector('.service-title');
+      posthog.capture('service_card_clicked', {
+        service: title ? title.textContent.trim() : 'unknown',
+        href: card.getAttribute('href') || ''
+      });
+    });
+  });
+
+  document.querySelectorAll('.btn-primary[href="pages/contact"], .btn-white[href="pages/contact"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      posthog.capture('quote_cta_clicked', {
+        location: btn.closest('#hero') ? 'hero' : 'cta_section'
+      });
+    });
+  });
+
+  var blinkBtn = document.querySelector('#blink .btn-primary[href="pages/blink"]');
+  if (blinkBtn) {
+    blinkBtn.addEventListener('click', function() {
+      posthog.capture('blink_cta_clicked', { location: 'homepage' });
+    });
+  }
+</script>
+</BaseLayout>

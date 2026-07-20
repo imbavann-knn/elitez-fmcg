@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Services | Elitez FMCG Singapore"
+  description="Full-service FMCG field marketing: brand activations, promoter deployment, supermarket merchandising and digital campaigns across Singapore."
+  canonical="https://fmcg.elitez.ai/pages/services"
+  keywords="brand activation Singapore, promoter deployment Singapore, supermarket merchandising Singapore, field marketing services"
+>
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Elitez FMCG",
+  "url": "https://fmcg.elitez.ai/",
+  "logo": "https://fmcg.elitez.ai/assets/logo-nav.png",
+  "telephone": "+65 8180 0994",
+  "email": "fmcg@elitez.asia",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Kallang Ave, CT Hub #03-08",
+    "addressLocality": "Singapore",
+    "postalCode": "339407",
+    "addressCountry": "SG"
+  },
+  "areaServed": "SG",
+  "priceRange": "$$"
+}
+</script>
+</Fragment>
+<style is:global>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #FF5500; --orange-hover: #E84A00; --orange-pale: #FFF3EE;
+    --black: #111; --white: #fff; --gray: #F4F4F2;
+    --mid-gray: #888; --border: #E8E8E5; --text-muted: #777; --nav-h: 72px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-logo-text { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 3px; color: var(--black); }
+  .nav-logo-text span { color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--black); }
+  .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 3px; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
+  /* SERVICES DROPDOWN */
+  .has-dropdown { position: relative; align-self: stretch; display: flex; align-items: center; }
+  .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .has-dropdown > a::after { content: '▾'; font-size: 11px; opacity: 0.5; transition: opacity 0.2s; }
+  .has-dropdown:hover > a::after { opacity: 1; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--orange); border-radius: 0 0 4px 4px; padding: 4px 0; min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+  .nav-dropdown::before { display: none; }
+  .has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: block !important; padding: 9px 18px; font-family: 'Barlow', sans-serif !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; color: #888 !important; background: none !important; transition: color 0.15s, background 0.15s !important; white-space: nowrap; border-radius: 0 !important; }
+  .nav-dropdown a:hover { color: var(--orange) !important; background: var(--orange-pale) !important; }
+
+  .page-header { padding-top: var(--nav-h); background: var(--black); }
+  .page-header-inner { padding: 72px 48px 0; position: relative; overflow: hidden; }
+  .page-header-inner::before { content: 'SERVICES'; position: absolute; top: 0; right: -10px; font-family: 'Bebas Neue', cursive; font-size: 200px; letter-spacing: 8px; color: rgba(255,255,255,0.02); pointer-events: none; line-height: 1; }
+  .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+  .breadcrumb a { color: var(--orange); text-decoration: none; }
+  .page-header-inner h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(56px, 7vw, 96px); letter-spacing: 3px; color: var(--white); line-height: 0.9; margin-bottom: 20px; }
+  .page-header-inner h1 span { color: var(--orange); }
+  .page-header-inner > p { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5); max-width: 520px; line-height: 1.65; }
+  .header-stats { display: flex; border-top: 1px solid rgba(255,255,255,0.07); margin-top: 48px; }
+  .header-stat { flex: 1; padding: 20px 32px; border-right: 1px solid rgba(255,255,255,0.07); }
+  .header-stat:last-child { border-right: none; }
+  .header-stat-num { font-family: 'Bebas Neue', cursive; font-size: 36px; color: var(--orange); letter-spacing: 2px; line-height: 1; }
+  .header-stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 3px; }
+
+  .service-section { padding: 96px 48px; border-bottom: 1px solid var(--border); }
+  .service-section:nth-child(odd) { background: var(--white); }
+  .service-section:nth-child(even) { background: var(--gray); }
+  .service-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .service-layout.reverse > .service-content { order: 2; }
+  .service-layout.reverse > .service-visual { order: 1; }
+
+  .service-badge { display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; border: 1px solid rgba(255,85,0,0.25); padding: 5px 12px; border-radius: 2px; background: var(--orange-pale); }
+  .service-h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(44px, 5vw, 64px); letter-spacing: 3px; color: var(--black); line-height: 0.9; margin-bottom: 20px; }
+  .service-h2 span { color: var(--orange); }
+  .service-lead { font-size: 16px; font-weight: 500; color: #444; line-height: 1.65; margin-bottom: 28px; }
+  .service-points { display: flex; flex-direction: column; gap: 4px; margin-bottom: 32px; }
+  .service-point { display: flex; flex-direction: row; align-items: center; gap: 20px; }
+  .service-point-icon { width: 120px; height: auto; object-fit: contain; flex-shrink: 0; }
+  #promoters .service-point-icon, #merchandising .service-point-icon, #digital .service-point-icon { width: 60px; }
+  .service-point-text h4 { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
+  .service-point-text p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+  .btn-orange { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: #fff; font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 26px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-orange:hover { background: var(--orange-hover); transform: translateY(-1px); }
+  .btn-dark { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: #fff; font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 26px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-dark:hover { background: #222; transform: translateY(-1px); }
+
+  .service-visual { position: relative; }
+  .service-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .service-img { border-radius: 6px; overflow: hidden; aspect-ratio: 4/3; background: #ddd; }
+  .service-img.tall { aspect-ratio: auto; grid-row: span 2; }
+  .service-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+  .service-img:hover img { transform: scale(1.04); }
+  .service-img-single { border-radius: 8px; overflow: hidden; }
+  .service-img-single img { width: 100%; display: block; object-fit: cover; max-height: 420px; }
+  .service-img-phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: end; }
+  .service-img-phone { border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+  .service-img-phone img { width: 100%; display: block; object-fit: cover; }
+
+  .page-cta { background: var(--orange); padding: 80px 48px; position: relative; overflow: hidden; }
+  .page-cta::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border: 80px solid rgba(255,255,255,0.07); border-radius: 50%; }
+  .page-cta-inner { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; gap: 40px; }
+  .page-cta h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(44px, 5vw, 68px); letter-spacing: 3px; color: var(--white); line-height: 0.9; margin-bottom: 12px; }
+  .page-cta p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 440px; line-height: 1.6; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--orange); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; white-space: nowrap; transition: transform 0.15s; flex-shrink: 0; }
+  .btn-white:hover { transform: translateY(-2px); }
+
+  footer { background: var(--black); padding: 32px 48px; }
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo-img { height: 36px; width: auto; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.2); }
+
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } .nav-links { display: none; }
+    .page-header-inner { padding: 48px 24px 0; }
+    .header-stats { flex-wrap: wrap; }
+    .header-stat { min-width: 50%; }
+    .service-section { padding: 64px 24px; }
+    .service-layout, .service-layout.reverse { grid-template-columns: 1fr; gap: 36px; }
+    .service-layout.reverse > .service-content { order: 1; }
+    .service-layout.reverse > .service-visual { order: 2; }
+    .page-cta { padding: 60px 24px; }
+    .page-cta-inner { flex-direction: column; align-items: flex-start; }
+    footer { padding: 32px 24px; }
+    .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="../">Home</a> / Services</div>
+    <h1>WHAT WE <span>DO</span></h1>
+    <p>Full-service field marketing across four core disciplines — from first product touch to final sales report.</p>
+    <div class="header-stats">
+      <div class="header-stat"><div class="header-stat-num">300+</div><div class="header-stat-label">Promoters Weekly</div></div>
+      <div class="header-stat"><div class="header-stat-num">1,000+</div><div class="header-stat-label">WSQ Trained</div></div>
+      <div class="header-stat"><div class="header-stat-num">5,000sqft</div><div class="header-stat-label">Warehouse</div></div>
+      <div class="header-stat"><div class="header-stat-num">15+</div><div class="header-stat-label">Yrs in Market</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="service-section" id="activations">
+  <div class="service-layout fade-up">
+    <div class="service-content">
+      <div class="service-badge">01 — Brand Activation</div>
+      <h2 class="service-h2">BRAND<br><span>ACTIVATIONS</span></h2>
+      <p class="service-lead">Tactical and experiential in-store and field activations designed to drive trial, conversion and brand recall where it matters most — at the point of purchase.</p>
+      <div class="service-points">
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-instore-sampling.png" alt="" loading="lazy"><div class="service-point-text"><h4>In-Store Sampling & Demonstrations</h4><p>Trained promoters who know your brand — engage, educate and convert shoppers at the shelf.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-roadshow.png" alt="" loading="lazy"><div class="service-point-text"><h4>Mall & Outdoor Roadshows</h4><p>High-footfall activations in malls, atria and outdoor venues that maximise visibility and consumer engagement.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-redemption.png" alt="" loading="lazy"><div class="service-point-text"><h4>Premium Redemption Campaigns</h4><p>End-to-end PWP management — from premium sourcing to on-ground redemption tracking via BLINK.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-festive.png" alt="" loading="lazy"><div class="service-point-text"><h4>Festive & Seasonal Activations</h4><p>CNY, Hari Raya, Christmas and campaign-driven pop-ups that capture seasonal purchase intent.</p></div></div>
+      </div>
+      <a href="contact" class="btn-orange">Get a Proposal →</a>
+    </div>
+    <div class="service-visual">
+      <div class="service-img-grid">
+        <div class="service-img tall"><img src="/assets/perrier-1.jpg" alt="Brand activation" loading="lazy"></div>
+        <div class="service-img"><img src="/assets/nescafe-win-1.jpg" alt="Nescafe activation" loading="lazy"></div>
+        <div class="service-img"><img src="/assets/lipton-1.jpg" alt="Lipton activation" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-section" id="promoters">
+  <div class="service-layout reverse fade-up">
+    <div class="service-content">
+      <div class="service-badge">02 — Manpower Solutions</div>
+      <h2 class="service-h2">PROMOTER<br><span>DEPLOYMENT</span></h2>
+      <p class="service-lead">Large-scale, reliable promoter deployment across Singapore's retail channels — sourced, trained, scheduled and managed end-to-end through our BLINK platform.</p>
+      <div class="service-points">
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-promoters.png" alt="" loading="lazy"><div class="service-point-text"><h4>1,000+ WSQ-Trained Promoters</h4><p>Our active roster covers all major FMCG categories — F&B, personal care, household, beauty, health and more.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-blink-phone.png" alt="" loading="lazy"><div class="service-point-text"><h4>Managed via BLINK</h4><p>Real-time scheduling, attendance tracking, shift reporting and performance scoring — all in one platform.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-reports.png" alt="" loading="lazy"><div class="service-point-text"><h4>Compliant HR & Payroll</h4><p>CPF and non-CPF payroll processing, MOM-compliant documentation and transparent promoter management.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-scalable.png" alt="" loading="lazy"><div class="service-point-text"><h4>Scalable On Demand</h4><p>Scale up or down for campaigns, peak seasons and last-minute requirements with 300+ already deployed weekly.</p></div></div>
+      </div>
+      <a href="blink" class="btn-dark">See How BLINK Works →</a>
+    </div>
+    <div class="service-visual">
+      <div class="service-img-single"><img src="/assets/promoter-1.jpg" alt="Elitez FMCG promoters" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="service-section" id="merchandising">
+  <div class="service-layout fade-up">
+    <div class="service-content">
+      <div class="service-badge">03 — Retail Execution</div>
+      <h2 class="service-h2">SUPERMARKET<br><span>MERCHANDISING</span></h2>
+      <p class="service-lead">Consistent, compliant in-store execution across Singapore's major supermarket chains — so your products are always shelf-ready, properly displayed and competitively positioned.</p>
+      <div class="service-points">
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-merchandising.png" alt="" loading="lazy"><div class="service-point-text"><h4>Planogram Compliance</h4><p>We execute your shelf plan exactly — ensuring facing counts, block placements and adjacencies match brand standards.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-pos-material.png" alt="" loading="lazy"><div class="service-point-text"><h4>POS Material Setup & Maintenance</h4><p>Wobblers, shelf talkers, standees and display units — installed correctly and refreshed on schedule.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-delivery.png" alt="" loading="lazy"><div class="service-point-text"><h4>Stock Replenishment & Rotation</h4><p>Regular runs that keep shelves full and ensure FIFO rotation to minimise wastage.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-checkin.png" alt="" loading="lazy"><div class="service-point-text"><h4>Competitor Shelf Monitoring</h4><p>On-ground intelligence — pricing, facings, promo mechanics and display data from competitor brands.</p></div></div>
+      </div>
+      <a href="contact" class="btn-orange">Get a Proposal →</a>
+    </div>
+    <div class="service-visual">
+      <div class="service-img-grid">
+        <div class="service-img tall"><img src="/assets/indomie-2.jpg" alt="Supermarket merchandising" loading="lazy"></div>
+        <div class="service-img"><img src="/assets/indomie-1.jpg" alt="In-store display" loading="lazy"></div>
+        <div class="service-img"><img src="/assets/nescafe-conc-2.jpg" alt="Shelf execution" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-section" id="digital">
+  <div class="service-layout reverse fade-up">
+    <div class="service-content">
+      <div class="service-badge">04 — Digital Services</div>
+      <h2 class="service-h2">ONLINE CONTEST<br><span>MANAGEMENT</span></h2>
+      <p class="service-lead">From microsite build to prize fulfilment — we run end-to-end online contest mechanics that connect your physical activation to a branded digital experience consumers can engage with on their phones.</p>
+      <div class="service-points">
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-blink-phone.png" alt="" loading="lazy"><div class="service-point-text"><h4>Microsite & Contest Mechanics</h4><p>Custom landing pages with purchase validation, entry mechanics and prize fulfilment for FMCG promotions.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-promoter-app.png" alt="" loading="lazy"><div class="service-point-text"><h4>QR-Linked Promotional Journeys</h4><p>QR codes at POS that connect physical shelf activity to digital campaigns, receipts and loyalty programmes.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-social-capture.png" alt="" loading="lazy"><div class="service-point-text"><h4>On-Ground Social Capture</h4><p>Promoters trained to capture content during activations — photos and UGC for brand social channels.</p></div></div>
+        <div class="service-point"><img class="service-point-icon" src="/assets/img/icon-kol.png" alt="" loading="lazy"><div class="service-point-text"><h4>KOL & Event Integrations</h4><p>Coordination with KOLs and influencer appearances at roadshows and in-store events to amplify reach.</p></div></div>
+      </div>
+      <a href="contact" class="btn-orange">Get a Proposal →</a>
+    </div>
+    <div class="service-visual">
+      <div class="service-img-phones">
+        <div class="service-img-phone"><img src="/assets/digital-1.jpg" alt="M&M's online contest — home screen" loading="lazy"></div>
+        <div class="service-img-phone"><img src="/assets/digital-2.jpg" alt="M&M's online contest — entry form" loading="lazy"></div>
+        <div class="service-img-phone"><img src="/assets/digital-3.jpg" alt="M&M's online contest — how to join" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-cta">
+  <div class="page-cta-inner">
+    <div>
+      <h2>READY TO ACTIVATE<br>YOUR BRAND?</h2>
+      <p>Tell us your brief and we'll put together a tailored proposal within 48 hours.</p>
+    </div>
+    <a href="contact" class="btn-white">Get a Quote →</a>
+  </div>
+</div>
+
+<script>
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1});document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+  if (typeof posthog !== 'undefined') {
+    posthog.capture('services_page_viewed');
+  }
+</script>
+<!-- Lenis smooth scroll + GSAP -->
+</BaseLayout>

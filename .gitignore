@@ -1,4 +1,7 @@
 .DS_Store
+dist/
+.astro/
+node_modules/
 Brand Activation Pictures/
 logos/
 Ops SOP/

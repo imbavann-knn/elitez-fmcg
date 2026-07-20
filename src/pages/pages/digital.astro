@@ -1,0 +1,636 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Digital Marketing | Elitez FMCG Singapore"
+  description="Digital marketing services for FMCG brands in Singapore — social media, online contests, influencer campaigns and e-commerce."
+  canonical="https://fmcg.elitez.ai/pages/digital"
+  keywords="digital marketing FMCG Singapore, online contest management Singapore, social media marketing Singapore"
+>
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Elitez FMCG",
+  "url": "https://fmcg.elitez.ai/",
+  "logo": "https://fmcg.elitez.ai/assets/logo-nav.png",
+  "telephone": "+65 8180 0994",
+  "email": "fmcg@elitez.asia",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Kallang Ave, CT Hub #03-08",
+    "addressLocality": "Singapore",
+    "postalCode": "339407",
+    "addressCountry": "SG"
+  },
+  "areaServed": "SG",
+  "priceRange": "$$"
+}
+</script>
+</Fragment>
+<style is:global>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #FF5500; --orange-hover: #E84A00; --orange-pale: #FFF3EE;
+    --black: #111; --white: #fff; --gray: #F4F4F2; --off-white: #FAFAF8;
+    --mid-gray: #888; --border: #E8E8E5; --text-muted: #777; --nav-h: 72px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--black); }
+  .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 3px; }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
+  .has-dropdown { position: relative; align-self: stretch; display: flex; align-items: center; }
+  .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .has-dropdown > a::after { content: '▾'; font-size: 11px; opacity: 0.5; transition: opacity 0.2s; }
+  .has-dropdown:hover > a::after { opacity: 1; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--orange); border-radius: 0 0 4px 4px; padding: 4px 0; min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+  .nav-dropdown::before { display: none; }
+  .has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: block !important; padding: 9px 18px; font-family: 'Barlow', sans-serif !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; color: #888 !important; background: none !important; transition: color 0.15s, background 0.15s !important; white-space: nowrap; border-radius: 0 !important; }
+  .nav-dropdown a:hover { color: var(--orange) !important; background: var(--orange-pale) !important; }
+
+  /* SHARED */
+  .section-kicker { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+  .section-kicker-light { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+  .section-h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(40px, 4vw, 60px); letter-spacing: 3px; color: var(--black); line-height: 1; margin-bottom: 20px; }
+  .section-h2 span { color: var(--orange); }
+  .section-h2-light { font-family: 'Bebas Neue', cursive; font-size: clamp(40px, 4vw, 60px); letter-spacing: 3px; color: var(--white); line-height: 1; margin-bottom: 20px; }
+  .section-h2-light span { color: var(--orange); }
+  .service-badge { display: inline-flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; border: 1px solid rgba(255,85,0,0.25); padding: 5px 12px; border-radius: 2px; background: var(--orange-pale); }
+  .service-badge-dark { display: inline-flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; border: 1px solid rgba(255,85,0,0.3); padding: 5px 12px; border-radius: 2px; background: rgba(255,85,0,0.08); }
+  .btn-orange { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-orange:hover { background: var(--orange-hover); transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.7); font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+  .service-point { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+  .service-point-icon { width: 40px; height: 40px; flex-shrink: 0; }
+  .service-point-text h4 { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+  .service-point-text p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .service-point-text-light h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .service-point-text-light p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  /* STITCH PLACEHOLDER AREAS */
+  .stitch-block { border-radius: 10px; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
+  .stitch-block .stitch-label { position: absolute; bottom: 12px; left: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+  .stitch-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* HERO */
+  .dig-hero { padding-top: var(--nav-h); background: var(--black); }
+  .dig-hero-inner { padding: 80px 48px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .dig-hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+  .dig-hero h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(56px, 7vw, 88px); letter-spacing: 2px; color: var(--white); line-height: 0.92; margin-bottom: 24px; }
+  .dig-hero h1 span { color: var(--orange); }
+  .dig-hero-lead { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 480px; margin-bottom: 36px; }
+  .dig-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .dig-hero-visual { position: relative; align-self: end; }
+  /* STITCH HERO ILLUSTRATION */
+  .dig-hero-illustration {
+    height: 380px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: 12px 12px 0 0;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dig-hero-illustration::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(255,85,0,0.15) 0%, transparent 60%);
+  }
+  .dig-hero-illustration-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,85,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,85,0,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .dig-hero-illustration-content { position: relative; z-index: 1; text-align: center; padding: 24px; }
+  .dig-hero-illustration-content svg { opacity: 0.6; }
+  .dig-hero-illustration .stitch-label { position: absolute; bottom: 12px; left: 0; right: 0; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.18); }
+
+  .dig-hero-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 64px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .dig-hero-strip-item { padding: 24px 48px; border-right: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 12px; }
+  .dig-hero-strip-item:last-child { border-right: none; }
+  .dig-hero-strip-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+  .dig-hero-strip-item span { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+  /* WHY DIFFERENT */
+  .dig-why { background: var(--gray); padding: 80px 48px; }
+  .dig-why-header { text-align: center; margin-bottom: 56px; }
+  .dig-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+  .dig-why-card { background: var(--white); padding: 40px 36px; }
+  .dig-why-card-num { font-family: 'Bebas Neue', cursive; font-size: 48px; color: var(--orange); opacity: 0.25; line-height: 1; margin-bottom: 8px; }
+  .dig-why-card h3 { font-family: 'Bebas Neue', cursive; font-size: 26px; letter-spacing: 2px; color: var(--black); margin-bottom: 12px; }
+  .dig-why-card p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+
+  /* FEATURED SERVICE SPLIT SECTIONS */
+  .dig-service-section { padding: 96px 48px; }
+  .dig-service-section.dark { background: var(--black); }
+  .dig-service-section.light { background: var(--white); }
+  .dig-service-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .dig-service-layout.reverse .dig-service-content { order: 2; }
+  .dig-service-layout.reverse .dig-service-visual { order: 1; }
+  .dig-service-lead { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 28px; max-width: 480px; }
+  .dig-service-lead-light { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 28px; max-width: 480px; }
+  .dig-service-points { margin-bottom: 32px; }
+  .dig-service-point { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+  .dig-service-point-icon { width: 36px; height: 36px; flex-shrink: 0; background: var(--orange-pale); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+  .dig-service-point-icon.dark-icon { background: rgba(255,85,0,0.12); }
+  .dig-service-point-icon svg { width: 18px; height: 18px; }
+  .dig-service-point-text h4 { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
+  .dig-service-point-text-light h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+  .dig-service-point-text p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .dig-service-point-text-light p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+  /* SOCIAL STITCH ILLUSTRATION */
+  .stitch-social {
+    height: 420px;
+    background: linear-gradient(160deg, #0d1117 0%, #161b22 100%);
+    border-radius: 12px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .stitch-social::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(255,85,0,0.1) 0%, transparent 55%); }
+  .stitch-social-cards { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 24px; width: 100%; }
+  .stitch-card-mock { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 14px; }
+  .stitch-card-mock .mock-img { background: rgba(255,85,0,0.12); border-radius: 4px; height: 64px; margin-bottom: 8px; }
+  .stitch-card-mock .mock-line { background: rgba(255,255,255,0.08); border-radius: 2px; height: 6px; margin-bottom: 4px; }
+  .stitch-card-mock .mock-line.short { width: 60%; }
+  .stitch-card-mock.tall { grid-row: span 2; }
+  .stitch-card-mock.tall .mock-img { height: 120px; }
+  .stitch-social .stitch-label { position: absolute; bottom: 12px; left: 0; right: 0; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+
+  /* MEDIA BUY STITCH ILLUSTRATION */
+  .stitch-mediabuy {
+    height: 420px;
+    background: #f8f7f5;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 32px;
+    gap: 14px;
+  }
+  .stitch-channel-bar { display: flex; align-items: center; gap: 12px; }
+  .stitch-channel-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #999; width: 80px; flex-shrink: 0; }
+  .stitch-channel-track { flex: 1; background: #e8e8e5; border-radius: 3px; height: 28px; position: relative; overflow: hidden; }
+  .stitch-channel-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--orange); border-radius: 3px; display: flex; align-items: center; padding-right: 10px; justify-content: flex-end; }
+  .stitch-channel-fill span { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.8); }
+  .stitch-channel-fill.muted { background: #ccc; }
+  .stitch-channel-fill.muted span { color: rgba(0,0,0,0.4); }
+  .stitch-mediabuy-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,0.2); text-align: center; margin-top: 8px; }
+
+  /* 4-CARD GRID SERVICES */
+  .dig-grid-section { background: var(--gray); padding: 96px 48px; }
+  .dig-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); }
+  .dig-grid-card { background: var(--white); padding: 48px 40px; position: relative; overflow: hidden; }
+  .dig-grid-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--orange); transition: height 0.35s ease; }
+  .dig-grid-card:hover::after { height: 100%; }
+  .dig-grid-card-icon { width: 52px; height: 52px; background: var(--orange-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .dig-grid-card-icon svg { width: 26px; height: 26px; }
+  .dig-grid-card-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 8px; }
+  .dig-grid-card h3 { font-family: 'Bebas Neue', cursive; font-size: 30px; letter-spacing: 2px; color: var(--black); margin-bottom: 12px; }
+  .dig-grid-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+  .dig-grid-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .dig-grid-card ul li { font-size: 13px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 8px; }
+  .dig-grid-card ul li::before { content: '→'; color: var(--orange); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+
+  /* BTL → DIGITAL FLOW */
+  .dig-flow { background: var(--black); padding: 80px 48px; }
+  .dig-flow-inner { max-width: 900px; margin: 0 auto; }
+  .dig-flow-steps { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0; align-items: center; margin-top: 48px; }
+  .dig-flow-step { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 28px 24px; text-align: center; }
+  .dig-flow-step-num { font-family: 'Bebas Neue', cursive; font-size: 40px; color: var(--orange); opacity: 0.4; line-height: 1; margin-bottom: 8px; }
+  .dig-flow-step h4 { font-family: 'Bebas Neue', cursive; font-size: 18px; letter-spacing: 2px; color: var(--white); margin-bottom: 8px; }
+  .dig-flow-step p { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+  .dig-flow-arrow { color: var(--orange); font-size: 24px; text-align: center; padding: 0 8px; opacity: 0.5; }
+  .dig-flow-note { text-align: center; margin-top: 40px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+
+  /* CASE STUDY */
+  .dig-case { background: var(--white); padding: 96px 48px; }
+  .dig-case-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .dig-case-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+  .dig-case h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(36px, 3.5vw, 52px); letter-spacing: 3px; color: var(--black); line-height: 1; margin-bottom: 16px; }
+  .dig-case h2 span { color: var(--orange); }
+  .dig-case-client { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 20px; }
+  .dig-case p { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 16px; }
+  .dig-case-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
+  .dig-case-stat { background: var(--gray); padding: 20px; border-radius: 6px; border-left: 3px solid var(--orange); }
+  .dig-case-stat-num { font-family: 'Bebas Neue', cursive; font-size: 32px; color: var(--black); line-height: 1; }
+  .dig-case-stat-label { font-size: 11px; color: var(--mid-gray); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-top: 2px; }
+  .dig-case-phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: end; }
+  .dig-case-phone { border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .dig-case-phone img { width: 100%; display: block; }
+
+  /* PARTNERS */
+  .dig-partners { background: var(--black); padding: 80px 48px; }
+  .dig-partners-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
+  .dig-partners-text h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(36px, 3.5vw, 52px); letter-spacing: 3px; color: var(--white); line-height: 1; margin-bottom: 20px; }
+  .dig-partners-text h2 span { color: var(--orange); }
+  .dig-partners-text p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.75; }
+  .dig-partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.06); }
+  .dig-partner-item { background: rgba(255,255,255,0.03); padding: 28px 24px; border-left: 2px solid transparent; transition: border-color 0.2s, background 0.2s; }
+  .dig-partner-item:hover { border-left-color: var(--orange); background: rgba(255,85,0,0.04); }
+  .dig-partner-item-icon { margin-bottom: 10px; }
+  .dig-partner-item h4 { font-family: 'Bebas Neue', cursive; font-size: 18px; letter-spacing: 2px; color: var(--white); margin-bottom: 4px; }
+  .dig-partner-item p { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.5; }
+
+  /* CTA */
+  .page-cta { background: var(--orange); padding: 80px 48px; position: relative; overflow: hidden; }
+  .page-cta::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border: 80px solid rgba(255,255,255,0.07); border-radius: 50%; }
+  .page-cta-inner { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; gap: 40px; }
+  .page-cta h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(44px, 5vw, 68px); letter-spacing: 3px; color: var(--white); line-height: 0.9; margin-bottom: 12px; }
+  .page-cta p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 440px; line-height: 1.6; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--orange); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; white-space: nowrap; transition: transform 0.15s; flex-shrink: 0; }
+  .btn-white:hover { transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 32px 48px; }
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo-img { height: 36px; width: auto; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.2); }
+
+  /* FADE UP */
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } .nav-links { display: none; }
+    .dig-hero-inner { grid-template-columns: 1fr; padding: 48px 24px 0; gap: 36px; }
+    .dig-hero-visual { display: none; }
+    .dig-hero-strip { grid-template-columns: 1fr; }
+    .dig-hero-strip-item { padding: 16px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .dig-why, .dig-service-section, .dig-grid-section, .dig-flow, .dig-case, .dig-partners, .page-cta { padding-left: 24px; padding-right: 24px; }
+    .dig-why-grid { grid-template-columns: 1fr; }
+    .dig-service-layout, .dig-service-layout.reverse { grid-template-columns: 1fr; gap: 32px; }
+    .dig-service-layout.reverse .dig-service-content, .dig-service-layout.reverse .dig-service-visual { order: unset; }
+    .dig-grid { grid-template-columns: 1fr; }
+    .dig-flow-steps { grid-template-columns: 1fr; gap: 12px; }
+    .dig-flow-arrow { display: none; }
+    .dig-case-inner { grid-template-columns: 1fr; gap: 40px; }
+    .dig-partners-inner { grid-template-columns: 1fr; gap: 40px; }
+    .dig-partners-grid { grid-template-columns: 1fr; }
+    .page-cta-inner { flex-direction: column; align-items: flex-start; }
+    footer { padding: 32px 24px; }
+    .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+
+<!-- ── HERO ────────────────────────────────────────────────────── -->
+<div class="dig-hero">
+  <div class="dig-hero-inner">
+    <div class="dig-hero-content fade-up">
+      <div class="dig-hero-eyebrow">Digital Solutions — Elitez FMCG</div>
+      <h1>ACTIVATION-LED<br><span>DIGITAL</span><br>MARKETING</h1>
+      <p class="dig-hero-lead">We're not a digital agency that stumbled into BTL. We're an activation company that built digital around the one thing most agencies miss — the real consumer moment on the ground.</p>
+      <div class="dig-hero-actions">
+        <a href="contact" class="btn-orange">Get a Proposal →</a>
+        <a href="#services" class="btn-ghost">See Services ↓</a>
+      </div>
+    </div>
+    <div class="dig-hero-visual fade-up">
+      <img src="/assets/stitch-hero.png" alt="Activation-led digital marketing illustration" style="width:100%; border-radius:12px 12px 0 0; display:block;">
+    </div>
+  </div>
+  <div class="dig-hero-strip">
+    <div class="dig-hero-strip-item"><div class="dot"></div><span>Partner-powered specialist network</span></div>
+    <div class="dig-hero-strip-item"><div class="dot"></div><span>Integrated with your BTL campaign</span></div>
+    <div class="dig-hero-strip-item"><div class="dot"></div><span>One brief. One team. Full funnel.</span></div>
+  </div>
+</div>
+
+<!-- ── WHY WE'RE DIFFERENT ───────────────────────────────────────── -->
+<section class="dig-why fade-up">
+  <div class="dig-why-header">
+    <div class="section-kicker">Our Approach</div>
+    <h2 class="section-h2">DIGITAL THAT STARTS <span>ON THE GROUND</span></h2>
+  </div>
+  <div class="dig-why-grid">
+    <div class="dig-why-card">
+      <div class="dig-why-card-num">01</div>
+      <h3>Not Siloed. Integrated.</h3>
+      <p>Your campaign doesn't end at the supermarket aisle. Every activation we run has a digital extension built in — from the moment a shopper scans a QR code to the moment they see your retargeting ad that same evening. Physical and digital move together.</p>
+    </div>
+    <div class="dig-why-card">
+      <div class="dig-why-card-num">02</div>
+      <h3>Partner-Powered.</h3>
+      <p>We work with a curated network of specialist partners across SEO, paid media, PR and web development. Instead of one in-house generalist, you get proven specialists — all managed by us as your single point of accountability.</p>
+    </div>
+    <div class="dig-why-card">
+      <div class="dig-why-card-num">03</div>
+      <h3>Activation-First Always.</h3>
+      <p>You garner shoppers on the ground and refine your target audience during the campaign. Then post-event, we expand the reach through lookalikes of your newly defined audience — targeting them through digital media while their purchase intent is still warm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL MEDIA RETAINER (featured) ──────────────────────── -->
+<section class="dig-service-section dark fade-up" id="services">
+  <div class="dig-service-layout">
+    <div class="dig-service-content">
+      <div class="service-badge-dark">02 — Social</div>
+      <h2 class="section-h2-light">SOCIAL MEDIA<br><span>RETAINER</span></h2>
+      <p class="dig-service-lead-light">More than a posting schedule — a living content strategy that stays in step with your campaigns, your retail calendar, and your consumers' seasonal mindset.</p>
+      <div class="dig-service-points">
+        <div class="dig-service-point">
+          <div class="dig-service-point-icon dark-icon">
+            <svg viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="#FF5500" stroke-width="1.3"/><rect x="11" y="1" width="6" height="6" rx="1" stroke="#FF5500" stroke-width="1.3"/><rect x="1" y="11" width="6" height="6" rx="1" stroke="#FF5500" stroke-width="1.3"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="#FF5500" stroke-width="1.3"/></svg>
+          </div>
+          <div class="dig-service-point-text-light">
+            <h4>Always-On Content Management</h4>
+            <p>Monthly content calendars, caption writing, scheduling and community management across Instagram, Facebook, TikTok and LinkedIn.</p>
+          </div>
+        </div>
+        <div class="dig-service-point">
+          <div class="dig-service-point-icon dark-icon">
+            <svg viewBox="0 0 18 18" fill="none"><path d="M9 2L11 7H16L12 10.5L13.5 16L9 13L4.5 16L6 10.5L2 7H7L9 2Z" stroke="#FF5500" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="dig-service-point-text-light">
+            <h4>Seasonal Campaign Concepts</h4>
+            <p>Ad-hoc creative concepts tailored to key retail moments — Chinese New Year, Hari Raya, Christmas, National Day and brand-specific milestones. We pitch the idea, produce the content, and push it live.</p>
+          </div>
+        </div>
+        <div class="dig-service-point">
+          <div class="dig-service-point-icon dark-icon">
+            <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#FF5500" stroke-width="1.3"/><path d="M6 9L8.5 11.5L13 6.5" stroke="#FF5500" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="dig-service-point-text-light">
+            <h4>Activation Content Amplification</h4>
+            <p>We turn your on-ground activation footage into social content — behind-the-scenes clips, promoter highlights, consumer reaction reels — the content that only works because we were there.</p>
+          </div>
+        </div>
+        <div class="dig-service-point">
+          <div class="dig-service-point-icon dark-icon">
+            <svg viewBox="0 0 18 18" fill="none"><polyline points="2,14 6,8 10,11 14,5" stroke="#FF5500" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14,5 16,5 16,7" stroke="#FF5500" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="dig-service-point-text-light">
+            <h4>Monthly Performance Reporting</h4>
+            <p>Reach, engagement, follower growth and content performance — all tied back to what was running on the ground that month.</p>
+          </div>
+        </div>
+      </div>
+      <a href="contact" class="btn-orange">Get a Retainer Proposal →</a>
+    </div>
+    <div class="dig-service-visual">
+      <img src="/assets/stitch-social.png" alt="Social media content calendar illustration" style="width:100%; border-radius:12px; display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ── INTEGRATED MEDIA BUY (featured) ──────────────────────────── -->
+<section class="dig-service-section light fade-up">
+  <div class="dig-service-layout reverse">
+    <div class="dig-service-content">
+      <div class="service-badge">03 — Paid Media</div>
+      <h2 class="section-h2">INTEGRATED<br><span>MEDIA BUY</span></h2>
+      <p class="dig-service-lead">We don't run ads in isolation. Every media buy we plan is mapped against your BTL calendar — amplifying the exact weeks your brand is most visible on the ground.</p>
+      <div class="dig-service-points">
+        <div class="dig-service-point">
+          <div class="dig-service-point-icon">
+            <svg viewBox="0 0 18 18" fill="none"><rect x="1" y="5" width="16" height="10" rx="2" stroke="#FF5500" stroke-width="1.3"/><path d="M5 5V3.5C5 2.7 5.7 2 6.5 2H11.5C12.3 2 13 2.7 13 3.5V5" stroke="#FF5500" stroke-width="1.3"/><line x1="1" y1="9" x2="17" y2="9" stroke="#FF5500" stroke-width="1.3"/></svg>
+          </div>
+          <div class="dig-service-point-text">
+            <h4>Cross-Channel Campaign Planning</h4>
+            <p>Meta (Facebook & Instagram), Google (Search & Display), TikTok Ads, YouTube Pre-rolls and programmatic display — planned as a single integrated media strategy, not siloed by platform.</p>
+          </div>
+        </div>
+        <div class="dig-service-point">
+          <div class="dig-service-point-icon">
+            <svg viewBox="0 0 18 18" fill="none"><path d="M2 13L6 9L9 12L13 7L16 10" stroke="#FF5500" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="7" r="2" stroke="#FF5500" stroke-width="1.3" fill="none"/></svg>
+          </div>
+          <div class="dig-service-point-text">
+            <h4>Activation-Mapped Spend</h4>
+            <p>Media budgets are allocated to mirror your on-ground presence — heavy up during roadshow weeks, retargeting post-event, always aligned to where your promoters are deployed.</p>
+          </div>
+        </div>
+        <div class="dig-service-point">
+          <div class="dig-service-point-icon">
+            <svg viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#FF5500" stroke-width="1.3"/><path d="M6 9H12M9 6V12" stroke="#FF5500" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dig-service-point-text">
+            <h4>Retail Media Buying</h4>
+            <p>Lazada, Shopee, FairPrice Online and Grab sponsored placements — reaching your shopper at the exact digital shelf, with targeting precision tied to real category purchase behaviour.</p>
+          </div>
+        </div>
+        <div class="dig-service-point">
+          <div class="dig-service-point-icon">
+            <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#FF5500" stroke-width="1.3"/><path d="M9 5V9L12 11" stroke="#FF5500" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dig-service-point-text">
+            <h4>Transparent Attribution Reporting</h4>
+            <p>Weekly spend pacing, ROAS by channel, CPM and CPC benchmarks — all delivered alongside your BTL activity reports so you see the complete campaign picture in one place.</p>
+          </div>
+        </div>
+      </div>
+      <a href="contact" class="btn-orange">Get a Media Plan →</a>
+    </div>
+    <div class="dig-service-visual">
+      <img src="/assets/stitch-mediabuy.png" alt="Integrated media buy channels illustration" style="width:100%; border-radius:12px; display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ── 4 REMAINING SERVICES GRID ──────────────────────────────── -->
+<section class="dig-grid-section fade-up">
+  <div class="section-kicker" style="margin-bottom:8px">Full Suite</div>
+  <h2 class="section-h2" style="margin-bottom:48px">MORE SERVICES,<br><span>ONE PARTNER</span></h2>
+  <div class="dig-grid">
+
+    <div class="dig-grid-card">
+      <div class="dig-grid-card-icon" style="width:52px;height:52px;overflow:hidden;background:none;padding:0;border-radius:8px;">
+        <img src="/assets/stitch-seo.png" alt="SEO SEM" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="dig-grid-card-num">01 — Search</div>
+      <h3>SEO & SEM</h3>
+      <p>Your roadshow creates search intent — we capture it. When 300 shoppers discover your product in-store this Saturday, we ensure they find you again on Sunday when they search online.</p>
+      <ul>
+        <li>Search rankings tied to your category keywords</li>
+        <li>SEM campaigns timed to your activation windows</li>
+        <li>On-page SEO for campaign microsites and brand pages</li>
+        <li>Monthly ranking and traffic reporting</li>
+      </ul>
+    </div>
+
+    <div class="dig-grid-card">
+      <div class="dig-grid-card-icon" style="width:52px;height:52px;overflow:hidden;background:none;padding:0;border-radius:8px;">
+        <img src="/assets/stitch-kol.png" alt="KOL Engagement" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="dig-grid-card-num">04 — Influence</div>
+      <h3>KOL ENGAGEMENT</h3>
+      <p>We don't just book influencers — we bring them into live activations. KOL content that's produced at your roadshow is authentic, on-brand, and reaches an audience that was never in the store.</p>
+      <ul>
+        <li>KOL sourcing and vetting for your FMCG category</li>
+        <li>Live activation appearances and content creation</li>
+        <li>Amplified reach across TikTok, Instagram and YouTube</li>
+        <li>Post-campaign performance tracking and ROI reporting</li>
+      </ul>
+    </div>
+
+    <div class="dig-grid-card">
+      <div class="dig-grid-card-icon" style="width:52px;height:52px;overflow:hidden;background:none;padding:0;border-radius:8px;">
+        <img src="/assets/stitch-pr.png" alt="PR Media Coverage" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="dig-grid-card-num">05 — PR</div>
+      <h3>PR & MEDIA COVERAGE</h3>
+      <p>Your activation is the story — we pitch it. From product launches and campaign milestones to brand initiatives, we connect you with the right media channels to extend earned-media reach beyond your paid channels.</p>
+      <ul>
+        <li>Press release writing and media distribution</li>
+        <li>Journalist and editor relations in Singapore media</li>
+        <li>Event-based media coordination and coverage management</li>
+        <li>Online news and trade publication placement</li>
+      </ul>
+    </div>
+
+    <div class="dig-grid-card">
+      <div class="dig-grid-card-icon" style="width:52px;height:52px;overflow:hidden;background:none;padding:0;border-radius:8px;">
+        <img src="/assets/stitch-web.png" alt="Website Creation" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="dig-grid-card-num">06 — Web</div>
+      <h3>WEBSITE CREATION</h3>
+      <p>From brand websites to campaign microsites and promotional landing pages — built to support your BTL mechanics with QR entry flows, contest validation, winner galleries and product showcases.</p>
+      <ul>
+        <li>Campaign microsites with purchase validation and prize fulfilment</li>
+        <li>Brand website design and development</li>
+        <li>Mobile-first, fast-loading, SEO-ready</li>
+        <li>Post-campaign handover with full source code</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── BTL → DIGITAL FLOW ─────────────────────────────────────── -->
+<section class="dig-flow fade-up">
+  <div class="dig-flow-inner">
+    <div class="section-kicker-light" style="text-align:center">How It Connects</div>
+    <h2 class="section-h2-light" style="text-align:center; margin-bottom:0">THE <span>FULL LOOP</span></h2>
+    <div class="dig-flow-steps">
+      <div class="dig-flow-step">
+        <div class="dig-flow-step-num">01</div>
+        <h4>BTL ACTIVATION</h4>
+        <p>Promoters deployed. Consumers engaged. Products sampled at the shelf or roadshow.</p>
+      </div>
+      <div class="dig-flow-arrow">→</div>
+      <div class="dig-flow-step">
+        <div class="dig-flow-step-num">02</div>
+        <h4>DIGITAL CAPTURE</h4>
+        <p>QR codes, microsite entries, social content and KOL posts amplify the physical moment online.</p>
+      </div>
+      <div class="dig-flow-arrow">→</div>
+      <div class="dig-flow-step">
+        <div class="dig-flow-step-num">03</div>
+        <h4>PAID AMPLIFICATION</h4>
+        <p>Retargeting ads, SEM, retail media and social posts reach those who didn't make it to the store.</p>
+      </div>
+    </div>
+    <p class="dig-flow-note">One campaign. One team. Physical and digital working as one.</p>
+  </div>
+</section>
+
+<!-- ── CASE STUDY: M&M'S ──────────────────────────────────────── -->
+<section class="dig-case fade-up">
+  <div class="dig-case-inner">
+    <div>
+      <div class="dig-case-label">Case Study</div>
+      <h2>M&M'S <span>EVERYONE WINS</span> CAMPAIGN</h2>
+      <div class="dig-case-client">Mars Wrigley · Online Contest Management</div>
+      <p>A fully managed online contest mechanic for the M&M's Christmas "Everyone Wins" campaign — combining in-store purchase validation with a consumer-facing microsite, age-gating, digital prize redemption and a winners gallery.</p>
+      <p>Shoppers purchased a qualifying M&M's product, entered a unique code on the campaign microsite, and were served an instant-win result. Every step — from entry mechanic to prize fulfilment — was managed end-to-end by Elitez FMCG.</p>
+      <div class="dig-case-stats">
+        <div class="dig-case-stat">
+          <div class="dig-case-stat-num">$500K+</div>
+          <div class="dig-case-stat-label">In prizes distributed</div>
+        </div>
+        <div class="dig-case-stat">
+          <div class="dig-case-stat-num">100%</div>
+          <div class="dig-case-stat-label">Instant-win mechanic</div>
+        </div>
+        <div class="dig-case-stat">
+          <div class="dig-case-stat-num">2-Step</div>
+          <div class="dig-case-stat-label">Purchase validation flow</div>
+        </div>
+        <div class="dig-case-stat">
+          <div class="dig-case-stat-num">E2E</div>
+          <div class="dig-case-stat-label">Managed by Elitez FMCG</div>
+        </div>
+      </div>
+    </div>
+    <div class="dig-case-phones">
+      <div class="dig-case-phone"><img src="/assets/digital-1.jpg" alt="M&M's Everyone Wins — contest home screen" loading="lazy"></div>
+      <div class="dig-case-phone"><img src="/assets/digital-2.jpg" alt="M&M's Everyone Wins — entry form" loading="lazy"></div>
+      <div class="dig-case-phone"><img src="/assets/digital-3.jpg" alt="M&M's Everyone Wins — how to join" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ───────────────────────────────────────────────── -->
+<section class="dig-partners fade-up">
+  <div class="dig-partners-inner">
+    <div class="dig-partners-text">
+      <div class="section-kicker-light">Our Network</div>
+      <h2>SPECIALIST <span>PARTNERS</span> FOR EVERY SERVICE</h2>
+      <p>We don't try to do everything in-house. We've built a trusted network of vetted specialist partners across every digital discipline — curated for FMCG brands, managed by Elitez as your single point of contact. One brief. No juggling ten agencies.</p>
+    </div>
+    <div class="dig-partners-grid">
+      <div class="dig-partner-item">
+        <div class="dig-partner-item-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="rgba(255,85,0,0.5)" stroke-width="1.3"/><path d="M3 12H21M12 3C9.5 6 8 9 8 12C8 15 9.5 18 12 21M12 3C14.5 6 16 9 16 12C16 15 14.5 18 12 21" stroke="rgba(255,85,0,0.5)" stroke-width="1.3"/></svg>
+        </div>
+        <h4>SEO & SEM Specialists</h4>
+        <p>Certified Google Partners with a track record in FMCG and retail search marketing.</p>
+      </div>
+      <div class="dig-partner-item">
+        <div class="dig-partner-item-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="1" stroke="rgba(255,85,0,0.5)" stroke-width="1.3"/><rect x="13" y="3" width="8" height="8" rx="1" stroke="rgba(255,85,0,0.5)" stroke-width="1.3"/><rect x="3" y="13" width="8" height="8" rx="1" stroke="rgba(255,85,0,0.5)" stroke-width="1.3"/><rect x="13" y="13" width="8" height="8" rx="1" stroke="rgba(255,85,0,0.5)" stroke-width="1.3"/></svg>
+        </div>
+        <h4>Social & Content Studios</h4>
+        <p>Social-native content teams who understand retail, product and the Singapore consumer.</p>
+      </div>
+      <div class="dig-partner-item">
+        <div class="dig-partner-item-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 7H4C2.9 7 2 7.9 2 9V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V9C22 7.9 21.1 7 20 7Z" stroke="rgba(255,85,0,0.5)" stroke-width="1.3"/><path d="M16 3H8L6 7H18L16 3Z" stroke="rgba(255,85,0,0.5)" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Media Buying Desks</h4>
+        <p>Programmatic and direct-buy partners with access to Singapore's premium media inventory.</p>
+      </div>
+      <div class="dig-partner-item">
+        <div class="dig-partner-item-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="4" stroke="rgba(255,85,0,0.5)" stroke-width="1.3"/><path d="M3 21C3 17.7 5.7 15 9 15" stroke="rgba(255,85,0,0.5)" stroke-width="1.3" stroke-linecap="round"/><path d="M16 11L19 14L23 10" stroke="rgba(255,85,0,0.5)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>KOL & PR Agencies</h4>
+        <p>Established media and influencer networks across Singapore's F&B, lifestyle and FMCG verticals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────────── -->
+<div class="page-cta">
+  <div class="page-cta-inner">
+    <div>
+      <h2>READY TO CLOSE<br>THE LOOP?</h2>
+      <p>Tell us what you're running on the ground and we'll show you how to make it work harder online. One brief. Full funnel.</p>
+    </div>
+    <a href="contact" class="btn-white">Get a Proposal →</a>
+  </div>
+</div>
+
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  }), { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+<!-- Lenis smooth scroll + GSAP -->
+</BaseLayout>

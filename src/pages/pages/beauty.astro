@@ -1,0 +1,518 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Beauty Promoters Singapore | Elitez FMCG"
+  description="Specialist beauty and cosmetics promoters for retail counters, roadshows and brand activations across Singapore."
+  canonical="https://fmcg.elitez.ai/pages/beauty"
+  keywords="beauty promoters Singapore, cosmetics promoter agency Singapore, beauty brand activation Singapore"
+>
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Elitez FMCG",
+  "url": "https://fmcg.elitez.ai/",
+  "logo": "https://fmcg.elitez.ai/assets/logo-nav.png",
+  "telephone": "+65 8180 0994",
+  "email": "fmcg@elitez.asia",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Kallang Ave, CT Hub #03-08",
+    "addressLocality": "Singapore",
+    "postalCode": "339407",
+    "addressCountry": "SG"
+  },
+  "areaServed": "SG",
+  "priceRange": "$$"
+}
+</script>
+</Fragment>
+<style is:global>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #FF5500; --orange-hover: #E84A00; --orange-pale: #FFF3EE;
+    --black: #111; --white: #fff; --gray: #F4F4F2;
+    --mid-gray: #888; --border: #E8E8E5; --text-muted: #777; --nav-h: 72px;
+    --rose: #F5E6E8; --rose-deep: #C8858A;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; transition: box-shadow 0.3s; }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-logo-text { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 3px; color: var(--black); }
+  .nav-logo-text span { color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+  .nav-links a { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--black); }
+  .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 3px; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--orange-hover) !important; }
+  /* SERVICES DROPDOWN */
+  .has-dropdown { position: relative; align-self: stretch; display: flex; align-items: center; }
+  .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .has-dropdown > a::after { content: '▾'; font-size: 11px; opacity: 0.5; transition: opacity 0.2s; }
+  .has-dropdown:hover > a::after { opacity: 1; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--orange); border-radius: 0 0 4px 4px; padding: 4px 0; min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+  .nav-dropdown::before { display: none; }
+  .has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: block !important; padding: 9px 18px; font-family: 'Barlow', sans-serif !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; color: #888 !important; background: none !important; transition: color 0.15s, background 0.15s !important; white-space: nowrap; border-radius: 0 !important; }
+  .nav-dropdown a:hover { color: var(--orange) !important; background: var(--orange-pale) !important; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* HERO */
+  .hero { padding-top: var(--nav-h); background: var(--black); position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 45%; height: 100%; background: linear-gradient(135deg, transparent 30%, rgba(255,85,0,0.05) 100%); pointer-events: none; }
+  .hero-inner { padding: 80px 48px 0; position: relative; }
+  .hero-inner::before { content: 'BEAUTY'; position: absolute; top: -10px; right: -20px; font-family: 'Bebas Neue', cursive; font-size: 220px; letter-spacing: 8px; color: rgba(255,255,255,0.02); pointer-events: none; line-height: 1; }
+  .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+  .breadcrumb a { color: var(--orange); text-decoration: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: end; }
+  .hero-content { padding-bottom: 0; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,85,0,0.15); border: 1px solid rgba(255,85,0,0.25); padding: 7px 14px; margin-bottom: 24px; }
+  .hero-tag span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); }
+  h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(56px, 7vw, 88px); letter-spacing: 2px; color: var(--white); line-height: 0.92; margin-bottom: 24px; }
+  h1 .accent { color: var(--orange); }
+  .hero-desc { font-size: 17px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.6); max-width: 480px; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-orange { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: #fff; font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 26px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-orange:hover { background: var(--orange-hover); transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.18); font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 13px 26px; text-decoration: none; transition: all 0.2s; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
+  .hero-img-strip { display: flex; gap: 8px; margin-top: 48px; align-items: flex-end; }
+  .hero-img-strip-item { overflow: hidden; flex: 1; }
+  .hero-img-strip-item:first-child { flex: 1.4; }
+  .hero-img-strip-item img { width: 100%; height: 280px; object-fit: cover; display: block; filter: brightness(0.85); }
+  .hero-img-strip-item:first-child img { height: 340px; }
+
+  /* STATS BAR */
+  .stats-bar { background: var(--orange); }
+  .stats-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat-item { padding: 28px 24px; border-right: 1px solid rgba(255,255,255,0.2); text-align: center; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Bebas Neue', cursive; font-size: 40px; letter-spacing: 2px; color: var(--white); line-height: 1; }
+  .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 3px; }
+
+  /* DIFFERENCE SECTION */
+  .diff-section { padding: 96px 48px; background: var(--white); }
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+  .section-title { font-family: 'Bebas Neue', cursive; font-size: clamp(40px, 5vw, 60px); letter-spacing: 2px; color: var(--black); line-height: 1; margin-bottom: 20px; }
+  .section-title .accent { color: var(--orange); }
+  .section-lead { font-size: 17px; font-weight: 300; line-height: 1.7; color: var(--text-muted); margin-bottom: 36px; }
+  .diff-points { display: flex; flex-direction: column; gap: 0; }
+  .diff-point { display: flex; gap: 20px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .diff-point:first-child { border-top: 1px solid var(--border); }
+  .diff-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--orange); min-width: 28px; margin-top: 3px; }
+  .diff-body h4 { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 5px; }
+  .diff-body p { font-size: 14px; line-height: 1.6; color: var(--text-muted); }
+  .diff-visual { position: relative; }
+  .diff-img-stack { position: relative; }
+  .diff-img-main { border-radius: 4px; overflow: hidden; }
+  .diff-img-main img { width: 100%; height: 400px; object-fit: cover; display: block; }
+  .diff-img-inset { position: absolute; bottom: -24px; left: -24px; width: 55%; border-radius: 4px; overflow: hidden; border: 4px solid var(--white); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+  .diff-img-inset img { width: 100%; height: 160px; object-fit: cover; display: block; }
+  .diff-badge { position: absolute; top: 24px; right: -16px; background: var(--orange); color: var(--white); padding: 16px 20px; text-align: center; }
+  .diff-badge-num { font-family: 'Bebas Neue', cursive; font-size: 32px; letter-spacing: 2px; display: block; line-height: 1; }
+  .diff-badge-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+
+  /* CATEGORIES */
+  .categories-section { background: var(--black); padding: 80px 48px; }
+  .categories-header { text-align: center; margin-bottom: 48px; }
+  .categories-header .section-title { color: var(--white); }
+  .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .cat-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 32px 24px; text-align: center; transition: background 0.3s; position: relative; overflow: hidden; }
+  .cat-card:hover { background: rgba(255,85,0,0.08); border-color: rgba(255,85,0,0.2); }
+  .cat-icon { width: 100%; max-width: 200px; height: auto; object-fit: contain; margin: 0 auto 20px; display: block; }
+  .beauty-scene-band { overflow: hidden; }
+  .beauty-scene-band img { width: 100%; height: auto; display: block; }
+  .cat-name { font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; color: var(--white); margin-bottom: 8px; }
+  .cat-desc { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.45); }
+
+  /* PROJECT SHOWCASE */
+  .showcase-section { padding: 96px 48px; background: var(--gray); }
+  .showcase-header { margin-bottom: 48px; }
+  .showcase-header-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+  .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-tab { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; border: 1px solid var(--border); background: var(--white); color: var(--mid-gray); cursor: pointer; transition: all 0.2s; border-radius: 2px; }
+  .filter-tab.active, .filter-tab:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gallery-item { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+  .gallery-item.tall { grid-row: span 2; }
+  .gallery-item.wide { grid-column: span 2; }
+  .gallery-placeholder { width: 100%; height: 280px; display: block; position: relative; overflow: hidden; }
+  .gallery-item.tall .gallery-placeholder { height: 576px; }
+  .gallery-item.wide .gallery-placeholder { height: 280px; }
+  .gallery-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; filter: brightness(0.88); }
+  .gallery-item:hover .gallery-placeholder img { transform: scale(1.06); filter: brightness(1); }
+  .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 20px; }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-label { color: var(--white); }
+  .gallery-label-brand { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }
+  .gallery-label-title { font-family: 'Bebas Neue', cursive; font-size: 18px; letter-spacing: 1.5px; }
+
+  /* PROCESS */
+  .process-section { padding: 96px 48px; background: var(--white); }
+  .process-header { text-align: center; margin-bottom: 64px; }
+  .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 2px; background: var(--border); }
+  .process-step { text-align: center; padding: 0 12px; }
+  .step-circle { width: 56px; height: 56px; border-radius: 50%; background: var(--white); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; color: var(--mid-gray); margin: 0 auto 16px; position: relative; z-index: 1; transition: all 0.3s; }
+  .process-step:hover .step-circle { background: var(--orange); border-color: var(--orange); color: var(--white); }
+  .step-title { font-family: 'Bebas Neue', cursive; font-size: 15px; letter-spacing: 1.5px; color: var(--black); margin-bottom: 8px; }
+  .step-desc { font-size: 12px; line-height: 1.6; color: var(--text-muted); }
+
+  /* CTA */
+  .page-cta { background: var(--orange); padding: 80px 48px; position: relative; overflow: hidden; }
+  .page-cta::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border: 80px solid rgba(255,255,255,0.07); border-radius: 50%; }
+  .page-cta::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 280px; height: 280px; border: 60px solid rgba(255,255,255,0.04); border-radius: 50%; }
+  .page-cta-inner { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; gap: 40px; }
+  .page-cta h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(40px, 5vw, 64px); letter-spacing: 3px; color: var(--white); line-height: 0.92; margin-bottom: 12px; }
+  .page-cta p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 440px; line-height: 1.6; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--orange); font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; text-decoration: none; white-space: nowrap; transition: transform 0.15s; flex-shrink: 0; }
+  .btn-white:hover { transform: translateY(-2px); }
+  .btn-dark { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: #fff; font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; text-decoration: none; transition: all 0.15s; flex-shrink: 0; }
+  .btn-dark:hover { background: #222; transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 32px 48px; }
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo-img { height: 36px; width: auto; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.2); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } .nav-links { display: none; }
+    .hero-inner { padding: 48px 24px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .hero-img-strip { display: none; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .diff-section, .categories-section, .showcase-section, .process-section { padding: 64px 24px; }
+    .diff-grid { grid-template-columns: 1fr; gap: 40px; }
+    .diff-visual { display: none; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.tall { grid-row: span 1; }
+    .gallery-item.tall .gallery-placeholder { height: 240px; }
+    .gallery-item.wide { grid-column: span 1; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .process-steps::before { display: none; }
+    .page-cta { padding: 60px 24px; }
+    .page-cta-inner { flex-direction: column; align-items: flex-start; }
+    footer { padding: 32px 24px; }
+    .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner fade-up">
+    <div class="breadcrumb"><a href="../">Home</a> / Beauty Promoters</div>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag"><span>Specialist Promoter Solutions</span></div>
+        <h1>BEAUTY<br><span class="accent">ACTIVATION</span><br><span class="accent">SPECIALISTS</span></h1>
+        <p class="hero-desc">Trained beauty advisors who sell. From skincare consultations to makeup demonstrations — our beauty promoters combine product expertise, professional grooming and proven upselling skills.</p>
+        <div class="hero-actions">
+          <a href="contact" class="btn-orange">Deploy Beauty Promoters →</a>
+          <a href="services" class="btn-ghost">View All Services</a>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+  <div class="hero-img-strip fade-up">
+    <div class="hero-img-strip-item">
+      <img src="/assets/perrier-1.jpg" alt="Beauty activation" onerror="this.style.background='#1a1a1a'" loading="eager" fetchpriority="high">
+    </div>
+    <div class="hero-img-strip-item">
+      <img src="/assets/nescafe-win-1.jpg" alt="Beauty promoter" onerror="this.style.background='#222'" loading="lazy">
+    </div>
+    <div class="hero-img-strip-item">
+      <img src="/assets/lipton-1.jpg" alt="Beauty campaign" onerror="this.style.background='#1a1a1a'" loading="lazy">
+    </div>
+    <div class="hero-img-strip-item">
+      <img src="/assets/outdoor-1.jpg" alt="Beauty roadshow" onerror="this.style.background='#222'" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item fade-up">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Beauty Trained Staff</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Beauty Brands Served</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Outlets Covered</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-num">WSQ</div>
+      <div class="stat-label">Certified Training</div>
+    </div>
+  </div>
+</div>
+
+<!-- THE DIFFERENCE -->
+<section class="diff-section">
+  <div class="diff-grid">
+    <div class="fade-up">
+      <p class="section-label">Why Choose Elitez Beauty</p>
+      <h2 class="section-title">NOT JUST<br>PROMOTERS —<br><span class="accent">BEAUTY EXPERTS</span></h2>
+      <p class="section-lead">Generic promoters hand out samples. Our beauty advisors diagnose skin concerns, recommend the right products, handle objections and close the sale — all while representing your brand impeccably.</p>
+      <div class="diff-points">
+        <div class="diff-point">
+          <div class="diff-num">01</div>
+          <div class="diff-body">
+            <h4>Category-Specific Product Training</h4>
+            <p>Promoters are trained on your exact SKUs — ingredients, benefits, differentiators versus competition. They can answer the questions your shoppers actually ask.</p>
+          </div>
+        </div>
+        <div class="diff-point">
+          <div class="diff-num">02</div>
+          <div class="diff-body">
+            <h4>Grooming & Presentation Standards</h4>
+            <p>Appearance is brand equity in beauty. We enforce strict grooming standards — appropriate makeup, professional attire, brand-aligned presentation at every shift.</p>
+          </div>
+        </div>
+        <div class="diff-point">
+          <div class="diff-num">03</div>
+          <div class="diff-body">
+            <h4>Upselling & Cross-Selling Skills</h4>
+            <p>Trained to recommend complementary products and convert trial to purchase — our beauty advisors consistently outperform generic promoters on basket size.</p>
+          </div>
+        </div>
+        <div class="diff-point">
+          <div class="diff-num">04</div>
+          <div class="diff-body">
+            <h4>BLINK-Tracked Performance</h4>
+            <p>Every shift is monitored via our proprietary BLINK platform — experience scores, sales data and attendance tracked live so you see ROI in real time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="diff-visual fade-up">
+      <div class="diff-img-stack">
+        <div class="diff-img-main">
+          <img src="/assets/perrier-2.jpg" alt="Beauty advisor" onerror="this.style.background='#f0e8e4'; this.style.height='400px'" loading="lazy">
+        </div>
+        <div class="diff-img-inset">
+          <img src="/assets/meiji-1.jpg" alt="Beauty campaign" onerror="this.style.background='#e8e0dc'; this.style.height='160px'" loading="lazy">
+        </div>
+        <div class="diff-badge">
+          <span class="diff-badge-num">92%</span>
+          <span class="diff-badge-label">Avg Quality Score</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY COVERAGE -->
+<section class="categories-section">
+  <div class="categories-header fade-up">
+    <p class="section-label" style="color: var(--orange);">Category Coverage</p>
+    <h2 class="section-title" style="color: var(--white);">WE COVER EVERY<br>BEAUTY <span class="accent">VERTICAL</span></h2>
+  </div>
+  <div class="categories-grid">
+    <div class="cat-card fade-up">
+      <img class="cat-icon" src="/assets/img/icon-skincare.png" alt="" loading="lazy">
+      <div class="cat-name">Skincare</div>
+      <p class="cat-desc">Serums, moisturisers, SPF, cleansers — advisors trained to conduct skin consultations and recommend product regimens</p>
+    </div>
+    <div class="cat-card fade-up">
+      <img class="cat-icon" src="/assets/img/icon-makeup.png" alt="" loading="lazy">
+      <div class="cat-name">Makeup & Cosmetics</div>
+      <p class="cat-desc">Foundation matching, colour consultations, application demonstrations and live makeovers at point of purchase</p>
+    </div>
+    <div class="cat-card fade-up">
+      <img class="cat-icon" src="/assets/img/icon-haircare.png" alt="" loading="lazy">
+      <div class="cat-name">Haircare</div>
+      <p class="cat-desc">Scalp analysis, treatment recommendations, product demos for shampoo, conditioner, styling and treatment ranges</p>
+    </div>
+    <div class="cat-card fade-up">
+      <img class="cat-icon" src="/assets/img/icon-personal-care.png" alt="" loading="lazy">
+      <div class="cat-name">Personal Care</div>
+      <p class="cat-desc">Body care, fragrance, deodorant and wellness products — broad category knowledge across all personal care sub-segments</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAUTY SCENE BAND -->
+<div class="beauty-scene-band">
+  <img src="/assets/img/scene-beauty-counter.png" alt="Beauty activation at retail counter" loading="lazy">
+</div>
+
+<!-- PROJECT SHOWCASE -->
+<section class="showcase-section">
+  <div class="showcase-header">
+    <div class="showcase-header-inner fade-up">
+      <div>
+        <p class="section-label">Campaign Showcase</p>
+        <h2 class="section-title">FEATURED<br><span class="accent">PROJECTS</span></h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Skincare</button>
+        <button class="filter-tab">Makeup</button>
+        <button class="filter-tab">Haircare</button>
+        <button class="filter-tab">Personal Care</button>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-grid">
+
+    <div class="gallery-item tall fade-up">
+      <div class="gallery-placeholder">
+        <img src="/assets/perrier-1.jpg" alt="Skincare launch activation" onerror="this.parentElement.style.background='linear-gradient(135deg,#f5e6e8,#e8d0d3)'" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-label">
+          <div class="gallery-label-brand">Skincare — NTUC</div>
+          <div class="gallery-label-title">BRAND LAUNCH ACTIVATION</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-up">
+      <div class="gallery-placeholder">
+        <img src="/assets/nescafe-win-1.jpg" alt="Makeup roadshow" onerror="this.parentElement.style.background='linear-gradient(135deg,#fce8e0,#f0d0c4)'" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-label">
+          <div class="gallery-label-brand">Makeup — Cold Storage</div>
+          <div class="gallery-label-title">COLOUR CAMPAIGN</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-up">
+      <div class="gallery-placeholder">
+        <img src="/assets/meiji-1.jpg" alt="Haircare promotion" onerror="this.parentElement.style.background='linear-gradient(135deg,#e8f0f5,#d0e4ec)'" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-label">
+          <div class="gallery-label-brand">Haircare — Giant</div>
+          <div class="gallery-label-title">IN-STORE DEMO</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item wide fade-up">
+      <div class="gallery-placeholder">
+        <img src="/assets/outdoor-1.jpg" alt="Beauty roadshow" onerror="this.parentElement.style.background='linear-gradient(135deg,#f5ece8,#ecd8d0)'" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-label">
+          <div class="gallery-label-brand">Personal Care — Mall Roadshow</div>
+          <div class="gallery-label-title">SEASONAL ACTIVATION</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-up">
+      <div class="gallery-placeholder">
+        <img src="/assets/lipton-1.jpg" alt="Skincare sampling" onerror="this.parentElement.style.background='linear-gradient(135deg,#e8e0f5,#d4cce8)'" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-label">
+          <div class="gallery-label-brand">Skincare — Watsons</div>
+          <div class="gallery-label-title">SAMPLING CAMPAIGN</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item fade-up">
+      <div class="gallery-placeholder">
+        <img src="/assets/perrier-3.jpg" alt="Beauty popup" onerror="this.parentElement.style.background='linear-gradient(135deg,#fce4f0,#f0cce4)'" loading="lazy">
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-label">
+          <div class="gallery-label-brand">Makeup — Guardian</div>
+          <div class="gallery-label-title">NEW LAUNCH POP-UP</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DEPLOYMENT PROCESS -->
+<section class="process-section">
+  <div class="process-header fade-up">
+    <p class="section-label">How We Work</p>
+    <h2 class="section-title">FROM BRIEF TO<br><span class="accent">ON-GROUND IN DAYS</span></h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <div class="step-circle">01</div>
+      <div class="step-title">Briefing</div>
+      <p class="step-desc">You share campaign objectives, brand standards and product details</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-circle">02</div>
+      <div class="step-title">Selection</div>
+      <p class="step-desc">We match advisors from our roster based on category experience and availability</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-circle">03</div>
+      <div class="step-title">Training</div>
+      <p class="step-desc">Product knowledge, grooming and brand standards briefed and assessed</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-circle">04</div>
+      <div class="step-title">Deployment</div>
+      <p class="step-desc">Advisors checked in via BLINK — performance monitored live throughout campaign</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-circle">05</div>
+      <div class="step-title">Reporting</div>
+      <p class="step-desc">Auto-generated campaign report with sales data, scores and insights delivered</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="page-cta">
+  <div class="page-cta-inner">
+    <div>
+      <h2>READY TO ELEVATE<br>YOUR BEAUTY BRAND?</h2>
+      <p>Tell us your brief — we'll match the right advisors, train them to your standards and have them on the ground fast.</p>
+    </div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; flex-shrink:0;">
+      <a href="contact" class="btn-white">Get a Proposal →</a>
+      <a href="blink" class="btn-dark">See BLINK Platform →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 70); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => { document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active')); tab.classList.add('active'); });
+  });
+</script>
+<!-- Lenis smooth scroll + GSAP -->
+</BaseLayout>

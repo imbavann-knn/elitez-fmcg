@@ -1,0 +1,1577 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="BLINK Platform | Elitez FMCG Proprietary Operations Software"
+  description="BLINK is Elitez FMCG's proprietary ops platform — live promoter tracking, outlet-level sales data, and automated reporting."
+  canonical="https://fmcg.elitez.ai/pages/blink"
+  keywords="BLINK platform, FMCG operations software, promoter management software Singapore"
+>
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Elitez FMCG",
+  "url": "https://fmcg.elitez.ai/",
+  "logo": "https://fmcg.elitez.ai/assets/logo-nav.png",
+  "telephone": "+65 8180 0994",
+  "email": "fmcg@elitez.asia",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 Kallang Ave, CT Hub #03-08",
+    "addressLocality": "Singapore",
+    "postalCode": "339407",
+    "addressCountry": "SG"
+  },
+  "areaServed": "SG",
+  "priceRange": "$$"
+}
+</script>
+</Fragment>
+<style is:global>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #FF5500;
+    --orange-hover: #E84A00;
+    --orange-pale: #FFF3EE;
+    --black: #111111;
+    --white: #FFFFFF;
+    --off-white: #FAFAF8;
+    --gray: #F4F4F2;
+    --mid-gray: #888;
+    --border: #E8E8E5;
+    --text-muted: #777;
+    --nav-h: 72px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-logo-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--black);
+    line-height: 1;
+  }
+  .nav-logo-text span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    font-size: 11px !important;
+    letter-spacing: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--orange-hover); color: var(--white) !important; }
+  /* SERVICES DROPDOWN */
+  .has-dropdown { position: relative; align-self: stretch; display: flex; align-items: center; }
+  .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .has-dropdown > a::after { content: '▾'; font-size: 11px; opacity: 0.5; transition: opacity 0.2s; }
+  .has-dropdown:hover > a::after { opacity: 1; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--orange); border-radius: 0 0 4px 4px; padding: 4px 0; min-width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+  .nav-dropdown::before { display: none; }
+  .has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: block !important; padding: 9px 18px; font-family: 'Barlow', sans-serif !important; font-size: 11px !important; font-weight: 700 !important; letter-spacing: 1.5px !important; text-transform: uppercase !important; color: #888 !important; background: none !important; transition: color 0.15s, background 0.15s !important; white-space: nowrap; border-radius: 0 !important; }
+  .nav-dropdown a:hover { color: var(--orange) !important; background: var(--orange-pale) !important; }
+
+  /* SCROLL ANIMATION */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Aurora */
+
+
+  /* PAGE HERO */
+  .page-hero {
+    background: var(--black);
+    padding: calc(var(--nav-h) + 80px) 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(255,85,0,0.08) 100%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,85,0,0.15);
+    border: 1px solid rgba(255,85,0,0.3);
+    padding: 8px 16px;
+    margin-bottom: 28px;
+  }
+  .hero-badge .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    animation: pulse 2s infinite;
+  }
+  .hero-badge span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero-content {}
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(64px, 8vw, 96px);
+    line-height: 0.95;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .hero-title .accent { color: var(--orange); }
+  .hero-desc {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.65);
+    max-width: 460px;
+    margin-bottom: 36px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.2);
+    text-decoration: none;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+  /* HERO VISUAL — DASHBOARD MOCKUP */
+  .hero-visual {
+    position: relative;
+  }
+  .dashboard-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .dash-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .dash-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .live-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #00E676;
+  }
+  .live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #00E676;
+    animation: pulse 1.5s infinite;
+  }
+  .dash-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .dash-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 14px 16px;
+  }
+  .dash-stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 6px;
+  }
+  .dash-stat-val {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .dash-stat-val.orange { color: var(--orange); }
+  .dash-stat-val.green { color: #00E676; }
+  .dash-chart {
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+  .chart-bar {
+    flex: 1;
+    background: rgba(255,85,0,0.2);
+    border-top: 2px solid rgba(255,85,0,0.5);
+    transition: background 0.3s;
+  }
+  .chart-bar.active { background: rgba(255,85,0,0.6); border-top-color: var(--orange); }
+  .dash-promoters {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .promoter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .promoter-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,85,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+  .promoter-info { flex: 1; min-width: 0; }
+  .promoter-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .promoter-store {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+  }
+  .promoter-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .status-active {
+    background: rgba(0,230,118,0.15);
+    color: #00E676;
+    border: 1px solid rgba(0,230,118,0.3);
+  }
+  .status-checked {
+    background: rgba(255,85,0,0.15);
+    color: var(--orange);
+    border: 1px solid rgba(255,85,0,0.3);
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--orange);
+    padding: 0 48px;
+  }
+  .stats-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-item {
+    padding: 32px 24px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 42px;
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* WHAT IS BLINK */
+  .what-section {
+    padding: 96px 48px;
+    background: var(--white);
+  }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: 2px;
+    color: var(--black);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .section-title .accent { color: var(--orange); }
+  .section-lead {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 560px;
+  }
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .what-points {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .what-point {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .what-icon {
+    width: 128px; height: 128px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+  .what-point-body {}
+  .what-point-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+  .what-point-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  .what-visual {
+    position: relative;
+  }
+  .phone-mockup {
+    background: var(--black);
+    border-radius: 28px;
+    padding: 24px 20px;
+    max-width: 280px;
+    margin: 0 auto;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25), 0 0 0 8px rgba(255,255,255,0.05);
+    position: relative;
+  }
+  .phone-notch {
+    width: 80px; height: 20px;
+    background: var(--black);
+    border-radius: 0 0 12px 12px;
+    margin: 0 auto 16px;
+  }
+  .phone-screen {
+    background: var(--off-white);
+    border-radius: 12px;
+    padding: 16px;
+    overflow: hidden;
+  }
+  .phone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .phone-header-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--black);
+  }
+  .phone-header-title span { color: var(--orange); }
+  .phone-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--white);
+    background: #00C853;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .phone-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .phone-check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: var(--white);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+  .check-circle {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .check-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--black);
+    flex: 1;
+  }
+  .check-score {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--orange);
+  }
+  .phone-graph {
+    height: 50px;
+    background: var(--white);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    padding: 8px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+  }
+  .phone-bar {
+    flex: 1;
+    background: rgba(255,85,0,0.15);
+    border-radius: 2px 2px 0 0;
+    border-top: 2px solid var(--orange);
+  }
+  .what-accent-card {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: var(--orange);
+    color: var(--white);
+    padding: 20px 24px;
+    z-index: 2;
+  }
+  .accent-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 36px;
+    letter-spacing: 2px;
+    line-height: 1;
+    display: block;
+  }
+  .accent-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* FEATURES */
+  .features-section {
+    background: var(--black);
+    padding: 96px 48px;
+  }
+  .features-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .features-header .section-title { color: var(--white); }
+  .features-header .section-lead { margin: 0 auto; color: rgba(255,255,255,0.5); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .feature-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 40px 32px 44px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .feature-card:hover {
+    background: rgba(255,85,0,0.06);
+    border-color: rgba(255,85,0,0.25);
+  }
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--orange);
+    transition: height 0.4s ease;
+  }
+  .feature-card:hover::before { height: 100%; }
+  .feature-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 24px;
+  }
+  .feature-icon-wrap {
+    width: 160px; height: 160px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+  .feature-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .feature-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 24px;
+  }
+  .feature-points {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .feature-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  .feature-point::before {
+    content: '→';
+    color: var(--orange);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* PORTALS */
+  .portals-section {
+    padding: 96px 48px;
+    background: var(--gray);
+  }
+  .portals-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+  .portals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .portal-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .portal-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+  }
+  .portal-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--orange);
+  }
+  .portal-icon {
+    width: 160px; height: 160px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+  .portal-icon.admin, .portal-icon.client, .portal-icon.promoter { background: none; }
+  .portal-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .portal-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .portal-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .portal-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .portal-list li {
+    font-size: 13px;
+    color: var(--black);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .portal-list li::before {
+    content: '●';
+    color: var(--orange);
+    font-size: 8px;
+    flex-shrink: 0;
+  }
+
+  /* LIFECYCLE */
+  .lifecycle-section {
+    background: var(--black);
+    padding: 96px 48px;
+    overflow: hidden;
+    position: relative;
+  }
+  .lifecycle-section::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,85,0,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .lifecycle-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .lifecycle-header .section-title { color: var(--white); }
+  .lifecycle-track {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+  .lifecycle-track::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 0; right: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+  }
+  .lifecycle-step {
+    flex: 1;
+    position: relative;
+    padding-top: 80px;
+    padding-right: 20px;
+    cursor: default;
+  }
+  .step-marker {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 32px; height: 32px;
+    background: var(--black);
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    transition: all 0.3s;
+    z-index: 2;
+  }
+  .lifecycle-step.active .step-marker,
+  .lifecycle-step:hover .step-marker {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--white);
+    box-shadow: 0 0 20px rgba(255,85,0,0.4);
+  }
+  .step-line {
+    position: absolute;
+    top: 35px;
+    left: 32px;
+    right: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+  }
+  .lifecycle-step.active .step-line { background: rgba(255,85,0,0.3); }
+  .lifecycle-step:last-child .step-line { display: none; }
+  .step-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .step-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .step-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* TESTIMONIAL / QUOTE STRIP */
+  .quote-strip {
+    background: var(--orange);
+    padding: 64px 48px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+  .quote-icon {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 120px;
+    line-height: 1;
+    color: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+    margin-top: -20px;
+  }
+  .quote-body {}
+  .quote-text {
+    font-family: 'Barlow', sans-serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--white);
+    margin-bottom: 20px;
+    max-width: 680px;
+  }
+  .quote-author {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* GET STARTED / CTA */
+  .cta-section {
+    padding: 96px 48px;
+    background: var(--white);
+  }
+  .cta-inner {
+    background: var(--black);
+    padding: 72px 64px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-inner::before {
+    content: 'BLINK';
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 200px;
+    letter-spacing: 10px;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .cta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .cta-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(36px, 4vw, 52px);
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .cta-text {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    max-width: 480px;
+  }
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0A0A0A;
+    padding: 64px 48px 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo-img { height: 36px; width: auto; }
+  .footer-links-bar { display: flex; gap: 24px; }
+  .footer-links-bar a { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links-bar a:hover { color: var(--white); }
+  .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.2); }
+  .footer-brand .logo-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 26px;
+    letter-spacing: 4px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .footer-brand .logo-text span { color: var(--orange); }
+  .footer-brand .logo-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 16px;
+  }
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.35);
+    max-width: 260px;
+  }
+  .footer-col-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+  }
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-contact p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .footer-contact a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-contact a:hover { color: var(--orange); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 1px;
+  }
+  .footer-bottom a {
+    color: rgba(255,255,255,0.2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-bottom a:hover { color: var(--orange); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+
+    .page-hero { padding: calc(var(--nav-h) + 48px) 24px 56px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { display: none; }
+
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+
+    .what-section, .features-section, .portals-section,
+    .lifecycle-section, .cta-section { padding: 64px 24px; }
+
+    .what-grid { grid-template-columns: 1fr; gap: 40px; }
+    .what-visual { display: none; }
+
+    .features-grid { grid-template-columns: 1fr; gap: 2px; }
+
+    .portals-header { grid-template-columns: 1fr; gap: 20px; }
+    .portals-grid { grid-template-columns: 1fr; }
+
+    .lifecycle-track { flex-direction: column; gap: 32px; }
+    .lifecycle-track::before { display: none; }
+    .lifecycle-step { padding-top: 0; padding-left: 52px; }
+    .step-marker { top: 50%; transform: translateY(-50%); }
+    .step-line { display: none; }
+
+    .quote-strip { padding: 48px 24px; gap: 24px; }
+    .quote-icon { display: none; }
+    .quote-text { font-size: 18px; }
+
+    .cta-inner { grid-template-columns: 1fr; padding: 48px 32px; }
+    .cta-inner::before { display: none; }
+
+    footer { padding: 32px 24px; }
+    .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links-bar { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+
+  <div class="hero-badge fade-up">
+    <span class="dot"></span>
+    <span>Proprietary Technology Platform</span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-content fade-up">
+      <p class="hero-eyebrow">Proprietary Technology · Built by Elitez FMCG</p>
+      <h1 class="hero-title">BLINK<br><span class="accent">OPERATIONS</span><br><span class="accent">PLATFORM</span></h1>
+      <p class="hero-desc">BLINK replaces the daily WhatsApp chases, Excel files, and guesswork. Three purpose-built portals — Admin, Client, Promoter — share one live data layer so your campaign is visible from brief to wrap-up.</p>
+      <div class="hero-actions">
+        <a href="contact" class="btn-primary">Request a Demo</a>
+        <a href="blink-onepager" class="btn-outline" target="_blank">View One-Pager ↗</a>
+      </div>
+    </div>
+    <div class="hero-visual fade-up">
+      <!-- Live dashboard mockup -->
+      <div class="dashboard-card">
+        <div class="dash-topbar">
+          <span class="dash-title">BLINK Client Portal</span>
+          <span class="live-tag"><span class="live-dot"></span> LIVE</span>
+        </div>
+        <div class="dash-stats">
+          <div class="dash-stat">
+            <div class="dash-stat-label">Promoters Active</div>
+            <div class="dash-stat-val orange">24</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-label">Sales Today</div>
+            <div class="dash-stat-val green">$12,480</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-label">Conversion Rate</div>
+            <div class="dash-stat-val">34%</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-label">Premiums Redeemed</div>
+            <div class="dash-stat-val orange">847</div>
+          </div>
+        </div>
+        <div class="dash-chart">
+          <div class="chart-bar" style="height: 30%"></div>
+          <div class="chart-bar" style="height: 50%"></div>
+          <div class="chart-bar" style="height: 40%"></div>
+          <div class="chart-bar" style="height: 70%"></div>
+          <div class="chart-bar" style="height: 65%"></div>
+          <div class="chart-bar active" style="height: 90%"></div>
+          <div class="chart-bar active" style="height: 80%"></div>
+        </div>
+        <div class="dash-promoters">
+          <div class="promoter-row">
+            <div class="promoter-avatar">SK</div>
+            <div class="promoter-info">
+              <div class="promoter-name">Sarah K. · NTUC Tampines</div>
+              <div class="promoter-store">$840 · 28 units · 38% conv.</div>
+            </div>
+            <span class="promoter-status status-active">Live ●</span>
+          </div>
+          <div class="promoter-row">
+            <div class="promoter-avatar">MR</div>
+            <div class="promoter-info">
+              <div class="promoter-name">Marcus R. · Cold Storage OC</div>
+              <div class="promoter-store">$1,120 · 41 units · 44% conv.</div>
+            </div>
+            <span class="promoter-status status-checked">Break ◌</span>
+          </div>
+          <div class="promoter-row">
+            <div class="promoter-avatar">LH</div>
+            <div class="promoter-info">
+              <div class="promoter-name">Linda H. · Giant Jurong Pt</div>
+              <div class="promoter-store">$960 · 33 units · 31% conv.</div>
+            </div>
+            <span class="promoter-status status-active">Live ●</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item fade-up">
+      <div class="stat-num">1,000+</div>
+      <div class="stat-label">Promoters on Roster</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Purpose-Built Portals</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-num">70+</div>
+      <div class="stat-label">Report Types</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Campaign Lifecycle Stages</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS BLINK -->
+<section class="what-section">
+  <div class="what-grid">
+    <div class="fade-up">
+      <p class="section-label">What is BLINK?</p>
+      <h2 class="section-title">YOUR FIELD<br>OPERATIONS<br><span class="accent">COMMAND CENTRE</span></h2>
+      <p class="section-lead">BLINK is Elitez FMCG's proprietary operations platform — built around the real FMCG campaign lifecycle. Not a generic HR tool. Not a CRM. Every feature maps back to a specific ops pain point that agencies solve with spreadsheets and WhatsApp.</p>
+      <div class="what-points">
+        <div class="what-point">
+          <img class="what-icon" src="/assets/img/icon-brand-activation.png" alt="" loading="lazy">
+          <div class="what-point-body">
+            <div class="what-point-title">Smart promoter matching</div>
+            <div class="what-point-text">Algorithm matches promoters by distance-to-outlet, brand experience, recency, and conflict history — then auto-generates a portfolio PDF for your approval before anyone is deployed.</div>
+          </div>
+        </div>
+        <div class="what-point">
+          <img class="what-icon" src="/assets/img/icon-blink-phone.png" alt="" loading="lazy">
+          <div class="what-point-body">
+            <div class="what-point-title">Three portals, one live data layer</div>
+            <div class="what-point-text">Admin, Client, and Promoter portals share one database. What your promoter records at the shelf appears instantly on your dashboard — no syncing, no delay.</div>
+          </div>
+        </div>
+        <div class="what-point">
+          <img class="what-icon" src="/assets/img/icon-live-sales.png" alt="" loading="lazy">
+          <div class="what-point-body">
+            <div class="what-point-title">AI-powered from day one</div>
+            <div class="what-point-text">Gemini generates campaign training quizzes automatically (100% pass required before first shift). Promoters log sales via voice-to-text on the ground. No manual data entry.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="what-visual fade-up">
+      <div class="phone-mockup">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-header">
+            <div class="phone-header-title">BLINK <span>●</span></div>
+            <div class="phone-tag">ONLINE</div>
+          </div>
+          <div class="phone-checklist">
+            <div class="phone-check-item">
+              <div class="check-circle">✓</div>
+              <div class="check-text">Uniform Check</div>
+              <div class="check-score">100%</div>
+            </div>
+            <div class="phone-check-item">
+              <div class="check-circle">✓</div>
+              <div class="check-text">Product Knowledge</div>
+              <div class="check-score">94%</div>
+            </div>
+            <div class="phone-check-item">
+              <div class="check-circle">✓</div>
+              <div class="check-text">Display Standards</div>
+              <div class="check-score">88%</div>
+            </div>
+          </div>
+          <div class="phone-graph">
+            <div class="phone-bar" style="height: 60%"></div>
+            <div class="phone-bar" style="height: 80%"></div>
+            <div class="phone-bar" style="height: 70%"></div>
+            <div class="phone-bar" style="height: 100%"></div>
+            <div class="phone-bar" style="height: 90%"></div>
+            <div class="phone-bar" style="height: 75%"></div>
+            <div class="phone-bar" style="height: 85%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="what-accent-card">
+        <span class="accent-num">92%</span>
+        <span class="accent-label">Avg Promoter Score</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE CLIENT FEATURES -->
+<section class="features-section">
+  <div class="features-header fade-up">
+    <p class="section-label" style="color: var(--orange);">Client Portal Features</p>
+    <h2 class="section-title">WHAT YOU SEE,<br>WHAT YOU <span class="accent">GET</span></h2>
+    <p class="section-lead">Three things BLINK gives your brand team that no other agency in Singapore can match.</p>
+  </div>
+  <div class="features-grid">
+
+    <div class="feature-card fade-up">
+      <div class="feature-num">01</div>
+      <img class="feature-icon-wrap" src="/assets/img/icon-checkin.png" alt="" loading="lazy">
+      <h3 class="feature-title">Live Client Portal</h3>
+      <p class="feature-desc">Your campaign, as it happens. From the moment your first promoter checks in, your brand team can see everything — no calls, no waiting for Monday's email.</p>
+      <div class="feature-points">
+        <div class="feature-point">Check-in photo per promoter, per outlet, timestamped</div>
+        <div class="feature-point">Live sales by SKU + conversion % updated in real time</div>
+        <div class="feature-point">Premium redemption count tracked per shift</div>
+        <div class="feature-point">Multi-day aggregation (Fri–Sun weekend view)</div>
+        <div class="feature-point">Multi-user login — brand team + procurement, same view</div>
+      </div>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="feature-num">02</div>
+      <img class="feature-icon-wrap" src="/assets/img/icon-live-sales.png" alt="" loading="lazy">
+      <h3 class="feature-title">Pre-Deployment Promoter Portfolio</h3>
+      <p class="feature-desc">See exactly who is being deployed before anyone steps into a store. BLINK generates a portfolio PDF of your assigned team for your approval — not just names on a list.</p>
+      <div class="feature-points">
+        <div class="feature-point">Promoter-in-action photos from past campaigns</div>
+        <div class="feature-point">Past 5 brands deployed for, with category experience</div>
+        <div class="feature-point">Age range, gender, languages spoken</div>
+        <div class="feature-point">Years on platform + hygiene certification status</div>
+        <div class="feature-point">Smart-matched by distance, experience &amp; brand history</div>
+      </div>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="feature-num">03</div>
+      <img class="feature-icon-wrap" src="/assets/img/icon-reports.png" alt="" loading="lazy">
+      <h3 class="feature-title">Post-Project Evaluation (PPE)</h3>
+      <p class="feature-desc">The campaign wrap-up report — auto-built, OM-reviewed, and released directly to you in BLINK. No back-and-forth. No waiting on the ops team to compile slides.</p>
+      <div class="feature-points">
+        <div class="feature-point">Promoter performance table: sales, shifts, avg per manday</div>
+        <div class="feature-point">Check-in photos per shift per outlet, archived</div>
+        <div class="feature-point">Outlet visit photos + supervisor field comments</div>
+        <div class="feature-point">Released only after Operations Manager sign-off</div>
+        <div class="feature-point">Archived for 5+ years — accessible any time for benchmarking</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THREE PORTALS -->
+<section class="portals-section">
+  <div class="portals-header">
+    <div class="fade-up">
+      <p class="section-label">Platform Architecture</p>
+      <h2 class="section-title">THREE PORTALS.<br>ONE <span class="accent">ECOSYSTEM.</span></h2>
+    </div>
+    <div class="fade-up">
+      <p class="section-lead">Each stakeholder has their own purpose-built interface. All three are connected to the same live data — so everyone is always on the same page.</p>
+    </div>
+  </div>
+  <div class="portals-grid">
+
+    <div class="portal-card fade-up">
+      <div class="portal-accent"></div>
+      <img class="portal-icon admin" src="/assets/img/icon-admin-portal.png" alt="" loading="lazy">
+      <div class="portal-title">Admin Portal</div>
+      <div class="portal-tag">Elitez Operations Team</div>
+      <p class="portal-desc">The engine room. Elitez's internal team manages campaign setup, promoter allocation, outlet scheduling, and system oversight from here.</p>
+      <ul class="portal-list">
+        <li>Campaign setup: brands, SKUs, training decks, shift rules</li>
+        <li>Smart promoter matching + conflict-free scheduling</li>
+        <li>Dual-stream payroll automation (CPF &amp; non-CPF, Excel export)</li>
+        <li>Approval engine: rate overrides, blacklist, budget alerts</li>
+        <li>Field visit quality scoring with photo evidence</li>
+        <li>Full audit log — every action, actor, timestamp</li>
+      </ul>
+    </div>
+
+    <div class="portal-card fade-up">
+      <div class="portal-accent"></div>
+      <img class="portal-icon client" src="/assets/img/icon-client-portal.png" alt="" loading="lazy">
+      <div class="portal-title">Client Portal</div>
+      <div class="portal-tag">Brand Managers & Procurement</div>
+      <p class="portal-desc">Your window into the campaign. Real-time visibility, quality checks, live sales data, and automated reporting — without needing to call or email anyone.</p>
+      <ul class="portal-list">
+        <li>Live check-in photos by outlet, timestamped</li>
+        <li>Real-time sales by SKU, conversion % &amp; premium redemptions</li>
+        <li>Pre-deployment promoter portfolio PDF for approval</li>
+        <li>Post-Project Evaluation (PPE) with photos &amp; ops assessment</li>
+        <li>Training completion status per promoter</li>
+        <li>Multi-user login — brand team + procurement</li>
+      </ul>
+    </div>
+
+    <div class="portal-card fade-up">
+      <div class="portal-accent"></div>
+      <img class="portal-icon promoter" src="/assets/img/icon-promoter-app.png" alt="" loading="lazy">
+      <div class="portal-title">Promoter Portal</div>
+      <div class="portal-tag">On-Ground Promoters</div>
+      <p class="portal-desc">A simple, mobile-first app for promoters on the ground. Check in, log sales, complete tasks, and stay connected to the campaign — from any smartphone.</p>
+      <ul class="portal-list">
+        <li>Shift acceptance with store map + pay breakdown</li>
+        <li>Training deck + AI-generated quiz (100% pass required)</li>
+        <li>Camera-only check-in — fraud-proof, no gallery upload</li>
+        <li>Sales entry by SKU with voice-to-text (Gemini-powered)</li>
+        <li>Premium &amp; break tracking mid-shift</li>
+        <li>Payslips, claims &amp; uniform return history</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAPABILITIES STRIP -->
+<section style="padding: 80px 48px; background: var(--gray);">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 48px;" class="fade-up">
+      <div class="kicker">Under The Hood</div>
+      <h2 style="font-family: 'Bebas Neue', cursive; font-size: clamp(36px,4vw,52px); letter-spacing: 3px; color: var(--black); line-height: 1;">SIX THINGS BLINK <span style="color: var(--orange);">AUTOMATES</span> FOR YOU</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;" class="fade-up">
+      <div style="background: var(--white); border-radius: 6px; padding: 28px 24px; border-left: 3px solid var(--orange);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px;">01 · Matching</div>
+        <div style="font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px;">SMART PROMOTER MATCHING</div>
+        <p style="font-size: 13px; color: #666; line-height: 1.6;">Distance-to-outlet, brand experience, conflict history, recency scoring — matched in seconds, not hours of manual filtering.</p>
+      </div>
+      <div style="background: var(--white); border-radius: 6px; padding: 28px 24px; border-left: 3px solid var(--orange);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px;">02 · Training</div>
+        <div style="font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px;">AI QUIZ GENERATION</div>
+        <p style="font-size: 13px; color: #666; line-height: 1.6;">Upload your training deck. Gemini generates the quiz. 100% pass rate required before any promoter is cleared for their first shift.</p>
+      </div>
+      <div style="background: var(--white); border-radius: 6px; padding: 28px 24px; border-left: 3px solid var(--orange);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px;">03 · Premium</div>
+        <div style="font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px;">PREMIUM REDEMPTION TRACKING</div>
+        <p style="font-size: 13px; color: #666; line-height: 1.6;">Receipt number, spend amount, photo — captured per transaction. No reconciliation surprises at campaign end. Live count visible to client.</p>
+      </div>
+      <div style="background: var(--white); border-radius: 6px; padding: 28px 24px; border-left: 3px solid var(--orange);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px;">04 · Payroll</div>
+        <div style="font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px;">DUAL-STREAM PAYROLL</div>
+        <p style="font-size: 13px; color: #666; line-height: 1.6;">Non-CPF weekly + CPF biweekly, processed separately. Rounded shift hours, break payability, transport &amp; PH allowances — Excel output to HR Finance.</p>
+      </div>
+      <div style="background: var(--white); border-radius: 6px; padding: 28px 24px; border-left: 3px solid var(--orange);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px;">05 · WhatsApp</div>
+        <div style="font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px;">WHATSAPP INTEGRATION</div>
+        <p style="font-size: 13px; color: #666; line-height: 1.6;">Job-confirm messages, shift reminders, and one-click chat with promoters on the ground — built in. No third-party tools. Manager-editable templates, no dev needed.</p>
+      </div>
+      <div style="background: var(--white); border-radius: 6px; padding: 28px 24px; border-left: 3px solid var(--orange);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px;">06 · Compliance</div>
+        <div style="font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; margin-bottom: 8px;">COMPLIANCE & AUDIT TRAIL</div>
+        <p style="font-size: 13px; color: #666; line-height: 1.6;">Every action logged with actor, timestamp &amp; before/after state. NRIC auto-purged at 12 months. PDPA acknowledgements captured. Bank details require manager approval.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGN LIFECYCLE -->
+<section class="lifecycle-section">
+  <div class="lifecycle-header fade-up">
+    <p class="section-label" style="color: var(--orange);">Campaign Lifecycle</p>
+    <h2 class="section-title" style="color: var(--white);">FROM BRIEF<br>TO <span class="accent">RESULTS</span></h2>
+  </div>
+  <div class="lifecycle-track">
+
+    <div class="lifecycle-step active fade-up">
+      <div class="step-marker">01</div>
+      <div class="step-line"></div>
+      <div class="step-num">Stage 01</div>
+      <div class="step-title">Plan & Configure</div>
+      <div class="step-desc">Brief → campaign built in BLINK. Brands, SKUs, stores mapped with coordinates. Training decks uploaded. AI-generated quiz configured. Shift rates, break rules &amp; allowances set.</div>
+    </div>
+
+    <div class="lifecycle-step fade-up">
+      <div class="step-marker">02</div>
+      <div class="step-line"></div>
+      <div class="step-num">Stage 02</div>
+      <div class="step-title">Smart Pre-Deployment</div>
+      <div class="step-desc">Algorithm matches promoters by distance, experience, recency &amp; conflict history. Portfolio PDF sent to client for approval. Warehouse packing lists &amp; WhatsApp job-confirm messages auto-prepared.</div>
+    </div>
+
+    <div class="lifecycle-step fade-up">
+      <div class="step-marker">03</div>
+      <div class="step-line"></div>
+      <div class="step-num">Stage 03</div>
+      <div class="step-title">Live Deployment</div>
+      <div class="step-desc">Promoters clock in with camera photo (no gallery — fraud-proof). Sales logged by SKU via voice-to-text. Premium redemptions tracked live. Clients see check-ins, sales &amp; conversions in real time.</div>
+    </div>
+
+    <div class="lifecycle-step fade-up">
+      <div class="step-marker">04</div>
+      <div class="step-line"></div>
+      <div class="step-num">Stage 04</div>
+      <div class="step-title">Daily Monitoring</div>
+      <div class="step-desc">OE reviews sales reports. OM approves release to client. Supervisors conduct field visits — scored on display, engagement &amp; knowledge. Discrepancies escalated &amp; resolved within the platform.</div>
+    </div>
+
+    <div class="lifecycle-step fade-up">
+      <div class="step-marker">05</div>
+      <div class="step-line"></div>
+      <div class="step-num">Stage 05</div>
+      <div class="step-title">Wrap-Up & PPE</div>
+      <div class="step-desc">PPE auto-generated: sales by promoter, outlet visit photos, ops assessment. Payroll processed (dual-stream, Excel to HR/Finance). Claims reconciled. Full audit trail archived for 5+ years.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUOTE STRIP -->
+<div class="quote-strip">
+  <div class="quote-icon">"</div>
+  <div class="quote-body fade-up">
+    <p class="quote-text">We used to chase the ops team every Monday for Excel updates. Now I open BLINK on Sunday evening and I already know which outlets hit target, which promoters performed, and how many premiums were redeemed. It completely changed how we brief the next campaign.</p>
+    <p class="quote-author">— Brand Manager, Major FMCG Client</p>
+  </div>
+</div>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="cta-inner fade-up">
+    <div>
+      <p class="cta-label">Get Access to BLINK</p>
+      <h2 class="cta-title">READY TO SEE YOUR<br>CAMPAIGN IN REAL TIME?</h2>
+      <p class="cta-text">Every Elitez FMCG campaign comes with full BLINK access — no add-on cost. Request a demo or get in touch to learn how it works for your brand.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="contact" class="btn-primary">Request a Demo</a>
+      <a href="blink-onepager" target="_blank" class="btn-outline" style="color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.15);">Download One-Pager</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Scroll fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Lifecycle step hover
+  document.querySelectorAll('.lifecycle-step').forEach(step => {
+    step.addEventListener('mouseenter', () => {
+      document.querySelectorAll('.lifecycle-step').forEach(s => s.classList.remove('active'));
+      step.classList.add('active');
+    });
+  });
+
+  // PostHog — BLINK page CTA tracking
+  if (typeof posthog !== 'undefined') {
+    document.querySelectorAll('.btn-primary[href="contact"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        posthog.capture('blink_cta_clicked', { location: 'blink_page' });
+      });
+    });
+  }
+</script>
+<!-- Lenis smooth scroll + GSAP -->
+</BaseLayout>
