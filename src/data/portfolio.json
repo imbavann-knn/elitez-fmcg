@@ -19,5 +19,8 @@
   { "id": 18, "title": "P&G Beauty Promoters", "category": "promoter", "image": "/assets/portfolio/pg-beauty.jpg" },
   { "id": 19, "title": "P&G HR Event", "category": "kol", "image": "/assets/portfolio/pg-hr.jpg" },
   { "id": 20, "title": "P&G R&D Campaign", "category": "brand-activation", "image": "/assets/portfolio/pg-rnd.jpg" },
-  { "id": 21, "title": "Shopee KOL Campaign", "category": "kol", "image": "/assets/portfolio/shopee-kol.jpg" }
+  { "id": 21, "title": "Shopee KOL Campaign", "category": "kol", "image": "/assets/portfolio/shopee-kol.jpg" },
+  { "id": 22, "title": "Nescafe x Kiehl's Brand Activation", "category": "brand-activation", "image": "/assets/portfolio/nescafe-kiehls-brand-activation.jpeg" },
+  { "id": 23, "title": "Pringles POSM Build & Set Up", "category": "posm", "image": "/assets/portfolio/pringles-posm.jpeg" },
+  { "id": 24, "title": "Pringles Roadshow", "category": "roadshow", "image": "/assets/portfolio/pringles-roadshow.jpeg" }
 ]
