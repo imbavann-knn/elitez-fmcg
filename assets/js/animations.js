@@ -5,18 +5,16 @@
 
 // ── Lenis smooth scroll ──────────────────────────────────────────────────────
 const lenis = new Lenis({
-  duration: 1.2,
+  duration: 0.9,
   easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
 });
-function lenisRaf(time) { lenis.raf(time); requestAnimationFrame(lenisRaf); }
-requestAnimationFrame(lenisRaf);
 window.__lenis = lenis;
 
-// Let GSAP ScrollTrigger sync with Lenis
-lenis.on('scroll', ScrollTrigger.update);
+// Single tick source: GSAP ticker drives Lenis (do NOT also use manual rAF loop)
 gsap.ticker.add(time => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
+lenis.on('scroll', ScrollTrigger.update);
 
 // ── GSAP ScrollTrigger fade-ups (replaces IntersectionObserver) ──────────────
 gsap.registerPlugin(ScrollTrigger);
