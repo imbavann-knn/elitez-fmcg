@@ -125,6 +125,15 @@
     transform: translateY(0);
   }
 
+  /* Aurora */
+  .aurora-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .aurora-blob { position: absolute; border-radius: 50%; filter: blur(100px); }
+  .aurora-blob-1 { width: 600px; height: 420px; background: rgba(255,85,0,0.28); top: -80px; right: 5%; animation: aurora-float 11s ease-in-out infinite alternate; }
+  .aurora-blob-2 { width: 380px; height: 300px; background: rgba(255,140,0,0.15); bottom: -30px; right: 32%; animation: aurora-float 14s ease-in-out infinite alternate-reverse; }
+  .aurora-blob-3 { width: 260px; height: 220px; background: rgba(255,50,0,0.12); top: 40%; right: -2%; animation: aurora-float 9s ease-in-out infinite alternate; animation-delay: -4s; }
+  @keyframes aurora-float { from { transform: translate(0,0) scale(1); } to { transform: translate(-30px,20px) scale(1.08); } }
+  .aurora-content { position: relative; z-index: 1; }
+
   /* PAGE HERO */
   .page-hero {
     background: var(--black);
@@ -1186,6 +1195,12 @@
 
 <!-- PAGE HERO -->
 <section class="page-hero">
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-blob aurora-blob-1"></div>
+    <div class="aurora-blob aurora-blob-2"></div>
+    <div class="aurora-blob aurora-blob-3"></div>
+  </div>
+  <div class="aurora-content" style="display:contents">
   <div class="hero-badge fade-up">
     <span class="dot"></span>
     <span>Proprietary Technology Platform</span>
@@ -1263,6 +1278,7 @@
       </div>
     </div>
   </div>
+  </div><!-- /aurora-content -->
 </section>
 
 <!-- STATS BAR -->
@@ -1650,5 +1666,10 @@
     });
   }
 </script>
+<!-- Lenis smooth scroll + GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script defer>window.addEventListener("load",function(){if(typeof gsap==="undefined"||typeof Lenis==="undefined")return;var s=document.createElement("script");s.src="../assets/js/animations.js";document.body.appendChild(s);});</script>
 </body>
 </html>

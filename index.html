@@ -550,6 +550,14 @@
     position: relative;
     overflow: hidden;
   }
+  /* Aurora blobs */
+  .aurora-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+  .aurora-blob { position: absolute; border-radius: 50%; filter: blur(90px); }
+  .aurora-blob-1 { width: 520px; height: 360px; background: rgba(255,85,0,0.22); top: -60px; right: 8%; animation: aurora-float 11s ease-in-out infinite alternate; }
+  .aurora-blob-2 { width: 360px; height: 280px; background: rgba(255,130,0,0.14); bottom: -40px; right: 28%; animation: aurora-float 14s ease-in-out infinite alternate-reverse; }
+  .aurora-blob-3 { width: 240px; height: 200px; background: rgba(255,50,0,0.10); top: 35%; right: -1%; animation: aurora-float 9s ease-in-out infinite alternate; animation-delay: -5s; }
+  @keyframes aurora-float { from { transform: translate(0,0) scale(1); } to { transform: translate(-28px,18px) scale(1.07); } }
+  .aurora-content { position: relative; z-index: 1; }
   #blink::before {
     content: 'BLINK';
     position: absolute;
@@ -1146,7 +1154,12 @@
 
 <!-- BLINK -->
 <section id="blink">
-  <div class="blink-grid">
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-blob aurora-blob-1"></div>
+    <div class="aurora-blob aurora-blob-2"></div>
+    <div class="aurora-blob aurora-blob-3"></div>
+  </div>
+  <div class="aurora-content blink-grid">
     <div class="fade-up">
       <div class="blink-kicker">Proprietary Technology</div>
       <h2 class="blink-h2">MEET<br><span class="acc">BLINK.</span></h2>
@@ -1393,13 +1406,13 @@
     navbar.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  const fadeEls = document.querySelectorAll('.fade-up');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  fadeEls.forEach(el => obs.observe(el));
+  // Fade-up fallback — GSAP/animations.js handles this if loaded
+  if (typeof gsap === 'undefined') {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  }
 
   // PostHog — homepage event tracking
   document.querySelectorAll('.service-card').forEach(function(card) {
@@ -1426,6 +1439,29 @@
       posthog.capture('blink_cta_clicked', { location: 'homepage' });
     });
   }
+</script>
+
+<!-- Animation stack: GSAP + ScrollTrigger + Lenis + VanillaTilt -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script src="https://unpkg.com/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
+<script defer>
+  window.addEventListener('load', () => {
+    if (typeof gsap === 'undefined' || typeof Lenis === 'undefined') return;
+
+    // Init animations (Lenis + GSAP ScrollTrigger + counters)
+    const s = document.createElement('script');
+    s.src = '/assets/js/animations.js';
+    document.body.appendChild(s);
+
+    // VanillaTilt on service cards
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(document.querySelectorAll('.service-card'), {
+        max: 4, speed: 500, glare: true, 'max-glare': 0.08, perspective: 1200,
+      });
+    }
+  });
 </script>
 </body>
 </html>
