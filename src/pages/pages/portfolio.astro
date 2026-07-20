@@ -1,5 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import portfolioItems from '../../data/portfolio.json';
+
+const CAT_LABELS: Record<string, string> = {
+  'brand-activation': 'Brand Activation',
+  'promoter': 'Promoter Deployment',
+  'roadshow': 'Roadshow',
+  'kol': 'KOL & Events'
+};
 ---
 <BaseLayout
   title="Portfolio | Elitez FMCG Singapore"
@@ -167,10 +175,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
   .portfolio-item.featured .portfolio-name { font-size: 32px; }
 
-  /* Hidden state for filtering */
-  .portfolio-item.hidden {
-    display: none;
-  }
+  .portfolio-item.hidden { display: none; }
 
   /* CTA */
   .page-cta { background: var(--orange); padding: 80px 48px; position: relative; overflow: hidden; }
@@ -239,11 +244,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <button class="filter-btn" data-filter="kol">KOL & Events</button>
 </div>
 
-<!-- GRID -->
+<!-- GRID — rendered statically at build time -->
 <section class="portfolio-section">
-  <div class="portfolio-count fade-up">Showing <span id="visible-count">—</span> projects</div>
+  <div class="portfolio-count fade-up">Showing <span id="visible-count">{portfolioItems.length}</span> projects</div>
   <div class="portfolio-grid" id="portfolio-grid">
-    <div id="grid-loading" style="grid-column:1/-1;text-align:center;padding:60px;color:#777;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px">LOADING PORTFOLIO…</div>
+    {portfolioItems.map((item, i) => (
+      <div
+        class={['portfolio-item', i === 0 ? 'featured' : '', 'fade-up', ['','delay-1','delay-2','delay-3'][i % 4]].filter(Boolean).join(' ')}
+        data-category={item.category}
+      >
+        <img src={item.image} alt={item.title} loading={i < 4 ? 'eager' : 'lazy'} />
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">{CAT_LABELS[item.category] || item.category}</div>
+          <div class="portfolio-name">{item.title}</div>
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 
@@ -258,71 +274,38 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  const SUPABASE_URL  = 'https://rqqgrnttbelsxpmfikaa.supabase.co';
-  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxcWdybnR0YmVsc3hwbWZpa2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3ODYzNzIsImV4cCI6MjA5NjM2MjM3Mn0.cfSwq0ie2fsiwOgYYGgpS5WTj_eCZkYXJFntDNgbn94';
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+<script is:inline>
+  var activeFilter = 'all';
+  var allItems = Array.from(document.querySelectorAll('#portfolio-grid .portfolio-item'));
 
-  const CAT_LABELS = { 'brand-activation':'Brand Activation','promoter':'Promoter Deployment','roadshow':'Roadshow','kol':'KOL & Events' };
-  let allItems = [];
-  let activeFilter = 'all';
+  function updateGrid() {
+    var visibleCount = 0;
+    allItems.forEach(function(item) {
+      var matches = activeFilter === 'all' || item.dataset.category === activeFilter;
+      item.classList.toggle('hidden', !matches);
+      if (matches) visibleCount++;
+    });
+    document.getElementById('visible-count').textContent = String(visibleCount);
 
-  // Nav scroll
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
-
-  // Fade observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-
-  async function loadPortfolio() {
-    const { data, error } = await sb.from('fmcg_portfolio')
-      .select('*').eq('is_visible', true).order('sort_order').order('created_at');
-    if (error) { console.error(error); return; }
-    allItems = data || [];
-    renderGrid(allItems);
-  }
-
-  function renderGrid(items) {
-    const grid = document.getElementById('portfolio-grid');
-    document.getElementById('visible-count').textContent = items.length;
-    if (!items.length) {
-      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:#777;font-family:\'IBM Plex Mono\',monospace;font-size:12px;letter-spacing:2px">NO ITEMS IN THIS CATEGORY</div>';
-      return;
+    // Re-assign featured to first visible item when showing all
+    allItems.forEach(function(item) { item.classList.remove('featured'); });
+    if (activeFilter === 'all') {
+      var first = allItems.find(function(item) { return !item.classList.contains('hidden'); });
+      if (first) first.classList.add('featured');
     }
-    grid.innerHTML = items.map((item, i) => {
-      const isFeatured = i === 0 && activeFilter === 'all';
-      const delay = ['','delay-1','delay-2','delay-3'][(i % 4)];
-      return `
-        <div class="portfolio-item ${isFeatured ? 'featured' : ''} fade-up ${delay}" data-category="${item.category}">
-          <img src="${item.image_url}" alt="${item.title}" loading="${i < 4 ? 'eager' : 'lazy'}">
-          <div class="portfolio-overlay">
-            <div class="portfolio-tag">${CAT_LABELS[item.category] || item.category}</div>
-            <div class="portfolio-name">${item.title}</div>
-          </div>
-        </div>`;
-    }).join('');
-    grid.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    if (typeof posthog !== 'undefined') {
+      posthog.capture('portfolio_filter_applied', { filter: activeFilter });
+    }
   }
 
-  // Filter buttons
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
-      activeFilter = btn.dataset.filter;
-      const filtered = activeFilter === 'all' ? allItems : allItems.filter(i => i.category === activeFilter);
-      renderGrid(filtered);
-      if (typeof posthog !== 'undefined') {
-        posthog.capture('portfolio_filter_applied', {
-          filter: btn.dataset.filter || btn.textContent.trim()
-        });
-      }
+      activeFilter = btn.dataset.filter || 'all';
+      updateGrid();
     });
   });
-
-  loadPortfolio();
 </script>
 </BaseLayout>
