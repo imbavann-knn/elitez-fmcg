@@ -12,3 +12,7 @@ stitch export/
 color-preview.html
 style-preview.html
 internal/
+
+# Raw ACRA bulk source data (1.2GB, includes files >100MB — not for git)
+acra_source/
+.wrangler/
