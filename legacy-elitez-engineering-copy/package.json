@@ -1,0 +1,12 @@
+{
+  "name": "elitez-fmcg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Elitez FMCG marketing site — Railway-hosted",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

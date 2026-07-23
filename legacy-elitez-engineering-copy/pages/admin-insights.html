@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Insights — Elitez FMCG Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    body { background: #0c0c0c; }
+    .admin-wrap { max-width: 1360px; margin: 0 auto; padding: 0 32px 80px; }
+    .admin-header { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .admin-header h1 { font-size: clamp(28px,4vw,48px); margin-bottom: 8px; }
+    .admin-header p { color: var(--muted); font-size: 14px; }
+    .section-block { margin-bottom: 48px; }
+    .section-block > h2 { font-size: clamp(18px,2.5vw,28px); margin-bottom: 24px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media (max-width:900px) { .grid-2,.grid-3 { grid-template-columns:1fr; } }
+    .insight-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; }
+    .insight-card h4 { margin-bottom:10px; }
+    .insight-card p { color:var(--muted2); font-size:13px; line-height:1.75; }
+    .persona-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:28px; }
+    .persona-avatar { width:56px; height:56px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:24px; color:#fff; margin-bottom:16px; }
+    .persona-name { font-weight:700; font-size:17px; margin-bottom:2px; }
+    .persona-role { font-size:12px; color:var(--accent); font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:16px; }
+    .persona-row { margin-bottom:12px; }
+    .persona-row .label { display:block; margin-bottom:4px; font-size:10px; }
+    .persona-row p { font-size:13px; color:var(--muted2); line-height:1.7; }
+    .chart-wrap { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:28px; }
+    .chart-wrap h4 { margin-bottom:20px; }
+    .price-table { width:100%; border-collapse:collapse; }
+    .price-table th { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); padding:10px 14px; text-align:left; border-bottom:1px solid var(--border2); }
+    .price-table td { padding:12px 14px; border-bottom:1px solid var(--border); font-size:14px; color:var(--muted2); }
+    .highlight-row td { background:rgba(232,97,26,0.06); color:var(--text); font-weight:600; }
+    .calendar-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:4px; }
+    .month-cell { border-radius:4px; padding:8px 4px; text-align:center; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; }
+    .hot { background:rgba(232,97,26,0.3); color:var(--accent); }
+    .warm { background:rgba(245,158,11,0.2); color:var(--accent2); }
+    .cool { background:var(--card); color:var(--muted); }
+    @media (max-width:768px) { .calendar-grid { grid-template-columns:repeat(6,1fr); } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../" class="nav-logo">
+      <img src="../assets/logo.png" alt="Elitez FMCG" class="nav-logo-img" />
+    </a>
+    <div class="nav-links">
+      <a href="../">← Back to Site</a>
+      <a href="admin.html">Competitor Intel</a>
+      <a href="admin-insights.html" class="active">Market Insights</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="../">← Site</a>
+  <a href="admin.html">Competitor Intel</a>
+  <a href="admin-insights.html" class="active">Market Insights</a>
+</div>
+
+<div style="padding-top: var(--nav-h);">
+  <div class="admin-nav-bar">
+    <span>🔒 INTERNAL — ADMIN VIEW &nbsp;|&nbsp;</span>
+    <a href="admin.html">Competitor Analytics</a>
+    <a href="admin-insights.html">Market Insights</a>
+  </div>
+</div>
+
+<div class="admin-wrap" style="padding-top: 0;">
+  <div class="admin-header">
+    <span class="label">Internal Dashboard</span>
+    <h1>Market Insights & Strategy</h1>
+    <p>Client personas, seasonal calendar, pricing intelligence, and growth opportunities. Updated: April 2026.</p>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-val">Q3–Q4</div>
+      <div class="kpi-label">Peak Season</div>
+      <div class="kpi-sub">CNY prep, Deepavali, year-end</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">S$450</div>
+      <div class="kpi-label">Avg Promoter Day Rate</div>
+      <div class="kpi-sub">Market range S$380–S$550</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">72hrs</div>
+      <div class="kpi-label">Avg Client Decision Time</div>
+      <div class="kpi-sub">From first meeting to PO</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">3.2×</div>
+      <div class="kpi-label">Avg Campaign Repeat Rate</div>
+      <div class="kpi-sub">Clients who renew contracts</div>
+    </div>
+  </div>
+
+  <!-- Client Personas -->
+  <div class="section-block">
+    <h2>Client Personas</h2>
+    <div class="grid-3">
+      <div class="persona-card">
+        <div class="persona-avatar">LT</div>
+        <div class="persona-name">The Trade Marketing Manager</div>
+        <div class="persona-role">MNC FMCG Brand</div>
+        <div class="persona-row">
+          <span class="label">Who They Are</span>
+          <p>30–45 years old. Works at P&G, Nestlé, Unilever, or Carlsberg. Manages multiple SKUs and retailer relationships. Runs 4–8 activations per year. Budget: S$20K–S$200K per campaign.</p>
+        </div>
+        <div class="persona-row">
+          <span class="label">What They Care About</span>
+          <p>Reliability first. They've been burned by bad agencies. Want flawless execution, quality promoters, and proper reporting. Will pay premium for agencies they trust.</p>
+        </div>
+        <div class="persona-row">
+          <span class="label">How We Win</span>
+          <p>Show post-activation reports from previous campaigns. Lead with case studies. Offer to meet the ops team. Existing clients referring is gold.</p>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:var(--accent2); color:#111;">RK</div>
+        <div class="persona-name">The Regional Marketing Head</div>
+        <div class="persona-role">SEA / APAC HQ Decision Maker</div>
+        <div class="persona-row">
+          <span class="label">Who They Are</span>
+          <p>45–55 years old. Based in Singapore or KL. Oversees 3–5 markets. Allocates budget for multiple countries. Wants a regional partner who can scale. Budget: S$200K–S$1M+.</p>
+        </div>
+        <div class="persona-row">
+          <span class="label">What They Care About</span>
+          <p>Strategic fit, scalability, and brand consistency across markets. Doesn't want to manage 5 local agencies in 5 countries. Prefers one trusted partner with regional reach.</p>
+        </div>
+        <div class="persona-row">
+          <span class="label">How We Win</span>
+          <p>Position as the SG-headquartered regional BTL partner. Demonstrate ability to replicate Singapore's operational model in MY and ID. Joint pitch with regional affiliates.</p>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:#2d7a4a;">MN</div>
+        <div class="persona-name">The FMCG Brand Manager</div>
+        <div class="persona-role">SME / Local Importer</div>
+        <div class="persona-row">
+          <span class="label">Who They Are</span>
+          <p>28–40 years old. Works at a local importer or distributor. May be responsible for 1–3 brands. Budget is tight: S$5K–S$30K. Often first-time activation buyer.</p>
+        </div>
+        <div class="persona-row">
+          <span class="label">What They Care About</span>
+          <p>Value for money. Clear pricing. No surprises on the invoice. Wants to see what they're getting before committing. ROI is critical — they need to show results to their MD.</p>
+        </div>
+        <div class="persona-row">
+          <span class="label">How We Win</span>
+          <p>Offer a starter roadshow package with transparent pricing. Use case studies of similar-sized brands. Make the first activation a reference-builder. Build the relationship for bigger spends next year.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seasonal Calendar -->
+  <div class="section-block">
+    <h2>Seasonal Activation Calendar — Singapore FMCG</h2>
+    <div class="chart-wrap">
+      <div class="calendar-grid" style="margin-bottom: 16px;">
+        <div class="month-cell hot">Jan<br><small>CNY</small></div>
+        <div class="month-cell hot">Feb<br><small>CNY</small></div>
+        <div class="month-cell warm">Mar<br><small>Mid</small></div>
+        <div class="month-cell warm">Apr<br><small>Mid</small></div>
+        <div class="month-cell warm">May<br><small>Mid</small></div>
+        <div class="month-cell hot">Jun<br><small>GSS</small></div>
+        <div class="month-cell warm">Jul<br><small>Mid</small></div>
+        <div class="month-cell warm">Aug<br><small>NDP</small></div>
+        <div class="month-cell hot">Sep<br><small>Hari Raya</small></div>
+        <div class="month-cell hot">Oct<br><small>Deepavali</small></div>
+        <div class="month-cell hot">Nov<br><small>Pre-CNY</small></div>
+        <div class="month-cell hot">Dec<br><small>X'mas</small></div>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; margin-top:16px;">
+        <span style="font-size:12px; color:var(--accent);">■ Peak Season (CNY, GSS, Festive)</span>
+        <span style="font-size:12px; color:var(--accent2);">■ Warm Season (Regular activation period)</span>
+        <span style="font-size:12px; color:var(--muted);">■ Quieter Period</span>
+      </div>
+    </div>
+    <div class="insight-card" style="margin-top:16px;">
+      <h4>Key Planning Dates for Activation Pitches</h4>
+      <p><strong style="color:var(--accent);">CNY (Jan–Feb):</strong> Highest-demand period. Beer, snacks, beverages. Book promoters from October. CNY activation briefs typically received Aug–Sep. &nbsp;|&nbsp;
+      <strong style="color:var(--accent);">Great Singapore Sale (Jun):</strong> Strong retail activation period. NTUC FairPrice and Cold Storage increase marketing spend significantly. &nbsp;|&nbsp;
+      <strong style="color:var(--accent);">Year-End (Nov–Dec):</strong> Gifting season drives premium FMCG. Christmas hampers, premium beverages, confectionery. &nbsp;|&nbsp;
+      <strong style="color:var(--accent);">Deepavali &amp; Hari Raya:</strong> Growing importance for halal and Indian FMCG brands. Strong in heartland markets.</p>
+    </div>
+  </div>
+
+  <!-- Pricing Intelligence -->
+  <div class="section-block">
+    <h2>Pricing Intelligence — Singapore BTL Market</h2>
+    <div class="grid-2">
+      <div class="insight-card">
+        <h4>Promoter Day Rate Benchmarks</h4>
+        <table class="price-table">
+          <thead><tr><th>Role</th><th>Market Low</th><th>Market High</th><th>Elitez Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Standard Promoter</td><td>S$120/day</td><td>S$160/day</td><td class="highlight-row" style="color:var(--accent);">S$140–S$155/day</td></tr>
+            <tr><td>Senior/Brand Rep</td><td>S$160/day</td><td>S$200/day</td><td style="color:var(--accent);">S$175–S$190/day</td></tr>
+            <tr><td>Mandarin-speaking</td><td>S$150/day</td><td>S$190/day</td><td style="color:var(--accent);">S$160–S$180/day</td></tr>
+            <tr><td>Team Lead/Supervisor</td><td>S$200/day</td><td>S$280/day</td><td style="color:var(--accent);">S$220–S$250/day</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px; color:var(--muted); margin-top:12px;">Note: Rates exclude GST. Elitez rates include briefing and daily reporting. Competitors often charge separately.</p>
+      </div>
+      <div class="insight-card">
+        <h4>Package Pricing Benchmarks</h4>
+        <table class="price-table">
+          <thead><tr><th>Package</th><th>Scope</th><th>Market Range</th></tr></thead>
+          <tbody>
+            <tr><td>Starter Roadshow</td><td>1 location, 2 days, 2 pax</td><td>S$2,500–S$4,500</td></tr>
+            <tr><td>Standard Roadshow</td><td>3 locations, weekend, 4 pax</td><td>S$8,000–S$14,000</td></tr>
+            <tr><td>Campaign Activation</td><td>5–10 locations, 1 month</td><td>S$25,000–S$60,000</td></tr>
+            <tr><td>Full Deployment</td><td>20+ locations, 300 pax, 1 wkend</td><td>S$80,000–S$150,000</td></tr>
+            <tr><td>Annual Retainer</td><td>Ongoing activation support</td><td>S$150K–S$500K/yr</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Growth Opportunities -->
+  <div class="section-block">
+    <h2>Growth Opportunities — 2026 Focus Areas</h2>
+    <div class="grid-3">
+      <div class="insight-card">
+        <h4>1. Digital Integration</h4>
+        <p>FMCG brands increasingly want BTL+digital in one brief. Building a QR-to-social mechanic, in-store content capture, and post-activation social amplification will close deals that currently go to integrated agencies.</p>
+      </div>
+      <div class="insight-card">
+        <h4>2. SEA Expansion</h4>
+        <p>Malaysia and Indonesia FMCG markets are growing faster than Singapore. Establishing a referral partnership with a KL agency and piloting one MY activation in H2 2026 could open a new revenue stream.</p>
+      </div>
+      <div class="insight-card">
+        <h4>3. Premium FMCG Segment</h4>
+        <p>Premium health foods, functional beverages, and premium spirits are the fastest-growing FMCG categories in SG. These brands pay premium rates and value quality over price. Strong fit for Elitez's WSQ-certified roster.</p>
+      </div>
+      <div class="insight-card">
+        <h4>4. Data & Reporting Upsell</h4>
+        <p>Offer post-activation data dashboards as a premium add-on. Consumer engagement data, sales lift reporting, and campaign attribution are increasingly valued by trade marketing teams reporting to regional HQ.</p>
+      </div>
+      <div class="insight-card">
+        <h4>5. E-Commerce Activation</h4>
+        <p>Brands running Lazada/Shopee campaigns increasingly need physical sampling to drive trial and repeat purchases online. Hybrid on-ground + e-commerce activation is an emerging brief type.</p>
+      </div>
+      <div class="insight-card">
+        <h4>6. Halal & Cultural Segment</h4>
+        <p>Singapore's Malay-Muslim consumer segment is underserved by most activation agencies. Elitez has strong Malay-speaking promoters and could build a dedicated halal FMCG activation offering for Hari Raya season.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Channel Chart -->
+  <div class="section-block">
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <h4>Singapore Retail Channel — Activation Share 2025</h4>
+        <canvas id="channelChart" height="220"></canvas>
+      </div>
+      <div class="chart-wrap">
+        <h4>Seasonal Activation Volume (Indexed)</h4>
+        <canvas id="seasonChart" height="220"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+new Chart(document.getElementById('channelChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['NTUC FairPrice','Cold Storage','Giant','Sheng Siong','Independent Provision','Mall Atrium','Outdoor/HDB'],
+    datasets: [{
+      data: [35, 18, 15, 10, 8, 9, 5],
+      backgroundColor: ['#E8611A','#f59e0b','#444','#555','#666','#777','#333'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'right', labels: { color: '#888', font: { size: 11 }, padding: 12 } }
+    },
+    cutout: '60%'
+  }
+});
+
+new Chart(document.getElementById('seasonChart'), {
+  type: 'line',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    datasets: [{
+      label: 'Activation Volume (indexed)',
+      data: [100, 95, 60, 55, 65, 80, 60, 70, 85, 90, 88, 82],
+      borderColor: '#E8611A',
+      backgroundColor: 'rgba(232,97,26,0.1)',
+      fill: true,
+      tension: 0.4,
+      pointBackgroundColor: '#E8611A',
+    }]
+  },
+  options: {
+    plugins: { legend: { labels: { color: '#888' } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } },
+      x: { grid: { display: false }, ticks: { color: '#888' } }
+    }
+  }
+});
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competitor Analytics — Elitez FMCG Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    body { background: #0c0c0c; }
+    .admin-wrap { max-width: 1360px; margin: 0 auto; padding: 0 32px 80px; }
+    .admin-header { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .admin-header h1 { font-size: clamp(28px,4vw,48px); margin-bottom: 8px; }
+    .admin-header p { color: var(--muted); font-size: 14px; }
+    .section-block { margin-bottom: 48px; }
+    .section-block h2 { font-size: clamp(18px,2.5vw,28px); margin-bottom: 24px; }
+    .table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow-x: auto; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media (max-width:900px) { .grid-2,.grid-3 { grid-template-columns:1fr; } }
+    .insight-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; }
+    .insight-card h4 { margin-bottom:8px; font-size:15px; }
+    .insight-card p { color:var(--muted2); font-size:13px; line-height:1.7; }
+    .swot-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; border-radius:var(--radius); overflow:hidden; }
+    .swot-cell { padding:28px; }
+    .swot-cell h4 { font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:12px; }
+    .swot-cell ul li { font-size:13px; color:var(--muted2); margin-bottom:8px; padding-left:16px; position:relative; }
+    .swot-cell ul li::before { content:'–'; position:absolute; left:0; color:var(--muted); }
+    .s { background:rgba(16,185,129,0.08); } .s h4 { color:#10b981; }
+    .w { background:rgba(239,68,68,0.08); } .w h4 { color:#ef4444; }
+    .o { background:rgba(59,130,246,0.08); } .o h4 { color:#3b82f6; }
+    .t { background:rgba(245,158,11,0.08); } .t h4 { color:#f59e0b; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../" class="nav-logo">
+      <img src="../assets/logo.png" alt="Elitez FMCG" class="nav-logo-img" />
+    </a>
+    <div class="nav-links">
+      <a href="../">← Back to Site</a>
+      <a href="admin.html" class="active">Competitor Intel</a>
+      <a href="admin-insights.html">Market Insights</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="../">← Site</a>
+  <a href="admin.html" class="active">Competitor Intel</a>
+  <a href="admin-insights.html">Market Insights</a>
+</div>
+
+<div style="padding-top: var(--nav-h);">
+  <div class="admin-nav-bar">
+    <span>🔒 INTERNAL — ADMIN VIEW &nbsp;|&nbsp;</span>
+    <a href="admin.html">Competitor Analytics</a>
+    <a href="admin-insights.html">Market Insights</a>
+  </div>
+</div>
+
+<div class="admin-wrap" style="padding-top: 0;">
+  <div class="admin-header">
+    <span class="label">Internal Dashboard</span>
+    <h1>Singapore BTL Agency Landscape</h1>
+    <p>Competitor analysis — Singapore brand activation &amp; promoter deployment agencies. Updated: April 2026.</p>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-val">15+</div>
+      <div class="kpi-label">Active Competitors</div>
+      <div class="kpi-sub">Singapore BTL &amp; activation</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">#2</div>
+      <div class="kpi-label">Estimated Market Position</div>
+      <div class="kpi-sub">By promoter roster depth</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">800+</div>
+      <div class="kpi-label">Our Promoter Database</div>
+      <div class="kpi-sub">Largest WSQ-certified roster</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">S$2.8B</div>
+      <div class="kpi-label">SG FMCG BTL Market</div>
+      <div class="kpi-sub">Estimated 2025 spend</div>
+    </div>
+  </div>
+
+  <!-- Competitor Table -->
+  <div class="section-block">
+    <h2>Competitor Landscape — Singapore BTL Agencies</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Agency</th>
+            <th>Focus</th>
+            <th>Est. Promoter Roster</th>
+            <th>Key Clients</th>
+            <th>Strengths</th>
+            <th>Weaknesses</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Elitez FMCG</strong> <span style="color:var(--accent);font-size:11px;">(Us)</span></td>
+            <td>FMCG BTL, Promoter Deployment, Roadshow</td>
+            <td><strong style="color:var(--accent);">800+</strong></td>
+            <td>Nestlé, Carlsberg, NTUC, Ribena</td>
+            <td>Roster depth, WSQ certification, 4,000sqft warehouse, 15yr track record</td>
+            <td>Limited digital-first offering</td>
+            <td><span class="tag tag-muted">N/A</span></td>
+          </tr>
+          <tr>
+            <td><strong>Engage</strong></td>
+            <td>BTL Activation, Events, Roadshow</td>
+            <td>~400</td>
+            <td>P&amp;G, Unilever, Danone</td>
+            <td>Strong creative, good client list</td>
+            <td>Smaller roster, higher rates</td>
+            <td><span class="tag tag-orange">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Activation Asia</strong></td>
+            <td>Regional BTL, Sampling, In-Store</td>
+            <td>~350</td>
+            <td>Coca-Cola, Pepsi, Abbott</td>
+            <td>Regional network, multi-market</td>
+            <td>Less SG-specific depth</td>
+            <td><span class="tag tag-orange">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Brand Cellar</strong></td>
+            <td>BTL, Promotional Staffing</td>
+            <td>~250</td>
+            <td>FMCG SMEs, importers</td>
+            <td>Lower rate card, flexible</td>
+            <td>Quality inconsistency, no warehouse</td>
+            <td><span class="tag tag-green">Low</span></td>
+          </tr>
+          <tr>
+            <td><strong>Pico Group</strong></td>
+            <td>Events, Exhibition, BTL</td>
+            <td>~600</td>
+            <td>F&amp;B MNCs, govt agencies</td>
+            <td>Scale, corporate relationships, resources</td>
+            <td>Focused on events over FMCG</td>
+            <td><span class="tag tag-orange">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>MediaShout</strong></td>
+            <td>Digital + BTL Integrated</td>
+            <td>~150</td>
+            <td>Tech brands, F&amp;B</td>
+            <td>Strong digital capabilities</td>
+            <td>Small promoter roster, limited logistics</td>
+            <td><span class="tag tag-green">Low</span></td>
+          </tr>
+          <tr>
+            <td><strong>FW Marketing</strong></td>
+            <td>Sampling, Roadshow, In-Store</td>
+            <td>~500</td>
+            <td>Japanese FMCG brands, pharma</td>
+            <td>Niche Japanese-market expertise</td>
+            <td>Limited English-language marketing</td>
+            <td><span class="tag tag-orange">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ignite</strong></td>
+            <td>Experiential, BTL, Digital</td>
+            <td>~200</td>
+            <td>F&amp;B startups, health brands</td>
+            <td>Creative experiential design</td>
+            <td>Too creative-heavy, weak ops</td>
+            <td><span class="tag tag-green">Low</span></td>
+          </tr>
+          <tr>
+            <td><strong>Stafflink</strong></td>
+            <td>Temp Staffing incl. Promoters</td>
+            <td>~1,200</td>
+            <td>Retail, F&amp;B, FMCG</td>
+            <td>Largest roster in SG</td>
+            <td>Not FMCG-specialist, no brand ops</td>
+            <td><span class="tag tag-blue">High — Monitor</span></td>
+          </tr>
+          <tr>
+            <td><strong>Express Global</strong></td>
+            <td>Events Staffing, BTL</td>
+            <td>~300</td>
+            <td>Mixed F&amp;B and retail</td>
+            <td>Price competitive</td>
+            <td>Generalist, no FMCG specialisation</td>
+            <td><span class="tag tag-green">Low</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="grid-2 section-block">
+    <div class="chart-wrap">
+      <h4>Promoter Roster Comparison</h4>
+      <canvas id="rosterChart" height="220"></canvas>
+    </div>
+    <div class="chart-wrap">
+      <h4>Competitive Positioning — FMCG Specialisation vs Scale</h4>
+      <canvas id="positionChart" height="220"></canvas>
+    </div>
+  </div>
+
+  <!-- SWOT -->
+  <div class="section-block">
+    <h2>Elitez FMCG — SWOT Analysis</h2>
+    <div class="swot-grid">
+      <div class="swot-cell s">
+        <h4>Strengths</h4>
+        <ul>
+          <li>800+ WSQ-certified promoter roster — largest specialist FMCG database in SG</li>
+          <li>4,000sqft warehouse with deployable equipment reduces client cost</li>
+          <li>15+ years track record with marquee FMCG clients</li>
+          <li>Deploy 300 pax in a single weekend — unmatched operational scale</li>
+          <li>Ops team with 30 combined years in SG FMCG</li>
+          <li>One-stop-shop: strategy, staffing, logistics, reporting</li>
+        </ul>
+      </div>
+      <div class="swot-cell w">
+        <h4>Weaknesses</h4>
+        <ul>
+          <li>Limited proprietary digital marketing capability vs pure-digital agencies</li>
+          <li>Primarily Singapore-market focused — limited SEA footprint</li>
+          <li>Smaller brand recognition vs larger regional competitors</li>
+          <li>Less corporate events capability (intentional but limits TAM)</li>
+        </ul>
+      </div>
+      <div class="swot-cell o">
+        <h4>Opportunities</h4>
+        <ul>
+          <li>Post-COVID FMCG activation surge — brands reinvesting in BTL</li>
+          <li>Growing demand for integrated ATL+BTL campaigns</li>
+          <li>SEA expansion — Malaysia, Indonesia FMCG markets growing</li>
+          <li>Digital+physical hybrid campaigns becoming standard</li>
+          <li>New FMCG entrants needing end-to-end activation partner</li>
+        </ul>
+      </div>
+      <div class="swot-cell t">
+        <h4>Threats</h4>
+        <ul>
+          <li>General staffing agencies (e.g. Stafflink) expanding into FMCG promoter space</li>
+          <li>Gig economy platforms commoditising promoter deployment</li>
+          <li>Client budget cuts shifting spend to digital-only campaigns</li>
+          <li>Rising promoter wage expectations (SSG/MOM minimum wage trends)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Win/Loss Factors -->
+  <div class="section-block">
+    <h2>Win / Loss Factors in RFPs</h2>
+    <div class="grid-3">
+      <div class="insight-card">
+        <h4 style="color: #10b981;">Why We Win</h4>
+        <p>Roster depth gives clients confidence we can scale. Warehouse assets reduce their cost. 15yr track record is a de-risk. Ops team's SG-specific knowledge prevents typical activation pitfalls.</p>
+      </div>
+      <div class="insight-card">
+        <h4 style="color: #ef4444;">Why We Lose</h4>
+        <p>Rate card perceived as higher than generalist staffing agencies. Clients sometimes choose cheaper option without understanding quality gap. Limited digital marketing portfolio vs integrated agencies.</p>
+      </div>
+      <div class="insight-card">
+        <h4 style="color: var(--accent);">Counter-Strategy</h4>
+        <p>Lead with post-activation ROI data. Show cost-per-consumer-engagement vs competitor. Offer pilot campaign pricing for new clients. Build digital capability to compete on integrated briefs.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Roster Chart
+new Chart(document.getElementById('rosterChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Stafflink','Elitez FMCG','Pico Group','Engage','FW Marketing','Activation Asia','Brand Cellar'],
+    datasets: [{
+      label: 'Estimated Promoter Roster',
+      data: [1200, 800, 600, 400, 500, 350, 250],
+      backgroundColor: ['#333','#E8611A','#444','#555','#444','#555','#333'],
+      borderRadius: 6,
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } },
+      x: { grid: { display: false }, ticks: { color: '#888', font: { size: 11 } } }
+    }
+  }
+});
+
+// Positioning Chart
+new Chart(document.getElementById('positionChart'), {
+  type: 'bubble',
+  data: {
+    datasets: [
+      { label: 'Elitez FMCG', data: [{x: 9, y: 8, r: 16}], backgroundColor: 'rgba(232,97,26,0.8)' },
+      { label: 'Pico Group', data: [{x: 5, y: 9, r: 14}], backgroundColor: 'rgba(100,116,139,0.6)' },
+      { label: 'Engage', data: [{x: 7, y: 5, r: 10}], backgroundColor: 'rgba(100,116,139,0.5)' },
+      { label: 'FW Marketing', data: [{x: 6, y: 6, r: 10}], backgroundColor: 'rgba(100,116,139,0.5)' },
+      { label: 'Stafflink', data: [{x: 3, y: 10, r: 14}], backgroundColor: 'rgba(100,116,139,0.5)' },
+      { label: 'MediaShout', data: [{x: 4, y: 4, r: 8}], backgroundColor: 'rgba(100,116,139,0.4)' },
+    ]
+  },
+  options: {
+    scales: {
+      x: { title: { display: true, text: 'FMCG Specialisation →', color: '#888' }, min: 0, max: 11, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } },
+      y: { title: { display: true, text: 'Scale / Roster Size →', color: '#888' }, min: 0, max: 12, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } }
+    },
+    plugins: { legend: { labels: { color: '#888', font: { size: 11 } } } }
+  }
+});
+</script>
+<script src="../script.js"></script>
+</body>
+</html>
