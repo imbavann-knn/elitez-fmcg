@@ -362,11 +362,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </section>
 
 <script>
-  const _sb = supabase.createClient(
-    'https://rqqgrnttbelsxpmfikaa.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxcWdybnR0YmVsc3hwbWZpa2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3ODYzNzIsImV4cCI6MjA5NjM2MjM3Mn0.cfSwq0ie2fsiwOgYYGgpS5WTj_eCZkYXJFntDNgbn94'
-  );
-
   // Prefill from ?interest= (page CTAs) — ticks the matching service box and seeds the brief
   (function prefillInterest() {
     const interest = new URLSearchParams(location.search).get('interest');
@@ -396,21 +391,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     btn.disabled = true;
     const fd = new FormData(this);
     const services = [...this.querySelectorAll('input[name="services"]:checked')].map(cb => cb.value).join(', ');
-
-    // Save to Supabase (non-blocking — email still goes out even if this fails)
-    try {
-      await _sb.from('fmcg_enquiries').insert({
-        first_name: fd.get('firstName') || '',
-        last_name:  fd.get('lastName')  || '',
-        company:    fd.get('company')   || '',
-        email:      fd.get('email')     || '',
-        phone:      fd.get('phone')     || '',
-        service:    fd.get('service')   || '',
-        services_checklist: services,
-        message:    fd.get('message')   || '',
-        status:     'new'
-      });
-    } catch(err) { console.warn('Enquiry save error:', err); }
+    if (services) fd.append('Services selected', services);
 
     try {
       const res = await fetch('https://formsubmit.co/ajax/fmcg@elitez.asia', {
