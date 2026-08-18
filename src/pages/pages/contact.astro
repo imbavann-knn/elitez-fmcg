@@ -367,17 +367,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxcWdybnR0YmVsc3hwbWZpa2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3ODYzNzIsImV4cCI6MjA5NjM2MjM3Mn0.cfSwq0ie2fsiwOgYYGgpS5WTj_eCZkYXJFntDNgbn94'
   );
 
-  // Prefill from ?interest= (e.g. Blink page CTAs) — ticks the Blink box and seeds the brief
+  // Prefill from ?interest= (page CTAs) — ticks the matching service box and seeds the brief
   (function prefillInterest() {
     const interest = new URLSearchParams(location.search).get('interest');
     if (!interest) return;
-    const blinkBox = document.querySelector('input[name="services"][value="blink"]');
-    if (blinkBox) blinkBox.checked = true;
-    const msg = document.querySelector('textarea[name="message"]');
+    // which service checkbox to tick for each interest value
+    const svcMap = { 'blink-demo': 'blink', 'blink-subscription': 'blink', 'contest': 'contest' };
+    const svc = svcMap[interest];
+    if (svc) {
+      const box = document.querySelector('input[name="services"][value="'+svc+'"]');
+      if (box) box.checked = true;
+    }
     const seeds = {
       'blink-demo': "I'd like a live demo of the Blink client dashboard for one of our campaigns.",
       'blink-subscription': "We run our own promoter team and want to ask about a Blink subscription for our in-house operations.",
+      'contest': "We're planning an online contest / consumer promotion. Mechanic: [describe]. Prize: [describe]. We'd like help with the microsite, on-ground push and winner fulfilment.",
     };
+    const msg = document.querySelector('textarea[name="message"]');
     if (msg && seeds[interest] && !msg.value) msg.value = seeds[interest];
     const form = document.getElementById('contactForm');
     if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });

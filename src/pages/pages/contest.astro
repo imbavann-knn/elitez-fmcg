@@ -1,0 +1,369 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Online Contest Management Singapore | Contest Microsite & Fulfilment | Elitez FMCG"
+  description="End-to-end online contest management for FMCG brands in Singapore — branded contest microsite on your own domain, on-ground promoter push, weekly submission approval with automated emails, winner fulfilment (self-collection or delivery), and a live submissions dashboard."
+  canonical="https://fmcg.elitez.ai/pages/contest"
+  keywords="online contest management Singapore, contest microsite Singapore, lucky draw management Singapore, spend and win campaign Singapore, receipt validation contest Singapore, consumer promotion management Singapore, digital contest platform Singapore"
+  ogTitle="Online Contest Management Singapore | Elitez FMCG"
+  ogDescription="From a branded contest site on your own domain to winner fulfilment — Elitez runs the whole consumer-promotion mechanic, with automated approval emails and a live dashboard."
+>
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Online Contest & Consumer Promotion Management",
+  "areaServed": "Singapore",
+  "provider": { "@type": "Organization", "name": "Elitez FMCG", "url": "https://fmcg.elitez.ai/" },
+  "description": "End-to-end online contest management: branded microsite on a custom domain, on-ground promoter support, submission verification with automated approval/rejection emails, winner fulfilment, and a live submissions dashboard."
+}
+</script>
+</Fragment>
+<style is:global>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #FF5500; --orange-hover: #E84A00; --orange-pale: #FFF3EE;
+    --black: #111111; --white: #FFFFFF; --off-white: #FAFAF8;
+    --gray: #F4F4F2; --border: #E8E8E5; --text-muted: #777; --nav-h: 72px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  /* PAGE HEADER */
+  .page-header { padding-top: var(--nav-h); background: var(--black); }
+  .page-header-inner { padding: 72px 48px 0; position: relative; overflow: hidden; }
+  .page-header-inner::before { content: 'WIN'; position: absolute; top: 0; right: -10px; font-family: 'Bebas Neue', cursive; font-size: 240px; letter-spacing: 8px; color: rgba(255,255,255,0.02); pointer-events: none; line-height: 1; }
+  .breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+  .breadcrumb a { color: var(--orange); text-decoration: none; }
+  .page-header-inner h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(52px, 7vw, 92px); letter-spacing: 3px; color: var(--white); line-height: 0.9; margin-bottom: 20px; }
+  .page-header-inner h1 span { color: var(--orange); }
+  .page-header-inner > p { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5); max-width: 600px; line-height: 1.65; }
+  .header-stats { display: flex; border-top: 1px solid rgba(255,255,255,0.07); margin-top: 48px; }
+  .header-stat { flex: 1; padding: 20px 32px; border-right: 1px solid rgba(255,255,255,0.07); }
+  .header-stat:last-child { border-right: none; }
+  .header-stat-num { font-family: 'Bebas Neue', cursive; font-size: 34px; color: var(--orange); letter-spacing: 2px; line-height: 1; }
+  .header-stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 3px; }
+
+  /* SECTIONS */
+  .section { padding: 80px 48px; }
+  .section-alt { background: var(--off-white); }
+  .label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+  h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(36px, 4.5vw, 58px); letter-spacing: 2px; line-height: 0.95; margin-bottom: 24px; }
+  h2 span { color: var(--orange); }
+  .lead { font-size: 17px; line-height: 1.7; color: #444; max-width: 680px; margin-bottom: 16px; }
+
+  /* POSITIONING */
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .what-left { max-width: 560px; }
+  .what-left p { font-size: 16px; line-height: 1.75; color: #444; margin-bottom: 16px; }
+  .what-left strong { color: var(--black); }
+  .what-right { display: flex; flex-direction: column; gap: 20px; }
+  .callout-card { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--orange); padding: 20px 24px; border-radius: 3px; }
+  .callout-card h4 { font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--black); margin-bottom: 6px; }
+  .callout-card p { font-size: 14px; line-height: 1.6; color: var(--text-muted); }
+
+  /* LIFECYCLE / PROCESS */
+  .process-intro { max-width: 640px; margin-bottom: 8px; }
+  .process-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 48px; position: relative; }
+  .process-row::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: var(--border); z-index: 0; }
+  .process-step { text-align: center; position: relative; z-index: 1; padding: 0 14px; }
+  .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', cursive; font-size: 22px; color: var(--white); letter-spacing: 1px; margin: 0 auto 16px; }
+  .process-step h4 { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--black); margin-bottom: 6px; }
+  .process-step p { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); }
+
+  /* MICROSITE SHOWCASE */
+  .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .showcase-copy .lead { color: #444; }
+  .feature-list { list-style: none; margin-top: 20px; display: grid; gap: 14px; }
+  .feature-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.55; color: #333; }
+  .feature-list li::before { content: '→'; color: var(--orange); font-weight: 700; flex: none; }
+  .phones { display: flex; gap: 18px; justify-content: center; }
+  .phone-frame { width: 190px; border: 9px solid #111; border-radius: 26px; overflow: hidden; background: #111; box-shadow: 0 24px 60px -20px rgba(17,17,17,0.3); flex: none; }
+  .phone-frame:nth-child(2) { margin-top: 28px; }
+  .phone-frame img { display: block; width: 100%; height: auto; }
+  .phone-cap { text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); margin-top: 16px; }
+
+  /* CAPABILITY GRID */
+  .caps-intro { max-width: 640px; margin-bottom: 48px; }
+  .caps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .cap-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 28px 24px; transition: box-shadow 0.2s, transform 0.2s; }
+  .cap-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .cap-num { font-family: 'Bebas Neue', cursive; font-size: 30px; color: var(--orange); letter-spacing: 2px; margin-bottom: 12px; line-height: 1; }
+  .cap-card h3 { font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+  .cap-card p { font-size: 13px; line-height: 1.65; color: var(--text-muted); }
+
+  /* VERIFICATION + EMAILS (dark) */
+  .verify-section { background: var(--black); padding: 80px 48px; position: relative; overflow: hidden; }
+  .verify-section::before { content: 'VERIFY'; position: absolute; bottom: -50px; right: -20px; font-family: 'Bebas Neue', cursive; font-size: 260px; letter-spacing: 8px; color: rgba(255,255,255,0.02); pointer-events: none; line-height: 1; }
+  .verify-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; position: relative; z-index: 1; }
+  .verify-left h2 { color: var(--white); }
+  .verify-left p { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
+  .verify-left .label { color: rgba(255,165,0,0.85); }
+  .verify-cards { display: flex; flex-direction: column; gap: 16px; }
+  .v-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 22px 24px; }
+  .v-card h4 { font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 8px; }
+  .v-card p { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.5); }
+  /* email trigger chips */
+  .email-flow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .email-chip { display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 8px 14px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
+  .email-chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot-blue { background: #4c9ffe; } .dot-green { background: #34c759; } .dot-red { background: #ff5a5f; }
+
+  /* FULFILMENT */
+  .fulfil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+  .fulfil-card { border: 1px solid var(--border); border-radius: 8px; padding: 36px 32px; }
+  .fulfil-card.primary { background: var(--orange-pale); border-color: #ffd9c6; }
+  .fulfil-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+  .fulfil-card h3 { font-family: 'Bebas Neue', cursive; font-size: 28px; letter-spacing: 1.5px; color: var(--black); margin-bottom: 12px; }
+  .fulfil-card p { font-size: 14.5px; line-height: 1.7; color: var(--text-muted); }
+
+  /* PROOF */
+  .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+  .proof-card { border: 1px solid var(--border); border-radius: 8px; padding: 32px; background: var(--white); }
+  .proof-client { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }
+  .proof-card h3 { font-family: 'Bebas Neue', cursive; font-size: 26px; letter-spacing: 1px; color: var(--black); margin-bottom: 12px; }
+  .proof-card p { font-size: 14.5px; line-height: 1.7; color: var(--text-muted); }
+
+  /* CTA */
+  .page-cta { background: var(--orange); padding: 80px 48px; position: relative; overflow: hidden; }
+  .page-cta::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border: 80px solid rgba(255,255,255,0.07); border-radius: 50%; }
+  .page-cta-inner { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; gap: 40px; }
+  .page-cta h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(40px, 5vw, 64px); letter-spacing: 3px; color: var(--white); line-height: 0.9; margin-bottom: 12px; }
+  .page-cta p { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 460px; line-height: 1.6; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--orange); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; white-space: nowrap; transition: transform 0.15s; flex-shrink: 0; }
+  .btn-white:hover { transform: translateY(-2px); }
+
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 900px) {
+    .section, .verify-section { padding: 56px 24px; }
+    .page-header-inner { padding: 48px 24px 0; }
+    .header-stats { flex-wrap: wrap; }
+    .header-stat { min-width: 50%; }
+    .what-grid, .showcase-grid, .verify-grid { grid-template-columns: 1fr; gap: 40px; }
+    .caps-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-row { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .process-row::before { display: none; }
+    .fulfil-grid, .proof-grid { grid-template-columns: 1fr; }
+    .page-cta { padding: 60px 24px; }
+    .page-cta-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .caps-grid { grid-template-columns: 1fr; }
+    .process-row { grid-template-columns: 1fr; }
+    .phones { gap: 12px; }
+    .phone-frame { width: 150px; }
+  }
+</style>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="/">Home</a> / <a href="/pages/services">Services</a> / Online Contest Management</div>
+    <h1>ONLINE CONTEST<br><span>MANAGEMENT</span></h1>
+    <p>The whole mechanic, run by one team — a branded contest site on your own domain, promoters on the ground to drive entries, weekly submission approval with automated emails, winner fulfilment, and a live dashboard of every entry.</p>
+    <div class="header-stats">
+      <div class="header-stat"><div class="header-stat-num">Your domain</div><div class="header-stat-label">Live On Your URL</div></div>
+      <div class="header-stat"><div class="header-stat-num">Automated</div><div class="header-stat-label">Approval Emails</div></div>
+      <div class="header-stat"><div class="header-stat-num">PDPA-ready</div><div class="header-stat-label">Consent Built In</div></div>
+      <div class="header-stat"><div class="header-stat-num">End-to-end</div><div class="header-stat-label">Site → Prize</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- POSITIONING -->
+<section class="section fade-up">
+  <div class="what-grid">
+    <div class="what-left">
+      <div class="label">One partner, whole mechanic</div>
+      <h2>FROM THE SITE TO THE <span>PRIZE.</span></h2>
+      <p>Most agencies hand you a microsite and stop. The real work of a consumer promotion is everything <strong>after</strong> the site goes live — driving entries, verifying every submission, keeping entrants informed, running a clean winner draw, and getting the prizes into people's hands.</p>
+      <p>Elitez runs the entire loop in-house. We build the contest site on <strong>your own domain</strong>, put trained promoters on the ground to push participation, and our ops team verifies submissions weekly — approving or rejecting each one with an <strong>automated email</strong> to the entrant. Then we handle the winner draw and fulfilment, while you watch it all on a live dashboard.</p>
+      <p>It's the same operational discipline behind our field activations, applied to the digital half of the campaign.</p>
+    </div>
+    <div class="what-right">
+      <div class="callout-card fade-up delay-1">
+        <h4>Built, not templated</h4>
+        <p>A branded site engineered for your mechanic — purchase/receipt validation, redemption codes, age-gating and PDPA consent — hosted on your own domain, not a generic form.</p>
+      </div>
+      <div class="callout-card fade-up delay-2">
+        <h4>Real people verifying</h4>
+        <p>Every receipt and entry is checked by our ops team against your rules — with preset rejection reasons so entrants always know why.</p>
+      </div>
+      <div class="callout-card fade-up delay-3">
+        <h4>Accountable by design</h4>
+        <p>Signed-URL receipt storage, a full approval audit log and one-click CSV export — the paper trail a brand and its legal team expect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFECYCLE -->
+<section class="section section-alt fade-up">
+  <div class="process-intro">
+    <div class="label">The lifecycle</div>
+    <h2>FIVE STEPS, <span>ONE TEAM.</span></h2>
+    <p class="lead">Brief us once. We run the contest end to end — you approve the rules and prizes, we do the rest.</p>
+  </div>
+  <div class="process-row">
+    <div class="process-step fade-up">
+      <div class="step-num">1</div>
+      <h4>Build</h4>
+      <p>A branded contest microsite on your own domain — entry mechanics, receipt/purchase validation, age-gate and PDPA consent.</p>
+    </div>
+    <div class="process-step fade-up delay-1">
+      <div class="step-num">2</div>
+      <h4>Drive</h4>
+      <p>Optional promoters on the ground — QR entry, redemption codes and sampling to push participation in-store and outdoor.</p>
+    </div>
+    <div class="process-step fade-up delay-2">
+      <div class="step-num">3</div>
+      <h4>Verify</h4>
+      <p>Weekly submission review — each entry approved or rejected against your rules, with an automated email to the entrant.</p>
+    </div>
+    <div class="process-step fade-up delay-3">
+      <div class="step-num">4</div>
+      <h4>Fulfil</h4>
+      <p>Winner draw from verified entries, then prize fulfilment — self-collection or delivery to the door at cost.</p>
+    </div>
+    <div class="process-step fade-up delay-4">
+      <div class="step-num">5</div>
+      <h4>Report</h4>
+      <p>A live dashboard of every submission — approvals, rejections and reasons — with CSV export any time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MICROSITE SHOWCASE -->
+<section class="section fade-up">
+  <div class="showcase-grid">
+    <div class="showcase-copy">
+      <div class="label">Step 1 · The site</div>
+      <h2>YOUR CONTEST, ON <span>YOUR DOMAIN.</span></h2>
+      <p class="lead">A mobile-first microsite that looks like your brand, not a form builder — pointed at a custom domain (e.g. <em>win.yourbrand.com</em>) so the whole journey stays on your turf.</p>
+      <ul class="feature-list">
+        <li>Purchase &amp; receipt validation, or unique redemption codes for on-ground sampling</li>
+        <li>Age-gating and PDPA consent capture built into the entry flow</li>
+        <li>Spend-&amp;-win, survey, instant-win and lucky-draw mechanics</li>
+        <li>Winners gallery, T&amp;Cs and how-to-join pages included</li>
+      </ul>
+    </div>
+    <div>
+      <div class="phones">
+        <div class="phone-frame"><img src="/assets/digital-1.jpg" alt="Contest microsite home screen on a phone" loading="lazy"></div>
+        <div class="phone-frame"><img src="/assets/digital-2.jpg" alt="Contest entry form with receipt upload" loading="lazy"></div>
+        <div class="phone-frame"><img src="/assets/digital-3.jpg" alt="How to join the contest" loading="lazy"></div>
+      </div>
+      <p class="phone-cap">Live example — M&amp;M's "Everyone Wins" contest microsite</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITY GRID -->
+<section class="section section-alt fade-up">
+  <div class="caps-intro">
+    <div class="label">The full mechanic</div>
+    <h2>EVERYTHING A PROMOTION <span>NEEDS.</span></h2>
+  </div>
+  <div class="caps-grid">
+    <div class="cap-card fade-up"><div class="cap-num">01</div><h3>Contest microsite</h3><p>Branded, mobile-first site on your domain with the entry mechanic your campaign calls for.</p></div>
+    <div class="cap-card fade-up delay-1"><div class="cap-num">02</div><h3>Purchase validation</h3><p>Receipt upload and review, or unique codes tied to on-pack promotions and sampling.</p></div>
+    <div class="cap-card fade-up delay-2"><div class="cap-num">03</div><h3>On-ground push</h3><p>Promoters driving QR entries and code redemptions where the product sells — if the campaign needs the volume.</p></div>
+    <div class="cap-card fade-up"><div class="cap-num">04</div><h3>Submission approval</h3><p>Weekly moderation — approve or reject each entry against your rules, with preset reasons.</p></div>
+    <div class="cap-card fade-up delay-1"><div class="cap-num">05</div><h3>Automated emails</h3><p>Entrants are emailed on submission, approval and rejection — with the reason — automatically.</p></div>
+    <div class="cap-card fade-up delay-2"><div class="cap-num">06</div><h3>Winner fulfilment</h3><p>Draw from verified entries, then self-collection or delivery to the door at cost.</p></div>
+  </div>
+</section>
+
+<!-- VERIFICATION + EMAILS + DASHBOARD (dark) -->
+<section class="verify-section fade-up">
+  <div class="verify-grid">
+    <div class="verify-left">
+      <div class="label">Steps 3 &amp; 5 · Verify + report</div>
+      <h2>EVERY ENTRY CHECKED. <span>EVERYONE INFORMED.</span></h2>
+      <p>Entries don't sit in an inbox. Each week our ops team works the queue — opening every receipt (secure signed URLs), checking it against the mechanic, and approving or rejecting it. Every decision fires an email to the entrant automatically, so nobody is left wondering.</p>
+      <p>You see all of it on a live dashboard: total entries, approved, rejected, the reasons, and top-line stats — exportable to CSV whenever your brand or legal team asks.</p>
+      <div class="email-flow">
+        <span class="email-chip"><span class="dot dot-blue"></span>Entry received</span>
+        <span class="email-chip"><span class="dot dot-green"></span>Entry approved</span>
+        <span class="email-chip"><span class="dot dot-red"></span>Entry rejected + reason</span>
+      </div>
+    </div>
+    <div class="verify-cards">
+      <div class="v-card fade-up"><h4>Approval queue</h4><p>Receipt lightbox, one-click approve/reject, and preset rejection reasons so decisions are fast and consistent.</p></div>
+      <div class="v-card fade-up delay-1"><h4>Automated entrant emails</h4><p>On-brand templates for received, approved and rejected — the rejection email includes the exact reason.</p></div>
+      <div class="v-card fade-up delay-2"><h4>Live submissions dashboard</h4><p>Entries, approvals, rejections and reasons at a glance, with CSV export and a full audit log.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FULFILMENT -->
+<section class="section fade-up">
+  <div class="label">Step 4 · Fulfilment</div>
+  <h2>GETTING PRIZES <span>INTO HANDS.</span></h2>
+  <p class="lead">Once winners are drawn from the verified entries, we handle redemption two ways — your call, per campaign.</p>
+  <div class="fulfil-grid">
+    <div class="fulfil-card primary fade-up">
+      <div class="fulfil-tag">Included</div>
+      <h3>Self-collection</h3>
+      <p>Winners are notified by email and collect at a nominated point — an activation site, your office, or our warehouse. Identity and code verified on collection, logged against the entry.</p>
+    </div>
+    <div class="fulfil-card fade-up delay-1">
+      <div class="fulfil-tag">At cost</div>
+      <h3>Delivery to the door</h3>
+      <p>Prefer a hands-off prize? We pack and courier prizes to winners across Singapore, with tracking — billed at cost. Ideal for bulky items or nationwide draws.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section section-alt fade-up">
+  <div class="label">Proof</div>
+  <h2>RUN FOR REAL <span>BRANDS.</span></h2>
+  <div class="proof-grid">
+    <div class="proof-card fade-up">
+      <div class="proof-client">Mars Wrigley · M&amp;M's</div>
+      <h3>"EVERYONE WINS" CHRISTMAS CONTEST</h3>
+      <p>A fully managed online contest mechanic — in-store purchase validation feeding a consumer-facing microsite, with age-gating, digital prize redemption and a winners gallery.</p>
+    </div>
+    <div class="proof-card fade-up delay-1">
+      <div class="proof-client">Farmers Union (Bega) · Protein Power Challenge</div>
+      <h3>SAMPLE + SPEND-&amp;-WIN ACTIVATION</h3>
+      <p>A two-tier mechanic on a branded microsite — a free-sample survey with promoter-checked redemption codes, plus a receipt-upload Spend-&amp;-Win draw with PDPA consent, weekly approvals and automated entrant emails.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <div class="page-cta-inner">
+    <div>
+      <h2>RUNNING A PROMOTION?</h2>
+      <p>Tell us the mechanic and the prize. We'll come back with a plan for the site, the on-ground push and the fulfilment — one team, one invoice.</p>
+    </div>
+    <a href="/pages/contact?interest=contest" class="btn-white">Plan your contest →</a>
+  </div>
+</section>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach((el) => obs.observe(el));
+
+  if (typeof posthog !== 'undefined') {
+    document.querySelectorAll('a[href*="interest=contest"]').forEach((b) => {
+      b.addEventListener('click', () => posthog.capture('contest_cta_clicked', { location: 'contest_page' }));
+    });
+  }
+</script>
+</BaseLayout>
