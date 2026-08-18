@@ -362,6 +362,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </section>
 
 <script>
+  // === Central lead sheet (Google Apps Script Web App) ===
+  // Paste your deployed Web App /exec URL below to start logging every enquiry
+  // into the shared Google Sheet (labelled by source). FormSubmit email is unchanged.
+  const LEADS_ENDPOINT = 'PASTE_WEB_APP_URL_HERE';
+  function logLead(form, source, extra) {
+    try {
+      if (!/^https:\/\//.test(LEADS_ENDPOINT)) return;
+      const p = new URLSearchParams(); p.set('source', source);
+      new FormData(form).forEach((v, k) => { if (k[0] !== '_') p.append(k, v); });
+      if (extra) for (const k in extra) p.set(k, extra[k]);
+      navigator.sendBeacon(LEADS_ENDPOINT, p);
+    } catch (e) {}
+  }
+
   // Prefill from ?interest= (page CTAs) — ticks the matching service box and seeds the brief
   (function prefillInterest() {
     const interest = new URLSearchParams(location.search).get('interest');
@@ -392,6 +406,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     const fd = new FormData(this);
     const services = [...this.querySelectorAll('input[name="services"]:checked')].map(cb => cb.value).join(', ');
     if (services) fd.append('Services selected', services);
+    logLead(this, 'FMCG Website', { interest: services });
 
     try {
       const res = await fetch('https://formsubmit.co/ajax/fmcg@elitez.asia', {

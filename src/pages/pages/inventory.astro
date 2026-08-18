@@ -875,6 +875,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </section>
 
 <script>
+  // === Central lead sheet (Google Apps Script Web App) ===
+  const LEADS_ENDPOINT = 'PASTE_WEB_APP_URL_HERE';
+  function logLead(form, source, extra) {
+    try {
+      if (!/^https:\/\//.test(LEADS_ENDPOINT)) return;
+      const p = new URLSearchParams(); p.set('source', source);
+      new FormData(form).forEach((v, k) => { if (k[0] !== '_') p.append(k, v); });
+      if (extra) for (const k in extra) p.set(k, extra[k]);
+      navigator.sendBeacon(LEADS_ENDPOINT, p);
+    } catch (e) {}
+  }
+
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
 
@@ -917,6 +929,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     const btn = this.querySelector('button[type="submit"]');
     btn.textContent = 'Sending…';
     btn.disabled = true;
+    const _et = this.querySelector('input[name="enquiryType"]:checked');
+    logLead(this, 'FMCG Website', { interest: 'Equipment rental' + (_et ? ' — ' + _et.value : '') });
     try {
       const res = await fetch('https://formsubmit.co/ajax/fmcg@elitez.asia', {
         method: 'POST',
