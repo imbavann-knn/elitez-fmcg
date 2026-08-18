@@ -876,7 +876,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <script>
   // === Central lead sheet (Google Apps Script Web App) ===
-  const LEADS_ENDPOINT = 'PASTE_WEB_APP_URL_HERE';
+  const LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxHmZd45kiKDmZCkzdNNznZUvLRoiYYsHbrnTHKXnkH3nH_PST6fKfvgoRN1TW71PKa/exec';
   function logLead(form, source, extra) {
     try {
       if (!/^https:\/\//.test(LEADS_ENDPOINT)) return;

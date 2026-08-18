@@ -365,7 +365,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   // === Central lead sheet (Google Apps Script Web App) ===
   // Paste your deployed Web App /exec URL below to start logging every enquiry
   // into the shared Google Sheet (labelled by source). FormSubmit email is unchanged.
-  const LEADS_ENDPOINT = 'PASTE_WEB_APP_URL_HERE';
+  const LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxHmZd45kiKDmZCkzdNNznZUvLRoiYYsHbrnTHKXnkH3nH_PST6fKfvgoRN1TW71PKa/exec';
   function logLead(form, source, extra) {
     try {
       if (!/^https:\/\//.test(LEADS_ENDPOINT)) return;
