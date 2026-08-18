@@ -182,12 +182,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); }
   .form-group textarea { resize: vertical; min-height: 100px; }
 
-  /* Enquiry type radios */
-  .enquiry-types { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
-  .enquiry-type { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-  .enquiry-type input[type="radio"] { accent-color: var(--orange); width: 15px; height: 15px; flex-shrink: 0; }
-  .enquiry-type-label { font-size: 13px; color: rgba(255,255,255,0.7); padding: 8px 14px; border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; transition: all 0.2s; cursor: pointer; }
-  .enquiry-type input[type="radio"]:checked + .enquiry-type-label { background: rgba(255,85,0,0.15); border-color: var(--orange); color: var(--orange); }
+  /* Enquiry type radios — each option is one self-contained pill (radio + label inside the border) */
+  .enquiry-types { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .enquiry-type { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; transition: background 0.2s, border-color 0.2s; }
+  .enquiry-type:hover { border-color: rgba(255,255,255,0.25); }
+  .enquiry-type input[type="radio"] { accent-color: var(--orange); width: 15px; height: 15px; flex-shrink: 0; margin: 0; }
+  .enquiry-type-label { font-size: 13px; color: rgba(255,255,255,0.7); transition: color 0.2s; }
+  .enquiry-type:has(input[type="radio"]:checked) { background: rgba(255,85,0,0.15); border-color: var(--orange); }
+  .enquiry-type:has(input[type="radio"]:checked) .enquiry-type-label { color: var(--orange); }
 
   /* Item checkboxes */
   .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; max-height: 200px; overflow-y: auto; padding-right: 4px; }
