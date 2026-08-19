@@ -417,6 +417,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       if (res.ok) {
         document.getElementById('contactForm').style.display = 'none';
         document.getElementById('formSuccess').classList.add('show');
+        if (typeof gtag !== 'undefined') gtag('event', 'conversion', { 'send_to': 'AW-629589652/m4a0CPPIs-QcEJSNm6wC' });
         window.scrollTo({ top: document.querySelector('.contact-form-side').offsetTop - 100, behavior: 'smooth' });
         if (typeof posthog !== 'undefined') {
           posthog.capture('quote_form_submitted', {

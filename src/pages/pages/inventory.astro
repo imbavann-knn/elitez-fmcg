@@ -940,6 +940,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       if (res.ok) {
         document.getElementById('rentalForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
+        if (typeof gtag !== 'undefined') gtag('event', 'conversion', { 'send_to': 'AW-629589652/m4a0CPPIs-QcEJSNm6wC' });
       } else { throw new Error(); }
     } catch {
       btn.textContent = 'Send Rental Enquiry →';
