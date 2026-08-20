@@ -39,4 +39,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://fmcg.elitez.ai/sitemap.xml
+Sitemap: https://fmcg.elitez.asia/sitemap.xml

@@ -7,10 +7,10 @@
 - 300+ trained promoters deployable weekly, with live sales/activity tracking via the BLINK platform.
 
 ## Key pages
-- [Home](https://fmcg.elitez.ai/): services, coverage, BLINK tracking.
-- [Services](https://fmcg.elitez.ai/pages/services.html): activations, promoters, merchandising, digital.
-- [About](https://fmcg.elitez.ai/pages/about.html): Elitez FMCG track record and clients.
-- [Contact](https://fmcg.elitez.ai/pages/contact.html): request a deployment quote.
+- [Home](https://fmcg.elitez.asia/): services, coverage, BLINK tracking.
+- [Services](https://fmcg.elitez.asia/pages/services.html): activations, promoters, merchandising, digital.
+- [About](https://fmcg.elitez.asia/pages/about.html): Elitez FMCG track record and clients.
+- [Contact](https://fmcg.elitez.asia/pages/contact.html): request a deployment quote.
 
 ## Operator
 - Elitez Group of Companies (Singapore). Contact: fmcg@elitez.asia.
