@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const updated = '22 August 2026';
+---
+<BaseLayout
+  title="Privacy Policy & PDPA Notice | Elitez FMCG"
+  description="How Elitez FMCG collects, uses, protects and discloses personal data on fmcg.elitez.asia — in line with Singapore's Personal Data Protection Act (PDPA). Contact our DPO."
+  canonical="https://fmcg.elitez.asia/pages/privacy"
+>
+<style>
+  .pp { --pad-x: 48px; }
+  /* HEADER */
+  .pp-header { padding-top: var(--nav-h); background: var(--black); }
+  .pp-header-inner { max-width: 900px; margin: 0 auto; padding: 64px var(--pad-x) 48px; }
+  .pp-breadcrumb { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
+  .pp-breadcrumb a { color: var(--orange); text-decoration: none; }
+  .pp-header-inner h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(44px, 6vw, 74px); letter-spacing: 2px; color: var(--white); line-height: 0.92; }
+  .pp-header-inner h1 span { color: var(--orange); }
+  .pp-updated { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,0.45); margin-top: 16px; }
+
+  /* BODY */
+  .pp-body { max-width: 900px; margin: 0 auto; padding: 56px var(--pad-x) 88px; }
+  .pp-intro { font-size: 17px; line-height: 1.75; color: #444; margin-bottom: 8px; }
+  .pp-body h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(26px, 3vw, 34px); letter-spacing: 1.5px; color: var(--black); margin: 44px 0 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .pp-body h2:first-of-type { border-top: none; padding-top: 0; }
+  .pp-body h3 { font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: var(--black); margin: 22px 0 8px; }
+  .pp-body p { font-size: 15.5px; line-height: 1.75; color: #444; margin-bottom: 14px; }
+  .pp-body ul { margin: 0 0 16px; padding-left: 4px; list-style: none; }
+  .pp-body li { position: relative; padding-left: 22px; font-size: 15px; line-height: 1.7; color: #444; margin-bottom: 8px; }
+  .pp-body li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+  .pp-body a { color: var(--orange); font-weight: 600; text-decoration: none; }
+  .pp-body a:hover { text-decoration: underline; }
+  .pp-body strong { color: var(--black); }
+  .pp-table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 14.5px; }
+  .pp-table th, .pp-table td { text-align: left; padding: 11px 14px; border: 1px solid var(--border); vertical-align: top; line-height: 1.6; color: #444; }
+  .pp-table th { background: var(--gray); font-family: 'Barlow', sans-serif; font-weight: 700; color: var(--black); font-size: 13px; }
+  .pp-dpo { background: var(--orange-pale); border: 1px solid rgba(255,85,0,0.25); border-left: 3px solid var(--orange); border-radius: 4px; padding: 22px 26px; margin: 24px 0; }
+  .pp-dpo h3 { margin-top: 0; }
+  .pp-dpo p { margin-bottom: 4px; }
+  .pp-table-wrap { overflow-x: auto; }
+  @media (max-width: 640px) {
+    .pp { --pad-x: 22px; }
+  }
+</style>
+
+<div class="pp">
+  <header class="pp-header">
+    <div class="pp-header-inner">
+      <div class="pp-breadcrumb"><a href="/">Home</a> / Privacy &amp; PDPA</div>
+      <h1>Privacy Policy &amp;<br><span>PDPA Notice</span></h1>
+      <div class="pp-updated">Last updated: {updated}</div>
+    </div>
+  </header>
+
+  <article class="pp-body">
+    <p class="pp-intro">
+      This Privacy Policy explains how <strong>Elitez FMCG</strong> ("we", "us", "our") — a division of
+      <strong>Elitez Pte Ltd</strong>, part of the Elitez Group of Companies — collects, uses, discloses and
+      protects your personal data when you use this website (<strong>fmcg.elitez.asia</strong>) or submit an
+      enquiry to us. We handle personal data in accordance with Singapore's
+      <strong>Personal Data Protection Act 2012 (PDPA)</strong>.
+    </p>
+
+    <h2>1. Personal Data We Collect</h2>
+    <p>When you submit an enquiry, request a quote or contact us through a form on this website, we collect the information you choose to provide, which may include:</p>
+    <ul>
+      <li>Your name (first and last)</li>
+      <li>Company / organisation name</li>
+      <li>Email address</li>
+      <li>Phone number</li>
+      <li>The services you are interested in, and the contents of your message or enquiry</li>
+    </ul>
+    <p>When you browse the website, we also automatically collect limited technical and usage data through cookies and analytics tools, such as your device and browser type, approximate location, referring page, and the pages and actions you take on the site. This data is used in aggregate and is not used to personally identify you.</p>
+
+    <h2>2. How We Use Your Personal Data</h2>
+    <p>We use your personal data for the following purposes:</p>
+    <ul>
+      <li>To respond to your enquiry, prepare quotations and communicate with you about your request</li>
+      <li>To provide, arrange and manage the services you engage us for</li>
+      <li>To operate, maintain and improve this website and understand how it is used</li>
+      <li>To measure the performance of our marketing and advertising (for example, Google Ads)</li>
+      <li>To comply with applicable laws and regulations</li>
+    </ul>
+
+    <h2>3. Consent</h2>
+    <p>By submitting a form or providing your personal data to us, you consent to us collecting, using and disclosing that data for the purposes set out in this Policy. You may withdraw your consent at any time by contacting our Data Protection Officer (see section 8). Withdrawing consent may mean we are unable to continue providing certain services or respond to your enquiry.</p>
+
+    <h2>4. Cookies &amp; Analytics</h2>
+    <p>This website uses cookies and similar technologies for analytics and advertising measurement:</p>
+    <ul>
+      <li><strong>Google Ads</strong> — conversion-tracking cookies that let us measure the effectiveness of our advertising campaigns.</li>
+      <li><strong>PostHog</strong> — product-analytics tooling that helps us understand how visitors use the site so we can improve it.</li>
+    </ul>
+    <p>You can disable or delete cookies through your browser settings. Doing so will not stop you from using the website, though some measurement features may not work.</p>
+
+    <h2>5. Disclosure &amp; Third-Party Processors</h2>
+    <p>We do not sell your personal data. We may share it with trusted third-party service providers who process it on our behalf, strictly for the purposes above:</p>
+    <div class="pp-table-wrap">
+    <table class="pp-table">
+      <thead><tr><th>Provider</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>FormSubmit</td><td>Delivers your form submission to our team inbox</td></tr>
+        <tr><td>Google (Ads, Analytics &amp; Sheets)</td><td>Advertising measurement, website analytics, and secure logging of enquiry details for follow-up</td></tr>
+        <tr><td>PostHog</td><td>Website usage analytics</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Some of these providers may store or process data on servers located outside Singapore. Where personal data is transferred overseas, we take reasonable steps to ensure it is afforded a standard of protection comparable to that under the PDPA. We may also disclose personal data where required or permitted by law.</p>
+
+    <h2>6. Protection &amp; Retention</h2>
+    <p>We make reasonable security arrangements to protect personal data in our possession or control against unauthorised access, collection, use, disclosure, copying, modification, disposal or similar risks.</p>
+    <p>We retain personal data only for as long as it is necessary to fulfil the purposes for which it was collected, or as required by applicable law, after which it is securely disposed of or anonymised.</p>
+
+    <h2>7. Your Rights Under the PDPA</h2>
+    <p>Subject to the PDPA, you have the right to:</p>
+    <ul>
+      <li>Request access to the personal data we hold about you and information on how it has been used or disclosed</li>
+      <li>Request correction of any personal data that is inaccurate or out of date</li>
+      <li>Withdraw your consent to our continued collection, use or disclosure of your personal data</li>
+    </ul>
+    <p>To make a request, please contact our Data Protection Officer below. We will respond within a reasonable time in accordance with the PDPA.</p>
+
+    <h2>8. Data Protection Officer</h2>
+    <div class="pp-dpo">
+      <h3>Contact our DPO for any data-related request or question</h3>
+      <p><strong>Email:</strong> <a href="mailto:DPO@elitez.asia">DPO@elitez.asia</a></p>
+      <p><strong>Elitez FMCG</strong> (Elitez Pte Ltd), 2 Kallang Avenue, CT Hub #03-08, Singapore 339407</p>
+    </div>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. The latest version will always be published on this page, with the "Last updated" date revised accordingly.</p>
+
+    <h2>10. Contact Us</h2>
+    <p>For general enquiries: <a href="mailto:fmcg@elitez.asia">fmcg@elitez.asia</a> &nbsp;·&nbsp; <a href="tel:+6581800994">+65 8180 0994</a></p>
+  </article>
+</div>
+</BaseLayout>
