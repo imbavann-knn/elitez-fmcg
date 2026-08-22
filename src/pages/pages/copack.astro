@@ -2,13 +2,38 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout
-  title="Co-Pack Assembly Singapore | Co-Packing Services for FMCG | Elitez FMCG"
-  description="Singapore co-packing services for FMCG brands — GWP attachment, shrink bundling, stickering, tray packs, multi-pack banding and kitting. Warehouse space + manpower. Fast turnaround."
+  title="Co-Packing Services Singapore for FMCG | Elitez FMCG"
+  description="Singapore co-packing services for FMCG — GWP attachment, shrink bundling, stickering, tray packs, multi-pack banding, kitting, warehouse space and manpower."
   canonical="https://fmcg.elitez.asia/pages/copack"
   keywords="co-pack assembly Singapore, co-packing services Singapore, contract packaging Singapore FMCG, GWP co-pack Singapore, promotional co-pack assembly, on-pack promotion assembly Singapore, shrink bundle pack Singapore, co-packing company Singapore"
   ogTitle="Co-Pack Assembly Singapore | Elitez FMCG"
   ogDescription="Co-packing services for Singapore FMCG brands. GWP attachment, shrink bundling, stickering, multi-pack banding and kitting — warehouse or on-site."
 >
+<Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Co-Packing & Contract Packaging",
+  "name": "Co-Packing Services Singapore",
+  "areaServed": "SG",
+  "description": "GWP attachment, shrink bundling, stickering, tray packs, multi-pack banding and kitting for FMCG brands in Singapore.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Elitez FMCG",
+    "url": "https://fmcg.elitez.asia/",
+    "telephone": "+65 8180 0994",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2 Kallang Ave, CT Hub #03-08",
+      "addressLocality": "Singapore",
+      "postalCode": "339407",
+      "addressCountry": "SG"
+    }
+  }
+}
+</script>
+</Fragment>
 <style is:global>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {

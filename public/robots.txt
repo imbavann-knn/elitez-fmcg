@@ -1,6 +1,9 @@
 # Default crawlers (Google, Bing, etc.)
 User-agent: *
 Allow: /
+Disallow: /pages/admin
+Disallow: /pages/admin-insights
+Disallow: /pages/blink-onepager
 Disallow: /pages/admin.html
 Disallow: /pages/admin-insights.html
 Disallow: /admin
@@ -9,8 +12,9 @@ Disallow: /admin-insights
 # AI / LLM crawlers — explicitly allowed
 User-agent: GPTBot
 Allow: /
-Disallow: /pages/admin.html
-Disallow: /pages/admin-insights.html
+Disallow: /pages/admin
+Disallow: /pages/admin-insights
+Disallow: /pages/blink-onepager
 
 User-agent: ChatGPT-User
 Allow: /

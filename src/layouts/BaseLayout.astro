@@ -8,6 +8,7 @@ interface Props {
   ogDescription?: string;
   ogUrl?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -19,7 +20,20 @@ const {
   ogDescription = description,
   ogUrl = canonical,
   ogImage = 'https://fmcg.elitez.asia/og-image.jpg',
+  noindex = false,
 } = Astro.props;
+
+const HOME = 'https://fmcg.elitez.asia/';
+const isHome = canonical.replace(/\/$/, '') === HOME.replace(/\/$/, '');
+const pageName = title.split(/[|—]/)[0].trim();
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: HOME },
+    { '@type': 'ListItem', position: 2, name: pageName, item: canonical },
+  ],
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +50,7 @@ const {
 </script>
 <meta name="description" content={description}>
 {keywords && <meta name="keywords" content={keywords} />}
+{noindex && <meta name="robots" content="noindex,follow" />}
 <title>{title}</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
@@ -63,9 +78,13 @@ const {
 <meta name="twitter:title" content={ogTitle}>
 <meta name="twitter:description" content={ogDescription}>
 <meta name="twitter:image" content={ogImage}>
+{!isHome && !noindex && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />}
 <slot name="head" />
 <style is:global>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* CLS safety: intrinsic width/height attrs reserve space; CSS keeps them responsive */
+  img { max-width: 100%; height: auto; }
 
   :root {
     --orange: #FF5500;
@@ -212,7 +231,7 @@ const {
 
 <nav id="navbar">
   <a href="/" class="nav-logo">
-    <img src="/assets/logo-nav.png" alt="Elitez FMCG" onerror="this.style.display='none'">
+    <img width="463" height="142" src="/assets/logo-nav.webp" alt="Elitez FMCG" onerror="this.style.display='none'">
     <div class="nav-logo-text" style="display:none">ELITEZ <span>FMCG</span></div>
   </a>
   <ul class="nav-links">
@@ -257,7 +276,7 @@ const {
 <footer>
   <div class="footer-top">
     <div>
-      <img class="footer-logo-img" src="/assets/logo-nav.png" alt="Elitez FMCG">
+      <img width="463" height="142" class="footer-logo-img" src="/assets/logo-nav.webp" alt="Elitez FMCG">
       <div class="footer-tagline">Field Marketing · Singapore</div>
       <p class="footer-desc">Singapore's leading brand activation and field marketing agency. Trusted by P&amp;G, Reckitt, Carlsberg and more since 2010.</p>
     </div>
@@ -277,6 +296,8 @@ const {
         <li><a href="/pages/about">About Us</a></li>
         <li><a href="/pages/beauty">Beauty Promoters</a></li>
         <li><a href="/pages/blink">BLINK Platform</a></li>
+        <li><a href="/pages/portfolio">Portfolio</a></li>
+        <li><a href="/pages/projects">Recent Projects</a></li>
         <li><a href="/pages/inventory">Rental Inventory</a></li>
         <li><a href="/#clients">Our Clients</a></li>
         <li><a href="/pages/contact">Contact</a></li>
