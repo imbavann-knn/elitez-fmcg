@@ -1,0 +1,19 @@
+# Old WordPress URLs from the previous fmcg.elitez.asia site -> new pages (301 keeps any SEO value)
+/contact-us              /pages/contact               301
+/contact-us/*            /pages/contact               301
+/about-us                /pages/about                 301
+/about-us/*              /pages/about                 301
+/services                /pages/services              301
+/services/*              /pages/services              301
+/portfolio               /pages/portfolio             301
+/portfolio/*             /pages/portfolio             301
+/product                 /pages/services              301
+/product/*               /pages/services              301
+/events-management       https://events.elitez.asia/  301
+/events-management/*     https://events.elitez.asia/  301
+/2023/*                  /                            301
+/2024/*                  /                            301
+/blog                    /                            301
+/blog/*                  /                            301
+/category/*              /                            301
+/tag/*                   /                            301

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Page Not Found | Elitez FMCG"
+  description="The page you are looking for does not exist. Explore Elitez FMCG brand activation, promoter and merchandising services."
+  canonical="https://fmcg.elitez.asia/404"
+  noindex={true}
+>
+<style>
+  .nf { min-height: calc(100vh - var(--nav-h)); padding: calc(var(--nav-h) + 80px) 24px 96px; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--off-white); }
+  .nf-inner { max-width: 560px; }
+  .nf-code { font-family: 'Bebas Neue', cursive; font-size: clamp(96px, 18vw, 180px); line-height: 0.85; color: var(--orange); letter-spacing: 4px; }
+  .nf h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(32px, 5vw, 48px); letter-spacing: 2px; color: var(--black); margin: 12px 0 14px; }
+  .nf p { font-size: 16px; line-height: 1.7; color: #555; margin-bottom: 32px; }
+  .nf-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .nf-btn { display: inline-flex; align-items: center; padding: 13px 24px; border-radius: 3px; font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nf-btn.primary { background: var(--orange); color: #fff; }
+  .nf-btn.ghost { border: 1px solid var(--border); color: var(--black); background: #fff; }
+</style>
+<section class="nf">
+  <div class="nf-inner">
+    <div class="nf-code">404</div>
+    <h1>This page has moved on</h1>
+    <p>The page you are looking for doesn't exist - it may be from our old website. Here's where you can find what you need.</p>
+    <div class="nf-links">
+      <a href="/" class="nf-btn primary">Back to Home</a>
+      <a href="/pages/services" class="nf-btn ghost">Our Services</a>
+      <a href="/pages/contact" class="nf-btn ghost">Contact Us</a>
+    </div>
+  </div>
+</section>
+</BaseLayout>
