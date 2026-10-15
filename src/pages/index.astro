@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout
   title="Brand Activation & Field Marketing Singapore | Elitez FMCG"
@@ -442,19 +443,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-decoration: none;
     display: block;
   }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: var(--card-bg, none);
-    background-size: 100px auto;
-    background-repeat: repeat;
-    opacity: 0.06;
-    pointer-events: none;
-    z-index: 0;
-    transition: opacity 0.25s;
+  .svc-ico {
+    position: relative; z-index: 1; display: block; margin-bottom: 22px;
+    width: 56px; height: 56px; padding: 12px; box-sizing: border-box;
+    border-radius: 12px; background: var(--orange-pale); border: 1px solid #ffd9c6;
+    color: var(--black); transition: background 0.25s, transform 0.25s;
   }
-  .service-card:hover::before { opacity: 0.1; }
+  .service-card:hover .svc-ico { background: #fff; transform: translateY(-2px); }
   .service-card::after {
     content: '';
     position: absolute;
@@ -580,10 +575,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .blink-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
   .blink-feature { display: flex; align-items: flex-start; gap: 14px; }
   .blink-feature-icon {
-    width: 112px; height: 112px;
+    width: 48px; height: 48px;
+    padding: 11px; box-sizing: border-box;
+    border-radius: 12px;
+    background: rgba(255,85,0,0.12);
+    border: 1px solid rgba(255,85,0,0.3);
+    color: #fff;
     flex-shrink: 0;
-    margin-top: 0;
-    object-fit: contain;
   }
   .blink-feature-text h4 {
     font-family: 'Barlow', sans-serif;
@@ -1031,7 +1029,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <a href="/pages/services" class="section-link">Full Services →</a>
   </div>
   <div class="services-grid">
-    <a href="/pages/services#activations" class="service-card fade-up" style="--card-bg: url('/assets/img/icon-brand-activation.webp')">
+    <a href="/pages/services#activations" class="service-card fade-up">
+      <Icon name="megaphone" class="svc-ico" />
       <div class="service-num">01</div>
       <div class="svc-content">
         <div class="service-title">BRAND ACTIVATIONS</div>
@@ -1045,7 +1044,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </ul>
       </div>
     </a>
-    <a href="/pages/services#promoters" class="service-card fade-up delay-1" style="--card-bg: url('/assets/img/icon-promoters.webp')">
+    <a href="/pages/services#promoters" class="service-card fade-up delay-1">
+      <Icon name="team" class="svc-ico" />
       <div class="service-num">02</div>
       <div class="svc-content">
         <div class="service-title">PROMOTER DEPLOYMENT</div>
@@ -1059,7 +1059,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </ul>
       </div>
     </a>
-    <a href="/pages/services#merchandising" class="service-card fade-up delay-2" style="--card-bg: url('/assets/img/icon-merchandising.webp')">
+    <a href="/pages/services#merchandising" class="service-card fade-up delay-2">
+      <Icon name="planogram" class="svc-ico" />
       <div class="service-num">03</div>
       <div class="svc-content">
         <div class="service-title">SUPERMARKET MERCHANDISING</div>
@@ -1073,7 +1074,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </ul>
       </div>
     </a>
-    <a href="/pages/services#digital" class="service-card fade-up delay-3" style="--card-bg: url('/assets/img/icon-blink-phone.webp')">
+    <a href="/pages/services#digital" class="service-card fade-up delay-3">
+      <Icon name="blinkPhone" class="svc-ico" />
       <div class="service-num">04</div>
       <div class="svc-content">
         <div class="service-title">DIGITAL CAMPAIGNS</div>
@@ -1099,24 +1101,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="blink-desc">Our in-house operations platform replaces spreadsheets and WhatsApp group chats — giving you a live window into every activation we run on your behalf.</p>
       <div class="blink-features">
         <div class="blink-feature">
-          <img width="150" height="159" class="blink-feature-icon" src="/assets/img/icon-checkin.webp" alt="" loading="lazy">
+          <Icon name="pinCheck" class="blink-feature-icon" />
           <div class="blink-feature-text">
-            <h4>Promoter Experience Check</h4>
-            <p>See who's on the ground — training status, past brands, performance history.</p>
+            <h4>GPS-Verified Deployment</h4>
+            <p>Every check-in on a live map — late arrivals and no-shows flagged the moment they happen.</p>
           </div>
         </div>
         <div class="blink-feature">
-          <img width="400" height="223" class="blink-feature-icon" src="/assets/img/icon-live-sales.webp" alt="" loading="lazy">
+          <Icon name="target" class="blink-feature-icon" />
           <div class="blink-feature-text">
-            <h4>Live Sales Updates</h4>
-            <p>Real-time mid-day data — SKUs sold, samples given, conversion rates.</p>
+            <h4>Live Sales vs Target</h4>
+            <p>SKU-level sales through the day, tracked against your campaign and outlet targets.</p>
           </div>
         </div>
         <div class="blink-feature">
-          <img width="134" height="187" class="blink-feature-icon" src="/assets/img/icon-reports.webp" alt="" loading="lazy">
+          <Icon name="deck" class="blink-feature-icon" />
           <div class="blink-feature-text">
-            <h4>Auto Sales Reports</h4>
-            <p>Weekly reports compiled automatically, reviewed, and delivered to your inbox.</p>
+            <h4>Auto Campaign Reports</h4>
+            <p>Same-day sales reports, and a ready-made post-campaign evaluation deck the moment you wrap.</p>
           </div>
         </div>
       </div>

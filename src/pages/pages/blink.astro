@@ -1,41 +1,106 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 
 const caps = [
   {
-    img: 'blink-admin-today-map.webp', frame: 'browser',
-    title: 'Live deployment map',
-    desc: 'Every check-in and check-out on a map, with late arrivals and no-shows flagged the moment they happen.',
+    icon: 'pinCheck', title: 'Live deployment map',
+    desc: 'Every check-in and check-out on a map, GPS-verified, with late arrivals and no-shows flagged the moment they happen.',
+    vg: `<div class="vg vg-map">
+      <svg viewBox="0 0 300 150" class="vg-map-svg" aria-hidden="true"><path d="M18 92c22-30 60-42 96-40 30 2 44-20 78-22 38-2 70 14 92 36 8 9 2 22-12 26-30 8-58 22-96 24-44 2-80-2-112-8-24-4-56-6-46-16z" fill="#fff" stroke="#E8E8E5" stroke-width="2"/><path d="M70 60c30 10 60 4 90 18s70 6 100-6" stroke="#F1F1EE" stroke-width="6" fill="none"/></svg>
+      <span class="vg-pin" style="left:24%;top:46%"></span><span class="vg-pin" style="left:46%;top:36%"></span><span class="vg-pin" style="left:62%;top:58%"></span><span class="vg-pin is-late" style="left:78%;top:42%"></span><span class="vg-pin is-off" style="left:36%;top:66%"></span>
+      <div class="vg-chips"><span class="vg-chip ok">On ground 3</span><span class="vg-chip warn">Late 1</span><span class="vg-chip">Upcoming 1</span></div>
+    </div>`,
   },
   {
-    img: 'blink-client-sales-report.webp', frame: 'browser',
-    title: 'Same-day sales reports',
-    desc: 'SKU-level sales, promoter-submitted from the floor and ops-verified — in your hands the same day, not month-end.',
+    icon: 'target', title: 'Sales vs target, live', isNew: true,
+    desc: 'Set targets per campaign or per outlet. Sales land SKU-by-SKU through the day, so you see which outlets are on pace — and promoters see exactly how much more to sell.',
+    vg: `<div class="vg vg-target">
+      <div class="vg-row"><span>Bedok North</span><b>$1,240</b><i><em style="width:83%"></em></i><small>83%</small></div>
+      <div class="vg-row"><span>Serangoon Ave 1</span><b>$1,610</b><i><em class="hit" style="width:100%"></em></i><small class="hit">107%</small></div>
+      <div class="vg-row"><span>Aljunied Cres</span><b>$720</b><i><em style="width:48%"></em></i><small>48%</small></div>
+      <div class="vg-coach">Just sell <b>$280</b> more to hit today’s target</div>
+    </div>`,
   },
   {
-    img: 'blink-wa-messages.webp', frame: 'browser',
-    title: 'WhatsApp automation',
-    desc: 'Shift reminders, confirmations and change notices with old→new details sent automatically. Zero manual chasing.',
+    icon: 'deck', title: 'Auto post-campaign deck', isNew: true,
+    desc: 'When the campaign wraps, Blink builds your post-promotion evaluation — ROI, sales by retailer, day and outlet, top SKUs, premiums redeemed and outlet photos — ready to download.',
+    vg: `<div class="vg vg-deck">
+      <div class="vg-slide">
+        <div class="vg-slide-k">Post-promotion evaluation</div>
+        <div class="vg-slide-t">Alpine Greek Yoghurt · Sampling</div>
+        <div class="vg-slide-body">
+          <div class="vg-kpi"><small>Sales</small><b>$13.4k</b></div>
+          <div class="vg-kpi"><small>ROI</small><b>3.2×</b></div>
+          <div class="vg-bars"><i style="height:40%"></i><i style="height:62%"></i><i style="height:55%"></i><i style="height:88%"></i><i style="height:74%"></i></div>
+        </div>
+      </div>
+      <span class="vg-dl">↓ Download PDF</span>
+    </div>`,
   },
   {
-    img: 'blink-logistics-week.webp', frame: 'browser',
-    title: 'Logistics engine',
-    desc: 'Delivery orders, packing checklists and vendor coordination — plus an automatic returns checklist of premiums and client equipment when an outlet’s final shift ends.',
+    icon: 'aiScan', title: 'AI reads receipts & redemption forms', isNew: true,
+    desc: 'Photos of paper redemption forms and shopper receipts are read line by line — receipt number, outlet, items — with duplicates flagged automatically. Clean redemption data, no manual keying.',
+    vg: `<div class="vg vg-ai">
+      <div class="vg-receipt"><i></i><i></i><i class="s"></i><i></i><i class="s"></i><b></b></div>
+      <div class="vg-ai-out">
+        <div class="vg-ai-k">✦ AI extracted</div>
+        <div class="vg-ai-r"><span>Receipt</span><b>#20431</b></div>
+        <div class="vg-ai-r"><span>Items</span><b>3 × Sunbite 150g</b></div>
+        <div class="vg-ai-r"><span>Total</span><b>$11.85</b></div>
+        <span class="vg-chip warn">Duplicate flagged</span>
+      </div>
+    </div>`,
   },
   {
-    img: 'blink-inventory-items.webp', frame: 'browser',
-    title: 'Inventory at your fingertips',
-    desc: 'Everything of yours we hold — counts, brand, expiry, in/out dates — visible in your portal at any time.',
+    icon: 'photoRoute', title: 'Merchandiser routes & photo proof', isNew: true,
+    desc: 'Multi-outlet routes on a 1–8 week cycle. Every shelf photo is stamped with time, outlet, name and GPS — so compliance is proven, not promised.',
+    vg: `<div class="vg vg-photos">
+      <div class="vg-ph"><div class="vg-shelf"><i></i><i class="o"></i><i></i><i class="o"></i></div><span>10:42 · Giant IMM · GPS ✓</span></div>
+      <div class="vg-ph"><div class="vg-shelf"><i class="o"></i><i></i><i class="o"></i><i></i></div><span>11:58 · FairPrice Jurong Pt · GPS ✓</span></div>
+    </div>`,
   },
   {
-    img: 'blink-promoter-app.webp', frame: 'phone',
-    title: 'Promoter quality loop',
-    desc: 'Favourite or flag promoters from your dashboard. Ratings, quizzes and blacklists feed straight into the next deployment.',
+    icon: 'whatsapp', title: 'WhatsApp automation',
+    desc: 'Shift reminders, confirmations, change notices, training reminders and bilingual project briefs — sent automatically. Zero manual chasing, fewer no-shows.',
+    vg: `<div class="vg vg-wa">
+      <div class="vg-bub">Hi Serene 👋 Reminder: your shift starts <b>11:00</b> at Watsons Northpoint. Check in when you arrive 📍</div>
+      <div class="vg-bub me">Confirmed ✓</div>
+      <div class="vg-bub">Update: end time changed <s>21:00</s> → <b>20:00</b></div>
+    </div>`,
   },
   {
-    img: 'blink-approvals-diff.webp', frame: 'browser',
-    title: 'Manager-gated accuracy',
-    desc: 'Pay changes, count discrepancies and amendments all require approval — with a plain-English audit trail of who changed what.',
+    icon: 'boxes', title: 'Logistics & inventory ledger',
+    desc: 'Delivery orders, packing checks and returns — plus a running ledger of every premium and piece of equipment we hold for you, with in/out by outlet and an Excel export.',
+    vg: `<div class="vg vg-ledger">
+      <div class="vg-lh"><span>Item</span><span>In</span><span>Out</span><span>Balance</span></div>
+      <div class="vg-lr"><span>Tote bag (GWP)</span><span>1,200</span><span>842</span><b>358</b></div>
+      <div class="vg-lr"><span>Sampling booth</span><span>4</span><span>3</span><b>1</b></div>
+      <div class="vg-lr"><span>Chiller unit</span><span>2</span><span>2</span><b>0</b></div>
+      <div class="vg-lf">✓ Returns checklist auto-created when an outlet’s last shift ends</div>
+    </div>`,
+  },
+  {
+    icon: 'levels', title: 'Promoter quality loop',
+    desc: 'Training records per brand, experience levels and ratings follow every promoter. Favourite or flag them from your dashboard — it feeds straight into the next deployment.',
+    vg: `<div class="vg vg-promo">
+      <div class="vg-av">ML</div>
+      <div class="vg-pm">
+        <b>Marcus Lee</b>
+        <div class="vg-tags"><span>Level 4</span><span>Experienced</span><span>Brand Explorer</span></div>
+        <div class="vg-stars">★★★★★ <small>4.9 · 3 trainings done</small></div>
+      </div>
+      <span class="vg-fav">♥</span>
+    </div>`,
+  },
+  {
+    icon: 'shield', title: 'Manager-gated accuracy',
+    desc: 'Pay changes, count discrepancies and amendments all need approval — with a plain-English audit trail of who changed what.',
+    vg: `<div class="vg vg-diff">
+      <div class="vg-dr"><span>Shift end time</span><s>21:00</s><b>20:00</b></div>
+      <div class="vg-dr"><span>Closing stock</span><s>48</s><b>46</b></div>
+      <div class="vg-ok">✓ Approved by Ops Manager · 14 Oct, 9:12 am</div>
+    </div>`,
   },
 ];
 
@@ -43,6 +108,10 @@ const faqs = [
   {
     q: 'Is our data confidential and brand-scoped?',
     a: 'Yes. Each brand’s dashboard is scoped to that brand only — your brand-IC contacts see your campaigns, your sales and your inventory, and nothing from any other client. Reports are delivered to your brand contacts alone.',
+  },
+  {
+    q: 'Do we get a post-campaign report?',
+    a: 'Yes — automatically. When a campaign wraps, Blink builds a post-promotion evaluation from your campaign’s own data: ROI, sales by retailer, day and outlet, top SKUs, premiums redeemed and a photo slide per outlet. It appears as a download on your campaign page — no report request needed.',
   },
   {
     q: 'Do we need to install anything?',
@@ -76,7 +145,7 @@ const faqs = [
   "name": "Blink",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
-  "description": "FMCG field activation and promoter management platform with a live client dashboard — GPS-verified check-ins, same-day SKU sales reports, WhatsApp automation, logistics and manager-gated approvals.",
+  "description": "FMCG field activation and promoter management platform with a live client dashboard — GPS-verified check-ins, same-day SKU sales against target, auto post-campaign evaluation decks, AI receipt and redemption reading, merchandiser photo routes, WhatsApp automation, logistics and manager-gated approvals.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SGD", "description": "Included with every Elitez FMCG activation; subscription licensing available for in-house teams." },
   "publisher": {
     "@type": "Organization",
@@ -90,7 +159,7 @@ const faqs = [
 </script>
 </Fragment>
 
-<style>
+<style is:global>
   .blk { --pad-x: 48px; }
   .blk-container { max-width: 1200px; margin: 0 auto; padding: 0 var(--pad-x); }
   .blk section, .blk .blk-band { position: relative; }
@@ -149,6 +218,7 @@ const faqs = [
   .blk-caps { padding: 92px 0; background: var(--gray); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .blk-caps-head { max-width: 720px; margin-bottom: 48px; }
   .blk-feature { display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 36px; margin-bottom: 28px; }
+  .blk-feature > div, .blk-hero-inner > div, .blk-proof-inner > div, .blk-sub-inner > div { min-width: 0; }
   .blk-feature-badge { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); background: var(--orange-pale); border: 1px solid #ffd9c6; padding: 5px 11px; border-radius: 100px; margin-bottom: 16px; }
   .blk-feature h3 { font-family: 'Bebas Neue', cursive; font-size: clamp(30px, 3.4vw, 44px); line-height: 1; letter-spacing: 1.5px; color: var(--black); }
   .blk-feature p { font-size: 16px; line-height: 1.65; color: var(--text-muted); margin-top: 14px; }
@@ -158,7 +228,88 @@ const faqs = [
   .blk-card-media.is-phone { display: flex; justify-content: center; padding: 14px 0; }
   .blk-card-media.is-phone .blk-phone { max-width: 150px; border-width: 7px; border-radius: 22px; }
   .blk-card-media > img { display: block; width: 100%; height: auto; }
-  .blk-card h3 { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 1px; color: var(--black); margin-bottom: 8px; }
+  .blk-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .blk-card-ico { width: 40px; height: 40px; padding: 8px; box-sizing: border-box; border-radius: 10px; background: var(--orange-pale); border: 1px solid #ffd9c6; color: var(--black); flex: none; }
+  .blk-card h3 { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 1px; color: var(--black); line-height: 1.05; }
+  .blk-new { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; background: var(--orange); padding: 3px 8px; border-radius: 100px; flex: none; }
+
+  /* ── UI vignettes (code-built, crisp at any size; fictional demo data) ── */
+  .blk-card-media:has(.vg) { height: 200px; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; }
+  .vg { width: 100%; font-family: 'Barlow', sans-serif; font-size: 12px; color: var(--black); position: relative; }
+  .vg b { font-weight: 700; }
+  .vg-chip { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 3px 8px; border-radius: 100px; background: #fff; border: 1px solid var(--border); color: #555; }
+  .vg-chip.ok { color: #157a3c; border-color: #bfe5cc; background: #effaf2; }
+  .vg-chip.warn { color: #b54400; border-color: #ffd0b5; background: #fff4ed; }
+  /* map */
+  .vg-map { height: 100%; }
+  .vg-map-svg { width: 100%; height: auto; display: block; }
+  .vg-pin { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #22a35a; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(34,163,90,0.18); transform: translate(-50%, -50%); }
+  .vg-pin.is-late { background: var(--orange); box-shadow: 0 0 0 4px rgba(255,85,0,0.2); }
+  .vg-pin.is-off { background: #b9b9b5; box-shadow: none; }
+  .vg-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  /* target */
+  .vg-target { display: grid; gap: 9px; }
+  .vg-row { display: grid; grid-template-columns: 1fr auto; grid-template-areas: 'n v' 'bar pct'; column-gap: 10px; row-gap: 4px; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; }
+  .vg-row span { grid-area: n; font-weight: 600; } .vg-row b { grid-area: v; }
+  .vg-row i { grid-area: bar; height: 6px; border-radius: 6px; background: #eee; overflow: hidden; display: block; }
+  .vg-row em { display: block; height: 100%; background: var(--orange); border-radius: 6px; }
+  .vg-row em.hit, .vg-row small.hit { background: #22a35a; color: #157a3c; }
+  .vg-row small.hit { background: none; }
+  .vg-row small { grid-area: pct; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--mid-gray); }
+  .vg-coach { font-size: 11px; color: #b54400; background: #fff4ed; border: 1px dashed #ffc4a3; border-radius: 8px; padding: 6px 10px; text-align: center; }
+  /* deck */
+  .vg-deck { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .vg-slide { width: 88%; aspect-ratio: 16 / 9; background: #111; color: #fff; border-radius: 8px; padding: 12px 14px; box-sizing: border-box; box-shadow: 0 14px 30px -14px rgba(0,0,0,0.5); display: flex; flex-direction: column; }
+  .vg-slide-k { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); }
+  .vg-slide-t { font-family: 'Bebas Neue', cursive; font-size: 17px; letter-spacing: 1px; margin-top: 2px; }
+  .vg-slide-body { flex: 1; display: flex; gap: 10px; align-items: flex-end; margin-top: 6px; }
+  .vg-kpi { background: rgba(255,255,255,0.08); border-radius: 6px; padding: 5px 8px; }
+  .vg-kpi small { display: block; font-size: 8px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+  .vg-kpi b { font-size: 15px; }
+  .vg-bars { flex: 1; display: flex; gap: 4px; align-items: flex-end; height: 100%; }
+  .vg-bars i { flex: 1; background: var(--orange); border-radius: 2px 2px 0 0; display: block; }
+  .vg-dl { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--orange); background: #fff; border: 1px solid #ffd0b5; padding: 4px 10px; border-radius: 100px; }
+  /* ai */
+  .vg-ai { display: flex; gap: 12px; align-items: center; }
+  .vg-receipt { width: 34%; background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 10px 8px; display: grid; gap: 6px; transform: rotate(-4deg); box-shadow: 0 8px 18px -10px rgba(0,0,0,0.3); }
+  .vg-receipt i { display: block; height: 4px; background: #e2e2de; border-radius: 3px; }
+  .vg-receipt i.s { width: 60%; }
+  .vg-receipt b { display: block; height: 7px; background: #c9c9c4; border-radius: 3px; margin-top: 4px; }
+  .vg-ai-out { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 9px 10px; display: grid; gap: 5px; }
+  .vg-ai-k { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--orange); }
+  .vg-ai-r { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; } .vg-ai-r span { color: var(--mid-gray); }
+  .vg-ai-out .vg-chip { justify-self: start; }
+  /* photos */
+  .vg-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .vg-ph { min-width: 0; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 6px; }
+  .vg-shelf { height: 92px; border-radius: 5px; background: linear-gradient(#d9d6cf 0 0) 0 48%/100% 3px no-repeat, linear-gradient(#d9d6cf 0 0) 0 97%/100% 3px no-repeat, #f1efe9; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 8px 6px; box-sizing: border-box; align-items: end; }
+  .vg-shelf i { display: block; height: 30px; background: #9aa6b2; border-radius: 2px; } .vg-shelf i.o { background: var(--orange); height: 36px; }
+  .vg-ph span { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; color: #555; margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* whatsapp */
+  .vg-wa { display: grid; gap: 7px; background: #efeae2; border-radius: 8px; padding: 10px; box-sizing: border-box; }
+  .vg-bub { background: #fff; border-radius: 8px 8px 8px 2px; padding: 6px 9px; font-size: 11px; line-height: 1.4; max-width: 88%; box-shadow: 0 1px 1px rgba(0,0,0,0.08); }
+  .vg-bub.me { justify-self: end; background: #d9fdd3; border-radius: 8px 8px 2px 8px; }
+  .vg-bub s { color: var(--mid-gray); }
+  /* ledger */
+  .vg-ledger { background: #fff; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 11px; }
+  .vg-lh, .vg-lr { display: grid; grid-template-columns: 1.8fr 0.8fr 0.8fr 0.9fr; padding: 7px 10px; gap: 6px; }
+  .vg-lh { font-family: 'IBM Plex Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--mid-gray); background: #fafaf8; border-bottom: 1px solid var(--border); }
+  .vg-lr + .vg-lr { border-top: 1px solid #f0f0ed; } .vg-lr b { color: var(--orange); }
+  .vg-lf { font-size: 10px; color: #157a3c; background: #effaf2; padding: 6px 10px; border-top: 1px solid #d8efe0; }
+  /* promoter */
+  .vg-promo { display: flex; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 14px; box-sizing: border-box; }
+  .vg-av { width: 48px; height: 48px; border-radius: 50%; background: var(--black); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; flex: none; }
+  .vg-pm { flex: 1; min-width: 0; } .vg-pm > b { font-size: 14px; }
+  .vg-tags { display: flex; gap: 4px; flex-wrap: wrap; margin: 5px 0; }
+  .vg-tags span { font-size: 9.5px; padding: 2px 7px; border-radius: 100px; background: var(--orange-pale); color: #b54400; border: 1px solid #ffd9c6; }
+  .vg-stars { color: var(--orange); font-size: 12px; letter-spacing: 1px; } .vg-stars small { color: var(--mid-gray); letter-spacing: 0; font-size: 10px; }
+  .vg-fav { color: var(--orange); font-size: 18px; align-self: flex-start; }
+  /* diff */
+  .vg-diff { display: grid; gap: 7px; }
+  .vg-dr { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+  .vg-dr s { color: #c0392b; background: #fdecea; padding: 1px 6px; border-radius: 4px; text-decoration: line-through; }
+  .vg-dr b { color: #157a3c; background: #effaf2; padding: 1px 6px; border-radius: 4px; }
+  .vg-ok { font-size: 10.5px; color: #157a3c; font-family: 'IBM Plex Mono', monospace; padding: 2px 2px; }
   .blk-card p { font-size: 14px; line-height: 1.55; color: var(--text-muted); }
 
   /* PROOF */
@@ -287,13 +438,13 @@ const faqs = [
         <div class="blk-step fade-up delay-2">
           <div class="blk-step-num">03</div>
           <h3>You open your dashboard</h3>
-          <p>Log in to a live map, same-day sales with SKU breakdown, Excel exports, and campaign wrap-ups with photo galleries — 24/7.</p>
+          <p>Log in to a live map, same-day sales against target, Excel exports, photo galleries — and an auto-built post-campaign evaluation deck when you wrap. 24/7.</p>
         </div>
       </div>
       <div class="blk-how-visual fade-up">
         <div class="blk-browser">
           <div class="blk-browser-bar"><span class="blk-dot"></span><span class="blk-dot"></span><span class="blk-dot"></span><span class="blk-url">app.blink.elitez — operations grid</span></div>
-          <img src="/assets/blink/blink-admin-grid.webp" width="1600" height="797" alt="Blink operations grid showing scheduled shifts, promoters and outlets across the week" loading="lazy">
+          <img src="/assets/blink/blink-ops-grid.webp" width="1230" height="646" alt="Blink operations grid showing scheduled shifts, promoters and outlets across the week" loading="lazy">
         </div>
         <p class="blk-cap">The ops grid our team runs every deployment from — the same live data that feeds your dashboard.</p>
       </div>
@@ -328,20 +479,16 @@ const faqs = [
       <div class="blk-cap-grid">
         {caps.map((c) => (
           <div class="blk-card fade-up">
-            {c.frame === 'phone' ? (
-              <div class="blk-card-media is-phone">
-                <div class="blk-phone"><img src={`/assets/blink/${c.img}`} width="600" height="1301" alt={c.title} loading="lazy" /></div>
-              </div>
-            ) : (
-              <div class="blk-card-media"><img src={`/assets/blink/${c.img}`} width="1600" height="797" alt={c.title} loading="lazy" /></div>
-            )}
-            <h3>{c.title}</h3>
+            <div class="blk-card-media" set:html={c.vg} />
+            <div class="blk-card-head">
+              <Icon name={c.icon} class="blk-card-ico" />
+              <h3>{c.title}</h3>
+              {c.isNew && <span class="blk-new">New</span>}
+            </div>
             <p>{c.desc}</p>
           </div>
         ))}
       </div>
-      {/* Returns-checklist screenshot not yet available — drop blink-returning-checklist.png
-          into /assets/blink/ and add a card here (logistics card covers returns in copy for now). */}
     </div>
   </section>
 
@@ -355,7 +502,8 @@ const faqs = [
         <div class="blk-proof-points">
           <div class="blk-proof-point"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Outlet-by-outlet coverage</b>which outlets ran, who was on, and what each contributed.</span></div>
           <div class="blk-proof-point"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>SKU-level sales, verified</b>promoter-submitted from the floor, checked by ops before you see it.</span></div>
-          <div class="blk-proof-point"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Wrap-up with photo galleries</b>the campaign story, ready to forward internally or export to Excel.</span></div>
+          <div class="blk-proof-point"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Post-promotion evaluation, built for you</b>ROI, sales by retailer and outlet, top SKUs and outlet photos — a ready deck to forward internally.</span></div>
+          <div class="blk-proof-point"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Your rating closes the loop</b>a 2-minute survey after every campaign, so the next one is better than the last.</span></div>
         </div>
       </div>
       <div class="fade-up delay-1">
@@ -391,9 +539,12 @@ const faqs = [
           <ul>
             <li>Live deployment map &amp; GPS-verified check-ins</li>
             <li>Automated WhatsApp scheduling &amp; reminders</li>
-            <li>Sales, sampling &amp; stock-count capture from the floor</li>
+            <li>Sales, sampling &amp; stock-count capture — with live targets</li>
+            <li>AI reading of receipts, redemption forms &amp; hand-written tallies</li>
+            <li>Merchandiser routes with GPS-stamped photo proof</li>
             <li>Manager-gated approvals with audit trail</li>
-            <li>Logistics, returns checklists &amp; inventory</li>
+            <li>Logistics, inventory ledger &amp; returns checklists</li>
+            <li>Auto post-campaign evaluation decks</li>
             <li>Hands-on onboarding by the Elitez FMCG team</li>
           </ul>
         </div>

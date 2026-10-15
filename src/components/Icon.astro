@@ -1,0 +1,14 @@
+---
+// Inline SVG icon from the shared set (src/data/icons.mjs).
+// <Icon name="sampling" class="ico-tile" /> — colour follows `color` (currentColor).
+import { icons, svgAttrs } from '../data/icons.mjs';
+
+interface Props { name: keyof typeof icons; class?: string; size?: number; label?: string }
+const { name, class: cls = '', size, label } = Astro.props;
+const body = icons[name];
+if (!body) throw new Error(`Unknown icon: ${name}`);
+const aria = label ? `role="img" aria-label="${label}"` : 'aria-hidden="true" focusable="false"';
+const dims = size ? `width="${size}" height="${size}"` : '';
+const svg = `<svg class="ico ${cls}" ${svgAttrs} ${dims} ${aria}>${body}</svg>`;
+---
+<Fragment set:html={svg} />

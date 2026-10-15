@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 ---
 <BaseLayout
   title="Beauty Promoters Singapore | Elitez FMCG"
@@ -130,7 +131,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
   .cat-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 32px 24px; text-align: center; transition: background 0.3s; position: relative; overflow: hidden; }
   .cat-card:hover { background: rgba(255,85,0,0.08); border-color: rgba(255,85,0,0.2); }
-  .cat-icon { width: 100%; max-width: 200px; height: auto; object-fit: contain; margin: 0 auto 20px; display: block; }
+  .cat-icon { width: 76px; height: 76px; padding: 16px; box-sizing: border-box; border-radius: 16px; background: rgba(255,85,0,0.1); border: 1px solid rgba(255,85,0,0.25); color: #fff; margin: 0 auto 20px; display: block; }
   .beauty-scene-band { overflow: hidden; }
   .beauty-scene-band img { width: 100%; height: auto; display: block; }
   .cat-name { font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: 2px; color: var(--white); margin-bottom: 8px; }
@@ -333,22 +334,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </div>
   <div class="categories-grid">
     <div class="cat-card fade-up">
-      <img width="400" height="223" class="cat-icon" src="/assets/img/icon-skincare.webp" alt="" loading="lazy">
+      <Icon name="skincare" class="cat-icon" />
       <div class="cat-name">Skincare</div>
       <p class="cat-desc">Serums, moisturisers, SPF, cleansers — advisors trained to conduct skin consultations and recommend product regimens</p>
     </div>
     <div class="cat-card fade-up">
-      <img width="400" height="223" class="cat-icon" src="/assets/img/icon-makeup.webp" alt="" loading="lazy">
+      <Icon name="makeup" class="cat-icon" />
       <div class="cat-name">Makeup & Cosmetics</div>
       <p class="cat-desc">Foundation matching, colour consultations, application demonstrations and live makeovers at point of purchase</p>
     </div>
     <div class="cat-card fade-up">
-      <img width="400" height="223" class="cat-icon" src="/assets/img/icon-haircare.webp" alt="" loading="lazy">
+      <Icon name="haircare" class="cat-icon" />
       <div class="cat-name">Haircare</div>
       <p class="cat-desc">Scalp analysis, treatment recommendations, product demos for shampoo, conditioner, styling and treatment ranges</p>
     </div>
     <div class="cat-card fade-up">
-      <img width="400" height="223" class="cat-icon" src="/assets/img/icon-personal-care.webp" alt="" loading="lazy">
+      <Icon name="personalCare" class="cat-icon" />
       <div class="cat-name">Personal Care</div>
       <p class="cat-desc">Body care, fragrance, deodorant and wellness products — broad category knowledge across all personal care sub-segments</p>
     </div>
