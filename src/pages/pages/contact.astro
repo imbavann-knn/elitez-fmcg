@@ -231,7 +231,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <label class="checkbox-item"><input type="checkbox" name="services" value="activations"><span>Brand Activations</span></label>
             <label class="checkbox-item"><input type="checkbox" name="services" value="promoters"><span>Promoter Deployment</span></label>
             <label class="checkbox-item"><input type="checkbox" name="services" value="merchandising"><span>Supermarket Merchandising</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="services" value="contest"><span>Online Contest Management</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="contest"><span>Contests &amp; Campaign Microsites</span></label>
             <label class="checkbox-item"><input type="checkbox" name="services" value="beauty"><span>Beauty & Cosmetics</span></label>
             <label class="checkbox-item"><input type="checkbox" name="services" value="digital-marketing"><span>Digital Marketing</span></label>
             <label class="checkbox-item"><input type="checkbox" name="services" value="print"><span>Print & Large Format</span></label>
@@ -382,7 +382,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     const interest = new URLSearchParams(location.search).get('interest');
     if (!interest) return;
     // which service checkbox to tick for each interest value
-    const svcMap = { 'blink-demo': 'blink', 'blink-subscription': 'blink', 'contest': 'contest' };
+    const svcMap = { 'blink-demo': 'blink', 'blink-subscription': 'blink', 'contest': 'contest', 'microsite': 'contest' };
     const svc = svcMap[interest];
     if (svc) {
       const box = document.querySelector('input[name="services"][value="'+svc+'"]');
@@ -392,6 +392,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       'blink-demo': "I'd like a live demo of the Blink client dashboard for one of our campaigns.",
       'blink-subscription': "We run our own promoter team and want to ask about a Blink subscription for our in-house operations.",
       'contest': "We're planning an online contest / consumer promotion. Mechanic: [describe]. Prize: [describe]. We'd like help with the microsite, on-ground push and winner fulfilment.",
+      'microsite': "We need a campaign microsite. Mechanic: [describe]. Features needed (receipt upload, survey/voucher, admin panel, emails): [describe]. Launch date: [date].",
     };
     const msg = document.querySelector('textarea[name="message"]');
     if (msg && seeds[interest] && !msg.value) msg.value = seeds[interest];

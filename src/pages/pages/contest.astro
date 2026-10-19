@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 ---
 <BaseLayout
-  title="Online Contest Management Singapore | Elitez FMCG"
-  description="End-to-end online contest management for FMCG brands in Singapore — branded microsite, promoter push, weekly approvals, automated emails and winner fulfilment."
+  title="Contest Management & Campaign Microsites | Elitez FMCG"
+  description="Online contest management and campaign microsite development for FMCG brands in Singapore: receipt upload, admin panel, entries dashboard, automated emails and winner fulfilment."
   canonical="https://fmcg.elitez.asia/pages/contest"
-  keywords="online contest management Singapore, contest microsite Singapore, lucky draw management Singapore, spend and win campaign Singapore, receipt validation contest Singapore, consumer promotion management Singapore, digital contest platform Singapore"
+  keywords="online contest management Singapore, campaign microsite development Singapore, contest microsite Singapore, lucky draw website Singapore, receipt upload contest, spend and win campaign Singapore, receipt validation contest Singapore, consumer promotion management Singapore"
   ogTitle="Online Contest Management Singapore | Elitez FMCG"
   ogDescription="From a branded contest site on your own domain to winner fulfilment — Elitez runs the whole consumer-promotion mechanic, with automated approval emails and a live dashboard."
 >
@@ -18,6 +19,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   "areaServed": "Singapore",
   "provider": { "@type": "Organization", "name": "Elitez FMCG", "url": "https://fmcg.elitez.asia/" },
   "description": "End-to-end online contest management: branded microsite on a custom domain, on-ground promoter support, submission verification with automated approval/rejection emails, winner fulfilment, and a live submissions dashboard."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Campaign Microsite Development",
+  "areaServed": "Singapore",
+  "provider": { "@type": "Organization", "name": "Elitez FMCG", "url": "https://fmcg.elitez.asia/" },
+  "description": "Campaign microsites for consumer promotions: receipt upload, surveys and vouchers, an admin panel for approvals, a live entries dashboard with Excel export, automated entrant emails and PDPA consent, deployed on the brand's own domain."
 }
 </script>
 </Fragment>
@@ -84,6 +95,58 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .phone-frame:nth-child(2) { margin-top: 28px; }
   .phone-frame img { display: block; width: 100%; height: auto; }
   .phone-cap { text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); margin-top: 16px; }
+
+  /* MICROSITE DEVELOPMENT */
+  .ms-top { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .ms-top > div, .ms-build > div { min-width: 0; }
+  .btn-orange { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 14px 26px; border-radius: 3px; text-decoration: none; margin-top: 12px; transition: background 0.15s, transform 0.15s; }
+  .btn-orange:hover { background: var(--orange-hover); transform: translateY(-2px); }
+  /* admin mock (illustrative data) */
+  .adm { background: var(--white); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 24px 60px -24px rgba(17,17,17,0.25); overflow: hidden; font-size: 12px; }
+  .adm-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: var(--gray); border-bottom: 1px solid var(--border); }
+  .adm-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d6d6d2; display: block; }
+  .adm-bar span { margin-left: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .adm-body { padding: 16px 18px 18px; }
+  .adm-tabs { display: flex; gap: 18px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+  .adm-tabs b, .adm-tabs span { padding-bottom: 8px; font-size: 12px; }
+  .adm-tabs b { color: var(--black); border-bottom: 2px solid var(--orange); }
+  .adm-tabs span { color: var(--text-muted); }
+  .adm-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+  .adm-stat { border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; }
+  .adm-stat strong { display: block; font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 1px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .adm-stat small { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+  .adm-table { width: 100%; border-collapse: collapse; }
+  .adm-table td { padding: 8px 4px; border-top: 1px solid var(--border); color: #333; white-space: nowrap; }
+  .adm-table td:nth-child(2) { white-space: normal; color: var(--text-muted); }
+  .adm-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .adm-thumb { width: 22px; height: 28px; border-radius: 3px; background: repeating-linear-gradient(180deg, #ececea 0 3px, #fafaf8 3px 6px); border: 1px solid var(--border); display: block; }
+  .pill { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 100px; }
+  .pill-ok { background: #e6f7ec; color: #1d7a3d; } .pill-wait { background: #fff4e0; color: #9a5b00; } .pill-no { background: #fdeaea; color: #b42323; }
+  .adm-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; gap: 12px; }
+  .adm-foot small { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; color: var(--text-muted); }
+  .adm-export { font-size: 11px; font-weight: 700; color: var(--orange); border: 1px solid #ffd9c6; background: var(--orange-pale); padding: 6px 10px; border-radius: 4px; white-space: nowrap; }
+  /* modules */
+  .ms-modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 64px; }
+  .ms-mod { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .ms-mod .ico { width: 44px; height: 44px; flex: none; padding: 9px; border-radius: 10px; background: var(--orange-pale); border: 1px solid #ffd9c6; color: var(--black); }
+  .ms-mod h3 { font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .ms-mod p { font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+  /* recent build */
+  .ms-build { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; margin-top: 72px; padding-top: 64px; border-top: 1px solid var(--border); }
+  .ms-build h3 { font-family: 'Bebas Neue', cursive; font-size: clamp(30px, 3.4vw, 42px); letter-spacing: 1.5px; line-height: 0.95; margin-bottom: 14px; }
+  .ms-build-copy > p { font-size: 15px; line-height: 1.7; color: #444; }
+  .ms-live { display: inline-block; margin-top: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--orange); text-decoration: none; word-break: break-all; }
+  .ms-live:hover { text-decoration: underline; }
+  .ms-media { position: relative; padding-bottom: 40px; }
+  .browser { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--white); box-shadow: 0 24px 60px -24px rgba(17,17,17,0.3); width: 88%; }
+  .browser-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: var(--gray); border-bottom: 1px solid var(--border); }
+  .browser-bar i { width: 8px; height: 8px; border-radius: 50%; background: #d6d6d2; display: block; }
+  .browser-bar span { margin-left: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .browser img { display: block; width: 100%; height: auto; }
+  .ms-phones { position: absolute; right: 0; bottom: 0; display: flex; gap: 12px; align-items: flex-end; }
+  .ms-phones .phone-frame { width: 132px; border-width: 6px; border-radius: 20px; }
+  .ms-phones .phone-frame:nth-child(2) { margin-top: 0; margin-bottom: 24px; }
+  .ms-media-cap { display: flex; justify-content: flex-end; gap: 24px; margin-top: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--text-muted); }
 
   /* CAPABILITY GRID */
   .caps-intro { max-width: 640px; margin-bottom: 48px; }
@@ -154,6 +217,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .process-row { grid-template-columns: 1fr 1fr; gap: 28px; }
     .process-row::before { display: none; }
     .fulfil-grid, .proof-grid { grid-template-columns: 1fr; }
+    .ms-top, .ms-build { grid-template-columns: 1fr; gap: 40px; }
+    .ms-modules { grid-template-columns: 1fr 1fr; margin-top: 48px; }
+    .ms-build { margin-top: 56px; padding-top: 48px; }
     .page-cta { padding: 60px 24px; }
     .page-cta-inner { flex-direction: column; align-items: flex-start; }
   }
@@ -162,6 +228,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .process-row { grid-template-columns: 1fr; }
     .phones { gap: 12px; }
     .phone-frame { width: 150px; }
+    .ms-modules { grid-template-columns: 1fr; }
+    .adm-stats { grid-template-columns: 1fr 1fr; }
+    .adm-table td:nth-child(2) { display: none; }
+    .browser { width: 100%; }
+    .ms-media { padding-bottom: 0; }
+    .ms-phones { position: static; justify-content: center; margin-top: -48px; }
+    .ms-phones .phone-frame { width: 118px; }
+    .ms-media-cap { justify-content: center; }
   }
 </style>
 
@@ -170,7 +244,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <div class="page-header-inner">
     <div class="breadcrumb"><a href="/">Home</a> / <a href="/pages/services">Services</a> / Online Contest Management</div>
     <h1>ONLINE CONTEST<br><span>MANAGEMENT</span></h1>
-    <p>The whole mechanic, run by one team — a branded contest site on your own domain, promoters on the ground to drive entries, weekly submission approval with automated emails, winner fulfilment, and a live dashboard of every entry.</p>
+    <p>The whole mechanic, run by one team — a branded contest site on your own domain, promoters on the ground to drive entries, weekly submission approval with automated emails, winner fulfilment, and a live dashboard of every entry. Or <a href="#microsites" style="color:var(--orange);text-decoration:none;font-weight:600">just the microsite</a>, if your team runs the rest.</p>
     <div class="header-stats">
       <div class="header-stat"><div class="header-stat-num">Your domain</div><div class="header-stat-label">Live On Your URL</div></div>
       <div class="header-stat"><div class="header-stat-num">Automated</div><div class="header-stat-label">Approval Emails</div></div>
@@ -268,8 +342,81 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </div>
 </section>
 
+<!-- MICROSITE DEVELOPMENT -->
+<section class="section section-alt" id="microsites">
+  <div class="ms-top">
+    <div class="fade-up">
+      <div class="label">Campaign microsite development</div>
+      <h2>JUST NEED THE <span>MICROSITE?</span></h2>
+      <p class="lead">We also build campaign microsites on their own. Your team runs the promotion, and we hand over a site that already has the admin side built in, not just the pages consumers see.</p>
+      <p class="lead">Every build comes with a login-protected admin panel, a live entries dashboard and the emails your entrants receive, set up on your own domain.</p>
+      <a href="/pages/contact?interest=microsite" class="btn-orange">Brief us on a microsite →</a>
+    </div>
+    <div class="fade-up delay-1">
+      <div class="adm" role="img" aria-label="Example of the microsite admin panel showing entry counts and a list of receipts with approval status">
+        <div class="adm-bar"><i></i><i></i><i></i><span>win.yourbrand.com/admin</span></div>
+        <div class="adm-body">
+          <div class="adm-tabs"><b>Receipts</b><span>Surveys</span><span>Emails</span></div>
+          <div class="adm-stats">
+            <div class="adm-stat"><strong>1,284</strong><small>Entries</small></div>
+            <div class="adm-stat"><strong>1,102</strong><small>Approved</small></div>
+            <div class="adm-stat"><strong>64</strong><small>Pending</small></div>
+            <div class="adm-stat"><strong>118</strong><small>Rejected</small></div>
+          </div>
+          <table class="adm-table">
+            <tbody>
+              <tr><td><span class="adm-thumb"></span></td><td>FairPrice Xtra VivoCity</td><td class="num">$8.90</td><td><span class="pill pill-ok">Approved</span></td></tr>
+              <tr><td><span class="adm-thumb"></span></td><td>FairPrice Finest Bukit Timah</td><td class="num">$12.40</td><td><span class="pill pill-wait">Pending</span></td></tr>
+              <tr><td><span class="adm-thumb"></span></td><td>FairPrice Tampines Hub</td><td class="num">$6.20</td><td><span class="pill pill-no">Blurry photo</span></td></tr>
+              <tr><td><span class="adm-thumb"></span></td><td>FairPrice Jurong Point</td><td class="num">$9.80</td><td><span class="pill pill-ok">Approved</span></td></tr>
+            </tbody>
+          </table>
+          <div class="adm-foot"><small>Example data</small><span class="adm-export">Export to Excel</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ms-modules">
+    <div class="ms-mod fade-up"><Icon name="camera" /><div><h3>Receipt upload</h3><p>Photo or PDF upload with receipt number, amount, date and outlet fields. Files are stored privately and opened through expiring links.</p></div></div>
+    <div class="ms-mod fade-up delay-1"><Icon name="shield" /><div><h3>Admin panel</h3><p>Approve or reject each entry with preset reasons. Sign-in is limited to your team's accounts.</p></div></div>
+    <div class="ms-mod fade-up delay-2"><Icon name="liveChart" /><div><h3>Entries dashboard</h3><p>Live counts of entries, approvals and rejections, with every row exportable to Excel.</p></div></div>
+    <div class="ms-mod fade-up"><Icon name="megaphone" /><div><h3>Entrant &amp; winner emails</h3><p>Branded emails on submission, approval, rejection and winning, editable from the admin.</p></div></div>
+    <div class="ms-mod fade-up delay-1"><Icon name="survey" /><div><h3>Surveys &amp; vouchers</h3><p>Multi-step surveys that unlock a voucher or sample code on screen and by email.</p></div></div>
+    <div class="ms-mod fade-up delay-2"><Icon name="contest" /><div><h3>T&amp;Cs, PDPA &amp; your domain</h3><p>Consent capture, privacy policy and T&amp;C pages, live on a domain you own.</p></div></div>
+  </div>
+
+  <div class="ms-build">
+    <div class="ms-build-copy fade-up">
+      <div class="proof-client">Recent build · Farmers Union (Bega) · Sep–Oct 2026</div>
+      <h3>PROTEIN POWER ROVER MICROSITE</h3>
+      <p>A two-tier campaign site for a 10-stop sampling roadshow around Singapore.</p>
+      <ul class="feature-list">
+        <li>Survey that unlocks a free yogurt and a FairPrice discount voucher, sent by email</li>
+        <li>Receipt-upload Spend &amp; Win with outlet search and date checks</li>
+        <li>Admin with receipt lightbox, one-click approvals and Excel export</li>
+        <li>Branded entrant emails, T&amp;Cs and PDPA consent, on the brand's own domain</li>
+      </ul>
+      <a class="ms-live" href="https://proteinpowerrover.farmersunion.international/" target="_blank" rel="noopener">proteinpowerrover.farmersunion.international ↗</a>
+    </div>
+    <div class="fade-up delay-1">
+      <div class="ms-media">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>proteinpowerrover.farmersunion.international</span></div>
+          <img width="1200" height="750" src="/assets/microsite-fu-desktop.webp" alt="Farmers Union Protein Power Rover microsite home page" loading="lazy">
+        </div>
+        <div class="ms-phones">
+          <div class="phone-frame"><img width="520" height="1125" src="/assets/microsite-fu-survey.webp" alt="Free yogurt survey on the Farmers Union microsite" loading="lazy"></div>
+          <div class="phone-frame"><img width="520" height="1125" src="/assets/microsite-fu-receipt.webp" alt="Receipt upload form for the Spend and Win contest" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="ms-media-cap"><span>Survey</span><span>Receipt upload</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- CAPABILITY GRID -->
-<section class="section section-alt fade-up">
+<section class="section fade-up">
   <div class="caps-intro">
     <div class="label">The full mechanic</div>
     <h2>EVERYTHING A PROMOTION <span>NEEDS.</span></h2>
@@ -336,7 +483,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p>A fully managed online contest mechanic — in-store purchase validation feeding a consumer-facing microsite, with age-gating, digital prize redemption and a winners gallery.</p>
     </div>
     <div class="proof-card fade-up delay-1">
-      <div class="proof-client">Farmers Union (Bega) · Protein Power Challenge</div>
+      <div class="proof-client">Farmers Union (Bega) · Protein Power Rover</div>
       <h3>SAMPLE + SPEND-&amp;-WIN ACTIVATION</h3>
       <p>A two-tier mechanic on a branded microsite — a free-sample survey with promoter-checked redemption codes, plus a receipt-upload Spend-&amp;-Win draw with PDPA consent, weekly approvals and automated entrant emails.</p>
     </div>
@@ -363,6 +510,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   if (typeof posthog !== 'undefined') {
     document.querySelectorAll('a[href*="interest=contest"]').forEach((b) => {
       b.addEventListener('click', () => posthog.capture('contest_cta_clicked', { location: 'contest_page' }));
+    });
+    document.querySelectorAll('a[href*="interest=microsite"]').forEach((b) => {
+      b.addEventListener('click', () => posthog.capture('microsite_cta_clicked', { location: 'contest_page' }));
     });
   }
 </script>
